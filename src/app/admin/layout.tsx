@@ -28,14 +28,14 @@ import { useTranslation } from '@/context/language-context';
 const navItems = [
   { href: '/admin', labelKey: 'admin.dashboard', icon: LayoutDashboard },
   { href: '/admin/seo', labelKey: 'admin.seo', icon: Globe },
-  { href: '/admin/products', labelKey: 'admin.products', icon: Package },
-  { href: '/admin/categories', labelKey: 'admin.categories', icon: FolderTree },
-  { href: '/admin/orders', labelKey: 'admin.orders', icon: ShoppingBag },
-  { href: '/admin/inventory', labelKey: 'admin.inventory', icon: Boxes },
-  { href: '/admin/marketing', labelKey: 'admin.marketing', icon: Tag },
-  { href: '/admin/reviews', labelKey: 'admin.reviews', icon: Star },
-  { href: '/admin/customers', labelKey: 'admin.customers', icon: Users },
-  { href: '/admin/media', labelKey: 'admin.media', icon: ImageIcon },
+  { href: '/admin/Produkte', labelKey: 'admin.Produkte', icon: Package },
+  { href: '/admin/Kategorien', labelKey: 'admin.Kategorien', icon: FolderTree },
+  { href: '/admin/Bestellungen', labelKey: 'admin.Bestellungen', icon: ShoppingBag },
+  { href: '/admin/Lagerbestand', labelKey: 'admin.Lagerbestand', icon: Boxes },
+  { href: '/admin/Marketing', labelKey: 'admin.Marketing', icon: Tag },
+  { href: '/admin/Bewertungen', labelKey: 'admin.Bewertungen', icon: Star },
+  { href: '/admin/Kunden', labelKey: 'admin.Kunden', icon: Users },
+  { href: '/admin/Medien', labelKey: 'admin.Medien', icon: ImageIcon },
   { href: '/admin/settings', labelKey: 'admin.settings', icon: Settings },
 ];
 
@@ -167,13 +167,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               className="flex items-center gap-1.5 text-[11px] text-blue-400 hover:text-blue-300 font-semibold"
             >
               <ExternalLink className="w-3.5 h-3.5" />
-              <span>Voir la boutique</span>
+              <span>Shop anzeigen</span>
             </Link>
 
             <button
               onClick={logout}
               className="p-1.5 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-lg transition"
-              title="Déconnexion"
+              title="Abmelden"
             >
               <LogOut className="w-4 h-4" />
             </button>

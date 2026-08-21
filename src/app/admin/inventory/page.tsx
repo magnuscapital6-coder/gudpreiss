@@ -6,7 +6,7 @@ import { Product } from '@/types';
 import { Warehouse, Search, Save, AlertTriangle } from 'lucide-react';
 
 export default function AdminInventoryPage() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [Produkte, setProducts] = useState<Product[]>([]);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function AdminInventoryPage() {
     }
   };
 
-  const filtered = products.filter(
+  const filtered = Produkte.filter(
     (p) =>
       p.name.toLowerCase().includes(search.toLowerCase()) ||
       p.sku.toLowerCase().includes(search.toLowerCase())
@@ -33,16 +33,16 @@ export default function AdminInventoryPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-black text-white">Contrôle des Stocks & Inventaire</h1>
+        <h1 className="text-2xl font-black text-white">Lagerbestand & Inventar</h1>
         <p className="text-xs text-slate-400 mt-1">
-          Auditez en temps réel les niveaux de stock, ajustez les seuils d&apos;alerte et effectuez le réapprovisionnement.
+          Überwachen Sie Bestandslevels in Echtzeit, passen Sie Schwellenwerte an und tätigen Sie Nachbestellungen.
         </p>
       </div>
 
       <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex items-center justify-between">
         <input
           type="text"
-          placeholder="Rechercher par code SKU ou Nom du produit..."
+          placeholder="Nach SKU oder Produktnamen suchen..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="w-full max-w-md px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white outline-none placeholder-slate-500 focus:border-blue-500"
@@ -53,11 +53,11 @@ export default function AdminInventoryPage() {
         <table className="w-full text-left text-xs text-slate-300">
           <thead className="bg-slate-900/60 text-[11px] font-bold text-slate-400 uppercase border-b border-slate-800">
             <tr>
-              <th className="p-4">Code SKU</th>
-              <th className="p-4">Nom du Produit</th>
-              <th className="p-4">Stock Actuel</th>
-              <th className="p-4">Seuil Alerte</th>
-              <th className="p-4 text-right">Ajuster le Stock</th>
+              <th className="p-4">SKU-Code</th>
+              <th className="p-4">Produktname</th>
+              <th className="p-4">Aktueller Bestand</th>
+              <th className="p-4">Meldebestand</th>
+              <th className="p-4 text-right">Bestand anpassen</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-800/60">
@@ -67,10 +67,10 @@ export default function AdminInventoryPage() {
                 <td className="p-4 font-bold text-white">{p.name}</td>
                 <td className="p-4 font-bold">
                   <span className={p.stock <= p.low_stock_threshold ? 'text-orange-400 font-extrabold' : 'text-green-400'}>
-                    {p.stock} unités
+                    {p.stock} Stück
                   </span>
                 </td>
-                <td className="p-4 text-slate-400">{p.low_stock_threshold} unités</td>
+                <td className="p-4 text-slate-400">{p.low_stock_threshold} Stück</td>
                 <td className="p-4 text-right">
                   <div className="flex items-center justify-end gap-2">
                     <button
@@ -83,7 +83,7 @@ export default function AdminInventoryPage() {
                       onClick={() => handleStockUpdate(p.id, p.stock + 10)}
                       className="px-2.5 py-1 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg"
                     >
-                      +10 Réapprovisionner
+                      +10 Nachbestellen
                     </button>
                   </div>
                 </td>

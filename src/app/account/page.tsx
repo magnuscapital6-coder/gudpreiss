@@ -17,8 +17,8 @@ export default function CustomerAccountPage() {
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 w-full py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Customer Dashboard</h1>
-          <p className="text-xs text-slate-500 mt-1">Manage your account profile, addresses, and order history.</p>
+          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Kunden-Dashboard</h1>
+          <p className="text-xs text-slate-500 mt-1">Verwalten Sie Ihr Kundenprofil, Adressen und Bestellhistorie.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -33,7 +33,7 @@ export default function CustomerAccountPage() {
                 <p className="text-xs text-slate-500">{user?.email}</p>
                 {isAdmin && (
                   <span className="inline-block mt-1 bg-blue-100 text-blue-700 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full">
-                    Admin User
+                    Admin-Benutzer
                   </span>
                 )}
               </div>
@@ -42,20 +42,20 @@ export default function CustomerAccountPage() {
             <nav className="space-y-1.5 text-xs font-bold text-slate-700">
               <Link href="/account" className="flex items-center gap-3 p-3 bg-blue-50 text-blue-600 rounded-xl">
                 <User className="w-4 h-4" />
-                <span>Account Overview</span>
+                <span>Kontoübersicht</span>
               </Link>
-              <Link href="/account/orders" className="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition">
+              <Link href="/account/Bestellungen" className="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition">
                 <Package className="w-4 h-4 text-slate-400" />
-                <span>My Orders</span>
+                <span>Meine Bestellungen</span>
               </Link>
               <Link href="/wishlist" className="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition">
                 <Heart className="w-4 h-4 text-slate-400" />
-                <span>Saved Wishlist</span>
+                <span>Gespeicherte Wunschliste</span>
               </Link>
               {isAdmin && (
                 <Link href="/admin" className="flex items-center gap-3 p-3 bg-blue-600 text-white rounded-xl shadow-md">
                   <ShieldCheck className="w-4 h-4" />
-                  <span>Go to Admin Dashboard</span>
+                  <span>Admin-Dashboard öffnen</span>
                 </Link>
               )}
               <button
@@ -72,7 +72,7 @@ export default function CustomerAccountPage() {
           <div className="lg:col-span-8 space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
-                <div className="text-xs text-slate-500">Total Orders</div>
+                <div className="text-xs text-slate-500">Gesamt Orders</div>
                 <div className="text-2xl font-black text-slate-900 mt-1">2</div>
               </div>
               <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">

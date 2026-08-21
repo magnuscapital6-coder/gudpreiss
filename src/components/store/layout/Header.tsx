@@ -45,8 +45,8 @@ export function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [settings, setSettings] = useState<{ store_name?: string; logo_url?: string } | null>(null);
+  const [Kategorien, setCategories] = useState<Category[]>([]);
+  const [Einstellungen, setSettings] = useState<{ store_name?: string; logo_url?: string } | null>(null);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
@@ -84,7 +84,7 @@ export function Header() {
     loadData();
   }, []);
 
-  // Instant real-time search filter over memory products
+  // Instant real-time search filter over memory Produkte
   useEffect(() => {
     const q = searchQuery.trim().toLowerCase();
     if (!q) {
@@ -186,12 +186,12 @@ export function Header() {
                   >
                     <span className="flex items-center gap-2">
                       <Grid className="w-4 h-4" />
-                      <span>Alle Kategorien ({categories.length})</span>
+                      <span>Alle Kategorien ({Kategorien.length})</span>
                     </span>
                     <ChevronRight className="w-4 h-4" />
                   </Link>
 
-                  {categories.map((cat) => (
+                  {Kategorien.map((cat) => (
                     <Link
                       key={cat.id}
                       href={`/shop?category=${cat.slug}`}
@@ -206,9 +206,9 @@ export function Header() {
               )}
             </div>
 
-            <Link href="/blog" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-bold">
+            <Link href="/Blog" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-bold">
               <BookOpen className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
-              <span>{t('nav.blog')}</span>
+              <span>{t('nav.Blog')}</span>
             </Link>
 
             <Link href="/track" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-black text-emerald-800 dark:text-emerald-400">
@@ -380,7 +380,7 @@ export function Header() {
                   )}
 
                   <Link
-                    href="/account/orders"
+                    href="/account/Bestellungen"
                     onClick={() => setIsUserDropdownOpen(false)}
                     className="flex items-center gap-2 px-3 py-2 text-[12px] text-text-primary hover:bg-surface-soft rounded transition"
                   >
@@ -542,7 +542,7 @@ export function Header() {
                     onClick={() => setIsMobileCategoriesOpen(!isMobileCategoriesOpen)}
                     className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 transition text-left"
                   >
-                    <span>{t('nav.categories') || 'Kategorien'} ({categories.length})</span>
+                    <span>{t('nav.Kategorien') || 'Kategorien'} ({Kategorien.length})</span>
                     <ChevronDown
                       className={`w-4 h-4 text-slate-400 transition-transform ${isMobileCategoriesOpen ? 'rotate-180' : ''}`}
                     />
@@ -558,7 +558,7 @@ export function Header() {
                         <Grid className="w-4 h-4" />
                         <span>Alle Kategorien</span>
                       </Link>
-                      {categories.map((cat) => (
+                      {Kategorien.map((cat) => (
                         <Link
                           key={cat.id}
                           href={`/shop?category=${cat.slug}`}
@@ -582,11 +582,11 @@ export function Header() {
                 </Link>
 
                 <Link
-                  href="/blog"
+                  href="/Blog"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block p-3 rounded-xl hover:bg-slate-100 transition"
                 >
-                  {t('nav.blog')}
+                  {t('nav.Blog')}
                 </Link>
 
                 <Link

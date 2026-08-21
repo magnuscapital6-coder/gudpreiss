@@ -77,7 +77,7 @@ export default function NewBlogPostPage() {
         seo_score: score,
       });
 
-      router.push('/admin/blog');
+      router.push('/admin/Blog');
     } catch (err) {
       console.error(err);
       alert('Fehler beim Speichern des Beitrags.');
@@ -91,7 +91,7 @@ export default function NewBlogPostPage() {
       {/* Back & Top Actions */}
       <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
         <Link
-          href="/admin/blog"
+          href="/admin/Blog"
           className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-slate-900 dark:hover:text-white transition"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -162,8 +162,8 @@ export default function NewBlogPostPage() {
                   onChange={(e: any) => setStatus(e.target.value)}
                   className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs outline-none focus:border-emerald-500 text-slate-900 dark:text-white font-bold"
                 >
-                  <option value="published">Veröffentlicht / Published</option>
-                  <option value="draft">Entwurf / Draft</option>
+                  <option value="published">Veröffentlicht</option>
+                  <option value="draft">Entwurf</option>
                 </select>
               </div>
             </div>
@@ -258,7 +258,7 @@ export default function NewBlogPostPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">SEO Mots-Clés / Keywords (kommagetrennt)</label>
+                <label className="block text-xs font-bold text-slate-300 mb-1">SEO-Keywords (kommagetrennt)</label>
                 <input
                   type="text"
                   value={keywordsInput}
@@ -279,16 +279,12 @@ export default function NewBlogPostPage() {
                 <div className="text-[11px] text-slate-600 truncate flex items-center gap-1">
                   <span>https://technova.de</span>
                   <span>›</span>
-                  <span>blog</span>
+                  <span>Blog</span>
                   <span>›</span>
                   <span className="font-semibold text-slate-800">{slug || 'artikel-url'}</span>
                 </div>
-                <h4 className="text-base text-[#1a0dab] hover:underline font-semibold line-clamp-1 cursor-pointer">
-                  {seoTitle || title || 'Titre de l-article dans les résultats Google'}
-                </h4>
-                <p className="text-xs text-[#4d5156] line-clamp-2 leading-relaxed">
-                  {seoDescription || excerpt || 'La méta description apparaîtra ici telle qu-elle sera affichée par le moteur de recherche Google.'}
-                </p>
+                <h4 className="text-base text-[#1a0dab] hover:underline font-semibold line-clamp-1 cursor-pointer">                  {seoTitle || title || 'Artikeltitel in den Google-Ergebnissen'}</h4>
+                <p className="text-xs text-[#4d5156] line-clamp-2 leading-relaxed">                  {seoDescription || excerpt || 'Die Meta-Beschreibung wird hier angezeigt, wie sie in den Google-Suchergebnissen erscheint.'}</p>
               </div>
 
               {/* Actionable Recommendations */}

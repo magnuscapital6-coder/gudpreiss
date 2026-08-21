@@ -10,7 +10,7 @@ import { useTranslation } from '@/context/language-context';
 
 export default function AdminProductsPage() {
   const { t } = useTranslation();
-  const [products, setProducts] = useState<Product[]>([]);
+  const [Produkte, setProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
@@ -26,13 +26,13 @@ export default function AdminProductsPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')) {
+    if (confirm('Möchten Sie dieses Produkt wirklich löschen?')) {
       await deleteProduct(id);
       fetchProducts();
     }
   };
 
-  const filteredProducts = products.filter((p) =>
+  const filteredProducts = Produkte.filter((p) =>
     p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     p.sku?.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -43,15 +43,15 @@ export default function AdminProductsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-            {t('admin.products')}
+            {t('admin.Produkte')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500">
-            Gérez le catalogue des produits, prix et stocks de votre boutique.
+            Verwalten Sie den Produktkatalog, Preise und Bestände Ihres Shops.
           </p>
         </div>
 
         <Link
-          href="/admin/products/new"
+          href="/admin/Produkte/new"
           className="w-full sm:w-auto px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition touch-target"
         >
           <Plus className="w-4 h-4" />
@@ -64,7 +64,7 @@ export default function AdminProductsPage() {
         <Search className="w-4 h-4 text-slate-400" />
         <input
           type="text"
-          placeholder="Rechercher par nom ou SKU..."
+          placeholder="Nach Name oder SKU suchen..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full bg-transparent text-xs text-slate-900 outline-none"
@@ -77,21 +77,21 @@ export default function AdminProductsPage() {
           <table className="w-full text-left text-xs">
             <thead className="bg-slate-50 text-slate-500 font-bold border-b border-slate-100">
               <tr>
-                <th className="p-3.5 pl-5">Produit</th>
+                <th className="p-3.5 pl-5">Produkt</th>
                 <th className="p-3.5">SKU</th>
-                <th className="p-3.5">Prix</th>
-                <th className="p-3.5">Stock</th>
-                <th className="p-3.5 pr-5 text-right">Actions</th>
+                <th className="p-3.5">Preis</th>
+                <th className="p-3.5">Bestand</th>
+                <th className="p-3.5 pr-5 text-right">Aktionen</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 font-medium">
               {isLoading ? (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-slate-400">Chargement du catalogue...</td>
+                  <td colSpan={5} className="p-8 text-center text-slate-400">Produktkatalog wird geladen...</td>
                 </tr>
               ) : filteredProducts.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-slate-400">Aucun produit trouvé.</td>
+                  <td colSpan={5} className="p-8 text-center text-slate-400">Keine Produkte gefunden.</td>
                 </tr>
               ) : (
                 filteredProducts.map((p) => (
@@ -113,22 +113,22 @@ export default function AdminProductsPage() {
                       <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold ${
                         p.stock > 5 ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'
                       }`}>
-                        {p.stock} en stock
+                        {p.stock} auf Lager
                       </span>
                     </td>
                     <td className="p-3.5 pr-5 text-right">
                       <div className="flex items-center justify-end gap-2">
                         <Link
-                          href={`/admin/products/${p.id}/edit`}
+                          href={`/admin/Produkte/${p.id}/edit`}
                           className="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
-                          title="Modifier"
+                          title="Bearbeiten"
                         >
                           <Edit3 className="w-4 h-4" />
                         </Link>
                         <button
                           onClick={() => handleDelete(p.id)}
                           className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition"
-                          title="Supprimer"
+                          title="Löschen"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>

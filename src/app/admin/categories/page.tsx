@@ -8,7 +8,7 @@ import { useTranslation } from '@/context/language-context';
 
 export default function AdminCategoriesPage() {
   const { t } = useTranslation();
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [Kategorien, setCategories] = useState<Category[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -41,7 +41,7 @@ export default function AdminCategoriesPage() {
     fetchCategories();
   };
 
-  const filteredCategories = categories.filter((c) =>
+  const filteredCategories = Kategorien.filter((c) =>
     c.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -51,10 +51,10 @@ export default function AdminCategoriesPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-            {t('admin.categories')}
+            {t('admin.Kategorien')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500">
-            Organisez les catégories de la boutique TechNova.
+            Verwalten Sie die Kategorien des TechNova-Shops.
           </p>
         </div>
 
@@ -72,7 +72,7 @@ export default function AdminCategoriesPage() {
         <Search className="w-4 h-4 text-slate-400" />
         <input
           type="text"
-          placeholder="Rechercher une catégorie..."
+          placeholder="Kategorie suchen..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full bg-transparent text-xs text-slate-900 outline-none"
@@ -85,10 +85,10 @@ export default function AdminCategoriesPage() {
           <table className="w-full text-left text-xs">
             <thead className="bg-slate-50 text-slate-500 font-bold border-b border-slate-100">
               <tr>
-                <th className="p-3.5 pl-5">Nom</th>
+                <th className="p-3.5 pl-5">Name</th>
                 <th className="p-3.5">Slug</th>
                 <th className="p-3.5">Description</th>
-                <th className="p-3.5 pr-5 text-right">Statut</th>
+                <th className="p-3.5 pr-5 text-right">Status</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 font-medium">
@@ -102,7 +102,7 @@ export default function AdminCategoriesPage() {
                   <td className="p-3.5 text-slate-500 max-w-xs truncate">{cat.description || '—'}</td>
                   <td className="p-3.5 pr-5 text-right">
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-50 text-emerald-600">
-                      Actif
+                      Aktiv
                     </span>
                   </td>
                 </tr>
@@ -125,7 +125,7 @@ export default function AdminCategoriesPage() {
 
             <form onSubmit={handleCreate} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Nom de la catégorie</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1">Kategorienname</label>
                 <input
                   type="text"
                   required
@@ -142,7 +142,7 @@ export default function AdminCategoriesPage() {
                   rows={3}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  placeholder="Courte description..."
+                  placeholder="Kurze Beschreibung..."
                   className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-xs outline-none focus:border-blue-600"
                 />
               </div>
@@ -153,13 +153,13 @@ export default function AdminCategoriesPage() {
                   onClick={() => setIsModalOpen(false)}
                   className="px-4 py-2.5 border border-slate-200 text-slate-700 font-bold text-xs rounded-xl"
                 >
-                  Annuler
+                  Abbrechen
                 </button>
                 <button
                   type="submit"
                   className="px-4 py-2.5 bg-blue-600 text-white font-bold text-xs rounded-xl shadow-lg shadow-blue-500/20"
                 >
-                  Créer la catégorie
+                  Kategorie erstellen
                 </button>
               </div>
             </form>

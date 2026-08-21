@@ -143,7 +143,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
                   ))}
                 </div>
                 <span className="text-xs font-semibold text-slate-700">{product.rating}</span>
-                <span className="text-xs text-slate-400">({product.review_count} reviews)</span>
+                <span className="text-xs text-slate-400">({product.review_count} Bewertungen)</span>
               </div>
 
               {/* Price */}

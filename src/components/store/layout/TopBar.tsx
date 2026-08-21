@@ -15,7 +15,7 @@ export function TopBar() {
         {/* Mobile View: 100% Centered, Clean, Single-Line */}
         <div className="sm:hidden flex items-center justify-center gap-1.5 w-full text-center font-extrabold text-[11px] text-white">
           <Truck className="w-3.5 h-3.5 text-emerald-300 flex-shrink-0" />
-          <span className="truncate tracking-tight">{t('nav.freeShipping') || 'Livraison gratuite & Expédition rapide'}</span>
+          <span className="truncate tracking-tight">{t('nav.freeShipping') || 'Kostenloser Versand & schnelle Lieferung'}</span>
         </div>
 
         {/* Tablet & Desktop View */}

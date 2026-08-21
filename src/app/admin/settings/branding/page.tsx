@@ -8,7 +8,7 @@ import { Sparkles, Save, RotateCcw, Image as ImageIcon, ShieldCheck, Check, Glob
 import Image from 'next/image';
 
 export default function BrandingSettingsPage() {
-  const [settings, setSettings] = useState<StoreSettings | null>(null);
+  const [Einstellungen, setSettings] = useState<StoreSettings | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
@@ -64,7 +64,7 @@ export default function BrandingSettingsPage() {
       setSavedSuccess(true);
       setTimeout(() => setSavedSuccess(false), 3000);
     } catch (err) {
-      alert('Fehler beim Speichern der Branding-Einstellungen.');
+      alert('Fehler beim Speichern der Branding-settings.');
     } finally {
       setIsSaving(false);
     }

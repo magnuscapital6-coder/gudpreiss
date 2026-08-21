@@ -10,7 +10,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function OrderHistoryPage() {
-  const [orders, setOrders] = useState<Order[]>([]);
+  const [Bestellungen, setOrders] = useState<Order[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [copiedTracking, setCopiedTracking] = useState<string | null>(null);
 
@@ -21,7 +21,7 @@ export default function OrderHistoryPage() {
         const ords = await getOrders();
         let clientLocalOrders: Order[] = [];
         try {
-          const saved = localStorage.getItem('technova_orders');
+          const saved = localStorage.getItem('technova_Bestellungen');
           if (saved) clientLocalOrders = JSON.parse(saved);
         } catch {}
 
@@ -69,13 +69,13 @@ export default function OrderHistoryPage() {
           <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-12 text-center text-xs text-slate-400 font-bold animate-pulse">
             Bestellungen werden geladen...
           </div>
-        ) : orders.length === 0 ? (
+        ) : Bestellungen.length === 0 ? (
           <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-12 text-center shadow-sm space-y-4">
             <div className="w-16 h-16 bg-slate-100 dark:bg-slate-800 text-slate-400 rounded-full flex items-center justify-center mx-auto">
               <Package className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="text-base font-extrabold mb-1">Keine Bestellungen vorhanden / Aucune commande</h3>
+              <h3 className="text-base font-extrabold mb-1">Keine Bestellungen vorhanden</h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
                 Sie haben derzeit keine aktiven Bestellungen. Entdecken Sie unsere neuesten Angebote im Katalog.
               </p>
@@ -84,13 +84,13 @@ export default function OrderHistoryPage() {
               href="/shop"
               className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-emerald-900/30 transition cursor-pointer"
             >
-              <span>Jetzt Einkaufen / Achetez maintenant</span>
+              <span>Jetzt einkaufen</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         ) : (
           <div className="space-y-8">
-            {orders.map((order) => {
+            {Bestellungen.map((order) => {
               const trackingCode = order.tracking_number || `TN-DE-${Math.floor(10000000 + Math.random() * 90000000)}`;
 
               return (

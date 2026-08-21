@@ -23,7 +23,7 @@ export async function createOrderServerAction(orderPayload: {
   payment_method: string;
 }): Promise<{ success: boolean; order?: Order; error?: string }> {
   try {
-    // Validate session exists (any authenticated user can place orders)
+    // Validate session exists (any authenticated user can place Bestellungen)
     const session = await getServerSession();
     if (!session.isAuthenticated) {
       return { success: false, error: 'Anmeldung erforderlich, um eine Bestellung aufzugeben.' };

@@ -113,8 +113,8 @@ export default function CheckoutPage() {
       const res = await createOrderServerAction(orderPayload);
       if (res.success && res.order) {
         try {
-          const existing = JSON.parse(localStorage.getItem('technova_orders') || '[]');
-          localStorage.setItem('technova_orders', JSON.stringify([res.order, ...existing]));
+          const existing = JSON.parse(localStorage.getItem('technova_Bestellungen') || '[]');
+          localStorage.setItem('technova_Bestellungen', JSON.stringify([res.order, ...existing]));
         } catch {}
 
         clearCart();
@@ -124,7 +124,7 @@ export default function CheckoutPage() {
       }
     } catch (err) {
       console.error('Failed to create order', err);
-      alert('Erreur lors de la création de la commande.');
+      alert('Fehler bei der Bestellerstellung.');
     } finally {
       setIsSubmitting(false);
     }
@@ -297,7 +297,7 @@ export default function CheckoutPage() {
                       <div className="flex items-center justify-between">
                         <h4 className="text-sm font-bold text-slate-900 dark:text-white">{t('checkout.bankTransfer')}</h4>
                         <span className="text-[10px] font-extrabold bg-emerald-600 text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                          Devise Unique / Einzige Zahlungsart
+                          Einzige Zahlungsart
                         </span>
                       </div>
                       <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">

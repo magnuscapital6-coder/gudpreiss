@@ -6,7 +6,7 @@ import { Review } from '@/types';
 import { Star, Check, EyeOff, Trash2 } from 'lucide-react';
 
 export default function AdminReviewsPage() {
-  const [reviews, setReviews] = useState<Review[]>([]);
+  const [Bewertungen, setReviews] = useState<Review[]>([]);
 
   useEffect(() => {
     async function load() {
@@ -24,12 +24,12 @@ export default function AdminReviewsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-black text-white">Modération des Avis Clients</h1>
+        <h1 className="text-2xl font-black text-white">Modération des Bewertungen Clients</h1>
         <p className="text-xs text-slate-400 mt-1">Approuvez, masquez ou modérez les avis déposés par les acheteurs.</p>
       </div>
 
       <div className="bg-slate-950 rounded-2xl border border-slate-800 divide-y divide-slate-800/60 p-4">
-        {reviews.map((rev) => (
+        {Bewertungen.map((rev) => (
           <div key={rev.id} className="py-4 flex items-start justify-between gap-4">
             <div className="space-y-1">
               <div className="flex items-center gap-2">

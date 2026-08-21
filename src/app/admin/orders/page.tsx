@@ -7,7 +7,7 @@ import { ShoppingBag, Search, Eye, CheckCircle2, Truck, Printer, Clock } from 'l
 import Link from 'next/link';
 
 export default function AdminOrdersPage() {
-  const [orders, setOrders] = useState<Order[]>([]);
+  const [Bestellungen, setOrders] = useState<Order[]>([]);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
 
@@ -26,7 +26,7 @@ export default function AdminOrdersPage() {
     }
   };
 
-  const filteredOrders = orders.filter((o) => {
+  const filteredOrders = Bestellungen.filter((o) => {
     const matchSearch =
       o.order_number.toLowerCase().includes(search.toLowerCase()) ||
       o.customer_email.toLowerCase().includes(search.toLowerCase());
@@ -38,9 +38,9 @@ export default function AdminOrdersPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-white tracking-tight">Gestion & Expédition des Commandes</h1>
+          <h1 className="text-2xl font-black text-white tracking-tight">Bestellverwaltung & Versand</h1>
           <p className="text-xs text-slate-400 mt-1">
-            Consultez les commandes, mettez à jour leur statut et imprimez les factures.
+            Sehen Sie Bestellungen ein, aktualisieren Sie den Status und drucken Sie Rechnungen.
           </p>
         </div>
       </div>
@@ -50,7 +50,7 @@ export default function AdminOrdersPage() {
         <div className="relative flex-1 max-w-md">
           <input
             type="text"
-            placeholder="Rechercher par N° de commande ou email client..."
+            placeholder="Nach Bestellnr. oder Kunden-E-Mail suchen..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full pl-9 pr-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white placeholder-slate-500 outline-none focus:border-blue-500"
@@ -64,12 +64,12 @@ export default function AdminOrdersPage() {
             onChange={(e) => setStatusFilter(e.target.value)}
             className="bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-200 px-3 py-2 outline-none font-bold"
           >
-            <option value="all">Tous les statuts</option>
-            <option value="pending">En attente</option>
-            <option value="processing">En traitement</option>
-            <option value="shipped">Expédiée</option>
-            <option value="delivered">Livrée</option>
-            <option value="cancelled">Annulée</option>
+            <option value="all">Alle Status</option>
+            <option value="pending">Ausstehend</option>
+            <option value="processing">In Bearbeitung</option>
+            <option value="shipped">Versendet</option>
+            <option value="delivered">Zugestellt</option>
+            <option value="cancelled">Storniert</option>
           </select>
         </div>
       </div>
@@ -80,11 +80,11 @@ export default function AdminOrdersPage() {
           <table className="w-full text-left text-xs text-slate-300">
             <thead className="bg-slate-900/60 text-[11px] font-bold text-slate-400 uppercase border-b border-slate-800">
               <tr>
-                <th className="p-4">N° Commande</th>
-                <th className="p-4">Client</th>
-                <th className="p-4">Paiement</th>
-                <th className="p-4">Total</th>
-                <th className="p-4">Statut Commande</th>
+                <th className="p-4">Bestellnr.</th>
+                <th className="p-4">Kunde</th>
+                <th className="p-4">Zahlung</th>
+                <th className="p-4">Gesamt</th>
+                <th className="p-4">Bestellstatus</th>
                 <th className="p-4 text-right">Actions</th>
               </tr>
             </thead>
@@ -94,11 +94,11 @@ export default function AdminOrdersPage() {
                   <td className="p-4 font-bold text-blue-400">{order.order_number}</td>
                   <td className="p-4">
                     <div className="font-semibold text-white">{order.customer_email}</div>
-                    <div className="text-[10px] text-slate-500">{new Date(order.created_at).toLocaleDateString('fr-FR')}</div>
+                    <div className="text-[10px] text-slate-500">{new Date(order.created_at).toLocaleDateString('de-DE')}</div>
                   </td>
                   <td className="p-4 uppercase font-bold text-[10px]">
                     <span className="bg-green-500/10 text-green-400 px-2 py-0.5 rounded-md">
-                      {order.payment_method} ({order.payment_status === 'paid' ? 'Payé' : order.payment_status})
+                      {order.payment_method} ({order.payment_status === 'paid' ? 'Bezahlt' : order.payment_status})
                     </span>
                   </td>
                   <td className="p-4 font-black text-white">{order.total_amount.toFixed(2)} €</td>
@@ -108,18 +108,18 @@ export default function AdminOrdersPage() {
                       onChange={(e) => handleStatusChange(order.id, e.target.value as any)}
                       className="bg-slate-900 border border-slate-800 text-xs font-bold text-slate-200 rounded-lg px-2.5 py-1 outline-none"
                     >
-                      <option value="pending">En attente</option>
-                      <option value="confirmed">Confirmée</option>
-                      <option value="processing">En traitement</option>
-                      <option value="shipped">Expédiée</option>
-                      <option value="delivered">Livrée</option>
-                      <option value="cancelled">Annulée</option>
+                      <option value="pending">Ausstehend</option>
+                      <option value="confirmed">Bestätigt</option>
+                      <option value="processing">In Bearbeitung</option>
+                      <option value="shipped">Versendet</option>
+                      <option value="delivered">Zugestellt</option>
+                      <option value="cancelled">Storniert</option>
                     </select>
                   </td>
                   <td className="p-4 text-right">
                     <button
                       onClick={() => window.print()}
-                      title="Imprimer la facture"
+                      title="Rechnung drucken"
                       className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition"
                     >
                       <Printer className="w-4 h-4" />

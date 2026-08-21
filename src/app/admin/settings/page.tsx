@@ -66,13 +66,13 @@ export default function AdminSettingsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-black">Paramètres &amp; Identité de la Plateforme</h1>
+            <h1 className="text-2xl font-black">Einstellungen &amp; Plattformidentität</h1>
             <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-400 text-[10px] font-extrabold uppercase">
-              Changement Global Instantané
+              Sofortige globale Änderung
             </span>
           </div>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-            Modifiez le nom commercial, l-email, la devise et les configurations. Les changements s-appliquent instantanément sur tout le site.
+            Ändern Sie den Firmennamen, die E-Mail-Adresse, die Währung und die Konfigurationen. Änderungen werden sofort auf der gesamten Seite wirksam.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export default function AdminSettingsPage() {
             href="/admin/settings/legal"
             className="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-emerald-400 font-extrabold text-xs rounded-xl flex items-center gap-2 border border-slate-700 transition shrink-0"
           >
-            <span>⚖️ PAGES LÉGALES &amp; CMS</span>
+            <span>⚖️ RECHTLICHE SEITEN &amp; CMS</span>
           </a>
           <a
             href="/admin/settings/branding"
@@ -96,18 +96,18 @@ export default function AdminSettingsPage() {
         {saved && (
           <div className="p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 rounded-2xl text-xs font-bold flex items-center gap-2">
             <Check className="w-4 h-4 text-emerald-500" />
-            <span>Nom de la plateforme et paramètres mis à jour à 100% sur l-ensemble du site !</span>
+            <span>Plattformname und Einstellungen wurden auf der gesamten Seite aktualisiert!</span>
           </div>
         )}
 
         {/* General Store Settings */}
         <div className="space-y-4">
           <h3 className="font-extrabold text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-            Identité Globale de la Boutique
+            Allgemeine Shop-Identität
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold mb-1">Nom Commercial de la Plateforme *</label>
+              <label className="block text-xs font-bold mb-1">Firmenname der Plattform *</label>
               <input
                 type="text"
                 required
@@ -117,7 +117,7 @@ export default function AdminSettingsPage() {
               />
             </div>
             <div>
-              <label className="block text-xs font-bold mb-1">Email du Support Client</label>
+              <label className="block text-xs font-bold mb-1">Kundensupport-E-Mail</label>
               <input
                 type="email"
                 required
@@ -132,11 +132,11 @@ export default function AdminSettingsPage() {
         {/* Financial & Taxes */}
         <div className="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
           <h3 className="font-extrabold text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-            Devise, TVA &amp; Expédition
+            Währung, MwSt. &amp; Versand
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs font-bold mb-1">Devise Principale</label>
+              <label className="block text-xs font-bold mb-1">Hauptwährung</label>
               <select
                 value={currency}
                 onChange={(e) => setCurrency(e.target.value)}
@@ -146,7 +146,7 @@ export default function AdminSettingsPage() {
               </select>
             </div>
             <div>
-              <label className="block text-xs font-bold mb-1">Taux de TVA (%)</label>
+              <label className="block text-xs font-bold mb-1">MwSt.-Satz (%)</label>
               <input
                 type="number"
                 value={taxRate}
@@ -155,7 +155,7 @@ export default function AdminSettingsPage() {
               />
             </div>
             <div>
-              <label className="block text-xs font-bold mb-1">Seuil Livraison Gratuite (€)</label>
+              <label className="block text-xs font-bold mb-1">Kostenloser Versand ab (€)</label>
               <input
                 type="number"
                 value={freeShippingThreshold}
@@ -233,7 +233,7 @@ export default function AdminSettingsPage() {
         {/* Payment Gateways */}
         <div className="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
           <h3 className="font-extrabold text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-            Passerelles de Paiement
+            Zahlungsanbieter
           </h3>
           <div className="space-y-2">
             <label className="flex items-center gap-3 text-xs cursor-pointer">
@@ -243,7 +243,7 @@ export default function AdminSettingsPage() {
                 onChange={(e) => setStripeEnabled(e.target.checked)}
                 className="rounded text-emerald-600 focus:ring-emerald-500"
               />
-              <span>Activer les cartes bancaires (Stripe / Visa / Mastercard)</span>
+              <span>Kreditkarten aktivieren (Stripe / Visa / Mastercard)</span>
             </label>
             <label className="flex items-center gap-3 text-xs cursor-pointer">
               <input
@@ -252,7 +252,7 @@ export default function AdminSettingsPage() {
                 onChange={(e) => setCodEnabled(e.target.checked)}
                 className="rounded text-emerald-600 focus:ring-emerald-500"
               />
-              <span>Activer le paiement par virement bancaire SEPA</span>
+              <span>SEPA-Überweisung aktivieren</span>
             </label>
           </div>
         </div>
@@ -262,7 +262,7 @@ export default function AdminSettingsPage() {
           className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 transition cursor-pointer"
         >
           {saved ? <Check className="w-4 h-4 text-white" /> : <Save className="w-4 h-4 text-white" />}
-          <span>{saved ? 'PARAMÈTRES ET NOM DE MARQUE SAUVEGARDÉS !' : 'SAUVEGARDER ET PROPAGER LE NOM COMMERCIAL'}</span>
+          <span>{saved ? 'EINSTELLUNGEN GESPEICHERT!' : 'EINSTELLUNGEN SPEICHERN'}</span>
         </button>
       </form>
     </div>

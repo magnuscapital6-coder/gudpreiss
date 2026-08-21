@@ -52,7 +52,7 @@ export default function EditProductPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (images.length === 0) {
-      alert('Veuillez importer au moins une image pour le produit.');
+      alert('Bitte importieren Sie mindestens ein Produktbild.');
       return;
     }
 
@@ -74,33 +74,33 @@ export default function EditProductPage() {
         on_sale: Boolean(compareAtPrice),
       });
 
-      router.push('/admin/products');
+      router.push('/admin/Produkte');
     } catch (err) {
       console.error(err);
-      alert('Erreur lors de la mise à jour du produit.');
+      alert('Fehler bei der Produktaktualisierung.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   if (isLoading) {
-    return <div className="p-8 text-center text-slate-400 text-xs">Chargement des détails du produit...</div>;
+    return <div className="p-8 text-center text-slate-400 text-xs">Produktdetails werden geladen...</div>;
   }
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-center justify-between">
-        <Link href="/admin/products" className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-white">
+        <Link href="/admin/Produkte" className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-white">
           <ArrowLeft className="w-4 h-4" />
-          <span>Retour aux produits</span>
+          <span>Zurück zu Produkten</span>
         </Link>
-        <h1 className="text-xl font-black text-white">Modifier le Produit</h1>
+        <h1 className="text-xl font-black text-white">Produkt bearbeiten</h1>
       </div>
 
       <form onSubmit={handleSubmit} className="bg-slate-950 p-8 rounded-3xl border border-slate-800 space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Nom du produit *</label>
+            <label className="block text-xs font-bold text-slate-300 mb-1">Produktname *</label>
             <input
               type="text"
               required
@@ -190,7 +190,7 @@ export default function EditProductPage() {
         {/* Image Uploader */}
         <div>
           <label className="block text-xs font-bold text-slate-300 mb-2">
-            Images du produit (Importation directe) *
+            Produktbilder (Direktimport) *
           </label>
           <ImageUploader images={images} onChange={setImages} />
         </div>

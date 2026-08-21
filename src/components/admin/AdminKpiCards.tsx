@@ -1,9 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { DollarSign, ShoppingBag, Package, AlertTriangle, TrendingUp } from 'lucide-react';
-import { AnimatedCounter } from '@/components/animations/AnimatedCounter';
 import { useTranslation } from '@/context/language-context';
 import { Order, Product } from '@/types';
 
@@ -59,13 +57,9 @@ export function AdminKpiCards({ orders, products }: AdminKpiCardsProps) {
       {kpis.map((kpi, idx) => {
         const Icon = kpi.icon;
         return (
-          <motion.div
+          <div
             key={idx}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.1, duration: 0.35 }}
-            whileHover={{ y: -3 }}
-            className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-3"
+            className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-3 hover:-translate-y-[3px] transition-transform duration-200"
           >
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-slate-500 dark:text-slate-400">{kpi.title}</span>
@@ -75,18 +69,14 @@ export function AdminKpiCards({ orders, products }: AdminKpiCardsProps) {
             </div>
             <div>
               <h3 className="text-2xl font-black">
-                <AnimatedCounter
-                  value={kpi.numeric}
-                  prefix={kpi.prefix}
-                  suffix={kpi.suffix}
-                />
+                {kpi.prefix || ''}{kpi.numeric.toLocaleString('de-DE')}{kpi.suffix || ''}
               </h3>
               <span className="text-[11px] font-extrabold text-emerald-800 dark:text-emerald-400 flex items-center gap-1 mt-1">
                 <TrendingUp className="w-3 h-3" />
                 {kpi.change}
               </span>
             </div>
-          </motion.div>
+          </div>
         );
       })}
     </div>

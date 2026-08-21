@@ -207,7 +207,7 @@ export default function SeoCommandCenterPage() {
                   <ShoppingBag className="w-4 h-4 text-amber-400" />
                   Google Merchant Feed
                 </span>
-                <Link href="/api/feeds/google-products" target="_blank" className="text-emerald-400 hover:underline text-xs flex items-center gap-1">
+                <Link href="/api/feeds/google-Produkte" target="_blank" className="text-emerald-400 hover:underline text-xs flex items-center gap-1">
                   <span>XML Feed</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </Link>
@@ -253,7 +253,7 @@ export default function SeoCommandCenterPage() {
                 </div>
 
                 <Link
-                  href={issue.actionableId ? `/admin/products/${issue.actionableId}/edit` : issue.affectedUrl}
+                  href={issue.actionableId ? `/admin/Produkte/${issue.actionableId}/edit` : issue.affectedUrl}
                   className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl flex items-center gap-1.5 shrink-0 self-start sm:self-center"
                 >
                   <span>BEHEBEN</span>
@@ -328,11 +328,11 @@ export default function SeoCommandCenterPage() {
             <div>
               <h3 className="text-sm font-extrabold text-white">Google Merchant Center Feed (Deutschland)</h3>
               <p className="text-xs text-slate-400 mt-1">
-                Der Feed wird unter <code className="text-emerald-400">/api/feeds/google-products</code> bereitgestellt.
+                Der Feed wird unter <code className="text-emerald-400">/api/feeds/google-Produkte</code> bereitgestellt.
               </p>
             </div>
             <Link
-              href="/api/feeds/google-products"
+              href="/api/feeds/google-Produkte"
               target="_blank"
               className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center gap-2 transition"
             >
