@@ -1,0 +1,77 @@
+export const tokens = {
+  colors: {
+    primary: {
+      50: '#EFF6FF',
+      100: '#DBEAFE',
+      500: '#2563EB',
+      600: '#1D4ED8',
+      700: '#1E40AF',
+    },
+    background: '#F7F9FC',
+    surface: {
+      main: '#FFFFFF',
+      soft: '#F1F5FB',
+      blue: '#EAF2FF',
+    },
+    text: {
+      primary: '#111827',
+      secondary: '#64748B',
+      muted: '#94A3B8',
+      disabled: '#CBD5E1',
+    },
+    border: {
+      main: '#E5E7EB',
+      soft: '#EEF2F7',
+    },
+    status: {
+      success: '#16A34A',
+      warning: '#F59E0B',
+      danger: '#EF4444',
+      info: '#3B82F6',
+    },
+    sale: {
+      main: '#F59E0B',
+      soft: '#FFF7E6',
+    },
+  },
+  spacing: {
+    1: '4px',
+    2: '8px',
+    3: '12px',
+    4: '16px',
+    5: '20px',
+    6: '24px',
+    8: '32px',
+    10: '40px',
+    12: '48px',
+    14: '56px',
+    16: '64px',
+    20: '80px',
+    24: '96px',
+  },
+  radius: {
+    xs: '4px',
+    sm: '6px',
+    md: '8px',
+    lg: '10px',
+    xl: '12px',
+    '2xl': '16px',
+  },
+  shadows: {
+    small: '0 1px 3px rgba(15, 23, 42, 0.06)',
+    card: '0 2px 8px rgba(15, 23, 42, 0.05)',
+    hover: '0 8px 24px rgba(15, 23, 42, 0.10)',
+  },
+  layout: {
+    containerMaxWidth: '1360px',
+    containerMaxWidthMax: '1400px',
+    paddingDesktop: '32px',
+    paddingTablet: '24px',
+    paddingMobile: '16px',
+  },
+  transitions: {
+    fast: '150ms cubic-bezier(0.4, 0, 0.2, 1)',
+    normal: '200ms cubic-bezier(0.4, 0, 0.2, 1)',
+    slow: '300ms cubic-bezier(0.4, 0, 0.2, 1)',
+  },
+};

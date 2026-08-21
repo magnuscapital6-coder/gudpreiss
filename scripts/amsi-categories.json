@@ -1,0 +1,123 @@
+[
+  {
+    "id": 83,
+    "name": "Accessoires",
+    "slug": "accessoires",
+    "description": "Accessoires",
+    "parent": 0,
+    "count": 134,
+    "image": null,
+    "review_count": 0,
+    "permalink": "https://amsi.ci/product-category/accessoires/"
+  },
+  {
+    "id": 91,
+    "name": "Appareils photo et caméras",
+    "slug": "appareils-photo-et-cameras",
+    "description": "Appareils photo et caméras",
+    "parent": 0,
+    "count": 34,
+    "image": null,
+    "review_count": 0,
+    "permalink": "https://amsi.ci/product-category/appareils-photo-et-cameras/"
+  },
+  {
+    "id": 23,
+    "name": "Bureautique",
+    "slug": "bureautique",
+    "description": "Bureautique",
+    "parent": 0,
+    "count": 88,
+    "image": null,
+    "review_count": 0,
+    "permalink": "https://amsi.ci/product-category/bureautique/"
+  },
+  {
+    "id": 116,
+    "name": "Cartouche",
+    "slug": "cartouche",
+    "description": "Cartouche",
+    "parent": 0,
+    "count": 41,
+    "image": null,
+    "review_count": 0,
+    "permalink": "https://amsi.ci/product-category/cartouche/"
+  },
+  {
+    "id": 92,
+    "name": "Casques et écouteurs",
+    "slug": "casques-et-ecouteurs",
+    "description": "Casques et écouteurs",
+    "parent": 0,
+    "count": 14,
+    "image": null,
+    "review_count": 0,
+    "permalink": "https://amsi.ci/product-category/casques-et-ecouteurs/"
+  },
+  {
+    "id": 93,
+    "name": "Imprimantes &amp; Scanners",
+    "slug": "imprimantes-scanners",
+    "description": "Imprimantes &amp; Scanners",
+    "parent": 0,
+    "count": 40,
+    "image": null,
+    "review_count": 0,
+    "permalink": "https://amsi.ci/product-category/imprimantes-scanners/"
+  },
+  {
+    "id": 90,
+    "name": "Laptop &amp; bureau",
+    "slug": "laptop-bureau",
+    "description": "Laptop &amp; bureau",
+    "parent": 0,
+    "count": 97,
+    "image": null,
+    "review_count": 0,
+    "permalink": "https://amsi.ci/product-category/laptop-bureau/"
+  },
+  {
+    "id": 117,
+    "name": "Montre Connectée",
+    "slug": "montre-connectee",
+    "description": "Montre Connectée",
+    "parent": 0,
+    "count": 8,
+    "image": null,
+    "review_count": 0,
+    "permalink": "https://amsi.ci/product-category/montre-connectee/"
+  },
+  {
+    "id": 64,
+    "name": "SmartPhones &amp; Tablettes",
+    "slug": "smartphones-tablettes",
+    "description": "SmartPhones &amp; Tablettes",
+    "parent": 0,
+    "count": 111,
+    "image": null,
+    "review_count": 0,
+    "permalink": "https://amsi.ci/product-category/smartphones-tablettes/"
+  },
+  {
+    "id": 15,
+    "name": "Uncategorized",
+    "slug": "uncategorized",
+    "description": "Uncategorized",
+    "parent": 0,
+    "count": 2,
+    "image": null,
+    "review_count": 0,
+    "permalink": "https://amsi.ci/product-category/uncategorized/"
+  },
+  {
+    "id": 78,
+    "name": "Xiaomi TV &amp; Media",
+    "slug": "xiaomi-tv-media",
+    "description": "Xiaomi TV &amp; Media",
+    "parent": 0,
+    "count": 13,
+    "image": null,
+    "review_count": 0,
+    "permalink": "https://amsi.ci/product-category/xiaomi-tv-media/"
+  }
+]

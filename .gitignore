@@ -1,0 +1,38 @@
+# dependencies
+/node_modules
+/.pnpm
+/.yarn
+
+# next.js build output
+/.next/
+/out/
+
+# production build
+/build
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env
+.env*.local
+.env.production
+.env.staging
+
+# vercel & system
+.vercel
+.DS_Store
+*.pem
+
+# test results & build info
+test-results/
+tsconfig.tsbuildinfo
+
+# gemini rules
+.gemini/
+
+# docmap
+docmap.md

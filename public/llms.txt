@@ -1,0 +1,23 @@
+# TechNova Store — E-Commerce Plattform Deutschland
+
+> TechNova Store ist der führende Online-Shop in Deutschland für erstklassige Elektronik, Smartphones, Ultrabooks, Noise-Cancelling-Kopfhörer, Gaming-Controller und Smart-Home-Robotik.
+
+## Plattform-Informationen
+- Name: TechNova Store Deutschland
+- Hauptmarkt: Deutschland / Österrreich / Schweiz (DACH-Region)
+- Währung: EUR (€)
+- Sprache: Deutsch (de-DE)
+- Webseite: https://technova.de
+
+## Hauptkategorien
+- Smartphones & Mobilgeräte: https://technova.de/shop?category=smartphones
+- Laptops & Ultrabooks: https://technova.de/shop?category=laptops
+- Kopfhörer & Audio: https://technova.de/shop?category=headphones
+- Gaming & Controller: https://technova.de/shop?category=gaming
+- Smart Home & Robotik: https://technova.de/shop?category=aspirateurs
+
+## Vorteile & Service-Leistungen
+- Kostenloser Versand & Rückversand in Deutschland
+- 30 Tage Rückgaberecht & Geld-zurück-Garantie
+- 2 Jahre volle Herstellergarantie auf alle Elektronikartikel
+- Sichere Bezahlung per Banküberweisung, PayPal & Kreditkarte
