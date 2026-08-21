@@ -490,9 +490,9 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "rating": 4.7,
     "review_count": 17,
     "images": [
-      "https://amsi.ci/wp-content/uploads/2026/08/photocopieur-Schwarz-et-Weiß-canon-i-sensys-mf237w-canon-i-sensys-mf237w.jpg",
-      "https://amsi.ci/wp-content/uploads/2026/08/photocopieur-Schwarz-et-Weiß-canon-i-sensys-mf237w-canon-i-sensys-mf237w-1.jpg",
-      "https://amsi.ci/wp-content/uploads/2026/08/photocopieur-Schwarz-et-Weiß-canon-i-sensys-mf237w-canon-i-sensys-mf237w-2.jpg"
+      "https://amsi.ci/wp-content/uploads/2026/08/photocopieur-noir-et-blanc-canon-i-sensys-mf237w-canon-i-sensys-mf237w.jpg",
+      "https://amsi.ci/wp-content/uploads/2026/08/photocopieur-noir-et-blanc-canon-i-sensys-mf237w-canon-i-sensys-mf237w-1.jpg",
+      "https://amsi.ci/wp-content/uploads/2026/08/photocopieur-noir-et-blanc-canon-i-sensys-mf237w-canon-i-sensys-mf237w-2.jpg"
     ],
     "created_at": "2026-08-19T19:18:21.542Z",
     "updated_at": "2026-08-19T19:18:21.542Z"
@@ -708,9 +708,9 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "rating": 4.7,
     "review_count": 26,
     "images": [
-      "https://amsi.ci/wp-content/uploads/2026/08/hp-c9730a-toner-de-marque-hp-c9730a-Schwarz-1.webp",
+      "https://amsi.ci/wp-content/uploads/2026/08/hp-c9730a-toner-de-marque-hp-c9730a-noir-1.webp",
       "https://amsi.ci/wp-content/uploads/2026/08/hp-c9733a-toner-de-marque-hp-c9733a-magenta.webp",
-      "https://amsi.ci/wp-content/uploads/2026/08/hp-c9730a-toner-de-marque-hp-c9730a-Schwarz-1.webp",
+      "https://amsi.ci/wp-content/uploads/2026/08/hp-c9730a-toner-de-marque-hp-c9730a-noir-1.webp",
       "https://amsi.ci/wp-content/uploads/2026/08/hp-c9732a-toner-de-marque-hp-c9732a-Gelb.webp",
       "https://amsi.ci/wp-content/uploads/2026/08/hp-c9731a-toner-de-marque-hp-c9731a-cyan.webp"
     ],
@@ -836,8 +836,8 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "rating": 4.7,
     "review_count": 49,
     "images": [
-      "https://amsi.ci/wp-content/uploads/2026/08/hp-37a-toner-laser-de-marque-hp-cf237a-Schwarz-11000-pages.webp",
-      "https://amsi.ci/wp-content/uploads/2026/08/hp-37a-toner-laser-de-marque-hp-cf237a-Schwarz-11000-pages.webp"
+      "https://amsi.ci/wp-content/uploads/2026/08/hp-37a-toner-laser-de-marque-hp-cf237a-noir-11000-pages.webp",
+      "https://amsi.ci/wp-content/uploads/2026/08/hp-37a-toner-laser-de-marque-hp-cf237a-noir-11000-pages.webp"
     ],
     "created_at": "2026-08-19T19:18:21.602Z",
     "updated_at": "2026-08-19T19:18:21.602Z"
@@ -960,10 +960,10 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "rating": 4.8,
     "review_count": 31,
     "images": [
-      "https://amsi.ci/wp-content/uploads/2026/07/hp-212a-Schwarz-toner-de-marque-hp-w2120a-Schwarz-5500-pages.webp",
+      "https://amsi.ci/wp-content/uploads/2026/07/hp-212a-noir-toner-de-marque-hp-w2120a-noir-5500-pages.webp",
       "https://amsi.ci/wp-content/uploads/2026/07/hp-212a-Gelb-toner-de-marque-hp-w2122a-Gelb-4500-pages.webp",
       "https://amsi.ci/wp-content/uploads/2026/07/hp-212a-cyan-toner-de-marque-hp-w2121a-cyan-4500-pages.webp",
-      "https://amsi.ci/wp-content/uploads/2026/07/hp-212a-Schwarz-toner-de-marque-hp-w2120a-Schwarz-5500-pages-1.webp",
+      "https://amsi.ci/wp-content/uploads/2026/07/hp-212a-noir-toner-de-marque-hp-w2120a-noir-5500-pages-1.webp",
       "https://amsi.ci/wp-content/uploads/2026/07/hp-212a-magenta-toner-de-marque-hp-w2123a-magenta-4500-pages.webp"
     ],
     "created_at": "2026-08-19T19:18:21.605Z",
@@ -1512,37 +1512,6 @@ export const INITIAL_PRODUCTS: Product[] = [{
     ],
     "created_at": "2026-08-19T19:18:21.634Z",
     "updated_at": "2026-08-19T19:18:21.634Z"
-  },{
-    "id": "prod-amsi-10033",
-    "name": "Canon SELPHY CP1500",
-    "slug": "amsi-canon-selphy-cp1500-de",
-    "description": "Canon SELPHY CP1500 : Caractéristiques techniques complètes de l'Fotodrucker portable Die Canon SELPHY CP1500 ist eine Fotodrucker portable à sublimation thermique conçue für imprimer rapidement des photos de hoher Qualität directement depuis un smartphone, une tablette, un appareil photo ou un ordinateur. Compacte, élégante et simple d'utilisation , elle offre des impressions durables pouvant conserver leurs couleurs jusqu'à 100 ans dans de bonnes conditions de conservation . Technologie d'impression Impression par sublimation thermique Technologie : Sublimation thermique (Dye-Sublimation) Résolution d'impression : 300 × 300 dpi Profondeur des couleurs : 256 nuances par couleur Nombre total de couleurs : Jusqu'à 16,7 millions de couleurs Couche de protection appliquée automatiquement après impression Cette technologie garantit des photos aux couleurs vives, des dégradés naturels et une excellente résistance à l'eau, aux rayures et aux traces de doigts. Vitesse d'impression Impression rapide Photo format carte postale : environ 41 secondes Impression instantanée sans temps de séchage Dass photos sont prêtes immédiatement après leur sortie de l'Drucker. Formats de papier compatibles Plusieurs tailles d'impression Die Canon SELPHY CP1500 prend en charge plusieurs formats : 100 × 148 mm Format L 89 × 119 mm 54 × 86 mm Mini autocollants Compatible mit les consommables dédiés Canon Dass kits papier et encre Canon permettent un remplacement simple et garantissent une qualité constante. Qualité des photos Des impressions durables Dass photos imprimées offrent : Couleurs éclatantes Détails précis Finition brillante Option finition satinée ou semi-brillante Résistance à l'eau Résistance aux UV Résistance aux traces de doigts Conservation pouvant atteindre 100 ans dans des conditions adaptées Connectivité Impression sans fil et filaire Die SELPHY CP1500 propose plusieurs modes de connexion : Wi-Fi Connexion directe mit smartphone Impression depuis tablette Impression depuis ordinateur USB-C Connexion PC ou Mac Compatible mit certains appareils photo Dascteur de cartes mémoire Compatible mit : SD SDHC SDXC Clé USB Compatible mit les périphériques USB au format FAT ou exFAT Écran Grand écran couleur Écran LCD couleur TFT Taille : 3,5 Zoll Interface intuitive Navigation simple in den menus L'écran facilite le choix des photos, les réglages et l'aperçu avant impression. Compatibilité Compatible mit de nombreux appareils Impression depuis : Smartphone Android iPhone iPad Tablette Android Windows macOS Appareils photo Canon compatibles Compatible mit les applications d'impression Canon. Alimentation Plusieurs solutions d'alimentation Fonctionne mit : Adaptateur secteur Canon Batterie rechargeable Canon NB-CP2LH (en option) Batterie NB-CP2LI (compatible) Die batterie permet une utilisation nomade für imprimer partout. Consommation électrique Faible consommation En impression : jusqu'à 60 W En veille : moins de 4 W Dimensions kompaktes Format Diergeur : 182,2 mm Profondeur : 133 mm Hauteur : 57,6 mm Dank son faible encombrement, elle trouve facilement sa place sur un bureau ou dans un sac de voyage. Poids Drucker légère Environ 850 g Son poids réduit facilite son transport. Conditions de fonctionnement Température De 5 °C à 40 °C Humidité De 20 % à 80 % Contenu de la boîte Die Canon SELPHY CP1500 est livrée mit : Fotodrucker Canon SELPHY CP1500 Cassette papier format carte postale Adaptateur secteur Cordon d'alimentation Benutzerdokumentation Dass points forts de la Canon SELPHY CP1500 Une Fotodrucker idéale für tous les usages Impression photo professionnelle à domicile Photos durables jusqu'à 100 ans Connexion Wi-Fi rapide Écran LCD 3,5 Zoll Port USB-C moderne Dascteur de cartes SD intégré Compatible Android, iPhone, Windows et Mac kompaktes Format et transportable Utilisation simple et intuitive Impression rapide en environ 41 secondes Excellente qualité d'image Dank la sublimation thermique Datenblatt Canon SELPHY CP1500 Caractéristique Détail Technologie Sublimation thermique Résolution 300 × 300 dpi Couleurs 16,7 millions Écran LCD TFT 3,5 Zoll Connexion Wi-Fi, USB-C, Carte SD Formats Carte postale, L, Carte, Mini Vitesse Environ 41 secondes Dimensions 182,2 × 133 × 57,6 mm Poids 850 g Alimentation Secteur ou batterie optionnelle Durée de conservation des photos Jusqu'à 100 ans - Kaufen Sie den Canon SELPHY CP1500 von AMSI zum besten Preis bei TechNova Store mit 2 Jahren Garantie und schnellem Versand in Deutschland & Europa.",
-    "short_description": "Canon SELPHY CP1500 Technische Daten complètes de l'Fotodrucker portable | 2 Jahre Garantie & Gratis Versand ab 150 €.",
-    "sku": "AMSI-10033",
-    "brand_id": "b-amsi-canon",
-    "brand_name": "Canon",
-    "category_id": "cat-imprimantes-scanners",
-    "category_name": "Drucker & Scanner",
-    "price": 274,
-    "compare_at_price": 274,
-    "cost_price": 192,
-    "stock": 25,
-    "low_stock_threshold": 5,
-    "status": "active",
-    "featured": false,
-    "best_seller": false,
-    "new_arrival": true,
-    "on_sale": false,
-    "weight_kg": 4.6,
-    "rating": 4.9,
-    "review_count": 6,
-    "images": [
-      "https://amsi.ci/wp-content/uploads/2026/07/Canon-Selphy-CP1500.png",
-      "https://amsi.ci/wp-content/uploads/2026/07/Canon-Selphy-CP1500-Weiß.png",
-      "https://amsi.ci/wp-content/uploads/2026/07/Canon-Selphy-CP1500.png"
-    ],
-    "created_at": "2026-08-19T19:18:21.635Z",
-    "updated_at": "2026-08-19T19:18:21.635Z"
   },{
     "id": "prod-amsi-10020",
     "name": "REDMAGIC 11S Pro",
@@ -3637,35 +3606,6 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "created_at": "2026-08-19T19:18:21.703Z",
     "updated_at": "2026-08-19T19:18:21.703Z"
   },{
-    "id": "prod-amsi-9424",
-    "name": "RAM de Bureau XPG 64GB (2 x 32GB) DDR5 6000MHz Schwarz",
-    "slug": "amsi-ram-de-bureau-xpg-64gb-2-x-32gb-ddr5-6000mhz-Schwarz-de",
-    "description": "RAM de Bureau XPG 64GB (2 x 32GB) DDR5 6000MHz Schwarz Performance Ultra Rapide für PC Haute Gamme Die RAM de bureau XPG 64GB DDR5 6000MHz est conçue für offrir des performances exceptionnelles aux utilisateurs exigeants. Dank la technologie DDR5 de dernière génération, elle garantit une vitesse accrue, une meilleure bande passante et une efficacité énergétique optimisée für le gaming intensif, la création de contenu et les applications professionnelles. Capacité Massive für Multitâche Avancé mit einer capacité totale de 64GB (2 x 32GB), cette mémoire ermöglicht es gérer facilement les charges de travail lourdes, le montage vidéo, le streaming, les logiciels 3D et le multitâche intensif sans ralentissement. elegantes Design et Dissipation Optimisée Dotée d’un design Schwarz moderne et d’un dissipateur thermique leistungsstark, la RAM XPG assure une excellente dissipation de la chaleur für maintenir des performances stables même en utilisation prolongée. Caractéristiques Techniques Capacité et Type RAM de Bureau XPG 64GB (2 x 32GB) DDR5 6000MHz Schwarz Capacité totale : 64GB Configuration : 2 x 32GB Type : DDR5 Fréquence et Performance Fréquence : 6000MHz Haute bande passante für des performances accrues Idéale für gaming, création et professionelle Nutzung Compatibilité et Technologies Compatible mit les plateformes Intel et AMD DDR5 Support des profils XMP 3.0 für un overclocking facile Optimisée für les cartes mères nouvelle génération Refroidissement et Fiabilité Dissipateur thermique hoher Qualität Gestion thermique efficace Stabilité et durabilité accrues Avantages Clés Vitesse ultra rapide DDR5 6000MHz Grande capacité 64GB für multitâche intensif Installation simple mit XMP Design sobre et professionnel Pourquoi Choisir la RAM XPG 64GB DDR5 6000MHz Cette mémoire est idéale für les utilisateurs recherchant puissance, rapidité et fiabilité. Parfaite für les configurations gaming High-End et les stations de travail, elle garantit une expérience fluide et leistungsstarke. - Kaufen Sie den RAM de Bureau XPG 64GB (2 x 32GB) DDR5 6000MHz Schwarz von AMSI zum besten Preis bei TechNova Store mit 2 Jahren Garantie und schnellem Versand in Deutschland & Europa.",
-    "short_description": "RAM XPG 64GB (2x32GB) DDR5 6000MHz hohe Leistung, idéale für gaming, multitâche et création. Vitesse extrême, XMP 3.0, compatible Intel et AMD. | 2 Jahre Garantie & Gratis Versand ab 150 €.",
-    "sku": "AMSI-9424",
-    "brand_id": "b-amsi-ram",
-    "brand_name": "RAM",
-    "category_id": "cat-accessoires",
-    "category_name": "IT & Tech Zubehör",
-    "price": 320,
-    "compare_at_price": 320,
-    "cost_price": 224,
-    "stock": 12,
-    "low_stock_threshold": 5,
-    "status": "active",
-    "featured": false,
-    "best_seller": false,
-    "new_arrival": true,
-    "on_sale": false,
-    "weight_kg": 2.7,
-    "rating": 4.7,
-    "review_count": 11,
-    "images": [
-      "https://amsi.ci/wp-content/uploads/2026/03/RAM-de-Bureau-XPG-64GB-2-x-32GB-DDR5-6000MHz-Schwarz.png"
-    ],
-    "created_at": "2026-08-19T19:18:21.704Z",
-    "updated_at": "2026-08-19T19:18:21.704Z"
-  },{
     "id": "prod-amsi-9421",
     "name": "Barrette Mémoire Trident Z Royal Series 32GB (2 x 16GB)",
     "slug": "amsi-barrette-memoire-trident-z-royal-series-32gb-2-x-16gb-de",
@@ -4740,11 +4680,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "weight_kg": 0.9,
     "rating": 4.8,
     "review_count": 52,
-    "images": [
-      "https://amsi.ci/wp-content/uploads/2026/02/HP-Pavilion-15-Zoll-Ryzen-7-–-16GB-RAM-1TB-SSD.png",
-      "https://amsi.ci/wp-content/uploads/2026/02/Ordinateur-portable-PAVILION-15-EH3004NF-R7-de-dos-600x600-1.png",
-      "https://amsi.ci/wp-content/uploads/2026/02/c08723060.png"
-    ],
+    "images": ["https://amsi.ci/wp-content/uploads/2026/02/HP-Pavilion-15-pouces-Ryzen-7-–-16GB-RAM-1TB-SSD.png", "https://amsi.ci/wp-content/uploads/2026/02/Ordinateur-portable-PAVILION-15-EH3004NF-R7-de-dos-600x600-1.png", "https://amsi.ci/wp-content/uploads/2026/02/c08723060.png"],
     "created_at": "2026-08-19T19:18:21.741Z",
     "updated_at": "2026-08-19T19:18:21.741Z"
   },{
@@ -6127,9 +6063,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "weight_kg": 0.7,
     "rating": 4.7,
     "review_count": 42,
-    "images": [
-      "https://amsi.ci/wp-content/uploads/2026/01/Xiaomi-TV-Max-85-Zoll-cote-divoire.png"
-    ],
+    "images": ["https://amsi.ci/wp-content/uploads/2026/01/Xiaomi-TV-Max-85-Pouces-cote-divoire.png"],
     "created_at": "2026-08-19T19:18:21.770Z",
     "updated_at": "2026-08-19T19:18:21.770Z"
   },{
@@ -6786,39 +6720,6 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "created_at": "2026-08-19T19:18:21.785Z",
     "updated_at": "2026-08-19T19:18:21.785Z"
   },{
-    "id": "prod-amsi-8494",
-    "name": "Xiaomi Vacuum Cleaner G20",
-    "slug": "amsi-xiaomi-vacuum-cleaner-g20-de",
-    "description": "Xiaomi Vacuum Cleaner G20 : Staubsauger sans fil kraftvoll et efficace Das Xiaomi Vacuum Cleaner G20 ist ein Staubsauger sans fil moderne conçu für offrir un nettoyage leistungsstark et rapide de votre intérieur. Dank sa forte puissance d’aspiration, son autonomie optimisée et son design ergonomique, il s’adapte parfaitement aux besoins du nettoyage quotidien. AMSI.ci Puissance d’aspiration et performances de nettoyage Moteur kraftvoll haute efficacité est équipé d’un moteur leistungsstark assurant une aspiration élevée für éliminer efficacement la poussière, les saletés incrustées et les poils d’animaux sur tous types de surfaces. Nettoyage efficace sur tous les sols Cet Staubsauger est adapté aux sols durs, tapis et moquettes, garantissant un nettoyage en profondeur dans chaque pièce de la maison. Batterie rechargeable longue durée Die batterie lithium intégrée offre une autonomie confortable, idéale für nettoyer plusieurs pièces sans interruption. Gestion intelligente de l’énergie Das système optimise la consommation d’énergie afin d’offrir un bon équilibre entre puissance d’aspiration et durée d’utilisation. Design sans fil et confort d’utilisation Staubsauger léger et ergonomique Das Xiaomi Vacuum Cleaner G20 se distingue par son design léger, facilitant la Handhabung et réduisant la fatigue lors d’un usage prolongé. Liberté de mouvement sans fil Dank son fonctionnement sans fil, il permet d’atteindre facilement les zones difficiles comme les escaliers, les coins, les plafonds ou l’intérieur des véhicules. Système de filtration avancé Filtration hohe Leistung dispose d’un système de filtration efficace capable de capturer les particules fines, contribuant à un air intérieur plus sain. Bac à poussière einfach zu reinigen Das réservoir à poussière est amovible et simple à vider, garantissant une utilisation propre et pratique. Accessoires et polyvalence Accessoires adaptés à différents usages L’Staubsauger est livré mit des embouts conçus für le nettoyage des sols, meubles, canapés et espaces difficiles d’accès. Convient aux foyers mit animaux Dank sa forte aspiration, le Xiaomi Vacuum Cleaner G20 est particulièrement efficace für éliminer les poils d’animaux. Pourquoi choisir le Xiaomi Vacuum Cleaner G20 Un Staubsauger leistungsstark à prix accessible offre un excellent rapport qualité-prix en combinant puissance, autonomie et fiabilité. Une solution idéale für le nettoyage quotidien Polyvalent et simple d’utilisation, il constitue un choix sûr für entretenir efficacement votre maison au quotidien. - Kaufen Sie den Xiaomi Vacuum Cleaner G20 von AMSI zum besten Preis bei TechNova Store mit 2 Jahren Garantie und schnellem Versand in Deutschland & Europa.",
-    "short_description": "Une solution idéale für le nettoyage quotidien | 2 Jahre Garantie & Gratis Versand ab 150 €.",
-    "sku": "AMSI-8494",
-    "brand_id": "b-amsi-xiaomi",
-    "brand_name": "Xiaomi",
-    "category_id": "cat-accessoires",
-    "category_name": "IT & Tech Zubehör",
-    "price": 198,
-    "compare_at_price": 229,
-    "cost_price": 139,
-    "stock": 27,
-    "low_stock_threshold": 5,
-    "status": "active",
-    "featured": false,
-    "best_seller": false,
-    "new_arrival": true,
-    "on_sale": true,
-    "weight_kg": 4.3,
-    "rating": 4.8,
-    "review_count": 37,
-    "images": [
-      "https://amsi.ci/wp-content/uploads/2025/12/xiaomi-Staubsauger-vacuum-cleaner-g20-460w-Weiß.jpg",
-      "https://amsi.ci/wp-content/uploads/2025/12/xiaomi-vacuum-cleaner-g20-lite.webp",
-      "https://amsi.ci/wp-content/uploads/2025/12/61DDlkWuhuL._AC_SL1000_.jpg",
-      "https://amsi.ci/wp-content/uploads/2025/12/61U7LXLCkL._AC_SL1000_.jpg",
-      "https://amsi.ci/wp-content/uploads/2025/12/41Xz1BaCgXL._AC_SL1000_.jpg"
-    ],
-    "created_at": "2026-08-19T19:18:21.786Z",
-    "updated_at": "2026-08-19T19:18:21.786Z"
-  },{
     "id": "prod-amsi-8485",
     "name": "OPPO Find N5",
     "slug": "amsi-oppo-find-n5-de",
@@ -6993,35 +6894,6 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "created_at": "2026-08-19T19:18:21.788Z",
     "updated_at": "2026-08-19T19:18:21.788Z"
   },{
-    "id": "prod-amsi-8434",
-    "name": "Amazfit Active",
-    "slug": "amsi-amazfit-active-de",
-    "description": "Amazfit Active – Smartwatch Fitnessuhr Sportive et Intelligente Présentation de l’Amazfit Active L’ Amazfit Active ist eine Smartwatch Fitnessuhr polyvalente conçue für accompagner votre quotidien et vos activités sportives. Elle combine design moderne , fonctions santé complètes , suivi des performances sportives et autonomie durable für une expérience utilisateur optimale. AMSI.ci Design et écran Esthétique moderne Boîtier léger et confortable Style sportif adapté à toutes les occasions Bracelets interchangeables Écran hoher Qualität Écran HD ou AMOLED selon modèle Affichage clair et lumineux Interface tactile fluide Performances et compatibilité Réactivité et système Interface intuitive et simple à utiliser Fonctionnement fluide für navigation et applications Compatible mit Android et iOS Capteurs intégrés Accéléromètre et capteurs de mouvement Mesure précise des données de santé et d’activité Suivi de la santé et du bien-être Surveillance des paramètres vitaux Suivi continu de la fréquence cardiaque Mesure du taux d’oxygène im sang (SpO2) Suivi du sommeil für une meilleure récupération Fonctions de bien-être Analyse du stress Rapports détaillés via l’application dédiée Alertes santé personnalisables Fonctions sportives Modes d’entraînement variés Plusieurs modes sportifs intégrés für course, marche, vélo, fitness, etc. Suivi en temps réel des performances Analyse des données et statistiques avancées Suivi GPS GPS intégré für un suivi précis des parcours Idéal für course à pied, randonnée et cyclisme Autonomie et recharge Batterie leistungsstarke Autonomie longue durée für plusieurs jours d’utilisation Gestion intelligente de la batterie Recharge facile Recharge pratique via connecteur ou station Temps de Schnellladung Connectivité et fonctionnalités intelligentes Notifications et utilitaires Notifications d’appels, SMS et applications directement auf der montre Contrôle de musique à distance Fonctions utiles : alarme, météo, chronomètre Personnalisation Dierge choix de cadrans téléchargeables Paramètres personnalisables selon vos besoins Pourquoi choisir l’Amazfit Active L’ Amazfit Active est idéale für ceux qui recherchent une Smartwatch Fitnessuhr sportive, fiable et élégante , offrant un suivi santé complet , des fonctions sportives avancées , une grande autonomie et une expérience intelligente adaptée au quotidien . - Kaufen Sie den Amazfit Active von AMSI zum besten Preis bei TechNova Store mit 2 Jahren Garantie und schnellem Versand in Deutschland & Europa.",
-    "short_description": "Surveillance des paramètres vitaux Suivi continu de la fréquence cardiaque Mesure du taux d’oxygène im sang (SpO2) Suivi du sommeil für une meilleure récupération | 2 Jahre Garantie & Gratis Versand ab 150 €.",
-    "sku": "AMSI-8434",
-    "brand_id": "b-amsi-amazfit",
-    "brand_name": "Amazfit",
-    "category_id": "cat-montre-connectee",
-    "category_name": "Smartwatches & Tracker",
-    "price": 130,
-    "compare_at_price": 145,
-    "cost_price": 91,
-    "stock": 34,
-    "low_stock_threshold": 5,
-    "status": "active",
-    "featured": false,
-    "best_seller": false,
-    "new_arrival": true,
-    "on_sale": true,
-    "weight_kg": 2.6,
-    "rating": 4.7,
-    "review_count": 22,
-    "images": [
-      "https://amsi.ci/wp-content/uploads/2025/12/Amazfit_active_Noir-2-1.webp"
-    ],
-    "created_at": "2026-08-19T19:18:21.788Z",
-    "updated_at": "2026-08-19T19:18:21.788Z"
-  },{
     "id": "prod-amsi-8428",
     "name": "Honor Watch 4 Pro",
     "slug": "amsi-honor-watch-4-pro-de",
@@ -7104,7 +6976,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "rating": 4.8,
     "review_count": 40,
     "images": [
-      "https://amsi.ci/wp-content/uploads/2025/12/amazfit-gtr-3-Schwarz-Schwarz-gsm-distribution-maroc-1-1-1-800x800-1.jpg"
+      "https://amsi.ci/wp-content/uploads/2025/12/amazfit-gtr-3-noir-noir-gsm-distribution-maroc-1-1-1-800x800-1.jpg"
     ],
     "created_at": "2026-08-19T19:18:21.789Z",
     "updated_at": "2026-08-19T19:18:21.789Z"
@@ -7166,7 +7038,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "rating": 4.8,
     "review_count": 5,
     "images": [
-      "https://amsi.ci/wp-content/uploads/2025/12/montre-connectee-huawei-watch-fit-3-Schwarz.jpg",
+      "https://amsi.ci/wp-content/uploads/2025/12/montre-connectee-huawei-watch-fit-3-noir.jpg",
       "https://amsi.ci/wp-content/uploads/2025/12/HUAWEI-WATCH-123123-2.png",
       "https://amsi.ci/wp-content/uploads/2025/12/Huawei-Watch-Fit-3-with-up-to-7-Days-Battery45MM-White.png"
     ],
@@ -7197,7 +7069,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "rating": 5,
     "review_count": 42,
     "images": [
-      "https://amsi.ci/wp-content/uploads/2025/12/Redmi-Watch-5-Active-Schwarz.webp"
+      "https://amsi.ci/wp-content/uploads/2025/12/Redmi-Watch-5-Active-noir.webp"
     ],
     "created_at": "2026-08-19T19:18:21.790Z",
     "updated_at": "2026-08-19T19:18:21.790Z"
@@ -9039,9 +8911,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "weight_kg": 2.5,
     "rating": 5,
     "review_count": 19,
-    "images": [
-      "https://amsi.ci/wp-content/uploads/2025/11/Drucker-multifonction-jet-dencre-canon-pixma-ts3440-4463c007aa_1_04646420-1f99-45f2-8d13-d5354798c041.webp"
-    ],
+    "images": ["https://amsi.ci/wp-content/uploads/2025/11/imprimante-multifonction-jet-dencre-canon-pixma-ts3440-4463c007aa_1_04646420-1f99-45f2-8d13-d5354798c041.webp"],
     "created_at": "2026-08-19T19:18:21.823Z",
     "updated_at": "2026-08-19T19:18:21.823Z"
   },{
@@ -12424,9 +12294,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "weight_kg": 3.2,
     "rating": 4.9,
     "review_count": 14,
-    "images": [
-      "https://amsi.ci/wp-content/uploads/2025/09/Kopfhörer-Logitech-110.png"
-    ],
+    "images": ["https://amsi.ci/wp-content/uploads/2025/09/Casque-Logitech-110.png"],
     "created_at": "2026-08-19T19:18:21.957Z",
     "updated_at": "2026-08-19T19:18:21.957Z"
   },{
@@ -14970,7 +14838,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "rating": 4.7,
     "review_count": 36,
     "images": [
-      "https://amsi.ci/wp-content/uploads/2025/09/encre-canon-pixma-gi-490-Schwarz.webp"
+      "https://amsi.ci/wp-content/uploads/2025/09/encre-canon-pixma-gi-490-noir.webp"
     ],
     "created_at": "2026-08-19T19:18:22.024Z",
     "updated_at": "2026-08-19T19:18:22.024Z"
@@ -15028,7 +14896,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "rating": 4.9,
     "review_count": 49,
     "images": [
-      "https://amsi.ci/wp-content/uploads/2025/09/epson-101-ecotank-Schwarz-bouteille-d-encre-1.jpg"
+      "https://amsi.ci/wp-content/uploads/2025/09/epson-101-ecotank-noir-bouteille-d-encre-1.jpg"
     ],
     "created_at": "2026-08-19T19:18:22.025Z",
     "updated_at": "2026-08-19T19:18:22.025Z"
@@ -15115,7 +14983,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "rating": 4.6,
     "review_count": 5,
     "images": [
-      "https://amsi.ci/wp-content/uploads/2025/09/cartouche-d-encre-canon-pg-445-Schwarz.png"
+      "https://amsi.ci/wp-content/uploads/2025/09/cartouche-d-encre-canon-pg-445-noir.png"
     ],
     "created_at": "2026-08-19T19:18:22.033Z",
     "updated_at": "2026-08-19T19:18:22.033Z"
@@ -15144,7 +15012,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "rating": 5,
     "review_count": 19,
     "images": [
-      "https://amsi.ci/wp-content/uploads/2025/09/cartouche-d-encre-hp-305-Schwarz.png"
+      "https://amsi.ci/wp-content/uploads/2025/09/cartouche-d-encre-hp-305-noir.png"
     ],
     "created_at": "2026-08-19T19:18:22.034Z",
     "updated_at": "2026-08-19T19:18:22.034Z"
@@ -15810,9 +15678,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "weight_kg": 4,
     "rating": 4.8,
     "review_count": 33,
-    "images": [
-      "https://amsi.ci/wp-content/uploads/2025/09/Toner-HP-201A-Blau-cote-divoire.png"
-    ],
+    "images": ["https://amsi.ci/wp-content/uploads/2025/09/Toner-HP-201A-bleu-cote-divoire.png"],
     "created_at": "2026-08-19T19:18:22.040Z",
     "updated_at": "2026-08-19T19:18:22.040Z"
   },{
@@ -16611,35 +16477,6 @@ export const INITIAL_PRODUCTS: Product[] = [{
     ],
     "created_at": "2026-08-19T19:18:22.055Z",
     "updated_at": "2026-08-19T19:18:22.055Z"
-  },{
-    "id": "prod-amsi-5591",
-    "name": "Toner HP 17A Schwarz",
-    "slug": "amsi-toner-hp-17a-Schwarz-de",
-    "description": "Toner HP 17A Schwarz – Cartouche Dieser Jet Originale Description du produit toner HP 17A Schwarz (CF217A) ist eine Tonerpatrone laser jet originale conçue für offrir une impression professionnelle, nette et de hoher Qualität. Idéale für les documents texte, elle garantit des résultats constants du premier au dernier tirage. Caractéristiques principales Compatibilité Das toner HP 17A est compatible mit les imprimantes laser HP suivantes : HP DieserJet Pro M102a HP DieserJet Pro M102w HP DieserJet Pro MFP M130a HP DieserJet Pro MFP M130fn HP DieserJet Pro MFP M130fw HP DieserJet Pro MFP M130nw Capacité d'impression Rendement : Environ 1 600 pages (couverture standard de 5 %) Type de produit Technologie : Toner laser Couleur : Schwarz Référence constructeur : HP CF217A Avantages du toner HP 17A Schwarz Qualité d'impression professionnelle Ce toner HP offre un Schwarz profond, des lignes nettes et des textes parfaitement lisibles, idéal für des Geschäftsdokumente. Fiabilité et performance Conçu für fonctionner parfaitement mit les imprimantes HP, le toner HP 17A limite les risques de bourrages, de fuites ou de défauts d'impression. Installation facile Insérez simplement la cartouche dans votre Drucker HP compatible. Aucun réglage n'est nécessaire. Produit d'origine HP Choisir un toner original HP garantit la compatibilité, la longévité de votre Drucker et une qualité d'impression constante. Pourquoi choisir le toner HP 17A ? Impression de hoher Qualität dès la première page Réduction des coûts liés aux impressions défectueuses Rendement optimal mit une faible maintenance Garantie constructeur HP sur les consommables d’origine Informations supplémentaires Poids : Environ 0,5 kg Dimensions : 37 x 11 x 12 cm EAN : [insérer EAN si disponible] Conclusion Das toner HP 17A Schwarz original est le choix idéal für les professionnels et particuliers recherchant une impression fiable, économique et de qualité. Pour des performances optimales, utilisez toujours des cartouches de toner HP d’origine. - Kaufen Sie den Toner HP 17A Schwarz von AMSI zum besten Preis bei TechNova Store mit 2 Jahren Garantie und schnellem Versand in Deutschland & Europa.",
-    "short_description": "HP 17A Toner Schwarz – Cartouche toner noire hoher Qualität compatible mit les imprimantes HP DieserJet. Offre des impressions nettes et durables jusqu’à 1 600 pages. Installation facile et fiabilité garantie. | 2 Jahre Garantie & Gratis Versand ab 150 €.",
-    "sku": "AMSI-5591",
-    "brand_id": "b-amsi-toner",
-    "brand_name": "Toner",
-    "category_id": "cat-bureautique",
-    "category_name": "Bürobedarf & IT",
-    "price": 53,
-    "compare_at_price": 53,
-    "cost_price": 37,
-    "stock": 33,
-    "low_stock_threshold": 5,
-    "status": "active",
-    "featured": false,
-    "best_seller": true,
-    "new_arrival": true,
-    "on_sale": false,
-    "weight_kg": 3.8,
-    "rating": 4.9,
-    "review_count": 47,
-    "images": [
-      "https://amsi.ci/wp-content/uploads/2025/08/HP-17A-Toner-Schwarz.png"
-    ],
-    "created_at": "2026-08-19T19:18:22.056Z",
-    "updated_at": "2026-08-19T19:18:22.056Z"
   },{
     "id": "prod-amsi-5576",
     "name": "HP BUREAU 290-G9-i7",
