@@ -139,7 +139,7 @@ export function Header() {
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
 
-          {/* Technova Logo */}
+          {/* GudPreiss Logo */}
           <Link href="/" className="flex items-center gap-2">
             {globalSettings?.logo_url && globalSettings.logo_url !== '/logo.png' ? (
               <Image
@@ -281,7 +281,7 @@ export function Header() {
                             <Image src={getValidImageUrl(prod.images[0], prod.category_id || prod.category_name)} alt={prod.name} fill className="object-contain p-1 group-hover:scale-105 transition-transform" />
                           </div>
                           <div className="flex-1 min-w-0 text-left">
-                            <p className="text-[10px] font-bold uppercase text-emerald-800 truncate">{prod.category_name || 'TechNova'}</p>
+                            <p className="text-[10px] font-bold uppercase text-emerald-800 truncate">{prod.category_name || 'GudPreiss'}</p>
                             <p className="text-[13px] font-semibold text-slate-900 group-hover:text-emerald-700 transition truncate">{prod.name}</p>
                             <div className="flex items-baseline gap-2">
                               <span className="text-[12px] font-extrabold text-slate-900">{prod.price.toLocaleString('de-DE')} €</span>
@@ -465,7 +465,7 @@ export function Header() {
                     <div className="relative w-10 h-10 flex-shrink-0 bg-slate-100 rounded-lg overflow-hidden border border-slate-100">                       <Image src={getValidImageUrl(prod.images[0], prod.category_id || prod.category_name)} alt={prod.name} fill className="object-contain p-1" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[10px] font-bold uppercase text-emerald-800 truncate">{prod.category_name || 'TechNova'}</p>
+                      <p className="text-[10px] font-bold uppercase text-emerald-800 truncate">{prod.category_name || 'GudPreiss'}</p>
                       <p className="text-[12px] font-semibold text-slate-900 truncate">{prod.name}</p>
                       <p className="text-[11px] font-bold text-slate-900">{prod.price.toLocaleString('de-DE')} €</p>
                     </div>

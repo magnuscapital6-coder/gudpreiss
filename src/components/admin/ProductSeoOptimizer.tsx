@@ -200,8 +200,8 @@ export function ProductSeoOptimizer({
 
     // Generate Optimized Payload
     const generatedSlug = generateGermanSeoSlug(fields.name);
-    const generatedMetaTitle = `${fields.name} günstig online kaufen | TechNova Deutschland`;
-    const generatedMetaDesc = `Kaufen Sie ${fields.name} jetzt günstig bei TechNova Store. Top-Qualität, 2 Jahre Herstellergarantie & kostenloser Versand in Deutschland.`;
+    const generatedMetaTitle = `${fields.name} günstig online kaufen | GudPreiss Deutschland`;
+    const generatedMetaDesc = `Kaufen Sie ${fields.name} jetzt günstig bei GudPreiss. Top-Qualität, 2 Jahre Herstellergarantie & kostenloser Versand in Deutschland.`;
     const generatedShortDesc = `${fields.name} mit erstklassiger Performance. Jetzt zum besten Preis in Deutschland sichern.`;
     
     const enrichedDescription = fields.description && fields.description.length >= 100

@@ -38,7 +38,7 @@ export default function TermsPage() {
           </div>
           <h1 className="text-3xl sm:text-4xl font-black tracking-tight">{page?.title || 'AGB & Nutzungsbedingungen'}</h1>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
-            {page?.subtitle || 'Rechtliche Bestimmungen für Käufe im TechNova Online-Shop.'}
+            {page?.subtitle || 'Rechtliche Bestimmungen für Käufe im GudPreiss Online-Shop.'}
           </p>
         </div>
 

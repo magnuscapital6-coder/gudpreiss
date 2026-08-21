@@ -41,7 +41,7 @@ function TrackingContent() {
       // 1. Check client-side localStorage
       let localOrders: Order[] = [];
       try {
-        const saved = localStorage.getItem('technova_orders');
+        const saved = localStorage.getItem('gudpreiss_orders');
         if (saved) localOrders = JSON.parse(saved);
       } catch {
         // ignore
@@ -293,7 +293,7 @@ function TrackingContent() {
                     <div className="pt-2 border-t border-slate-100 dark:border-slate-800 font-mono text-[11px]">
                       <span className="text-[10px] font-bold text-slate-400 uppercase font-sans block">IBAN Empfänger</span>
                       <p className="font-bold text-emerald-800 dark:text-emerald-400">{settings.iban || 'DE89 3704 0044 0532 0130 00'}</p>
-                      <p className="text-slate-500 dark:text-slate-400 font-sans text-[10px]">{settings.account_holder || 'TechNova Store GmbH'} (Berlin)</p>
+                      <p className="text-slate-500 dark:text-slate-400 font-sans text-[10px]">{settings.account_holder || 'GudPreiss GmbH'} (Berlin)</p>
                     </div>
                   </div>
                 </div>

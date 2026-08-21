@@ -19,7 +19,7 @@ interface AuthContextType {
 }
 
 // Cookie helpers for middleware-readable auth state
-const AUTH_COOKIE = 'technova_auth_user';
+const AUTH_COOKIE = 'gudpreiss_auth_user';
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
 
 /**
@@ -28,7 +28,7 @@ const COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
  * The signature prevents cookie forgery.
  */
 async function signValue(value: string): Promise<string> {
-  const secret = 'technova-dev-secret-change-in-production';
+  const secret = 'gudpreiss-dev-secret-change-in-production';
   const enc = new TextEncoder();
   const key = await crypto.subtle.importKey(
     'raw',
@@ -67,7 +67,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      const savedUser = localStorage.getItem('technova_auth_user');
+      const savedUser = localStorage.getItem('gudpreiss_auth_user');
       if (savedUser) {
         setUser(JSON.parse(savedUser));
       } else {
@@ -128,7 +128,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             updated_at: new Date().toISOString(),
           };
           setUser(profile);
-          localStorage.setItem('technova_auth_user', JSON.stringify(profile));
+          localStorage.setItem('gudpreiss_auth_user', JSON.stringify(profile));
           await setAuthCookie(profile);
           setIsLoading(false);
           return { success: true };
@@ -173,7 +173,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         updated_at: new Date().toISOString(),
       };
       setUser(newUser);
-      localStorage.setItem('technova_auth_user', JSON.stringify(newUser));
+      localStorage.setItem('gudpreiss_auth_user', JSON.stringify(newUser));
       await setAuthCookie(newUser);
       setIsLoading(false);
       return { success: true };
@@ -194,7 +194,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       // Ignore
     }
     setUser(null);
-    localStorage.removeItem('technova_auth_user');
+    localStorage.removeItem('gudpreiss_auth_user');
     removeAuthCookie();
   }, []);
 

@@ -20,8 +20,8 @@ export default function CheckoutPage() {
 
   const iban = settings.iban || 'DE89 3704 0044 0532 0130 00';
   const bic = settings.bic || 'DEUTDEDDBER';
-  const bankName = settings.bank_name || 'TechNova Global Bank AG';
-  const accountHolder = settings.account_holder || 'TechNova Store GmbH';
+  const bankName = settings.bank_name || 'GudPreiss Global Bank AG';
+  const accountHolder = settings.account_holder || 'GudPreiss GmbH';
   const router = useRouter();
 
   const [step, setStep] = useState<1 | 2 | 3>(1);
@@ -29,7 +29,7 @@ export default function CheckoutPage() {
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
   // Form Fields State
-  const [email, setEmail] = useState(user?.email || 'kunden.demo@technova.de');
+  const [email, setEmail] = useState(user?.email || 'kunden.demo@gudpreiss.de');
   const [phone, setPhone] = useState(user?.phone || '+49 30 1234567');
   const [fullName, setFullName] = useState(user?.full_name || 'Klaus Weber');
   const [addressLine1, setAddressLine1] = useState('Friedrichstraße 12');
@@ -113,8 +113,8 @@ export default function CheckoutPage() {
       const res = await createOrderServerAction(orderPayload);
       if (res.success && res.order) {
         try {
-          const existing = JSON.parse(localStorage.getItem('technova_Bestellungen') || '[]');
-          localStorage.setItem('technova_Bestellungen', JSON.stringify([res.order, ...existing]));
+          const existing = JSON.parse(localStorage.getItem('gudpreiss_Bestellungen') || '[]');
+          localStorage.setItem('gudpreiss_Bestellungen', JSON.stringify([res.order, ...existing]));
         } catch {}
 
         clearCart();

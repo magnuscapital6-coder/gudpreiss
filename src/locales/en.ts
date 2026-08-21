@@ -1,6 +1,6 @@
 export const en = {
   nav: {
-    welcome: 'WELCOME TO TECHNOVA GADGETS STORE',
+    welcome: 'WELCOME TO GUDPREISS GADGETS STORE',
     storeLocator: 'Store Locator',
     freeShipping: 'FREE SHIPPING & RETURNS',
     help: 'Help',
@@ -89,7 +89,7 @@ export const en = {
     noReviews: 'No customer reviews submitted yet for this product.',
     relatedProducts: 'Related Tech Products',
     notFound: 'Product Not Found',
-    notFoundDesc: 'The requested product could not be located in TechNova catalog.',
+    notFoundDesc: 'The requested product could not be located in GudPreiss catalog.',
     backToShop: 'Return to Store',
   },
   cart: {
@@ -126,7 +126,7 @@ export const en = {
     trackOrder: 'TRACK ORDER',
   },
   auth: {
-    loginTitle: 'Sign in to TechNova',
+    loginTitle: 'Sign in to GudPreiss',
     loginSubtitle: 'Access your account, order history & wishlist',
     email: 'Email Address',
     password: 'Password',
@@ -162,7 +162,7 @@ export const en = {
     deleteProduct: 'Delete Products',
   },
   footer: {
-    about: 'About TechNova',
+    about: 'About GudPreiss',
     aboutText: 'Your premier destination for high-end electronics, ultrabooks, smartphones and smart home robotics.',
     customerService: 'Customer Service',
     legal: 'Legal',
@@ -171,6 +171,6 @@ export const en = {
     newsletterTitle: 'Subscribe to Newsletter',
     newsletterText: 'Get exclusive offers and tech news delivered straight to your inbox.',
     subscribe: 'Subscribe',
-    copyright: '© 2026 TechNova Store. All rights reserved.',
+    copyright: '© 2026 GudPreiss. All rights reserved.',
   },
 };

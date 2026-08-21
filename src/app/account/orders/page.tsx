@@ -21,7 +21,7 @@ export default function OrderHistoryPage() {
         const ords = await getOrders();
         let clientLocalOrders: Order[] = [];
         try {
-          const saved = localStorage.getItem('technova_Bestellungen');
+          const saved = localStorage.getItem('gudpreiss_Bestellungen');
           if (saved) clientLocalOrders = JSON.parse(saved);
         } catch {}
 

@@ -1,5 +1,5 @@
 /**
- * AI SEO Optimization Engine for TechNova E-Commerce Blog & Products
+ * AI SEO Optimization Engine for GudPreiss E-Commerce Blog & Products
  */
 
 export interface SEOAnalysisResult {
@@ -32,9 +32,9 @@ export function optimizeBlogPostSEO(params: {
   // 2. Generate Optimized SEO Meta Title (Target: 50-60 chars)
   let seoTitle = title.trim();
   if (seoTitle.length < 40) {
-    seoTitle = `${seoTitle} | Kaufberater & Test 2026 - TechNova`;
-  } else if (!seoTitle.includes('TechNova')) {
-    seoTitle = `${seoTitle} - TechNova Store`;
+    seoTitle = `${seoTitle} | Kaufberater & Test 2026 - GudPreiss`;
+  } else if (!seoTitle.includes('GudPreiss')) {
+    seoTitle = `${seoTitle} - GudPreiss`;
   }
   if (seoTitle.length > 60) {
     seoTitle = seoTitle.substring(0, 57) + '...';
@@ -43,7 +43,7 @@ export function optimizeBlogPostSEO(params: {
   // 3. Generate Optimized SEO Meta Description (Target: 140-160 chars)
   let seoDesc = excerpt.trim() || plainText.substring(0, 150).trim();
   if (seoDesc.length < 100) {
-    seoDesc = `${seoDesc} Entdecken Sie die neuesten Trends, Experten-Tipps und unabhängige Produkttests jetzt bei TechNova.`;
+    seoDesc = `${seoDesc} Entdecken Sie die neuesten Trends, Experten-Tipps und unabhängige Produkttests jetzt bei GudPreiss.`;
   }
   if (seoDesc.length > 160) {
     seoDesc = seoDesc.substring(0, 157) + '...';
@@ -64,7 +64,7 @@ export function optimizeBlogPostSEO(params: {
   // 5. Extract Keywords
   const extractedKeywords = new Set<string>(existingKeywords);
   const commonTechKeywords = [
-    'TechNova',
+    'GudPreiss',
     category,
     'Kaufberatung',
     'Testbericht',

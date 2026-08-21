@@ -32,7 +32,7 @@ export default function WishlistPage() {
               <Heart className="w-8 h-8" />
             </div>
             <h2 className="text-xl font-bold text-slate-900 mb-2">Your Wishlist is Empty</h2>
-            <p className="text-xs text-slate-500 mb-6">Explore the TechNova store and click the heart icon to save products.</p>
+            <p className="text-xs text-slate-500 mb-6">Explore the GudPreiss store and click the heart icon to save products.</p>
             <Link
               href="/shop"
               className="px-6 py-3 bg-blue-600 text-white font-bold text-xs rounded-xl hover:bg-blue-700 transition"

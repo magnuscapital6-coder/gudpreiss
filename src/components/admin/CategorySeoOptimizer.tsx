@@ -30,7 +30,7 @@ export function CategorySeoOptimizer({ category, onApply }: CategorySeoOptimizer
     const optimized: Partial<Category> = {
       name: categoryName,
       slug: seoSlug,
-      description: `${categoryName} günstig online kaufen bei TechNova Deutschland. Entdecken Sie die besten Angebote mit 2 Jahren Garantie und schnellem Versand.`,
+      description: `${categoryName} günstig online kaufen bei GudPreiss Deutschland. Entdecken Sie die besten Angebote mit 2 Jahren Garantie und schnellem Versand.`,
     };
 
     onApply(optimized);

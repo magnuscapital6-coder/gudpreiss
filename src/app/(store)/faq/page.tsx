@@ -7,7 +7,7 @@ export default function FAQPage() {
   const faqs = [
     { q: 'How long does shipping take?', a: 'Standard global express shipping takes between 2 to 4 business days.' },
     { q: 'What payment methods do you accept?', a: 'We accept all major credit/debit cards via Stripe (Visa, Mastercard, AMEX) and Cash on Delivery.' },
-    { q: 'Are all products covered by warranty?', a: 'Yes! All products sold on TechNova include a 2-Year Official Manufacturer Warranty.' },
+    { q: 'Are all products covered by warranty?', a: 'Yes! All products sold on GudPreiss include a 2-Year Official Manufacturer Warranty.' },
     { q: 'What is your return policy?', a: 'We offer a 30-day hassle-free return and exchange policy for unopened or defective products.' },
   ];
 

@@ -233,7 +233,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
               <div className="w-full pt-2 border-t border-slate-100 flex items-center justify-between z-10">
                 <div className="min-w-0 flex-1 pr-2">
                   <p className="text-[10px] font-bold text-emerald-800 uppercase tracking-widest truncate">
-                    {currentProduct.category_name || 'TechNova'}
+                    {currentProduct.category_name || 'GudPreiss'}
                   </p>
                   <p className="text-[13px] font-extrabold text-slate-900 truncate">
                     {currentProduct.name}

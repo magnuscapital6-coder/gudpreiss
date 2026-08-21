@@ -13,7 +13,7 @@ export default function NewBlogPostPage() {
   const [title, setTitle] = useState('');
   const [slug, setSlug] = useState('');
   const [category, setCategory] = useState('Technologie');
-  const [authorName, setAuthorName] = useState('TechNova Redaktion');
+  const [authorName, setAuthorName] = useState('GudPreiss Redaktion');
   const [coverImage, setCoverImage] = useState('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200');
   const [excerpt, setExcerpt] = useState('');
   const [content, setContent] = useState('');
@@ -22,7 +22,7 @@ export default function NewBlogPostPage() {
   // SEO Fields State
   const [seoTitle, setSeoTitle] = useState('');
   const [seoDescription, setSeoDescription] = useState('');
-  const [keywordsInput, setKeywordsInput] = useState('TechNova, Kaufberatung, Testbericht 2026');
+  const [keywordsInput, setKeywordsInput] = useState('GudPreiss, Kaufberatung, Testbericht 2026');
   const [seoAnalysis, setSeoAnalysis] = useState<SEOAnalysisResult | null>(null);
   const [isOptimizing, setIsOptimizing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -277,7 +277,7 @@ export default function NewBlogPostPage() {
 
               <div className="bg-white text-slate-900 p-5 rounded-2xl border border-slate-200 font-sans space-y-1 shadow-md">
                 <div className="text-[11px] text-slate-600 truncate flex items-center gap-1">
-                  <span>https://technova.de</span>
+                  <span>https://gudpreiss.de</span>
                   <span>›</span>
                   <span>Blog</span>
                   <span>›</span>

@@ -68,7 +68,7 @@ export default function SeoCommandCenterPage() {
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">SEO COMMAND CENTER</h1>
           <p className="text-xs text-slate-400 max-w-2xl leading-relaxed">
-            Zentrale Verwaltung aller SEO-Aktivitäten, Merchant-Feeds, Keyword-Chancen und Schema-Strukturen für TechNova.
+            Zentrale Verwaltung aller SEO-Aktivitäten, Merchant-Feeds, Keyword-Chancen und Schema-Strukturen für GudPreiss.
           </p>
         </div>
 

@@ -19,7 +19,7 @@ export default function ContactPage() {
 
       <main className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 w-full py-12">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Kontaktieren Sie TechNova</h1>
+          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Kontaktieren Sie GudPreiss</h1>
           <p className="text-xs text-slate-500 mt-2">Haben Sie Fragen zu Produkten, Versand oder Großbestellungen? Wir helfen Ihnen 24/7.</p>
         </div>
 
@@ -37,7 +37,7 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-blue-400" />
-                <span>support@technova.store</span>
+                <span>support@gudpreiss.store</span>
               </div>
             </div>
           </div>

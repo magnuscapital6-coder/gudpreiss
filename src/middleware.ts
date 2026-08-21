@@ -7,7 +7,7 @@ import { verifyValue } from '@/lib/cookie-signing';
  *
  * Priority:
  * 1. Supabase session cookie (sb-access-token) — real auth via JWT validation
- * 2. technova_auth_user cookie — demo / fallback auth (HMAC-signed)
+ * 2. gudpreiss_auth_user cookie — demo / fallback auth (HMAC-signed)
  *
  * Security: The cookie must be HMAC-signed. Unsigned or forged
  * cookies are rejected. The Supabase token presence is only
@@ -23,7 +23,7 @@ async function isAdminSession(request: NextRequest): Promise<boolean> {
   }
 
   // 2. Demo / fallback auth cookie — must be HMAC-signed
-  const authCookie = request.cookies.get('technova_auth_user')?.value;
+  const authCookie = request.cookies.get('gudpreiss_auth_user')?.value;
   if (!authCookie) {
     return false;
   }
@@ -50,7 +50,7 @@ async function hasSession(request: NextRequest): Promise<boolean> {
   if (sbToken && sbToken.length > 20 && !sbToken.includes('mock')) return true;
 
   // 2. Signed demo cookie
-  const authCookie = request.cookies.get('technova_auth_user')?.value;
+  const authCookie = request.cookies.get('gudpreiss_auth_user')?.value;
   if (!authCookie) return false;
 
   try {

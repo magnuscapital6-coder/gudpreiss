@@ -12,7 +12,7 @@ const replacements = [
   ["'Erreur lors de la vérification du coupon.'", "'Fehler bei der Gutscheinprüfung.'"],
   
   // Admin categories
-  ["Organisez les catégories de la boutique TechNova.", "Verwalten Sie die Kategorien des TechNova-Shops."],
+  ["Organisez les catégories de la boutique GudPreiss.", "Verwalten Sie die Kategorien des GudPreiss-Shops."],
   
   // Admin customers
   ["Gérez les acheteurs inscrits, les coordonnées et les rôles d'accès.", "Verwalten Sie registrierte Kunden, Kontaktdaten und Zugriffsrollen."],

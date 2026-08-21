@@ -97,7 +97,7 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
             <div className="absolute right-0 bottom-0 top-0 w-1/2 opacity-35 mix-blend-luminosity pointer-events-none z-0">
               <Image
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80"
-                alt="TechNova Member"
+                alt="GudPreiss Member"
                 fill
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />

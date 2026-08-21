@@ -13,7 +13,7 @@ export default function AboutPage() {
           <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto text-white">
             <Sparkles className="w-6 h-6" />
           </div>
-          <h1 className="text-3xl font-black text-slate-900 tracking-tight">Über TechNova Store</h1>
+          <h1 className="text-3xl font-black text-slate-900 tracking-tight">Über GudPreiss</h1>
           <p className="text-xs text-slate-500 max-w-lg mx-auto leading-relaxed">
             Gegründet mit der Vision, Technikbegeisterte mit modernster Elektronik, Spitzen-Smartphones, Ultrabooks und intelligenter Robotik zu verbinden.
           </p>
@@ -22,7 +22,7 @@ export default function AboutPage() {
         <div className="bg-white rounded-3xl border border-slate-200/80 p-8 shadow-sm space-y-6 text-xs text-slate-600 leading-relaxed">
           <h3 className="text-base font-bold text-slate-900">Unsere Mission</h3>
           <p>
-            Bei TechNova sind wir überzeugt, dass Premium-Technologie zugänglich, zuverlässig und von erstklassigem Kundenservice unterstützt sein sollte. Jedes Smartphone, Laptop und Audio-Gerät in unserem Katalog durchläuft eine strenge Echtheitsprüfung und Qualitätskontrolle.
+            Bei GudPreiss sind wir überzeugt, dass Premium-Technologie zugänglich, zuverlässig und von erstklassigem Kundenservice unterstützt sein sollte. Jedes Smartphone, Laptop und Audio-Gerät in unserem Katalog durchläuft eine strenge Echtheitsprüfung und Qualitätskontrolle.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">

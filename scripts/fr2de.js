@@ -44,8 +44,8 @@ const fr2de = {
   "'Erreur lors de la vérification du coupon.'": "'Fehler bei der Gutscheinprüfung.'",
 
   // Admin categories
-  "Organisez les catégories de la boutique TechNova.": "Verwalten Sie die Kategorien des TechNova-Shops.",
-  "Organisez les catégories de la boutique TechNova": "Verwalten Sie die Kategorien des TechNova-Shops",
+  "Organisez les catégories de la boutique GudPreiss.": "Verwalten Sie die Kategorien des GudPreiss-Shops.",
+  "Organisez les catégories de la boutique GudPreiss": "Verwalten Sie die Kategorien des GudPreiss-Shops",
   'placeholder="Rechercher une catégorie..."': 'placeholder="Kategorie suchen..."',
   'Nom de la catégorie': 'Kategorienname',
   'Créer la catégorie': 'Kategorie erstellen',

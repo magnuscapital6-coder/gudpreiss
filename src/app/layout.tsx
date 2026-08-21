@@ -16,12 +16,12 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://technova.de'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de'),
   title: {
-    default: 'Elektronik & Tech-Gadgets online kaufen | TechNova Deutschland',
-    template: '%s | TechNova Store Deutschland',
+    default: 'Elektronik & Tech-Gadgets online kaufen | GudPreiss Deutschland',
+    template: '%s | GudPreiss Deutschland',
   },
-  description: 'Entdecken Sie neueste Smartphones, Laptops, Noise-Cancelling Kopfhörer & Smart-Home Roboter online bei TechNova. Kostenloser Versand & 30 Tage Rückgabe in Deutschland.',
+  description: 'Entdecken Sie neueste Smartphones, Laptops, Noise-Cancelling Kopfhörer & Smart-Home Roboter online bei GudPreiss. Kostenloser Versand & 30 Tage Rückgabe in Deutschland.',
   keywords: [
     'elektronik online kaufen',
     'smartphones kaufen deutschland',
@@ -29,21 +29,21 @@ export const metadata = {
     'kopfhörer testsieger',
     'gaming controller günstig',
     'smart home robotik',
-    'technova store',
+    'gudpreiss store',
   ],
   alternates: {
-    canonical: 'https://technova.de',
+    canonical: 'https://gudpreiss.de',
     languages: {
-      'de-DE': 'https://technova.de',
-      'de': 'https://technova.de',
-      'x-default': 'https://technova.de',
+      'de-DE': 'https://gudpreiss.de',
+      'de': 'https://gudpreiss.de',
+      'x-default': 'https://gudpreiss.de',
     },
   },
   openGraph: {
-    title: 'TechNova Store — Erstklassige Elektronik & Tech-Gadgets Deutschland',
+    title: 'GudPreiss — Erstklassige Elektronik & Tech-Gadgets Deutschland',
     description: 'Beste Elektronik-Angebote mit verifizierten Testberichten und schnellem Versand in Deutschland.',
-    url: 'https://technova.de',
-    siteName: 'TechNova Store',
+    url: 'https://gudpreiss.de',
+    siteName: 'GudPreiss',
     locale: 'de_DE',
     type: 'website',
   },
@@ -67,10 +67,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://technova.de/#organization',
-        name: 'TechNova Store Deutschland',
-        url: 'https://technova.de',
-        logo: 'https://technova.de/logo.png',
+        '@id': 'https://gudpreiss.de/#organization',
+        name: 'GudPreiss Deutschland',
+        url: 'https://gudpreiss.de',
+        logo: 'https://gudpreiss.de/logo.png',
         description: 'Erstklassiger E-Commerce Händler für Elektronik, Smartphones, Laptops und Smart Home in Deutschland.',
         address: {
           '@type': 'PostalAddress',
@@ -82,15 +82,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://technova.de/#website',
-        url: 'https://technova.de',
-        name: 'TechNova Store Deutschland',
+        '@id': 'https://gudpreiss.de/#website',
+        url: 'https://gudpreiss.de',
+        name: 'GudPreiss Deutschland',
         publisher: {
-          '@id': 'https://technova.de/#organization',
+          '@id': 'https://gudpreiss.de/#organization',
         },
         potentialAction: {
           '@type': 'SearchAction',
-          target: 'https://technova.de/shop?search={search_term_string}',
+          target: 'https://gudpreiss.de/shop?search={search_term_string}',
           'query-input': 'required name=search_term_string',
         },
       },

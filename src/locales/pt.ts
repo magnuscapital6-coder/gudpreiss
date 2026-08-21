@@ -1,6 +1,6 @@
 export const pt = {
   nav: {
-    welcome: 'BEM-VINDO À TECHNOVA STORE',
+    welcome: 'BEM-VINDO À GUDPREISS STORE',
     storeLocator: 'Localizador de Lojas',
     freeShipping: 'ENVIO E DEVOLUÇÕES GRÁTIS',
     help: 'Ajuda',
@@ -102,7 +102,7 @@ export const pt = {
     trackOrder: 'RASTREAR PEDIDO',
   },
   auth: {
-    loginTitle: 'Entrar na TechNova',
+    loginTitle: 'Entrar na GudPreiss',
     loginSubtitle: 'Aceda à sua conta, histórico e favoritos',
     email: 'Endereço de E-mail',
     password: 'Palavra-passe',
@@ -138,7 +138,7 @@ export const pt = {
     deleteProduct: 'Eliminar Produto',
   },
   footer: {
-    about: 'Sobre a TechNova',
+    about: 'Sobre a GudPreiss',
     aboutText: 'A sua loja de referência para eletrónica de alta performance, ultrabooks e robótica.',
     customerService: 'Apoio ao Cliente',
     legal: 'Informações Legais',
@@ -147,6 +147,6 @@ export const pt = {
     newsletterTitle: 'Subscrever Newsletter',
     newsletterText: 'Receba ofertas exclusivas e novidades tecnológicas diretamente no seu e-mail.',
     subscribe: 'Subscrever',
-    copyright: '© 2026 TechNova Store. Todos os direitos reservados.',
+    copyright: '© 2026 GudPreiss. Todos os direitos reservados.',
   },
 };

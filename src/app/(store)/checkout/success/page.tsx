@@ -18,8 +18,8 @@ function SuccessContent() {
 
   const iban = settings.iban || 'DE89 3704 0044 0532 0130 00';
   const bic = settings.bic || 'DEUTDEDDBER';
-  const bankName = settings.bank_name || 'TechNova Global Bank AG';
-  const accountHolder = settings.account_holder || 'TechNova Store GmbH';
+  const bankName = settings.bank_name || 'GudPreiss Global Bank AG';
+  const accountHolder = settings.account_holder || 'GudPreiss GmbH';
 
   const copyToClipboard = (text: string, fieldName: string) => {
     navigator.clipboard.writeText(text);

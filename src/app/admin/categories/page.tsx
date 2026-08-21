@@ -54,7 +54,7 @@ export default function AdminCategoriesPage() {
             {t('admin.Kategorien')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500">
-            Verwalten Sie die Kategorien des TechNova-Shops.
+            Verwalten Sie die Kategorien des GudPreiss-Shops.
           </p>
         </div>
 

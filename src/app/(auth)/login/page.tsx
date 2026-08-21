@@ -93,7 +93,7 @@ export default function LoginPage() {
             <div className="w-12 h-12 bg-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-white shadow-lg shadow-emerald-600/20">
               <Lock className="w-6 h-6" />
             </div>
-            <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Anmelden bei TechNova</h1>
+            <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Anmelden bei GudPreiss</h1>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Zugang zum Kundenkonto und Admin-Dashboard</p>
           </div>
 

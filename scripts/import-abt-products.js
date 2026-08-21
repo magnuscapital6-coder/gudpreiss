@@ -52,7 +52,7 @@ abtCategories.forEach((cat, index) => {
   const meta = catTranslationMap[cat.slug] || {
     name: cat.name.replace(/&amp;/g, '&'),
     icon: 'Package',
-    desc: 'Hochwertige Markenprodukte im TechNova Store.'
+    desc: 'Hochwertige Markenprodukte im GudPreiss.'
   };
 
   const catObj = {
@@ -135,7 +135,7 @@ function translateTextToGerman(text, categorySlug) {
   return result;
 }
 
-// Convert ABT products to TechNova format
+// Convert ABT products to GudPreiss format
 const gudProducts = [];
 const gudBrandsMap = {};
 
@@ -162,7 +162,7 @@ abtProducts.forEach((p, idx) => {
   const catName = primaryCat ? primaryCat.name : gudCategories[0].name;
 
   const titleWords = cleanTitleFR.split(' ');
-  const brandName = titleWords.length > 1 ? titleWords[1] : 'TechNova';
+  const brandName = titleWords.length > 1 ? titleWords[1] : 'GudPreiss';
   const brandId = `b-abt-${brandName.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
 
   if (!gudBrandsMap[brandId]) {
@@ -182,7 +182,7 @@ abtProducts.forEach((p, idx) => {
     id: `prod-abt-${p.id || idx + 1}`,
     name: germanTitle,
     slug: seoSlug,
-    description: `${germanFullDesc} - Kaufen Sie den ${germanTitle} zum besten Preis bei TechNova Store mit 2 Jahren Garantie und schnellem Versand in Deutschland & Europa.`,
+    description: `${germanFullDesc} - Kaufen Sie den ${germanTitle} zum besten Preis bei GudPreiss mit 2 Jahren Garantie und schnellem Versand in Deutschland & Europa.`,
     short_description: `${germanShortDesc} | 2 Jahre Garantie & Gratis Versand ab 150 €.`,
     sku: `ABT-${p.id || idx + 1000}`,
     brand_id: brandId,
@@ -242,7 +242,7 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
     excerpt: 'Erfahren Sie alles über die neuesten Innovationen im Bereich Home-Gym & Smart Home.',
     content: 'Moderne Technik erleichtert den Alltag enorm...',
     cover_image: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=800&auto=format&fit=crop&q=80',
-    author_name: 'TechNova Redaktion',
+    author_name: 'GudPreiss Redaktion',
     category: 'Technik',
     tags: ['Technik', 'Fitness', 'Haushalt'],
     status: 'published',
@@ -257,7 +257,7 @@ export const INITIAL_BANNERS: Banner[] = [
     id: 'ban-1',
     title: 'Top-Technologie Angebote',
     subtitle: 'Bis zu 15% Rabatt',
-    description: 'Die neuste Technologie. Die besten Angebote im TechNova Store.',
+    description: 'Die neuste Technologie. Die besten Angebote im GudPreiss.',
     price_text: 'Ab 160 €',
     image_url: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=1200&auto=format&fit=crop&q=80',
     cta_text: 'JETZT EINKAUFEN',
@@ -293,8 +293,8 @@ export const INITIAL_COUPONS: Coupon[] = [
 ];
 
 export const DEFAULT_STORE_SETTINGS: StoreSettings = {
-  store_name: 'TechNova Store',
-  contact_email: 'support@technova.store',
+  store_name: 'GudPreiss',
+  contact_email: 'support@gudpreiss.store',
   contact_phone: '+49 (0) 800 555-TECH',
   currency: 'EUR',
   currency_symbol: '€',

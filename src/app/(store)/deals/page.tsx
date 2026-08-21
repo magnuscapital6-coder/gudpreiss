@@ -7,7 +7,7 @@ import { getProducts } from '@/lib/db/db-provider';
 import { Flame } from 'lucide-react';
 
 export const metadata = {
-  title: 'Hot Gadgets Deals & Flash Discounts | TechNova',
+  title: 'Hot Gadgets Deals & Flash Discounts | GudPreiss',
   description: 'Special offers and discount tech gadgets up to 25% off.',
 };
 

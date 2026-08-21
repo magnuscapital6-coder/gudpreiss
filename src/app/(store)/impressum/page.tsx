@@ -38,7 +38,7 @@ export default function ImpressumPage() {
           </div>
           <h1 className="text-3xl sm:text-4xl font-black tracking-tight">{page?.title || 'Impressum'}</h1>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
-            {page?.subtitle || 'Offizielle Angaben zum Betreiber der Plattform TechNova Store Deutschland.'}
+            {page?.subtitle || 'Offizielle Angaben zum Betreiber der Plattform GudPreiss Deutschland.'}
           </p>
         </div>
 

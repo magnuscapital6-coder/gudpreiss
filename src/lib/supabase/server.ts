@@ -52,7 +52,7 @@ export interface ServerSession {
 }
 
 /**
- * Read and validate the `technova_auth_user` cookie server-side.
+ * Read and validate the `gudpreiss_auth_user` cookie server-side.
  *
  * Security: The cookie MUST be HMAC-signed. Unsigned or forged
  * cookies are rejected. This prevents privilege escalation by
@@ -71,7 +71,7 @@ export async function getServerSession(): Promise<ServerSession> {
 
   try {
     const cookieStore = cookies();
-    const authCookie = cookieStore.get('technova_auth_user')?.value;
+    const authCookie = cookieStore.get('gudpreiss_auth_user')?.value;
     if (!authCookie) return empty;
 
     // Verify the HMAC signature — reject forged cookies

@@ -40,7 +40,7 @@ export default function EditProductPage() {
         setCostPrice(product.cost_price ? String(product.cost_price) : '');
         setStock(String(product.stock));
         setCategoryName(product.category_name || 'Smartphones');
-        setBrandName(product.brand_name || 'TechNova');
+        setBrandName(product.brand_name || 'GudPreiss');
         setDescription(product.description);
         setImages(product.images || []);
       }

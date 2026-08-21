@@ -4,7 +4,7 @@ try {
   // 1. Audit Accounts & Roles
   console.log('1. Auditing Auth Accounts & RBAC Roles...');
   const demoUsers = [
-    { email: 'admin@technova.store', role: 'admin', expectedAccess: 'FULL_ADMIN_ACCESS' },
+    { email: 'admin@gudpreiss.store', role: 'admin', expectedAccess: 'FULL_ADMIN_ACCESS' },
     { email: 'customer@example.com', role: 'customer', expectedAccess: 'STOREFRONT_CUSTOMER_ACCESS' }
   ];
 

@@ -93,7 +93,7 @@ export function resetRateLimit(key: string): void {
 
 // ─── Client-side Rate Limiter (localStorage) ────────────────
 
-const CLIENT_STORAGE_KEY = 'technova_rate_limit';
+const CLIENT_STORAGE_KEY = 'gudpreiss_rate_limit';
 
 interface ClientRateLimitEntry {
   email: string;

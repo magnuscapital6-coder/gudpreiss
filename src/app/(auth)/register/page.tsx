@@ -64,7 +64,7 @@ export default function RegisterPage() {
               <Sparkles className="w-6 h-6" />
             </div>
             <h1 className="text-2xl font-black text-slate-900 tracking-tight">Konto erstellen</h1>
-            <p className="text-xs text-slate-500 mt-1">Treten Sie TechNova bei für schnelleres Checkout und exklusive Angebote</p>
+            <p className="text-xs text-slate-500 mt-1">Treten Sie GudPreiss bei für schnelleres Checkout und exklusive Angebote</p>
           </div>
 
           {errorMsg && (

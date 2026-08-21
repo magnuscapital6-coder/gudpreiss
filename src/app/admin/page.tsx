@@ -50,7 +50,7 @@ export default function AdminDashboardPage() {
       const fetchedOrders = await getOrders();
       let localOrders: Order[] = [];
       try {
-        const saved = localStorage.getItem('technova_orders');
+        const saved = localStorage.getItem('gudpreiss_orders');
         if (saved) localOrders = JSON.parse(saved);
       } catch {
         // ignore

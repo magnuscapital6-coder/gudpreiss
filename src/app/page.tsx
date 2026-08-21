@@ -8,10 +8,10 @@ import { getProducts, getBanners, getCategories } from '@/lib/db/db-provider';
 export const revalidate = 60;
 
 export const metadata = {
-  title: 'Elektronik & Tech-Gadgets günstig online kaufen | TechNova Deutschland',
+  title: 'Elektronik & Tech-Gadgets günstig online kaufen | GudPreiss Deutschland',
   description: 'Ihr deutscher Online-Shop für Smartphones, Laptops, Kopfhörer & Smart Home. Kostenloser Versand & 30 Tage Rückgaberecht in Deutschland.',
   alternates: {
-    canonical: 'https://technova.de',
+    canonical: 'https://gudpreiss.de',
   },
 };
 
@@ -36,7 +36,7 @@ export default async function HomePage() {
       },
       {
         '@type': 'Question',
-        name: 'Bietet TechNova eine Garantie auf Elektronikprodukte?',
+        name: 'Bietet GudPreiss eine Garantie auf Elektronikprodukte?',
         acceptedAnswer: {
           '@type': 'Answer',
           text: 'Ja, alle Produkte enthalten eine volle 2-jährige Herstellergarantie sowie ein 30-tägiges Rückgaberecht.',

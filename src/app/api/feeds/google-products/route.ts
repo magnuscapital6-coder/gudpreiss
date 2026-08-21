@@ -4,12 +4,12 @@ import { getProducts } from '@/lib/db/db-provider';
 export async function GET() {
   try {
     const products = await getProducts();
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://technova.de';
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de';
 
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
   <channel>
-    <title>TechNova Deutschland Product Feed</title>
+    <title>GudPreiss Deutschland Product Feed</title>
     <link>${siteUrl}</link>
     <description>Offizieller Google Merchant Center Produkte-Feed für Deutschland</description>
 `;
@@ -37,7 +37,7 @@ export async function GET() {
       <g:image_link>${imageUrl}</g:image_link>
       <g:availability>${availability}</g:availability>
       <g:price>${p.price.toFixed(2)} EUR</g:price>
-      <g:brand>${p.brand_name || 'TechNova'}</g:brand>
+      <g:brand>${p.brand_name || 'GudPreiss'}</g:brand>
       <g:condition>${p.condition || 'new'}</g:condition>
       <g:gtin>${p.gtin || p.sku || p.id}</g:gtin>
       <g:mpn>${p.mpn || p.sku || p.id}</g:mpn>

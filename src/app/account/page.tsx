@@ -29,7 +29,7 @@ export default function CustomerAccountPage() {
                 {user?.full_name ? user.full_name[0] : 'U'}
               </div>
               <div>
-                <h3 className="font-bold text-slate-900 text-sm">{user?.full_name || 'TechNova Customer'}</h3>
+                <h3 className="font-bold text-slate-900 text-sm">{user?.full_name || 'GudPreiss Customer'}</h3>
                 <p className="text-xs text-slate-500">{user?.email}</p>
                 {isAdmin && (
                   <span className="inline-block mt-1 bg-blue-100 text-blue-700 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full">

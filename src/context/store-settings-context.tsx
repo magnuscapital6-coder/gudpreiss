@@ -17,7 +17,7 @@ const StoreSettingsContext = createContext<StoreSettingsContextType>({
   isLoading: true,
 });
 
-export const SETTINGS_STORAGE_KEY = 'technova_store_settings';
+export const SETTINGS_STORAGE_KEY = 'gudpreiss_store_settings';
 export const SETTINGS_UPDATED_EVENT = 'store-settings-changed';
 
 export function StoreSettingsProvider({ children }: { children: React.ReactNode }) {

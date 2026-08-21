@@ -75,7 +75,7 @@ function ShopContent() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div>
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
-              TechNova Store Katalog
+              GudPreiss Katalog
             </h1>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">
               {products.length} Produkte verfügbar

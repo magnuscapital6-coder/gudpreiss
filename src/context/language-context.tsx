@@ -44,7 +44,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('technova_language') as LanguageCode;
+      const saved = localStorage.getItem('gudpreiss_language') as LanguageCode;
       if (saved && translations[saved]) {
         setLanguageState(saved);
       }
@@ -56,8 +56,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const setLanguage = (lang: LanguageCode) => {
     setLanguageState(lang);
     try {
-      localStorage.setItem('technova_language', lang);
-      document.cookie = `technova_language=${lang}; path=/; max-age=31536000`;
+      localStorage.setItem('gudpreiss_language', lang);
+      document.cookie = `gudpreiss_language=${lang}; path=/; max-age=31536000`;
     } catch {
       // Ignore
     }

@@ -90,7 +90,7 @@ for (let i = 0; i < lines.length; i++) {
       if (descMatch) {
         const germanDesc = extractGermanSentences(data.desc);
         // Fallback: use product name if no German text found
-        const finalDesc = germanDesc || data.name || 'TechNova Store Produkt';
+        const finalDesc = germanDesc || data.name || 'GudPreiss Produkt';
         const escaped = finalDesc.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
         if (descMatch[2] !== escaped) {
           lines[i] = `${descMatch[1]}${escaped}${descMatch[3]}`;

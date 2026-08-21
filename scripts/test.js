@@ -1,5 +1,5 @@
 /**
- * TechNova Core E-Commerce Business Logic Test Suite
+ * GudPreiss Core E-Commerce Business Logic Test Suite
  */
 
 function testCartCalculation() {

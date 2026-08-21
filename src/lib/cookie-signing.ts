@@ -12,7 +12,7 @@
 const ALGO = 'HMAC-SHA256';
 
 function getSecret(): string {
-  return process.env.AUTH_COOKIE_SECRET || 'technova-dev-secret-change-in-production';
+  return process.env.AUTH_COOKIE_SECRET || 'gudpreiss-dev-secret-change-in-production';
 }
 
 let cachedKey: CryptoKey | null = null;

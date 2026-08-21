@@ -135,18 +135,18 @@ export default function ProductDetailPage() {
     mpn: product.mpn || product.sku,
     brand: {
       '@type': 'Brand',
-      name: product.brand_name || 'TechNova',
+      name: product.brand_name || 'GudPreiss',
     },
     offers: {
       '@type': 'Offer',
-      url: `https://technova.de/shop/${product.slug}`,
+      url: `https://gudpreiss.de/shop/${product.slug}`,
       priceCurrency: 'EUR',
       price: price,
       itemCondition: 'https://schema.org/NewCondition',
       availability: product.stock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
       seller: {
         '@type': 'Organization',
-        name: 'TechNova Store Deutschland',
+        name: 'GudPreiss Deutschland',
       },
     },
     aggregateRating: {
@@ -164,19 +164,19 @@ export default function ProductDetailPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Startseite',
-        item: 'https://technova.de',
+        item: 'https://gudpreiss.de',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Shop',
-        item: 'https://technova.de/shop',
+        item: 'https://gudpreiss.de/shop',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: product.name,
-        item: `https://technova.de/shop/${product.slug}`,
+        item: `https://gudpreiss.de/shop/${product.slug}`,
       },
     ],
   };
@@ -252,7 +252,7 @@ export default function ProductDetailPage() {
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <span className="bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 border border-emerald-500/20 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
-                    {product.brand_name || 'TechNova'}
+                    {product.brand_name || 'GudPreiss'}
                   </span>
                   {product.on_sale && (
                     <span className="bg-orange-500/10 text-orange-500 border border-orange-500/20 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
@@ -443,7 +443,7 @@ export default function ProductDetailPage() {
             <div className="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
               <div className="py-2.5 grid grid-cols-3">
                 <span className="font-bold text-slate-900 dark:text-white">{t('product.brand')}</span>
-                <span className="col-span-2 text-slate-600 dark:text-slate-300">{product.brand_name || 'TechNova'}</span>
+                <span className="col-span-2 text-slate-600 dark:text-slate-300">{product.brand_name || 'GudPreiss'}</span>
               </div>
               <div className="py-2.5 grid grid-cols-3">
                 <span className="font-bold text-slate-900 dark:text-white">{t('product.category')}</span>

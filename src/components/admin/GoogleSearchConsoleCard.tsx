@@ -39,7 +39,7 @@ export function GoogleSearchConsoleCard() {
             <p className="font-bold text-white">Erforderliche Schritte zur Anbindung:</p>
             <ol className="list-decimal list-inside space-y-1 text-slate-300">
               <li>Google Cloud Console Service Account für Google Search Console API erstellen.</li>
-              <li>Service Account E-Mail in der Google Search Console für <strong>https://technova.de</strong> berechtigen.</li>
+              <li>Service Account E-Mail in der Google Search Console für <strong>https://gudpreiss.de</strong> berechtigen.</li>
               <li>Umgebungsvariable <code className="text-emerald-400">GOOGLE_SEARCH_CONSOLE_CLIENT_ID</code> in <code className="text-slate-300">.env.local</code> eintragen.</li>
             </ol>
           </div>

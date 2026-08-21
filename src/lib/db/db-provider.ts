@@ -228,7 +228,7 @@ export async function createBlogPost(post: Partial<BlogPost>): Promise<BlogPost>
     excerpt: post.excerpt || '',
     content: post.content || '',
     cover_image: post.cover_image || 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200',
-    author_name: post.author_name || 'TechNova Redaktion',
+    author_name: post.author_name || 'GudPreiss Redaktion',
     category: post.category || 'Technologie',
     tags: post.tags || ['Tech', 'News'],
     status: post.status || 'published',
@@ -268,16 +268,16 @@ export const memoryLegalPages: Record<string, LegalPage> = {
   impressum: {
     slug: 'impressum',
     title: 'Impressum',
-    subtitle: 'Offizielle Angaben gemäß § 5 TMG zum Betreiber der Plattform TechNova Store Deutschland.',
+    subtitle: 'Offizielle Angaben gemäß § 5 TMG zum Betreiber der Plattform GudPreiss Deutschland.',
     content: `## Angaben gemäß § 5 TMG
-TechNova Store GmbH
+GudPreiss GmbH
 Friedrichstraße 12
 10117 Berlin
 Deutschland / Germany
 
 ### Kontakt & Kundenservice
 Telefon: +49 30 1234567
-E-Mail: kontakt@technova-store.de
+E-Mail: kontakt@gudpreiss-store.de
 
 ### Vertreten durch
 Geschäftsführer: Klaus Weber
@@ -299,27 +299,27 @@ Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
     title: 'Datenschutzerklärung',
     subtitle: 'Transparente Informationen über die Erhebung und Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO.',
     content: `## 1. Datenschutz auf einen Blick
-Der Schutz Ihrer persönlichen Daten ist für die TechNova Store GmbH von höchster Priorität. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+Der Schutz Ihrer persönlichen Daten ist für die GudPreiss GmbH von höchster Priorität. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
 
 ## 2. Verantwortliche Stelle
-TechNova Store GmbH
+GudPreiss GmbH
 Friedrichstraße 12, 10117 Berlin
-E-Mail: datenschutz@technova-store.de
+E-Mail: datenschutz@gudpreiss-store.de
 
 ## 3. Datenerfassung bei Bestellungen & Vorkasse
 Bei der Abwicklung einer Bestellung erheben wir Vorname, Nachname, Lieferadresse, Rechnungsadresse, E-Mail-Adresse und Telefonnummer.
 Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
 
 ## 4. Ihre Rechte gemäß DSGVO (Art. 15-21)
-Sie haben jederzeit das Recht auf kostenlose Auskunft über Ihre gespeicherten personenbezogenen Daten sowie ein Recht auf Berichtigung, Sperrung oder Löschung. Wenden Sie sich hierzu jederzeit an datenschutz@technova-store.de.`,
+Sie haben jederzeit das Recht auf kostenlose Auskunft über Ihre gespeicherten personenbezogenen Daten sowie ein Recht auf Berichtigung, Sperrung oder Löschung. Wenden Sie sich hierzu jederzeit an datenschutz@gudpreiss-store.de.`,
     last_updated: new Date().toISOString(),
   },
   terms: {
     slug: 'terms',
     title: 'AGB & Nutzungsbedingungen',
-    subtitle: 'Allgemeine Geschäftsbedingungen für Verkäufe über den TechNova Online-Shop.',
+    subtitle: 'Allgemeine Geschäftsbedingungen für Verkäufe über den GudPreiss Online-Shop.',
     content: `## § 1 Geltungsbereich & Anbieter
-Diese Allgemeinen Geschäftsbedingungen gelten für alle Bestellungen, die Verbraucher über den Online-Shop der TechNova Store GmbH tätigen.
+Diese Allgemeinen Geschäftsbedingungen gelten für alle Bestellungen, die Verbraucher über den Online-Shop der GudPreiss GmbH tätigen.
 
 ## § 2 Vertragsschluss
 Die Darstellung der Produkte im Online-Shop stellt kein rechtlich bindendes Angebot, sondern einen unverbindlichen Online-Katalog dar.
@@ -330,7 +330,7 @@ Zahlungsart Vorkasse (Banküberweisung SEPA): Der Rechnungsbetrag ist innerhalb 
 Der Versand erfolgt kostenlos per DHL Express / UPS innerhalb Deutschlands.
 
 ## § 4 Eigentumsvorbehalt
-Die Ware bleibt bis zur vollständigen Bezahlung Eigentum der TechNova Store GmbH.`,
+Die Ware bleibt bis zur vollständigen Bezahlung Eigentum der GudPreiss GmbH.`,
     last_updated: new Date().toISOString(),
   },
   'return-policy': {
@@ -340,10 +340,10 @@ Die Ware bleibt bis zur vollständigen Bezahlung Eigentum der TechNova Store Gmb
     content: `## Widerrufsrecht
 Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie die Waren in Besitz genommen haben.
 
-Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (TechNova Store GmbH, Friedrichstraße 12, 10117 Berlin, E-Mail: widerruf@technova-store.de) informieren.
+Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (GudPreiss GmbH, Friedrichstraße 12, 10117 Berlin, E-Mail: widerruf@gudpreiss-store.de) informieren.
 
 ## Muster-Widerrufsformular
-An: TechNova Store GmbH, Friedrichstraße 12, 10117 Berlin (widerruf@technova-store.de)
+An: GudPreiss GmbH, Friedrichstraße 12, 10117 Berlin (widerruf@gudpreiss-store.de)
 Hiermit widerrufe(n) ich/wir den von mir/uns abgeschlossenen Vertrag über den Kauf der folgenden Waren:
 Bestellnummer: ________________
 Bestellt am / Erhalten am: ________________
@@ -493,7 +493,7 @@ export async function createProduct(productData: Partial<Product>): Promise<Prod
     google_product_category: productData.google_product_category || 'Electronics',
     condition: productData.condition || 'new',
     brand_id: productData.brand_id,
-    brand_name: productData.brand_name || 'TechNova',
+    brand_name: productData.brand_name || 'GudPreiss',
     category_id: productData.category_id,
     category_name: productData.category_name || 'Smartphones',
     price: Number(productData.price) || 99,
@@ -629,7 +629,7 @@ export async function createOrder(orderPayload: Partial<Order>): Promise<Order> 
     tracking_number: `TN-DE-${Math.floor(10000000 + Math.random() * 90000000)}`,
     bank_transfer_iban: memorySettings.iban || 'DE89 3704 0044 0532 0130 00',
     bank_transfer_bic: memorySettings.bic || 'DEUTDEDDBER',
-    bank_transfer_holder: memorySettings.account_holder || 'TechNova Store GmbH',
+    bank_transfer_holder: memorySettings.account_holder || 'GudPreiss GmbH',
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   };

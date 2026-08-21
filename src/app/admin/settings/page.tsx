@@ -7,8 +7,8 @@ import { useStoreSettings } from '@/context/store-settings-context';
 export default function AdminSettingsPage() {
   const { settings, updateSettings } = useStoreSettings();
 
-  const [storeName, setStoreName] = useState(settings.store_name || 'TechNova Store');
-  const [contactEmail, setContactEmail] = useState(settings.contact_email || 'support@technova.store');
+  const [storeName, setStoreName] = useState(settings.store_name || 'GudPreiss');
+  const [contactEmail, setContactEmail] = useState(settings.contact_email || 'support@gudpreiss.store');
   const [contactPhone, setContactPhone] = useState(settings.contact_phone || '+49 30 1234567');
   const [currency, setCurrency] = useState(settings.currency || 'EUR (€)');
   const [taxRate, setTaxRate] = useState(String((settings.tax_rate || 0.19) * 100));
@@ -24,8 +24,8 @@ export default function AdminSettingsPage() {
 
   useEffect(() => {
     if (settings) {
-      setStoreName(settings.store_name || 'TechNova Store');
-      setContactEmail(settings.contact_email || 'support@technova.store');
+      setStoreName(settings.store_name || 'GudPreiss');
+      setContactEmail(settings.contact_email || 'support@gudpreiss.store');
       setContactPhone(settings.contact_phone || '+49 30 1234567');
       setCurrency(settings.currency || 'EUR (€)');
       setTaxRate(String((settings.tax_rate || 0.19) * 100));
@@ -178,7 +178,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={accountHolder}
                 onChange={(e) => setAccountHolder(e.target.value)}
-                placeholder="TechNova Store GmbH"
+                placeholder="GudPreiss GmbH"
                 className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-bold text-slate-900 dark:text-white outline-none focus:border-emerald-500"
               />
             </div>
@@ -188,7 +188,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={bankName}
                 onChange={(e) => setBankName(e.target.value)}
-                placeholder="TechNova Global Bank AG"
+                placeholder="GudPreiss Global Bank AG"
                 className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-white outline-none focus:border-emerald-500"
               />
             </div>

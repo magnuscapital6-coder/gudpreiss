@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getProducts, getCategories } from '@/lib/db/db-provider';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://technova.de';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de';
 
   const [products, categories] = await Promise.all([
     getProducts(),

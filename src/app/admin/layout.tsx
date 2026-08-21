@@ -156,7 +156,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-xs font-bold text-white truncate">{user?.full_name || 'Administrateur'}</p>
-              <p className="text-[10px] text-slate-400 truncate">{user?.email || 'admin@technova.store'}</p>
+              <p className="text-[10px] text-slate-400 truncate">{user?.email || 'admin@gudpreiss.store'}</p>
             </div>
           </div>
 

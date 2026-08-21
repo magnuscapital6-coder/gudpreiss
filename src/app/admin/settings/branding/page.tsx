@@ -13,7 +13,7 @@ export default function BrandingSettingsPage() {
   const [isSaving, setIsSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
 
-  const [storeName, setStoreName] = useState('TechNova Store');
+  const [storeName, setStoreName] = useState('GudPreiss');
   const [logoUrl, setLogoUrl] = useState<string[]>([]);
   const [logoDarkUrl, setLogoDarkUrl] = useState<string[]>([]);
   const [logoMobileUrl, setLogoMobileUrl] = useState<string[]>([]);
@@ -28,7 +28,7 @@ export default function BrandingSettingsPage() {
       try {
         const s = await getStoreSettings();
         setSettings(s);
-        setStoreName(s.store_name || 'TechNova Store');
+        setStoreName(s.store_name || 'GudPreiss');
         if (s.logo_url) setLogoUrl([s.logo_url]);
         if (s.logo_dark_url) setLogoDarkUrl([s.logo_dark_url]);
         if (s.logo_mobile_url) setLogoMobileUrl([s.logo_mobile_url]);
@@ -73,7 +73,7 @@ export default function BrandingSettingsPage() {
   const handleResetToDefault = async () => {
     if (!confirm('Möchten Sie das Erscheinungsbild auf die Standardwerte zurücksetzen?')) return;
 
-    setStoreName('TechNova Store');
+    setStoreName('GudPreiss');
     setLogoUrl(['/logo.png']);
     setLogoDarkUrl(['/logo-dark.png']);
     setLogoMobileUrl(['/logo-mobile.png']);
@@ -83,7 +83,7 @@ export default function BrandingSettingsPage() {
     setSecondaryColor('#0284c7');
 
     await updateStoreSettings({
-      store_name: 'TechNova Store',
+      store_name: 'GudPreiss',
       logo_url: '/logo.png',
       logo_dark_url: '/logo-dark.png',
       logo_mobile_url: '/logo-mobile.png',

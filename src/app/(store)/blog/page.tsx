@@ -51,7 +51,7 @@ export default function BlogListingPage() {
         <div className="text-center space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-400 text-xs font-extrabold">
             <Sparkles className="w-4 h-4" />
-            <span>TECHNOVA BLOG &amp; KAUFBERATER</span>
+            <span>GUDPREISS BLOG &amp; KAUFBERATER</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight">
             Magazin, Tests &amp; Tech-Trends 2026

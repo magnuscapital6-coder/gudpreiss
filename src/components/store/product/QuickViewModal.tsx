@@ -119,7 +119,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-md">
-                  {product.brand_name || 'TechNova'}
+                  {product.brand_name || 'GudPreiss'}
                 </span>
                 {product.on_sale && (
                   <span className="text-[11px] font-bold text-amber-700 uppercase tracking-wider bg-amber-50 px-2.5 py-0.5 rounded-md">

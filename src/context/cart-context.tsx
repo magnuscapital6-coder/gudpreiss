@@ -35,11 +35,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   // Load cart from localStorage on mount
   useEffect(() => {
     try {
-      const savedCart = localStorage.getItem('technova_cart');
+      const savedCart = localStorage.getItem('gudpreiss_cart');
       if (savedCart) {
         setItems(JSON.parse(savedCart));
       }
-      const savedCoupon = localStorage.getItem('technova_coupon');
+      const savedCoupon = localStorage.getItem('gudpreiss_coupon');
       if (savedCoupon) {
         setAppliedCoupon(JSON.parse(savedCoupon));
       }
@@ -53,16 +53,16 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   // Save cart to localStorage when items change
   useEffect(() => {
     if (isLoaded) {
-      localStorage.setItem('technova_cart', JSON.stringify(items));
+      localStorage.setItem('gudpreiss_cart', JSON.stringify(items));
     }
   }, [items, isLoaded]);
 
   useEffect(() => {
     if (isLoaded) {
       if (appliedCoupon) {
-        localStorage.setItem('technova_coupon', JSON.stringify(appliedCoupon));
+        localStorage.setItem('gudpreiss_coupon', JSON.stringify(appliedCoupon));
       } else {
-        localStorage.removeItem('technova_coupon');
+        localStorage.removeItem('gudpreiss_coupon');
       }
     }
   }, [appliedCoupon, isLoaded]);
