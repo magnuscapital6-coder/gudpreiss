@@ -7,12 +7,7 @@ import { useAuth } from '@/context/auth-context';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowRight, Lock, AlertCircle, ShieldAlert } from 'lucide-react';
-import { z } from 'zod';
-
-const loginSchema = z.object({
-  email: z.string().email('Bitte geben Sie eine gültige E-Mail-Adresse ein.'),
-  password: z.string().min(1, 'Passwort ist erforderlich.'),
-});
+import { loginSchema } from '@/lib/validation';
 
 export default function LoginPage() {
   const { login, isLoading } = useAuth();

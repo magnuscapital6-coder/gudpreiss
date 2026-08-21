@@ -10,6 +10,7 @@ import { useAuth } from '@/context/auth-context';
 import { useTranslation } from '@/context/language-context';
 import { useStoreSettings } from '@/context/store-settings-context';
 import { TopBar } from './TopBar';
+import { getValidImageUrl } from '@/lib/image-fallback';
 import {
   Search,
   User,
@@ -277,7 +278,7 @@ export function Header() {
                           className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition group"
                         >
                           <div className="relative w-12 h-12 flex-shrink-0 bg-slate-100 rounded-lg overflow-hidden border border-slate-100">
-                            <Image src={prod.images[0]} alt={prod.name} fill className="object-contain p-1 group-hover:scale-105 transition-transform" />
+                            <Image src={getValidImageUrl(prod.images[0], prod.category_id || prod.category_name)} alt={prod.name} fill className="object-contain p-1 group-hover:scale-105 transition-transform" />
                           </div>
                           <div className="flex-1 min-w-0 text-left">
                             <p className="text-[10px] font-bold uppercase text-emerald-800 truncate">{prod.category_name || 'TechNova'}</p>
@@ -461,8 +462,7 @@ export function Header() {
                     }}
                     className="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-xl transition text-left"
                   >
-                    <div className="relative w-10 h-10 flex-shrink-0 bg-slate-100 rounded-lg overflow-hidden border border-slate-100">
-                      <Image src={prod.images[0]} alt={prod.name} fill className="object-contain p-1" />
+                    <div className="relative w-10 h-10 flex-shrink-0 bg-slate-100 rounded-lg overflow-hidden border border-slate-100">                       <Image src={getValidImageUrl(prod.images[0], prod.category_id || prod.category_name)} alt={prod.name} fill className="object-contain p-1" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-[10px] font-bold uppercase text-emerald-800 truncate">{prod.category_name || 'TechNova'}</p>

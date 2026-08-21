@@ -14,6 +14,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.supabase.co',
       },
+      {
+        protocol: 'https',
+        hostname: 'amsi.ci',
+      },
+      {
+        protocol: 'https',
+        hostname: 'abt-distribution.com',
+      },
     ],
   },
   experimental: {

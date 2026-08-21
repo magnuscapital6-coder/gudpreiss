@@ -29,7 +29,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
   const [currentImg, setCurrentImg] = useState(initialImg);
 
   const inWishlist = isInWishlist(product.id);
-  const hasSecondImage = product.images.length > 1;
+  const hasSecondImage = product.images && product.images.length > 1;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -152,7 +152,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
           />
           {hasSecondImage && (
             <Image
-              src={product.images[1]}
+              src={getValidImageUrl(product.images[1], product.category_id || product.category_name)}
               alt={product.name}
               fill
               className="object-contain p-2 w-full h-full opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"

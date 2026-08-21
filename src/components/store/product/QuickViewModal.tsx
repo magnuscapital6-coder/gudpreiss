@@ -7,6 +7,7 @@ import { useWishlist } from '@/context/wishlist-context';
 import { X, Star, Heart, ShoppingBag, Check, Truck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getValidImageUrl } from '@/lib/image-fallback';
 
 interface QuickViewModalProps {
   product: Product | null;
@@ -21,7 +22,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
     product?.variants?.[0]
   );
   const [selectedImage, setSelectedImage] = useState<string>(
-    product?.images?.[0] || 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600'
+    getValidImageUrl(product?.images?.[0], product?.category_id || product?.category_name)
   );
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
@@ -95,17 +96,20 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
 
             {product.images.length > 1 && (
               <div className="flex gap-2">
-                {product.images.map((img, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setSelectedImage(img)}
-                    className={`w-14 h-14 rounded-xl border-2 overflow-hidden relative bg-white p-1 ${
-                      selectedImage === img ? 'border-emerald-700 shadow-sm' : 'border-slate-200 opacity-60 hover:opacity-100'
-                    }`}
-                  >
-                    <Image src={img} alt="" fill className="object-contain" />
-                  </button>
-                ))}
+                {product.images.map((img, idx) => {
+                  const imgSrc = getValidImageUrl(img, product.category_id || product.category_name);
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedImage(imgSrc)}
+                      className={`w-14 h-14 rounded-xl border-2 overflow-hidden relative bg-white p-1 ${
+                        selectedImage === imgSrc ? 'border-emerald-700 shadow-sm' : 'border-slate-200 opacity-60 hover:opacity-100'
+                      }`}
+                    >
+                      <Image src={imgSrc} alt="" fill className="object-contain" />
+                    </button>
+                  );
+                })}
               </div>
             )}
           </div>

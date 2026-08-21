@@ -15,16 +15,28 @@ function getSecret(): string {
   return process.env.AUTH_COOKIE_SECRET || 'technova-dev-secret-change-in-production';
 }
 
-function getKey(): Promise<CryptoKey> {
+let cachedKey: CryptoKey | null = null;
+let cachedSecret: string | null = null;
+
+async function getKey(): Promise<CryptoKey> {
   const secret = getSecret();
+  if (cachedKey && cachedSecret === secret) return cachedKey;
   const enc = new TextEncoder();
-  return crypto.subtle.importKey(
+  cachedKey = await crypto.subtle.importKey(
     'raw',
     enc.encode(secret),
     { name: 'HMAC', hash: 'SHA-256' },
     false,
     ['sign', 'verify'],
   );
+  cachedSecret = secret;
+  return cachedKey;
+}
+
+/** Reset the cached key (for testing secret rotation). */
+export function resetKeyCache(): void {
+  cachedKey = null;
+  cachedSecret = null;
 }
 
 function bufferToHex(buffer: ArrayBuffer): string {
@@ -57,7 +69,7 @@ export async function verifyValue(signed: string): Promise<string | null> {
     const key = await getKey();
     const enc = new TextEncoder();
     const sigBytes = hexToBuffer(sigHex);
-    const valid = await crypto.subtle.verify('HMAC', key, enc.encode(value), sigBytes);
+    const valid = await crypto.subtle.verify('HMAC', key, sigBytes, enc.encode(value));
 
     return valid ? value : null;
   } catch {

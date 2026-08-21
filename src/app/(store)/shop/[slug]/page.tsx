@@ -59,7 +59,7 @@ export default function ProductDetailPage() {
 
       setProduct(prod);
       if (prod.images && prod.images.length > 0) {
-        setSelectedImage(prod.images[0]);
+        setSelectedImage(getValidImageUrl(prod.images[0], prod.category_id || prod.category_name));
       }
       if (prod.variants && prod.variants.length > 0) {
         setSelectedVariant(prod.variants[0]);

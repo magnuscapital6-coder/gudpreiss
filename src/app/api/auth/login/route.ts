@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, resetRateLimit } from '@/lib/rate-limit';
-import { z } from 'zod';
+import { loginSchema } from '@/lib/validation';
 
 /**
  * POST /api/auth/login
@@ -11,11 +11,6 @@ import { z } from 'zod';
  * In production, this would validate against Supabase or a real auth provider.
  * For demo mode, it validates against demo accounts configured via environment variables.
  */
-
-const loginSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(1),
-});
 
 // Demo accounts loaded from environment variables (never hardcoded in source)
 function getDemoAccounts(): Record<string, { password: string; role: string; name: string }> {

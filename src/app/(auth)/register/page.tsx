@@ -7,13 +7,7 @@ import { useAuth } from '@/context/auth-context';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Sparkles, ArrowRight } from 'lucide-react';
-import { z } from 'zod';
-
-const registerSchema = z.object({
-  fullName: z.string().min(2, 'Name muss mindestens 2 Zeichen lang sein.'),
-  email: z.string().email('Bitte geben Sie eine gültige E-Mail-Adresse ein.'),
-  password: z.string().min(6, 'Passwort muss mindestens 6 Zeichen lang sein.'),
-});
+import { registerSchema } from '@/lib/validation';
 
 export default function RegisterPage() {
   const { register } = useAuth();
