@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 import { useTranslation } from '@/context/language-context';
+import { getValidImageUrl } from '@/lib/image-fallback';
 
 export function CategoryPromoCards() {
   const { t } = useTranslation();
@@ -13,19 +14,19 @@ export function CategoryPromoCards() {
     {
       title: t('home.gameControllers') || 'IT & Tech Zubehör',
       price: `${t('home.fromPrice')} 160 €`,
-      image: 'https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=800&auto=format&fit=crop&q=80',
+      image: getValidImageUrl(undefined, 'it-zubehoer'),
       link: '/shop?category=accessoires',
     },
     {
       title: t('nav.smartphones') || 'Smartphones & Tablets',
       price: `${t('home.fromPrice')} 650 €`,
-      image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=800&auto=format&fit=crop&q=80',
+      image: getValidImageUrl(undefined, 'smartphones-tablets'),
       link: '/shop?category=smartphones-tablettes',
     },
     {
       title: 'Laptops & Desktop-PCs',
       price: `${t('home.fromPrice')} 450 €`,
-      image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&auto=format&fit=crop&q=80',
+      image: getValidImageUrl(undefined, 'laptops-pcs'),
       link: '/shop?category=laptop-bureau',
     },
   ];

@@ -54,7 +54,7 @@ export function JustArrivedSection({ products }: JustArrivedSectionProps) {
           <div className="relative rounded-[16px] border border-slate-200/50 p-5 sm:p-6 h-full min-h-[320px] flex flex-col justify-between items-center text-center lg:text-left lg:items-start overflow-hidden shadow-[0_8px_25px_-8px_rgba(0,0,0,0.12)] group transition-all duration-300 bg-slate-950">
             {/* Full Cover Background Image */}
             <Image
-              src={currentPromo?.images?.[0] || 'https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?w=800'}
+              src={currentPromo?.images?.[0] || ''}
               alt={currentPromo?.name || 'Weekly discount product'}
               fill
               priority

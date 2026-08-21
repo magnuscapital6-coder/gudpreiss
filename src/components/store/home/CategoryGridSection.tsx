@@ -7,27 +7,12 @@ import { Category, Product } from '@/types';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { useTranslation } from '@/context/language-context';
 import { filterNonEmptyCategories } from '@/lib/db/db-provider';
+import { getValidImageUrl } from '@/lib/image-fallback';
 
 interface CategoryGridSectionProps {
   categories: Category[];
   products?: Product[];
 }
-
-// Fallback high quality imagery per category slug/keyword for visual impact
-const categoryImageMap: Record<string, string> = {
-  aspirateurs: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=800&auto=format&fit=crop&q=80',
-  barbecue: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80',
-  'bons-plans': 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&auto=format&fit=crop&q=80',
-  'compteurs-gps': 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&auto=format&fit=crop&q=80',
-  congelateurs: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format&fit=crop&q=80',
-  cuisinieres: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800&auto=format&fit=crop&q=80',
-  smartphones: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&fit=crop&q=80',
-  laptops: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&auto=format&fit=crop&q=80',
-  casques: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80',
-  gaming: 'https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=800&auto=format&fit=crop&q=80',
-  tv: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&auto=format&fit=crop&q=80',
-  montres: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80',
-};
 
 export function CategoryGridSection({ categories, products = [] }: CategoryGridSectionProps) {
   const { t } = useTranslation();
@@ -104,10 +89,7 @@ export function CategoryGridSection({ categories, products = [] }: CategoryGridS
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {displayCategories.map((cat) => {
-            const catImage =
-              categoryImageMap[cat.slug] ||
-              cat.image_url ||
-              'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=800&auto=format&fit=crop&q=80';
+            const catImage = getValidImageUrl(cat.image_url, cat.slug);
 
             return (
               <Link

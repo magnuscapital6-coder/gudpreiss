@@ -73,7 +73,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
   const nextProduct = activePromoItems[(currentIndex + 1) % activePromoItems.length];
   const prevProduct = activePromoItems[(currentIndex - 1 + activePromoItems.length) % activePromoItems.length];
 
-  const productImage = currentProduct?.images?.[0] || 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=1200&auto=format&fit=crop&q=80';
+  const productImage = currentProduct?.images?.[0] || '';
   const discountPercent = currentProduct.compare_at_price && currentProduct.compare_at_price > currentProduct.price
     ? Math.round(((currentProduct.compare_at_price - currentProduct.price) / currentProduct.compare_at_price) * 100)
     : 25;

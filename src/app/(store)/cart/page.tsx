@@ -96,7 +96,7 @@ export default function CartPage() {
             <div className="lg:col-span-8 bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm divide-y divide-slate-100">
               {items.map((item) => {
                 const price = item.variant ? item.variant.price : item.product.price;
-                const image = item.product.images?.[0] || 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400';
+                const image = item.product.images?.[0] || '';
 
                 return (
                   <div key={item.id} className="py-6 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
