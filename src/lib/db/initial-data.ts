@@ -293,7 +293,7 @@ export const INITIAL_CATEGORIES: Category[] = [
   },
   {
     "id": "cat-fahrraeder",
-    "name": "Vélos d’appartement",
+    "name": "Heimtrainer",
     "slug": "fahrraeder-heimtrainer",
     "description": "Hochwertige Markenprodukte im TechNova Store.",
     "image_url": "https://abt-distribution.com/wp-content/uploads/2026/08/cat-velos-dappartement.jpg",
@@ -685,7 +685,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:21.557Z"
   },{
     "id": "prod-amsi-10264",
-    "name": "HP 645A Toner DieserJet Authentique",
+    "name": "HP 645A Toner LaserJet Original",
     "slug": "amsi-hp-645a-toner-laserjet-authentique-de",
     "description": "HP 645A Toner LaserJet Authentique",
     "short_description": "Erstklassige professionelle Druckqualität",
@@ -813,7 +813,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:21.601Z"
   },{
     "id": "prod-amsi-10220",
-    "name": "Tonerpatrone Schwarz authentique HP 37A",
+    "name": "Tonerpatrone Schwarz original HP 37A",
     "slug": "amsi-cartouche-de-toner-Schwarz-authentique-hp-37a-de",
     "description": "Original Schwarze Tonerkartusche HP 37A",
     "short_description": "professionelle Druckqualität",
@@ -875,7 +875,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:21.603Z"
   },{
     "id": "prod-amsi-10200",
-    "name": "HP DieserJet Pro 4103fdw",
+    "name": "HP LaserJet Pro 4103fdw",
     "slug": "amsi-hp-laserjet-pro-4103fdw-de",
     "description": "HP LaserJet Pro 4103fdw",
     "short_description": "HP LaserJet Pro 4103fdw",
@@ -1448,7 +1448,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:21.624Z"
   },{
     "id": "prod-amsi-10050",
-    "name": "HP Color DieserJet Pro MFP 4303fdn",
+    "name": "HP Color LaserJet Pro MFP 4303fdn",
     "slug": "amsi-hp-color-laserjet-pro-mfp-4303fdn-de",
     "description": "HP Color LaserJet Pro MFP 4303fdn",
     "short_description": "HP Color LaserJet Pro MFP 4303fdn",
@@ -2741,10 +2741,10 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:21.681Z"
   },{
     "id": "prod-amsi-9647",
-    "name": "Cartouche d’Encre HP 938",
+    "name": "Tintenpatrone HP 938",
     "slug": "amsi-cartouche-dencre-hp-938-de",
-    "description": "Cartouche d’Encre HP 938",
-    "short_description": "Cartouche d’Encre HP 938",
+    "description": "Tintenpatrone HP 938",
+    "short_description": "Tintenpatrone HP 938",
     "sku": "AMSI-9647",
     "brand_id": "b-amsi-cartouche",
     "brand_name": "Cartouche",
@@ -2770,10 +2770,10 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:21.682Z"
   },{
     "id": "prod-amsi-9637",
-    "name": "Cartouche d’Encre HP 912",
+    "name": "Tintenpatrone HP 912",
     "slug": "amsi-cartouche-dencre-hp-912-de",
-    "description": "Cartouche d’Encre HP 912",
-    "short_description": "Cartouche d’Encre HP 912",
+    "description": "Tintenpatrone HP 912",
+    "short_description": "Tintenpatrone HP 912",
     "sku": "AMSI-9637",
     "brand_id": "b-amsi-cartouche",
     "brand_name": "Cartouche",
@@ -3937,7 +3937,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:21.718Z"
   },{
     "id": "prod-amsi-9338",
-    "name": "Toner DieserJet HP 659X",
+    "name": "Toner LaserJet HP 659X",
     "slug": "amsi-toner-laserjet-hp-659x-de",
     "description": "Toner LaserJet HP 659X",
     "short_description": "Toner LaserJet HP 659X",
@@ -3966,7 +3966,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:21.718Z"
   },{
     "id": "prod-amsi-9326",
-    "name": "HP Dieser 659A – Cartouche Toner",
+    "name": "HP LaserJet 659A Toner",
     "slug": "amsi-hp-laser-659a-cartouche-toner-de",
     "description": "HP Laser 659A – Cartouche Toner",
     "short_description": "HP Laser 659A – Cartouche Toner",
@@ -8569,7 +8569,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:21.821Z"
   },{
     "id": "prod-amsi-7932",
-    "name": "HP DieserJet Pro MFP M130a",
+    "name": "HP LaserJet Pro MFP M130a",
     "slug": "amsi-hp-laserjet-pro-mfp-m130a-de",
     "description": "HP LaserJet Pro MFP M130a",
     "short_description": "HP LaserJet Pro MFP M130a",
@@ -10500,7 +10500,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:21.915Z"
   },{
     "id": "prod-amsi-7211",
-    "name": "HP Color DieserJet Pro 4303fdw",
+    "name": "HP Color LaserJet Pro 4303fdw",
     "slug": "amsi-hp-color-laserjet-pro-4303fdw-de",
     "description": "HP Color LaserJet Pro 4303fdw",
     "short_description": "HP Color LaserJet Pro 4303fdw",
@@ -10560,7 +10560,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:21.918Z"
   },{
     "id": "prod-amsi-7202",
-    "name": "HP Color DieserJet Pro 3303fdw",
+    "name": "HP Color LaserJet Pro 3303fdw",
     "slug": "amsi-hp-color-laserjet-pro-3303fdw-de",
     "description": "HP Color LaserJet Pro 3303fdw",
     "short_description": "HP Color LaserJet Pro 3303fdw",
@@ -13877,10 +13877,10 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:22.006Z"
   },{
     "id": "prod-amsi-6551",
-    "name": "Canon Papier Photo + Encre",
+    "name": "Canon Fotopapier + Tinte",
     "slug": "amsi-canon-papier-photo-encre-de",
-    "description": "Canon Papier Photo + Encre",
-    "short_description": "Canon Papier Photo + Encre",
+    "description": "Canon Fotopapier + Tinte",
+    "short_description": "Canon Fotopapier + Tinte",
     "sku": "AMSI-6551",
     "brand_id": "b-amsi-canon",
     "brand_name": "Canon",
@@ -14815,10 +14815,10 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:22.024Z"
   },{
     "id": "prod-amsi-6319",
-    "name": "Encre Canon PIXMA GI-490",
+    "name": "Tinte Canon PIXMA GI-490",
     "slug": "amsi-encre-canon-pixma-gi-490-de",
-    "description": "Encre Canon PIXMA GI-490",
-    "short_description": "Encre Canon PIXMA GI-490",
+    "description": "Tinte Canon PIXMA GI-490",
+    "short_description": "Tinte Canon PIXMA GI-490",
     "sku": "AMSI-6319",
     "brand_id": "b-amsi-encre",
     "brand_name": "Encre",
@@ -14844,7 +14844,7 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:22.024Z"
   },{
     "id": "prod-amsi-6307",
-    "name": "Bouteille d'encre Canon GI-41",
+    "name": "Tintenflasche Canon GI-41",
     "slug": "amsi-bouteille-dencre-canon-gi-41-de",
     "description": "Bouteille d&rsquo;encre Canon GI-41",
     "short_description": "Bouteille d&rsquo;encre Canon GI-41",
@@ -14989,10 +14989,10 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:22.033Z"
   },{
     "id": "prod-amsi-6258",
-    "name": "Cartouche D’encre Hp 305",
+    "name": "Tintenpatrone HP 305",
     "slug": "amsi-cartouche-dencre-hp-305-de",
-    "description": "Cartouche D’encre Hp 305",
-    "short_description": "Cartouche D’encre Hp 305",
+    "description": "Tintenpatrone HP 305",
+    "short_description": "Tintenpatrone HP 305",
     "sku": "AMSI-6258",
     "brand_id": "b-amsi-cartouche",
     "brand_name": "Cartouche",
@@ -15018,10 +15018,10 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:22.034Z"
   },{
     "id": "prod-amsi-6251",
-    "name": "Cartouche D’encre Hp 652",
+    "name": "Tintenpatrone HP 652",
     "slug": "amsi-cartouche-dencre-hp-652-de",
-    "description": "Cartouche D’encre Hp 652",
-    "short_description": "Cartouche D’encre Hp 652",
+    "description": "Tintenpatrone HP 652",
+    "short_description": "Tintenpatrone HP 652",
     "sku": "AMSI-6251",
     "brand_id": "b-amsi-cartouche",
     "brand_name": "Cartouche",
@@ -15047,10 +15047,10 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:22.034Z"
   },{
     "id": "prod-amsi-6240",
-    "name": "Cartouche D’encre Hp 953XL",
+    "name": "Tintenpatrone HP 953XL",
     "slug": "amsi-cartouche-dencre-hp-953xl-de",
-    "description": "Cartouche D’encre Hp 953XL",
-    "short_description": "Cartouche D’encre Hp 953XL",
+    "description": "Tintenpatrone HP 953XL",
+    "short_description": "Tintenpatrone HP 953XL",
     "sku": "AMSI-6240",
     "brand_id": "b-amsi-cartouche",
     "brand_name": "Cartouche",
@@ -15076,10 +15076,10 @@ export const INITIAL_PRODUCTS: Product[] = [{
     "updated_at": "2026-08-19T19:18:22.034Z"
   },{
     "id": "prod-amsi-6227",
-    "name": "Cartouche D’encre Hp 933",
+    "name": "Tintenpatrone HP 933",
     "slug": "amsi-cartouche-dencre-hp-933-de",
-    "description": "Cartouche D’encre Hp 933",
-    "short_description": "Cartouche D’encre Hp 933",
+    "description": "Tintenpatrone HP 933",
+    "short_description": "Tintenpatrone HP 933",
     "sku": "AMSI-6227",
     "brand_id": "b-amsi-cartouche",
     "brand_name": "Cartouche",
