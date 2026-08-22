@@ -6,7 +6,7 @@ import { Footer } from '@/components/store/layout/Footer';
 import { useAuth } from '@/context/auth-context';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowRight, AlertCircle } from 'lucide-react';
 import { registerSchema } from '@/lib/validation';
 
 export default function RegisterPage() {
@@ -54,58 +54,58 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50/50">
+    <div className="min-h-screen flex flex-col bg-slate-50/50 dark:bg-slate-950 transition-colors duration-300">
       <Header />
 
       <main className="flex-1 max-w-md mx-auto px-4 w-full py-16">
-        <div className="bg-white rounded-3xl border border-slate-200/80 p-8 shadow-xl space-y-6">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-8 shadow-xl space-y-6">
           <div className="text-center">
-            <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-white">
-              <Sparkles className="w-6 h-6" />
-            </div>
-            <h1 className="text-2xl font-black text-slate-900 tracking-tight">Konto erstellen</h1>
-            <p className="text-xs text-slate-500 mt-1">Treten Sie GudPreiss bei für schnelleres Checkout und exklusive Angebote</p>
+            <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Konto erstellen</h1>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+              Treten Sie GudPreiss bei für schnelleres Checkout und exklusive Angebote
+            </p>
           </div>
 
           {errorMsg && (
-            <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-600 flex items-center gap-2">
+            <div className="p-3 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 rounded-xl text-xs text-red-600 dark:text-red-300 flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 flex-shrink-0" />
               <span>{errorMsg}</span>
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1">Vollständiger Name *</label>
+              <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">Vollständiger Name *</label>
               <input
                 type="text"
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="w-full px-4 py-3 text-xs border border-slate-200 rounded-xl focus:border-blue-500 outline-none"
+                className="w-full px-4 py-3 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
               />
               {fieldErrors.fullName && <p className="text-[11px] text-red-500 mt-1">{fieldErrors.fullName}</p>}
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1">E-Mail-Adresse *</label>
+              <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">E-Mail-Adresse *</label>
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 text-xs border border-slate-200 rounded-xl focus:border-blue-500 outline-none"
+                className="w-full px-4 py-3 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
               />
               {fieldErrors.email && <p className="text-[11px] text-red-500 mt-1">{fieldErrors.email}</p>}
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1">Passwort *</label>
+              <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">Passwort *</label>
               <input
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 text-xs border border-slate-200 rounded-xl focus:border-blue-500 outline-none"
+                className="w-full px-4 py-3 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
               />
               {fieldErrors.password && <p className="text-[11px] text-red-500 mt-1">{fieldErrors.password}</p>}
             </div>
@@ -113,7 +113,7 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition disabled:opacity-50"
+              className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <span>REGISTRIERUNG LÄUFT...</span>
@@ -126,9 +126,9 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          <p className="text-center text-xs text-slate-500">
+          <p className="text-center text-xs text-slate-500 dark:text-slate-400">
             Bereits ein Konto?{' '}
-            <Link href="/login" className="font-bold text-blue-600 hover:underline">
+            <Link href="/login" className="font-bold text-emerald-600 dark:text-emerald-500 hover:underline">
               Anmelden
             </Link>
           </p>

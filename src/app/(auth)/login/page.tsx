@@ -90,11 +90,8 @@ export default function LoginPage() {
       <main className="flex-1 max-w-md mx-auto px-4 w-full py-16">
         <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-8 shadow-xl space-y-6">
           <div className="text-center">
-            <div className="w-12 h-12 bg-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-white shadow-lg shadow-emerald-600/20">
-              <Lock className="w-6 h-6" />
-            </div>
             <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Anmelden bei GudPreiss</h1>
-            <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">Zugang zum Kundenkonto und Admin-Dashboard</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Zugang zum Kundenkonto und Admin-Dashboard</p>
           </div>
 
           {/* Rate limit lockout banner */}
