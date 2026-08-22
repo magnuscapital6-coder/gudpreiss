@@ -21,6 +21,7 @@ import {
   ExternalLink,
   Store,
   Globe,
+  User,
 } from 'lucide-react';
 import { useAuth } from '@/context/auth-context';
 import { useTranslation } from '@/context/language-context';
@@ -105,10 +106,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {/* Logo Brand Header */}
           <div className="h-16 px-6 flex items-center justify-between border-b border-slate-800/80">
             <Link href="/admin" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-black text-sm">
-                GP
-              </div>
-              <span className="font-black text-lg text-white tracking-tight">
+              <span className="font-black text-xl text-white tracking-tight">
                 Gud<span className="text-emerald-500">Preiss</span>
               </span>
             </Link>
@@ -153,8 +151,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Admin Footer Profile */}
         <div className="p-4 border-t border-slate-800 bg-slate-950/50 space-y-3">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs">
-              {user?.full_name?.charAt(0) || 'A'}
+            <div className="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md border border-emerald-500/40 shrink-0">
+              <User className="w-5 h-5" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-xs font-bold text-white truncate">{user?.full_name || 'Administrator'}</p>
