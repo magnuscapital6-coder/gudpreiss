@@ -750,6 +750,7 @@ export async function createCategory(categoryData: Partial<Category>): Promise<C
           slug: newCat.slug,
           description: newCat.description,
           image: newCat.image_url,
+          image_url: newCat.image_url,
         },
       ]);
     } catch {
@@ -760,6 +761,52 @@ export async function createCategory(categoryData: Partial<Category>): Promise<C
   memoryCategories.push(newCat);
   await triggerRevalidation(['/', '/shop', '/sitemap.xml']);
   return newCat;
+}
+
+export async function updateCategory(id: string, updates: Partial<Category>): Promise<Category | null> {
+  const index = memoryCategories.findIndex((c) => c.id === id || c.slug === id);
+  if (index !== -1) {
+    memoryCategories[index] = {
+      ...memoryCategories[index],
+      ...updates,
+    };
+  }
+
+  if (supabase) {
+    try {
+      await supabase
+        .from('categories')
+        .update({
+          name: updates.name,
+          slug: updates.slug,
+          description: updates.description,
+          image: updates.image_url,
+          image_url: updates.image_url,
+        })
+        .or(`id.eq.${id},slug.eq.${id}`);
+    } catch {
+      // Non-blocking
+    }
+  }
+
+  await triggerRevalidation(['/', '/shop', '/sitemap.xml']);
+  return memoryCategories[index] || null;
+}
+
+export async function deleteCategory(id: string): Promise<boolean> {
+  const initialLen = memoryCategories.length;
+  memoryCategories = memoryCategories.filter((c) => c.id !== id && c.slug !== id);
+
+  if (supabase) {
+    try {
+      await supabase.from('categories').delete().or(`id.eq.${id},slug.eq.${id}`);
+    } catch {
+      // Non-blocking
+    }
+  }
+
+  await triggerRevalidation(['/', '/shop', '/sitemap.xml']);
+  return memoryCategories.length < initialLen;
 }
 
 export async function updateReviewStatus(reviewId: string, status: 'approved' | 'hidden'): Promise<boolean> {
