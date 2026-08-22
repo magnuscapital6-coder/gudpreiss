@@ -58,13 +58,11 @@ function LoginForm() {
 
     const res = await login(email, password);
     if (res.success) {
-      if (redirectTo && redirectTo.startsWith('/')) {
-        router.push(redirectTo);
-      } else if (email.toLowerCase().includes('admin')) {
-        router.push('/admin');
-      } else {
-        router.push('/account');
-      }
+      const targetUrl = (redirectTo && redirectTo.startsWith('/'))
+        ? redirectTo
+        : (email.toLowerCase().includes('admin') ? '/admin' : '/account');
+      
+      window.location.href = targetUrl;
     } else {
       setErrorMsg(res.error || 'Ungültige Anmeldeinformationen.');
       if (res.retryAfter) {

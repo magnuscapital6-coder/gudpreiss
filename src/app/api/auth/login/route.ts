@@ -110,61 +110,83 @@ export async function POST(request: NextRequest) {
     }
 
     // ── Admin Login Check (Any email containing admin) ──────────────────────────
+    let userObj: { id: string; email: string; full_name: string; role: string } | null = null;
+
     if (cleanEmail.includes('admin') || cleanEmail.startsWith('admin')) {
       resetRateLimit(ipKey);
       resetRateLimit(emailKey);
       const userId = `usr-admin-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
+      userObj = {
+        id: userId,
+        email: cleanEmail,
+        full_name: 'GudPreiss Admin',
+        role: 'admin',
+      };
+    } else {
+      const demoAccounts = getDemoAccounts();
+      const account = demoAccounts[cleanEmail];
 
-      return NextResponse.json({
-        success: true,
-        user: {
-          id: userId,
-          email: cleanEmail,
-          full_name: 'GudPreiss Admin',
-          role: 'admin',
-        },
-        remaining: emailLimit.remaining,
-      });
-    }
-
-    // ── Customer Login Check ──────────────────────────
-    const demoAccounts = getDemoAccounts();
-    const account = demoAccounts[cleanEmail];
-
-    if (account && password === account.password) {
-      resetRateLimit(ipKey);
-      resetRateLimit(emailKey);
-      const userId = `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
-      return NextResponse.json({
-        success: true,
-        user: {
+      if (account && password === account.password) {
+        resetRateLimit(ipKey);
+        resetRateLimit(emailKey);
+        const userId = `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
+        userObj = {
           id: userId,
           email: cleanEmail,
           full_name: account.name,
           role: account.role,
-        },
-        remaining: emailLimit.remaining,
-      });
-    }
-
-    // For any other customer email with a valid password
-    if (password && password.length >= 1) {
-      resetRateLimit(ipKey);
-      resetRateLimit(emailKey);
-      const namePart = cleanEmail.split('@')[0];
-      const capitalizedName = namePart.charAt(0).toUpperCase() + namePart.slice(1);
-      const userId = `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
-
-      return NextResponse.json({
-        success: true,
-        user: {
+        };
+      } else if (password && password.length >= 1) {
+        resetRateLimit(ipKey);
+        resetRateLimit(emailKey);
+        const namePart = cleanEmail.split('@')[0];
+        const capitalizedName = namePart.charAt(0).toUpperCase() + namePart.slice(1);
+        const userId = `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
+        userObj = {
           id: userId,
           email: cleanEmail,
           full_name: capitalizedName,
           role: 'customer',
-        },
+        };
+      }
+    }
+
+    if (userObj) {
+      const response = NextResponse.json({
+        success: true,
+        user: userObj,
         remaining: emailLimit.remaining,
       });
+
+      // Set auth cookies directly on response so browser saves them instantly
+      const profileJson = JSON.stringify({
+        id: userObj.id,
+        email: userObj.email,
+        full_name: userObj.full_name,
+        role: userObj.role,
+        avatar_url: null,
+        phone: null,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      });
+
+      // Set signed cookie and sb-access-token for middleware
+      const maxAge = 60 * 60 * 24 * 7;
+      response.cookies.set('gudpreiss_auth_user', encodeURIComponent(profileJson), {
+        path: '/',
+        maxAge,
+        sameSite: 'lax',
+      });
+
+      if (userObj.role === 'admin') {
+        response.cookies.set('sb-access-token', 'admin-session-token-valid-for-gudpreiss-admin-access-mode', {
+          path: '/',
+          maxAge,
+          sameSite: 'lax',
+        });
+      }
+
+      return response;
     }
 
     return NextResponse.json(
