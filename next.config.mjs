@@ -29,6 +29,7 @@ const nextConfig = {
       bodySizeLimit: '4mb',
     },
     serverComponentsExternalPackages: ['pg'],
+  },
   async rewrites() {
     return [
       {
