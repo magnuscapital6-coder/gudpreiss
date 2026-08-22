@@ -121,14 +121,14 @@ export default function AdminProductsPage() {
                         <Link
                           href={`/admin/Produkte/${p.id}/edit`}
                           className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
-                          title="Bearbeiten"
+                          aria-label="Bearbeiten"
                         >
                           <Edit3 className="w-4 h-4" />
                         </Link>
                         <button
                           onClick={() => handleDelete(p.id)}
                           className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition"
-                          title="Löschen"
+                          aria-label="Löschen"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>

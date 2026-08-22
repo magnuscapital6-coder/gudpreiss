@@ -28,6 +28,7 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: '4mb',
     },
+    serverComponentsExternalPackages: ['pg'],
   },
 };
 

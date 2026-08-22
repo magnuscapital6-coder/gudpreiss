@@ -83,7 +83,7 @@ export default function AdminBlogListPage() {
       ) : filteredPosts.length === 0 ? (
         <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-12 text-center space-y-4">
           <FileText className="w-12 h-12 text-slate-500 dark:text-slate-400 mx-auto" />
-          <h3 className="text-base font-bold">Keine Blog-Beiträge gefunden</h3>
+          <h2 className="text-base font-bold">Keine Blog-Beiträge gefunden</h2>
           <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-400">
             Erstellen Sie Ihren ersten SEO-optimierten Artikel für Ihren Store.
           </p>
@@ -149,21 +149,21 @@ export default function AdminBlogListPage() {
                             href={`/Blog/${post.slug}`}
                             target="_blank"
                             className="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition"
-                            title="Vorschau"
+                            aria-label="Vorschau"
                           >
                             <Eye className="w-4 h-4" />
                           </Link>
                           <Link
                             href={`/admin/Blog/${post.id}/edit`}
                             className="p-2 text-emerald-800 dark:text-emerald-400 hover:bg-emerald-500/10 rounded-lg transition"
-                            title="Bearbeiten & SEO"
+                            aria-label="Bearbeiten & SEO"
                           >
                             <Edit className="w-4 h-4" />
                           </Link>
                           <button
                             onClick={() => handleDelete(post.id)}
                             className="p-2 text-slate-500 dark:text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 rounded-lg transition cursor-pointer"
-                            title="Löschen"
+                            aria-label="Löschen"
                           >
                             <Trash2 className="w-4 h-4" />
                           </button>

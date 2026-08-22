@@ -98,7 +98,7 @@ export default function AdminDashboardPage() {
           <button
             onClick={loadRealDashboardData}
             className="p-2.5 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 dark:text-slate-300 transition cursor-pointer"
-            title="Daten aktualisieren"
+            aria-label="Daten aktualisieren"
           >
             <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
           </button>

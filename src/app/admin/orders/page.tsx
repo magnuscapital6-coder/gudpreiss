@@ -119,7 +119,7 @@ export default function AdminOrdersPage() {
                   <td className="p-4 text-right">
                     <button
                       onClick={() => window.print()}
-                      title="Rechnung drucken"
+                      aria-label="Rechnung drucken"
                       className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition"
                     >
                       <Printer className="w-4 h-4" />

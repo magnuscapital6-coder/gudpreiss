@@ -42,8 +42,10 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
           <Link
             href="/"
             className="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-600 font-bold text-xs rounded-xl flex items-center justify-center gap-1 transition"
+            aria-label="Zur Startseite"
           >
             <Home className="w-4 h-4" />
+            <span className="sr-only">Startseite</span>
           </Link>
         </div>
       </div>

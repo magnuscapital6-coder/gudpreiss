@@ -29,7 +29,7 @@ export default function CustomerAccountPage() {
                 {user?.full_name ? user.full_name[0] : 'U'}
               </div>
               <div>
-                <h3 className="font-bold text-slate-900 text-sm">{user?.full_name || 'GudPreiss Customer'}</h3>
+                <h2 className="font-bold text-slate-900 text-sm">{user?.full_name || 'GudPreiss Customer'}</h2>
                 <p className="text-xs text-slate-500">{user?.email}</p>
                 {isAdmin && (
                   <span className="inline-block mt-1 bg-blue-100 text-blue-700 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full">
@@ -86,7 +86,7 @@ export default function CustomerAccountPage() {
             </div>
 
             <div className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm">
-              <h3 className="font-extrabold text-slate-900 text-base mb-4">Personal Details</h3>
+              <h2 className="font-extrabold text-slate-900 text-base mb-4">Persönliche Daten</h2>
               <div className="space-y-3 text-xs">
                 <div className="flex justify-between py-2 border-b border-slate-100">
                   <span className="text-slate-500">Full Name</span>

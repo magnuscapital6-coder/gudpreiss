@@ -168,9 +168,9 @@ export default function CheckoutPage() {
               {/* Step 1: Customer Contact */}
               {step === 1 && (
                 <div className="space-y-4">
-                  <h3 className="font-extrabold text-slate-900 dark:text-white text-base border-b border-slate-100 dark:border-slate-800 pb-3">
+                  <h2 className="font-extrabold text-slate-900 dark:text-white text-base border-b border-slate-100 dark:border-slate-800 pb-3">
                     {t('checkout.stepCustomerTitle')}
-                  </h3>
+                  </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">{t('checkout.email')} *</label>
@@ -207,9 +207,9 @@ export default function CheckoutPage() {
               {/* Step 2: Shipping Address */}
               {step === 2 && (
                 <div className="space-y-4">
-                  <h3 className="font-extrabold text-slate-900 dark:text-white text-base border-b border-slate-100 dark:border-slate-800 pb-3">
+                  <h2 className="font-extrabold text-slate-900 dark:text-white text-base border-b border-slate-100 dark:border-slate-800 pb-3">
                     {t('checkout.stepShippingTitle')}
-                  </h3>
+                  </h2>
                   <div>
                     <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">{t('checkout.fullName')} *</label>
                     <input
@@ -284,9 +284,9 @@ export default function CheckoutPage() {
               {/* Step 3: Payment Method (Bank Transfer Only) */}
               {step === 3 && (
                 <div className="space-y-5">
-                  <h3 className="font-extrabold text-slate-900 dark:text-white text-base border-b border-slate-100 dark:border-slate-800 pb-3">
+                  <h2 className="font-extrabold text-slate-900 dark:text-white text-base border-b border-slate-100 dark:border-slate-800 pb-3">
                     {t('checkout.stepPaymentTitle')}
-                  </h3>
+                  </h2>
 
                   {/* Single Selected Payment Card: Bank Transfer */}
                   <div className="p-5 rounded-2xl border-2 border-emerald-600 bg-emerald-500/10 flex items-start gap-4">
@@ -295,7 +295,7 @@ export default function CheckoutPage() {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <h4 className="text-sm font-bold text-slate-900 dark:text-white">{t('checkout.bankTransfer')}</h4>
+                        <h3 className="text-sm font-bold text-slate-900 dark:text-white">{t('checkout.bankTransfer')}</h3>
                         <span className="text-[10px] font-extrabold bg-emerald-600 text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                           Einzige Zahlungsart
                         </span>
@@ -309,9 +309,9 @@ export default function CheckoutPage() {
                   {/* Official Bank Account Details Box */}
                   <div className="p-5 bg-slate-900 text-white rounded-2xl border border-slate-800 space-y-4 shadow-lg">
                     <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                      <h4 className="text-xs font-extrabold uppercase tracking-wider text-emerald-700">
+                      <h3 className="text-xs font-extrabold uppercase tracking-wider text-emerald-700">
                         {t('checkout.bankDetails')}
-                      </h4>
+                      </h3>
                       <span className="text-[10px] text-slate-500 font-mono">SEPA Instant / Wire</span>
                     </div>
 
@@ -395,9 +395,9 @@ export default function CheckoutPage() {
 
           {/* Order Summary Column (4 Cols) */}
           <div className="lg:col-span-4 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-6 shadow-sm space-y-4 h-fit">
-            <h3 className="font-extrabold text-slate-900 dark:text-white text-base border-b border-slate-100 dark:border-slate-800 pb-3">
+            <h2 className="font-extrabold text-slate-900 dark:text-white text-base border-b border-slate-100 dark:border-slate-800 pb-3">
               {t('checkout.itemsInOrder')} ({items.length})
-            </h3>
+            </h2>
 
             <div className="divide-y divide-slate-100 dark:divide-slate-800 max-h-72 overflow-y-auto pr-1">
               {items.map((item) => {
@@ -408,7 +408,7 @@ export default function CheckoutPage() {
                       <Image src={item.product.images[0]} alt="" fill className="object-contain p-1" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h5 className="text-xs font-bold text-slate-900 dark:text-white truncate">{item.product.name}</h5>
+                      <h3 className="text-xs font-bold text-slate-900 dark:text-white truncate">{item.product.name}</h3>
                       <p className="text-[11px] text-slate-500 dark:text-slate-500">Menge: {item.quantity}</p>
                     </div>
                     <span className="text-xs font-bold text-slate-900 dark:text-white">{(price * item.quantity).toLocaleString('de-DE')} €</span>

@@ -94,7 +94,7 @@ export function HomepageSections({ products, banners, categories }: HomepageSect
       <SmartHomeRoboticsSection products={products} />
       <TrustGuaranteeBar />
       <JustArrivedSection products={products} />
-      <CategoryPromoCards />
+      <CategoryPromoCards products={products} />
     </>
   );
 }

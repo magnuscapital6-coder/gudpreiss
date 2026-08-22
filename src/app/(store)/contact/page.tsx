@@ -25,7 +25,7 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-5 bg-slate-900 text-white rounded-3xl p-8 space-y-6">
-            <h3 className="text-xl font-bold">Kontaktdaten</h3>
+            <h2 className="text-xl font-bold">Kontaktdaten</h2>
             <div className="space-y-4 text-xs text-slate-600">
               <div className="flex items-center gap-3">
                 <MapPin className="w-5 h-5 text-blue-700" />
@@ -48,7 +48,7 @@ export default function ContactPage() {
                 <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
                   <Check className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">Nachricht erfolgreich gesendet!</h3>
+                <h2 className="text-lg font-bold text-slate-900">Nachricht erfolgreich gesendet!</h2>
                 <p className="text-xs text-slate-500">Unser Kundendienst-Team wird sich innerhalb von 2 Stunden bei Ihnen melden.</p>
               </div>
             ) : (

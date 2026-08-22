@@ -356,8 +356,10 @@ export function Header() {
                 <Link
                   href="/login"
                   className="p-2 text-text-primary hover:text-primary-500 transition flex items-center gap-1 text-[13px] font-medium"
+                  aria-label="Anmelden"
                 >
                   <User className="w-5 h-5" />
+                  <span className="sr-only">Anmelden</span>
                 </Link>
               )}
 
@@ -404,7 +406,7 @@ export function Header() {
             {/* Shopping Cart Drawer Trigger */}
             <button
               onClick={() => setIsCartOpen(true)}
-              aria-label="Open Shopping Cart"
+              aria-label={`Warenkorb ${subtotal.toFixed(2)} €`}
               className="flex items-center gap-2 p-2 text-slate-900 dark:text-white hover:text-emerald-800 dark:hover:text-emerald-700 transition cursor-pointer"
             >
               <div className="relative">
@@ -506,7 +508,7 @@ export function Header() {
             <div className="overflow-y-auto flex-1">
               <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
                 <span className="text-[20px] font-black text-slate-900 tracking-tight">
-                  <span className="text-emerald-800">Tech</span>nova
+                  <span className="text-emerald-800">Gud</span>Preiss
                 </span>
                 <button
                   type="button"

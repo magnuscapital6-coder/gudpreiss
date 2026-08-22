@@ -82,7 +82,7 @@ let sortCounter = 1;
     name: meta.name,
     slug: cat.slug,
     description: meta.desc,
-    image_url: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=600&auto=format&fit=crop&q=80',
+    image_url: 'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg',
     icon: meta.icon,
     active: true,
     sort_order: sortCounter++
@@ -190,7 +190,7 @@ abtProducts.forEach((p, idx) => {
 
   const images = p.images && p.images.length > 0
     ? p.images.map(img => img.src)
-    : ['https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=800&auto=format&fit=crop&q=80'];
+    : ['https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg'];
 
   const primaryCat = p.categories && p.categories.length > 0 ? (categoryMapById[p.categories[0].id] || categoryMapById[p.categories[0].slug]) : gudCategories[0];
   const catId = primaryCat ? primaryCat.id : gudCategories[0].id;
@@ -264,7 +264,7 @@ amsiProducts.forEach((p, idx) => {
 
   const images = p.images && p.images.length > 0
     ? p.images.map(img => img.src)
-    : ['https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=800&auto=format&fit=crop&q=80'];
+    : ['https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg'];
 
   const primaryCat = p.categories && p.categories.length > 0 ? (categoryMapById[p.categories[0].id] || categoryMapById[p.categories[0].slug]) : gudCategories[0];
   const catId = primaryCat ? primaryCat.id : gudCategories[0].id;
@@ -352,7 +352,7 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
     slug: 'beste-haushalts-it-geraete-2026',
     excerpt: 'Erfahren Sie alles über die neuesten Innovationen im Bereich IT, Drucksysteme & Smart Home.',
     content: 'Moderne Technik erleichtert den Alltag enorm...',
-    cover_image: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=800&auto=format&fit=crop&q=80',
+    cover_image: 'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg',
     author_name: 'GudPreiss Redaktion',
     category: 'Technik',
     tags: ['Technik', 'Bürotechnik', 'Haushalt'],
@@ -370,7 +370,7 @@ export const INITIAL_BANNERS: Banner[] = [
     subtitle: 'Bis zu 15% Rabatt',
     description: 'Die neuste Technologie. Die besten Angebote im GudPreiss.',
     price_text: 'Ab 160 €',
-    image_url: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=1200&auto=format&fit=crop&q=80',
+    image_url: 'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg',
     cta_text: 'JETZT EINKAUFEN',
     cta_link: '/shop?on_sale=true',
     position: 'hero',

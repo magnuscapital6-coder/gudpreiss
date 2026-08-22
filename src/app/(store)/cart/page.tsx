@@ -105,7 +105,7 @@ export default function CartPage() {
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-sm font-bold text-slate-900">{item.product.name}</h4>
+                      <h3 className="text-sm font-bold text-slate-900">{item.product.name}</h3>
                       {item.variant && <p className="text-xs text-slate-500 mt-0.5">{item.variant.name}</p>}
                       <p className="text-xs font-bold text-emerald-600 mt-1">{price.toLocaleString('de-DE')} €</p>
                     </div>
@@ -144,9 +144,9 @@ export default function CartPage() {
             {/* Summary Column (4 Cols) */}
             <div className="lg:col-span-4 space-y-6">
               <div className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm space-y-4">
-                <h3 className="font-extrabold text-slate-900 text-base border-b border-slate-100 pb-3">
+                <h2 className="font-extrabold text-slate-900 text-base border-b border-slate-100 pb-3">
                   Bestellübersicht
-                </h3>
+                </h2>
 
                 {/* Coupon Code Section */}
                 <div className="space-y-2">

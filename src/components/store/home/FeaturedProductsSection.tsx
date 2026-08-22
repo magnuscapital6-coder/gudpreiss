@@ -93,15 +93,7 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
         <div className="lg:col-span-4 flex">
           <div className="relative rounded-[24px] bg-gradient-to-br from-emerald-950 via-emerald-900 to-slate-950 p-6 sm:p-7 w-full flex flex-col justify-between overflow-hidden shadow-lg border border-emerald-800/40 group min-h-[340px]">
             
-            {/* Background Model Image */}
-            <div className="absolute right-0 bottom-0 top-0 w-1/2 opacity-35 mix-blend-luminosity pointer-events-none z-0">
-              <Image
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80"
-                alt="GudPreiss Member"
-                fill
-                className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
+
 
             {/* Subtle radial spotlight aura */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.3)_0%,transparent_70%)] pointer-events-none z-0" />

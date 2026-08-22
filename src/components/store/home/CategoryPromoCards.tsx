@@ -5,29 +5,59 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 import { useTranslation } from '@/context/language-context';
-import { getValidImageUrl } from '@/lib/image-fallback';
+import { Product } from '@/types';
+import { INITIAL_PRODUCTS } from '@/lib/db/initial-data';
 
-export function CategoryPromoCards() {
+interface CategoryPromoCardsProps {
+  products?: Product[];
+}
+
+export function CategoryPromoCards({ products = [] }: CategoryPromoCardsProps) {
   const { t } = useTranslation();
+
+  const allProducts = products.length > 0 ? products : INITIAL_PRODUCTS;
+
+  // Find real products for each category
+  const itProd = allProducts.find((p) =>
+    (p.category_name || '').toLowerCase().includes('zubehör') ||
+    (p.category_name || '').toLowerCase().includes('accessoire') ||
+    (p.name || '').toLowerCase().includes('controller') ||
+    (p.name || '').toLowerCase().includes('maus') ||
+    (p.name || '').toLowerCase().includes('tastatur')
+  ) || allProducts[0];
+
+  const phoneProd = allProducts.find((p) =>
+    (p.category_name || '').toLowerCase().includes('smartphone') ||
+    (p.category_name || '').toLowerCase().includes('handy') ||
+    (p.name || '').toLowerCase().includes('iphone') ||
+    (p.name || '').toLowerCase().includes('galaxy')
+  ) || allProducts[1] || allProducts[0];
+
+  const laptopProd = allProducts.find((p) =>
+    (p.category_name || '').toLowerCase().includes('laptop') ||
+    (p.category_name || '').toLowerCase().includes('computer') ||
+    (p.name || '').toLowerCase().includes('macbook') ||
+    (p.name || '').toLowerCase().includes('pc')
+  ) || allProducts[2] || allProducts[0];
 
   const cards = [
     {
-      title: t('home.gameControllers') || 'IT & Tech Zubehör',
-      price: `${t('home.fromPrice')} 160 €`,
-      image: getValidImageUrl(undefined, 'it-zubehoer'),
-      link: '/shop?category=accessoires',
+      title: itProd?.name || 'IT & Tech Zubehör',
+      price: `${t('home.fromPrice') || 'Ab'} ${itProd?.price || 160} €`,
+      image: itProd?.images?.[0] || '',
+      link: itProd ? `/shop/${itProd.slug}` : '/shop',
     },
     {
-      title: t('nav.smartphones') || 'Smartphones & Tablets',
-      price: `${t('home.fromPrice')} 650 €`,
-      image: getValidImageUrl(undefined, 'smartphones-tablets'),
-      link: '/shop?category=smartphones-tablettes',
+      title: phoneProd?.name || 'Smartphones & Tablets',
+      price: `${t('home.fromPrice') || 'Ab'} ${phoneProd?.price || 650} €`,
+      image: phoneProd?.images?.[0] || '',
+      link: phoneProd ? `/shop/${phoneProd.slug}` : '/shop',
     },
     {
-      title: 'Laptops & Desktop-PCs',
-      price: `${t('home.fromPrice')} 450 €`,
-      image: getValidImageUrl(undefined, 'laptops-pcs'),
-      link: '/shop?category=laptop-bureau',
+      title: laptopProd?.name || 'Laptops & Desktop-PCs',
+      price: `${t('home.fromPrice') || 'Ab'} ${laptopProd?.price || 450} €`,
+      image: laptopProd?.images?.[0] || '',
+      link: laptopProd ? `/shop/${laptopProd.slug}` : '/shop',
     },
   ];
 
@@ -51,19 +81,22 @@ export function CategoryPromoCards() {
               href={card.link}
               className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary-500 dark:text-emerald-400 hover:text-primary-600 uppercase tracking-wider mt-3 sm:mt-auto group/link"
             >
-              <span>{t('quickLinks.shopNow')}</span>
+              <span>{t('quickLinks.shopNow') || 'JETZT EINKAUFEN'}</span>
               <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
             </Link>
           </div>
 
-          {/* Right Square Image Container (1:1 Aspect Ratio Spanning 100% Height) */}
+          {/* Right Square Image Container */}
           <div className="relative aspect-square w-[110px] h-[110px] sm:w-auto sm:h-full rounded-[8px] overflow-hidden bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800/60 flex-shrink-0">
-            <Image
-              src={card.image}
-              alt={card.title}
-              fill
-              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-            />
+            {card.image && (
+              <Image
+                src={card.image}
+                alt={card.title}
+                fill
+                sizes="110px"
+                className="object-contain p-1.5 w-full h-full group-hover:scale-105 transition-transform duration-300"
+              />
+            )}
           </div>
         </div>
       ))}

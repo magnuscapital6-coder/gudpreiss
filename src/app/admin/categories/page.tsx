@@ -117,7 +117,7 @@ export default function AdminCategoriesPage() {
         <div className="fixed inset-0 z-50 overflow-y-auto flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/60 backdrop-blur-xs">
           <div className="bg-white w-full sm:max-w-md rounded-t-2xl sm:rounded-2xl shadow-2xl p-6 space-y-4 animate-in slide-in-from-bottom sm:zoom-in-95 duration-200">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h3 className="text-base font-bold text-slate-900">{t('admin.addCategory')}</h3>
+              <h2 className="text-base font-bold text-slate-900">{t('admin.addCategory')}</h2>
               <button onClick={() => setIsModalOpen(false)} className="p-1 text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:text-slate-300">
                 <X className="w-5 h-5" />
               </button>

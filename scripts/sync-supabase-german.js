@@ -2,7 +2,7 @@ const { createClient } = require('@supabase/supabase-js');
 const { INITIAL_PRODUCTS, INITIAL_CATEGORIES } = require('../src/lib/db/initial-data');
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://xfsaznnrhqmlbllsfxzr.supabase.co";
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "sb_publishable_ru7ujHqmIcGSoX7zO5kxWw_y_Avr-q0";
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 

@@ -161,7 +161,7 @@ export default function SingleBlogPostPage() {
         {/* Related Articles Footer Section */}
         {relatedPosts.length > 0 && (
           <div className="pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6">
-            <h3 className="text-xl font-extrabold tracking-tight">Ähnliche Artikel &amp; Ratgeber</h3>
+            <h2 className="text-xl font-extrabold tracking-tight">Ähnliche Artikel &amp; Ratgeber</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {relatedPosts.map((rel) => (
@@ -169,7 +169,7 @@ export default function SingleBlogPostPage() {
                   key={rel.id}
                   className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between p-4 space-y-3"
                 >
-                  <h4 className="font-bold text-xs line-clamp-2">{rel.title}</h4>
+                  <h3 className="font-bold text-xs line-clamp-2">{rel.title}</h3>
                   <Link
                     href={`/blog/${rel.slug}`}
                     className="text-emerald-800 dark:text-emerald-700 font-extrabold text-[11px] hover:underline"

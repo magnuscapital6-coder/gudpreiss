@@ -468,7 +468,7 @@ export default function ProductDetailPage() {
                 reviews.map((rev) => (
                   <div key={rev.id} className="p-4 bg-slate-50 dark:bg-slate-950/60 rounded-2xl border border-slate-100 dark:border-slate-800 space-y-1">
                     <div className="flex items-center justify-between">
-                      <h4 className="font-bold text-slate-900 dark:text-white text-xs">{rev.user_name}</h4>
+                      <h3 className="font-bold text-slate-900 dark:text-white text-xs">{rev.user_name}</h3>
                       <div className="flex items-center text-amber-700">
                         {[...Array(rev.rating)].map((_, i) => (
                           <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-700" />
@@ -487,7 +487,7 @@ export default function ProductDetailPage() {
         {/* Related Products */}
         {relatedProducts.length > 0 && (
           <section className="mb-12">
-            <h3 className="text-xl font-extrabold text-slate-900 dark:text-white mb-6">{t('product.relatedProducts')}</h3>
+            <h2 className="text-xl font-extrabold text-slate-900 dark:text-white mb-6">{t('product.relatedProducts')}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
               {relatedProducts.map((p) => (
                 <ProductCard key={p.id} product={p} />

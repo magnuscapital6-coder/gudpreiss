@@ -75,7 +75,7 @@ export default function OrderHistoryPage() {
               <Package className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="text-base font-extrabold mb-1">Keine Bestellungen vorhanden</h3>
+              <h2 className="text-base font-extrabold mb-1">Keine Bestellungen vorhanden</h2>
               <p className="text-xs text-slate-500 dark:text-slate-500 max-w-sm mx-auto">
                 Sie haben derzeit keine aktiven Bestellungen. Entdecken Sie unsere neuesten Angebote im Katalog.
               </p>
@@ -188,9 +188,9 @@ export default function OrderHistoryPage() {
 
                   {/* Items List */}
                   <div className="space-y-3 pt-2">
-                    <h4 className="text-xs font-bold uppercase text-slate-500 dark:text-slate-500 tracking-wider">
+                    <h3 className="text-xs font-bold uppercase text-slate-500 dark:text-slate-500 tracking-wider">
                       Bestellte Artikel ({order.items.length})
-                    </h4>
+                    </h3>
                     <div className="divide-y divide-slate-100 dark:divide-slate-800">
                       {order.items.map((item, idx) => (
                         <div key={idx} className="py-3 flex items-center justify-between text-xs gap-4">

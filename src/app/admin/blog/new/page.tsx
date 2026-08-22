@@ -14,7 +14,7 @@ export default function NewBlogPostPage() {
   const [slug, setSlug] = useState('');
   const [category, setCategory] = useState('Technologie');
   const [authorName, setAuthorName] = useState('GudPreiss Redaktion');
-  const [coverImage, setCoverImage] = useState('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200');
+  const [coverImage, setCoverImage] = useState('https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg');
   const [excerpt, setExcerpt] = useState('');
   const [content, setContent] = useState('');
   const [status, setStatus] = useState<'published' | 'draft'>('published');

@@ -53,7 +53,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="w-12 h-12 rounded-2xl bg-rose-500/20 text-rose-400 border border-rose-500/40 flex items-center justify-center mx-auto text-xl font-bold">
             🔒
           </div>
-          <h2 className="text-lg font-black text-white">Zugriff Verweigert / Access Denied</h2>
+          <h2 className="text-lg font-black text-white">Zugriff verweigert</h2>
           <p className="text-xs text-slate-500 leading-relaxed">
             Sie müssen als Administrator angemeldet sein, um auf das Admin-Dashboard zuzugreifen.
           </p>
@@ -61,7 +61,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             href="/login"
             className="inline-block w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-emerald-900/30 transition"
           >
-            ZUM LOGIN FORMULAR / SE CONNECTER
+            ZUM LOGIN
           </a>
         </div>
       </div>
@@ -81,7 +81,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {isMobileSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
           <span className="font-extrabold text-lg tracking-tight">
-            Tech<span className="text-blue-500">nova</span> Admin
+            Gud<span className="text-blue-500">Preiss</span> Admin
           </span>
         </div>
 
@@ -91,7 +91,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           className="flex items-center gap-1 text-xs bg-slate-800 px-2.5 py-1.5 rounded-lg text-blue-700 font-semibold"
         >
           <Store className="w-3.5 h-3.5" />
-          <span>Boutique</span>
+          <span>Shop</span>
         </Link>
       </header>
 
@@ -106,10 +106,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="h-16 px-6 flex items-center justify-between border-b border-slate-800/80">
             <Link href="/admin" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-sm">
-                TN
+                GP
               </div>
               <span className="font-black text-lg text-white tracking-tight">
-                Tech<span className="text-blue-500">nova</span>
+                Gud<span className="text-blue-500">Preiss</span>
               </span>
             </Link>
 
@@ -155,7 +155,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               {user?.full_name?.charAt(0) || 'A'}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-bold text-white truncate">{user?.full_name || 'Administrateur'}</p>
+              <p className="text-xs font-bold text-white truncate">{user?.full_name || 'Administrator'}</p>
               <p className="text-[10px] text-slate-500 truncate">{user?.email || 'admin@gudpreiss.store'}</p>
             </div>
           </div>
@@ -173,7 +173,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <button
               onClick={logout}
               className="p-1.5 text-slate-500 hover:text-red-400 hover:bg-slate-800 rounded-lg transition"
-              title="Abmelden"
+              aria-label="Abmelden"
             >
               <LogOut className="w-4 h-4" />
             </button>

@@ -19,7 +19,7 @@ export function LanguageSwitcher() {
     <div className="relative inline-block text-left">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Select Language"
+        aria-label={`Sprache auswählen (${currentLang.code})`}
         className="flex items-center gap-1.5 hover:text-text-primary transition font-semibold text-[11px]"
       >
         <span className="text-sm">{currentLang.flag}</span>

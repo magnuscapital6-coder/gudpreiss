@@ -51,9 +51,9 @@ function SuccessContent() {
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <div className="flex items-center gap-2">
               <Building2 className="w-4 h-4 text-emerald-700" />
-              <h4 className="text-xs font-extrabold uppercase tracking-wider text-emerald-700">
+              <h2 className="text-xs font-extrabold uppercase tracking-wider text-emerald-700">
                 {t('checkout.bankDetails')}
-              </h4>
+              </h2>
             </div>
             <button
               onClick={() => window.print()}

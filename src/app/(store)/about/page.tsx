@@ -20,7 +20,7 @@ export default function AboutPage() {
         </div>
 
         <div className="bg-white rounded-3xl border border-slate-200/80 p-8 shadow-sm space-y-6 text-xs text-slate-600 leading-relaxed">
-          <h3 className="text-base font-bold text-slate-900">Unsere Mission</h3>
+          <h2 className="text-base font-bold text-slate-900">Unsere Mission</h2>
           <p>
             Bei GudPreiss sind wir überzeugt, dass Premium-Technologie zugänglich, zuverlässig und von erstklassigem Kundenservice unterstützt sein sollte. Jedes Smartphone, Laptop und Audio-Gerät in unserem Katalog durchläuft eine strenge Echtheitsprüfung und Qualitätskontrolle.
           </p>
@@ -28,17 +28,17 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
             <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center space-y-1">
               <Award className="w-6 h-6 text-blue-600 mx-auto" />
-              <h4 className="font-bold text-slate-900">100% Authentisch</h4>
+              <h3 className="font-bold text-slate-900">100% Authentisch</h3>
               <p className="text-[11px] text-slate-500">Offizielle Markengarantie</p>
             </div>
             <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center space-y-1">
               <Truck className="w-6 h-6 text-blue-600 mx-auto" />
-              <h4 className="font-bold text-slate-900">Express-Lieferung</h4>
+              <h3 className="font-bold text-slate-900">Express-Lieferung</h3>
               <p className="text-[11px] text-slate-500">Weltweiter Luftfrachtversand</p>
             </div>
             <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center space-y-1">
               <ShieldCheck className="w-6 h-6 text-blue-600 mx-auto" />
-              <h4 className="font-bold text-slate-900">Sichere Zahlungen</h4>
+              <h3 className="font-bold text-slate-900">Sichere Zahlungen</h3>
               <p className="text-[11px] text-slate-500">256-Bit-verschlüsselter Checkout</p>
             </div>
           </div>

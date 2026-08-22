@@ -130,10 +130,10 @@ function ShopContent() {
           isMobileFilterOpen ? 'block fixed inset-0 z-50 overflow-y-auto m-0 sm:m-4 rounded-none sm:rounded-2xl bg-white dark:bg-slate-950' : 'hidden lg:block'
         }`}>
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800/60 pb-3">
-            <h3 className="font-extrabold text-slate-900 dark:text-slate-100 text-sm flex items-center gap-2">
+            <h2 className="font-extrabold text-slate-900 dark:text-slate-100 text-sm flex items-center gap-2">
               <Filter className="w-4 h-4 text-emerald-800 dark:text-emerald-700" />
               <span>Katalog-Filter</span>
-            </h3>
+            </h2>
             {isMobileFilterOpen && (
               <button onClick={() => setIsMobileFilterOpen(false)} className="p-2">
                 <X className="w-5 h-5 text-slate-500" />
@@ -224,7 +224,7 @@ function ShopContent() {
             </div>
           ) : products.length === 0 ? (
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-8 sm:p-12 text-center">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">Keine Produkte gefunden</h3>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">Keine Produkte gefunden</h2>
               <p className="text-xs text-slate-500 dark:text-slate-500 mb-4">Versuchen Sie, die Filter zurückzusetzen, um alle Artikel anzuzeigen.</p>
               <button
                 onClick={() => router.push('/shop')}

@@ -227,7 +227,7 @@ export async function createBlogPost(post: Partial<BlogPost>): Promise<BlogPost>
     slug: post.slug || `post-${Date.now()}`,
     excerpt: post.excerpt || '',
     content: post.content || '',
-    cover_image: post.cover_image || 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200',
+    cover_image: post.cover_image || 'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg',
     author_name: post.author_name || 'GudPreiss Redaktion',
     category: post.category || 'Technologie',
     tags: post.tags || ['Tech', 'News'],
@@ -512,7 +512,7 @@ export async function createProduct(productData: Partial<Product>): Promise<Prod
     images:
       productData.images && productData.images.length > 0
         ? productData.images
-        : ['https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&fit=crop&q=80'],
+        : ['https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg'],
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   };
@@ -735,7 +735,7 @@ export async function createCategory(categoryData: Partial<Category>): Promise<C
     name: categoryData.name || 'New Category',
     slug: categoryData.slug || categoryData.name?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || `category-${Date.now()}`,
     description: categoryData.description || '',
-    image_url: categoryData.image_url || 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&fit=crop&q=80',
+    image_url: categoryData.image_url || 'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg',
     sort_order: memoryCategories.length + 1,
     active: true,
     created_at: new Date().toISOString(),
