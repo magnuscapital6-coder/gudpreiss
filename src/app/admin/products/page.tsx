@@ -38,7 +38,7 @@ export default function AdminProductsPage() {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-6xl">
       {/* Top Action Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
@@ -74,14 +74,14 @@ export default function AdminProductsPage() {
       {/* Products Data Table Container */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs table-fixed">
+          <table className="w-full text-left text-xs border-collapse">
             <thead className="bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-bold border-b border-slate-100 dark:border-slate-800">
               <tr>
-                <th className="py-3 px-4 w-[45%]">Produkt</th>
-                <th className="py-3 px-3 w-[18%]">SKU</th>
-                <th className="py-3 px-3 w-[15%]">Preis</th>
-                <th className="py-3 px-3 w-[12%]">Bestand</th>
-                <th className="py-3 px-4 w-[10%] text-right">Aktionen</th>
+                <th className="py-3 px-4 max-w-[320px]">Produkt</th>
+                <th className="py-3 px-3 w-36">SKU</th>
+                <th className="py-3 px-3 w-28">Preis</th>
+                <th className="py-3 px-3 w-28">Bestand</th>
+                <th className="py-3 px-4 w-24 text-right">Aktionen</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 font-medium">
@@ -96,24 +96,24 @@ export default function AdminProductsPage() {
               ) : (
                 filteredProducts.map((p) => (
                   <tr key={p.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition">
-                    <td className="py-2.5 px-4">
+                    <td className="py-2.5 px-4 max-w-[320px]">
                       <div className="flex items-center gap-3">
                         <div className="w-9 h-9 relative bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden flex-shrink-0 border border-slate-200 dark:border-slate-700">
                           <Image src={p.images[0]} alt="" fill className="object-contain p-1" />
                         </div>
-                        <div className="min-w-0 pr-2">
+                        <div className="min-w-0 flex-1">
                           <p className="font-bold text-slate-900 dark:text-white truncate text-xs" title={p.name}>{p.name}</p>
                           <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase">{p.category_name}</span>
                         </div>
                       </div>
                     </td>
-                    <td className="py-2.5 px-3 text-slate-500 dark:text-slate-400 font-mono text-[11px] truncate" title={p.sku || ''}>
+                    <td className="py-2.5 px-3 text-slate-500 dark:text-slate-400 font-mono text-[11px] w-36 truncate" title={p.sku || ''}>
                       {p.sku || 'N/A'}
                     </td>
-                    <td className="py-2.5 px-3 font-bold text-slate-900 dark:text-white whitespace-nowrap">
+                    <td className="py-2.5 px-3 font-bold text-slate-900 dark:text-white whitespace-nowrap w-28">
                       {p.price.toLocaleString('de-DE')} €
                     </td>
-                    <td className="py-2.5 px-3 whitespace-nowrap">
+                    <td className="py-2.5 px-3 whitespace-nowrap w-28">
                       <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold ${
                         p.stock > 5
                           ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400'
@@ -122,7 +122,7 @@ export default function AdminProductsPage() {
                         {p.stock} Stk.
                       </span>
                     </td>
-                    <td className="py-2.5 px-4 text-right whitespace-nowrap">
+                    <td className="py-2.5 px-4 text-right whitespace-nowrap w-24">
                       <div className="flex items-center justify-end gap-1.5">
                         <Link
                           href={`/admin/products/${p.id}/edit`}
