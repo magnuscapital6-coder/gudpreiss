@@ -253,7 +253,7 @@ export default function SeoCommandCenterPage() {
                 </div>
 
                 <Link
-                  href={issue.actionableId ? `/admin/Produkte/${issue.actionableId}/edit` : issue.affectedUrl}
+                  href={issue.actionableId ? `/admin/products/${issue.actionableId}/edit` : issue.affectedUrl}
                   className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl flex items-center gap-1.5 shrink-0 self-start sm:self-center"
                 >
                   <span>BEHEBEN</span>

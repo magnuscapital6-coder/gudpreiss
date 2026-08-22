@@ -74,7 +74,7 @@ export default function EditProductPage() {
         on_sale: Boolean(compareAtPrice),
       });
 
-      router.push('/admin/Produkte');
+      router.push('/admin/products');
     } catch (err) {
       console.error(err);
       alert('Fehler bei der Produktaktualisierung.');
@@ -90,7 +90,7 @@ export default function EditProductPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-center justify-between">
-        <Link href="/admin/Produkte" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-white">
+        <Link href="/admin/products" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-white">
           <ArrowLeft className="w-4 h-4" />
           <span>Zurück zu Produkten</span>
         </Link>

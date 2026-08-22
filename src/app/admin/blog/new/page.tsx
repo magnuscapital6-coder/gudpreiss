@@ -77,7 +77,7 @@ export default function NewBlogPostPage() {
         seo_score: score,
       });
 
-      router.push('/admin/Blog');
+      router.push('/admin/blog');
     } catch (err) {
       console.error(err);
       alert('Fehler beim Speichern des Beitrags.');
@@ -91,7 +91,7 @@ export default function NewBlogPostPage() {
       {/* Back & Top Actions */}
       <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
         <Link
-          href="/admin/Blog"
+          href="/admin/blog"
           className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
         >
           <ArrowLeft className="w-4 h-4" />

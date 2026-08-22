@@ -29,6 +29,33 @@ const nextConfig = {
       bodySizeLimit: '4mb',
     },
     serverComponentsExternalPackages: ['pg'],
+  async rewrites() {
+    return [
+      {
+        source: '/admin/Produkte',
+        destination: '/admin/products',
+      },
+      {
+        source: '/admin/Produkte/:path*',
+        destination: '/admin/products/:path*',
+      },
+      {
+        source: '/admin/produkte',
+        destination: '/admin/products',
+      },
+      {
+        source: '/admin/produkte/:path*',
+        destination: '/admin/products/:path*',
+      },
+      {
+        source: '/admin/Blog',
+        destination: '/admin/blog',
+      },
+      {
+        source: '/admin/Blog/:path*',
+        destination: '/admin/blog/:path*',
+      },
+    ];
   },
 };
 

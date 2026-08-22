@@ -55,7 +55,7 @@ export default function AdminBlogListPage() {
         </div>
 
         <Link
-          href="/admin/Blog/new"
+          href="/admin/blog/new"
           className="px-5 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 transition shrink-0 cursor-pointer"
         >
           <Plus className="w-4 h-4" />
@@ -88,7 +88,7 @@ export default function AdminBlogListPage() {
             Erstellen Sie Ihren ersten SEO-optimierten Artikel für Ihren Store.
           </p>
           <Link
-            href="/admin/Blog/new"
+            href="/admin/blog/new"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 text-white font-bold text-xs rounded-xl shadow-md"
           >
             <Plus className="w-4 h-4" />
@@ -154,7 +154,7 @@ export default function AdminBlogListPage() {
                             <Eye className="w-4 h-4" />
                           </Link>
                           <Link
-                            href={`/admin/Blog/${post.id}/edit`}
+                            href={`/admin/blog/${post.id}/edit`}
                             className="p-2 text-emerald-800 dark:text-emerald-400 hover:bg-emerald-500/10 rounded-lg transition"
                             aria-label="Bearbeiten & SEO"
                           >

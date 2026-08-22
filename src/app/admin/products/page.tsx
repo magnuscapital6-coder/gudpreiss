@@ -51,7 +51,7 @@ export default function AdminProductsPage() {
         </div>
 
         <Link
-          href="/admin/Produkte/new"
+          href="/admin/products/new"
           className="w-full sm:w-auto px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition touch-target"
         >
           <Plus className="w-4 h-4" />
@@ -119,7 +119,7 @@ export default function AdminProductsPage() {
                     <td className="p-3.5 pr-5 text-right">
                       <div className="flex items-center justify-end gap-2">
                         <Link
-                          href={`/admin/Produkte/${p.id}/edit`}
+                          href={`/admin/products/${p.id}/edit`}
                           className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
                           aria-label="Bearbeiten"
                         >

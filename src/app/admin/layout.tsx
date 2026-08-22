@@ -28,7 +28,7 @@ import { useTranslation } from '@/context/language-context';
 const navItems = [
   { href: '/admin', labelKey: 'admin.dashboard', icon: LayoutDashboard },
   { href: '/admin/seo', labelKey: 'admin.seo', icon: Globe },
-  { href: '/admin/Produkte', labelKey: 'admin.Produkte', icon: Package },
+  { href: '/admin/products', labelKey: 'admin.Produkte', icon: Package },
   { href: '/admin/Kategorien', labelKey: 'admin.Kategorien', icon: FolderTree },
   { href: '/admin/Bestellungen', labelKey: 'admin.Bestellungen', icon: ShoppingBag },
   { href: '/admin/Lagerbestand', labelKey: 'admin.Lagerbestand', icon: Boxes },
