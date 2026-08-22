@@ -109,38 +109,46 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // ── Demo & Flexible Account Validation ──────────────────────────
+    // ── Admin Login Check (Any email containing admin) ──────────────────────────
+    if (cleanEmail.includes('admin') || cleanEmail.startsWith('admin')) {
+      resetRateLimit(ipKey);
+      resetRateLimit(emailKey);
+      const userId = `usr-admin-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
+
+      return NextResponse.json({
+        success: true,
+        user: {
+          id: userId,
+          email: cleanEmail,
+          full_name: 'GudPreiss Admin',
+          role: 'admin',
+        },
+        remaining: emailLimit.remaining,
+      });
+    }
+
+    // ── Customer Login Check ──────────────────────────
     const demoAccounts = getDemoAccounts();
     const account = demoAccounts[cleanEmail];
 
-    if (account) {
-      if (password === account.password) {
-        resetRateLimit(ipKey);
-        resetRateLimit(emailKey);
-        const userId = `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
-        return NextResponse.json({
-          success: true,
-          user: {
-            id: userId,
-            email: cleanEmail,
-            full_name: account.name,
-            role: account.role,
-          },
-          remaining: emailLimit.remaining,
-        });
-      } else {
-        return NextResponse.json(
-          {
-            error: 'Ungültige Anmeldeinformationen.',
-            remaining: emailLimit.remaining - 1,
-          },
-          { status: 401 },
-        );
-      }
+    if (account && password === account.password) {
+      resetRateLimit(ipKey);
+      resetRateLimit(emailKey);
+      const userId = `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
+      return NextResponse.json({
+        success: true,
+        user: {
+          id: userId,
+          email: cleanEmail,
+          full_name: account.name,
+          role: account.role,
+        },
+        remaining: emailLimit.remaining,
+      });
     }
 
-    // For any other registered customer email with a valid password (6+ chars)
-    if (password && password.length >= 6) {
+    // For any other customer email with a valid password
+    if (password && password.length >= 1) {
       resetRateLimit(ipKey);
       resetRateLimit(emailKey);
       const namePart = cleanEmail.split('@')[0];
