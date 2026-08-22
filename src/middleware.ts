@@ -55,6 +55,26 @@ async function hasSession(request: NextRequest): Promise<boolean> {
   }
 }
 
+const GERMAN_ADMIN_ROUTE_ALIASES: Record<string, string> = {
+  '/admin/Kategorien': '/admin/categories',
+  '/admin/kategorien': '/admin/categories',
+  '/admin/Bestellungen': '/admin/orders',
+  '/admin/bestellungen': '/admin/orders',
+  '/admin/Lagerbestand': '/admin/inventory',
+  '/admin/lagerbestand': '/admin/inventory',
+  '/admin/Marketing': '/admin/marketing',
+  '/admin/marketing': '/admin/marketing',
+  '/admin/Bewertungen': '/admin/reviews',
+  '/admin/bewertungen': '/admin/reviews',
+  '/admin/Kunden': '/admin/customers',
+  '/admin/kunden': '/admin/customers',
+  '/admin/Medien': '/admin/media',
+  '/admin/medien': '/admin/media',
+  '/admin/Produkte': '/admin/products',
+  '/admin/produkte': '/admin/products',
+  '/admin/Blog': '/admin/blog',
+};
+
 export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
 
@@ -66,6 +86,15 @@ export async function middleware(request: NextRequest) {
       loginUrl.searchParams.set('redirect', path);
       return NextResponse.redirect(loginUrl);
     }
+
+    // Rewrite German admin route aliases to underlying English pages
+    const targetAlias = GERMAN_ADMIN_ROUTE_ALIASES[path];
+    if (targetAlias) {
+      const rewriteUrl = request.nextUrl.clone();
+      rewriteUrl.pathname = targetAlias;
+      return NextResponse.rewrite(rewriteUrl);
+    }
+
     return NextResponse.next();
   }
 
