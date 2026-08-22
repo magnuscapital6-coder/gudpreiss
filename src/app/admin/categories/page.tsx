@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Plus, Search, Edit3, Trash2, X, Image as ImageIcon, Check } from 'lucide-react';
+import { Plus, Search, Edit3, Trash2, X, Image as ImageIcon, Check, CheckSquare, Square } from 'lucide-react';
 import { getCategories, createCategory, updateCategory, deleteCategory, getProducts } from '@/lib/db/db-provider';
 import { Category, Product } from '@/types';
 import { useTranslation } from '@/context/language-context';
@@ -14,6 +14,9 @@ export default function AdminCategoriesPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+
+  // Selection & Bulk Actions State
+  const [selectedCategoryIds, setSelectedCategoryIds] = useState<string[]>([]);
 
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,6 +40,39 @@ export default function AdminCategoriesPage() {
     setIsLoading(false);
   };
 
+  const filteredCategories = Kategorien.filter((c) =>
+    c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    c.slug.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Selection Handlers
+  const toggleSelectAll = () => {
+    if (selectedCategoryIds.length === filteredCategories.length) {
+      setSelectedCategoryIds([]);
+    } else {
+      setSelectedCategoryIds(filteredCategories.map((c) => c.id));
+    }
+  };
+
+  const toggleSelectOne = (id: string) => {
+    setSelectedCategoryIds((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
+
+  const handleBulkDelete = async () => {
+    if (selectedCategoryIds.length === 0) return;
+    const count = selectedCategoryIds.length;
+    if (confirm(`Möchten Sie die ${count} ausgewählten Kategorien wirklich löschen?`)) {
+      setIsLoading(true);
+      for (const id of selectedCategoryIds) {
+        await deleteCategory(id);
+      }
+      setSelectedCategoryIds([]);
+      await fetchData();
+    }
+  };
+
   const handleOpenCreateModal = () => {
     setEditingCategory(null);
     setName('');
@@ -56,6 +92,7 @@ export default function AdminCategoriesPage() {
   const handleDelete = async (id: string) => {
     if (confirm('Möchten Sie diese Kategorie wirklich löschen?')) {
       await deleteCategory(id);
+      setSelectedCategoryIds((prev) => prev.filter((item) => item !== id));
       fetchData();
     }
   };
@@ -91,10 +128,8 @@ export default function AdminCategoriesPage() {
     fetchData();
   };
 
-  const filteredCategories = Kategorien.filter((c) =>
-    c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    c.slug.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const isAllSelected =
+    filteredCategories.length > 0 && selectedCategoryIds.length === filteredCategories.length;
 
   return (
     <div className="space-y-6 max-w-6xl">
@@ -118,6 +153,38 @@ export default function AdminCategoriesPage() {
         </button>
       </div>
 
+      {/* Bulk Action Banner */}
+      {selectedCategoryIds.length > 0 && (
+        <div className="p-4 bg-rose-950/90 dark:bg-rose-950 border border-rose-800/80 rounded-2xl text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xl animate-in fade-in duration-200">
+          <div className="flex items-center gap-2.5">
+            <span className="w-7 h-7 rounded-lg bg-rose-800/80 flex items-center justify-center font-black text-xs">
+              {selectedCategoryIds.length}
+            </span>
+            <span className="text-xs font-bold">
+              {selectedCategoryIds.length === 1
+                ? '1 Kategorie ausgewählt'
+                : `${selectedCategoryIds.length} Kategorien ausgewählt`}
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setSelectedCategoryIds([])}
+              className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl transition cursor-pointer"
+            >
+              Auswahl aufheben
+            </button>
+            <button
+              onClick={handleBulkDelete}
+              className="px-4 py-1.5 bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold rounded-xl flex items-center gap-1.5 shadow-md transition cursor-pointer"
+            >
+              <Trash2 className="w-4 h-4" />
+              <span>Ausgewählte löschen ({selectedCategoryIds.length})</span>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Search Input */}
       <div className="bg-white dark:bg-slate-900 p-3 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
         <Search className="w-4 h-4 text-slate-400 dark:text-slate-500" />
@@ -136,24 +203,34 @@ export default function AdminCategoriesPage() {
           <table className="w-full text-left text-xs border-collapse">
             <thead className="bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-bold border-b border-slate-100 dark:border-slate-800">
               <tr>
+                <th className="py-3 px-4 w-10 text-center">
+                  <input
+                    type="checkbox"
+                    checked={isAllSelected}
+                    onChange={toggleSelectAll}
+                    className="w-4 h-4 rounded-md border-slate-300 dark:border-slate-700 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                    title="Alle auswählen / abwählen"
+                  />
+                </th>
                 <th className="py-3 px-4 max-w-[280px]">Kategorie & Bild</th>
                 <th className="py-3 px-3 w-36">Slug</th>
                 <th className="py-3 px-3 w-48">Beschreibung</th>
                 <th className="py-3 px-3 w-28">Produkte</th>
-                <th className="py-3 px-4 w-24 text-right">Aktionen</th>
+                <th className="py-3 px-4 w-36 text-right">Aktionen</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 font-medium">
               {isLoading ? (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-slate-500 dark:text-slate-400">Kategorien werden geladen...</td>
+                  <td colSpan={6} className="p-8 text-center text-slate-500 dark:text-slate-400">Kategorien werden geladen...</td>
                 </tr>
               ) : filteredCategories.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-slate-500 dark:text-slate-400">Keine Kategorien gefunden.</td>
+                  <td colSpan={6} className="p-8 text-center text-slate-500 dark:text-slate-400">Keine Kategorien gefunden.</td>
                 </tr>
               ) : (
                 filteredCategories.map((cat) => {
+                  const isSelected = selectedCategoryIds.includes(cat.id);
                   const validImg = getValidImageUrl(cat.image_url, cat.slug);
                   const prodCount = products.filter(
                     (p) =>
@@ -163,7 +240,22 @@ export default function AdminCategoriesPage() {
                   ).length;
 
                   return (
-                    <tr key={cat.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition">
+                    <tr
+                      key={cat.id}
+                      className={`transition ${
+                        isSelected
+                          ? 'bg-emerald-50/60 dark:bg-emerald-950/20'
+                          : 'hover:bg-slate-50/80 dark:hover:bg-slate-800/40'
+                      }`}
+                    >
+                      <td className="py-2.5 px-4 text-center">
+                        <input
+                          type="checkbox"
+                          checked={isSelected}
+                          onChange={() => toggleSelectOne(cat.id)}
+                          className="w-4 h-4 rounded-md border-slate-300 dark:border-slate-700 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                        />
+                      </td>
                       <td className="py-2.5 px-4 max-w-[280px]">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 relative bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200 dark:border-slate-700 shadow-2xs">
