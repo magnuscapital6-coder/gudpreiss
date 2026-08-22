@@ -26,17 +26,17 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-5 bg-slate-900 text-white rounded-3xl p-8 space-y-6">
             <h3 className="text-xl font-bold">Kontaktdaten</h3>
-            <div className="space-y-4 text-xs text-slate-300">
+            <div className="space-y-4 text-xs text-slate-600">
               <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-blue-400" />
+                <MapPin className="w-5 h-5 text-blue-700" />
                 <span>100 Tech Nova Way, Silicon Valley, CA 94025</span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-blue-400" />
+                <Phone className="w-5 h-5 text-blue-700" />
                 <span>+1 (800) 555-TECH</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-blue-400" />
+                <Mail className="w-5 h-5 text-blue-700" />
                 <span>support@gudpreiss.store</span>
               </div>
             </div>

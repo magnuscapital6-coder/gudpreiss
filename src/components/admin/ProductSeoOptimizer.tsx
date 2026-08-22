@@ -251,14 +251,14 @@ Besondere Merkmale:
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center">
+          <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-700 flex items-center justify-center">
             <Sparkles className="w-5 h-5" />
           </div>
           <div>
             <h3 className="text-sm font-bold text-white flex items-center gap-2">
               <span>Automatische SEO-Optimierung (Deutschland)</span>
             </h3>
-            <p className="text-[11px] text-slate-400">
+            <p className="text-[11px] text-slate-500">
               Analysiert und optimiert Titel, Meta-Daten, Slugs & Schemas für Google.de.
             </p>
           </div>
@@ -291,7 +291,7 @@ Besondere Merkmale:
           <div className="relative w-16 h-16 rounded-full border-4 border-slate-800 flex items-center justify-center bg-slate-900 shadow-inner">
             <span
               className={`text-lg font-black ${
-                seoScore >= 80 ? 'text-emerald-400' : seoScore >= 50 ? 'text-amber-400' : 'text-rose-400'
+                seoScore >= 80 ? 'text-emerald-700' : seoScore >= 50 ? 'text-amber-700' : 'text-rose-400'
               }`}
             >
               {seoScore}
@@ -303,7 +303,7 @@ Besondere Merkmale:
             <span className="text-xs font-bold text-white block">SEO-Score Status</span>
             <span
               className={`text-[11px] font-semibold ${
-                seoScore >= 80 ? 'text-emerald-400' : seoScore >= 50 ? 'text-amber-400' : 'text-rose-400'
+                seoScore >= 80 ? 'text-emerald-700' : seoScore >= 50 ? 'text-amber-700' : 'text-rose-400'
               }`}
             >
               {seoScore >= 80 ? 'Sehr Gut (Google.de Bereit)' : seoScore >= 50 ? 'Optimierung empfohlen' : 'Kritische SEO-Mängel'}
@@ -314,27 +314,27 @@ Besondere Merkmale:
         {/* Score Breakdown Bars */}
         <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-2 text-[10px]">
           <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
-            <span className="text-slate-400 block">Technik & Slug</span>
+            <span className="text-slate-500 block">Technik & Slug</span>
             <span className="font-bold text-white">{seoBreakdown.technical}/20</span>
           </div>
           <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
-            <span className="text-slate-400 block">Keywords & Titel</span>
+            <span className="text-slate-500 block">Keywords & Titel</span>
             <span className="font-bold text-white">{seoBreakdown.keywords}/20</span>
           </div>
           <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
-            <span className="text-slate-400 block">Inhalt & Beschreibung</span>
+            <span className="text-slate-500 block">Inhalt & Beschreibung</span>
             <span className="font-bold text-white">{seoBreakdown.content}/20</span>
           </div>
           <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
-            <span className="text-slate-400 block">Meta-Tags & Title</span>
+            <span className="text-slate-500 block">Meta-Tags & Title</span>
             <span className="font-bold text-white">{seoBreakdown.metadata}/15</span>
           </div>
           <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
-            <span className="text-slate-400 block">Bilder & ALT</span>
+            <span className="text-slate-500 block">Bilder & ALT</span>
             <span className="font-bold text-white">{seoBreakdown.images}/10</span>
           </div>
           <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
-            <span className="text-slate-400 block">Schema.org</span>
+            <span className="text-slate-500 block">Schema.org</span>
             <span className="font-bold text-white">{seoBreakdown.structuredData}/5</span>
           </div>
         </div>
@@ -342,7 +342,7 @@ Besondere Merkmale:
 
       {/* Checklist Overview */}
       <div className="space-y-1.5 pt-1">
-        <span className="text-[11px] font-bold text-slate-400 block mb-1">SEO-Prüfliste & Optimierungskriterien:</span>
+        <span className="text-[11px] font-bold text-slate-500 block mb-1">SEO-Prüfliste & Optimierungskriterien:</span>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
           {checklist.map((item) => (
             <div
@@ -355,8 +355,8 @@ Besondere Merkmale:
                   : 'bg-rose-950/30 border-rose-800/40 text-rose-300'
               }`}
             >
-              {item.status === 'pass' && <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />}
-              {item.status === 'warn' && <AlertTriangle className="w-3.5 h-3.5 text-amber-400 shrink-0" />}
+              {item.status === 'pass' && <Check className="w-3.5 h-3.5 text-emerald-700 shrink-0" />}
+              {item.status === 'warn' && <AlertTriangle className="w-3.5 h-3.5 text-amber-700 shrink-0" />}
               {item.status === 'fail' && <XCircle className="w-3.5 h-3.5 text-rose-400 shrink-0" />}
               <span className="truncate">{item.label}</span>
             </div>
@@ -374,7 +374,7 @@ Besondere Merkmale:
             onChange={(e) => setAutoOptimizeOnPublish(e.target.checked)}
             className="w-4 h-4 rounded bg-slate-900 border-slate-700 text-emerald-600 focus:ring-emerald-500"
           />
-          <label htmlFor="autoOptimizeToggle" className="text-xs text-slate-300 cursor-pointer">
+          <label htmlFor="autoOptimizeToggle" className="text-xs text-slate-600 cursor-pointer">
             ☑ SEO vor Veröffentlichung automatisch auf 100 % optimieren
           </label>
         </div>
@@ -385,39 +385,39 @@ Besondere Merkmale:
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 space-y-4 text-white shadow-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <h4 className="text-sm font-black text-emerald-400 flex items-center gap-2">
+              <h4 className="text-sm font-black text-emerald-700 flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-amber-300" />
                 <span>Vorgeschlagene SEO-Optimierungen überprüfen</span>
               </h4>
-              <button onClick={() => setShowDiffModal(false)} className="text-slate-400 hover:text-white">
+              <button onClick={() => setShowDiffModal(false)} className="text-slate-500 hover:text-white">
                 <XCircle className="w-5 h-5" />
               </button>
             </div>
 
             <div className="space-y-3 text-xs">
               <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
-                <span className="text-slate-400 block font-semibold">SEO URL-Slug:</span>
+                <span className="text-slate-500 block font-semibold">SEO URL-Slug:</span>
                 <div className="flex items-center gap-2 mt-1">
                   <span className="line-through text-slate-500">{fields.slug || 'keiner'}</span>
-                  <span className="text-emerald-400 font-bold">&rarr; /{proposedOptimizations.slug}</span>
+                  <span className="text-emerald-700 font-bold">&rarr; /{proposedOptimizations.slug}</span>
                 </div>
               </div>
 
               <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
-                <span className="text-slate-400 block font-semibold">Meta Title (Google.de):</span>
-                <div className="mt-1 text-emerald-400 font-bold">{proposedOptimizations.metaTitle}</div>
+                <span className="text-slate-500 block font-semibold">Meta Title (Google.de):</span>
+                <div className="mt-1 text-emerald-700 font-bold">{proposedOptimizations.metaTitle}</div>
               </div>
 
               <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
-                <span className="text-slate-400 block font-semibold">Meta Description:</span>
-                <div className="mt-1 text-emerald-400">{proposedOptimizations.metaDescription}</div>
+                <span className="text-slate-500 block font-semibold">Meta Description:</span>
+                <div className="mt-1 text-emerald-700">{proposedOptimizations.metaDescription}</div>
               </div>
             </div>
 
             <div className="flex items-center justify-end gap-3 pt-3 border-t border-slate-800">
               <button
                 onClick={() => setShowDiffModal(false)}
-                className="px-4 py-2 bg-slate-800 text-slate-300 hover:text-white font-bold text-xs rounded-xl"
+                className="px-4 py-2 bg-slate-800 text-slate-600 hover:text-white font-bold text-xs rounded-xl"
               >
                 Abbrechen
               </button>

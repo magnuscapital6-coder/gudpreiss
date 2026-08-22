@@ -77,7 +77,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
       >
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 z-20 p-2 text-slate-400 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-full transition"
+          className="absolute top-4 right-4 z-20 p-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-full transition"
         >
           <X className="w-5 h-5" />
         </button>
@@ -122,7 +122,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
                   {product.brand_name || 'GudPreiss'}
                 </span>
                 {product.on_sale && (
-                  <span className="text-[11px] font-bold text-amber-700 uppercase tracking-wider bg-amber-50 px-2.5 py-0.5 rounded-md">
+                  <span className="text-[11px] font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider bg-amber-50 px-2.5 py-0.5 rounded-md">
                     Sale
                   </span>
                 )}
@@ -134,7 +134,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
 
               {/* Rating */}
               <div className="flex items-center gap-2 mb-4">
-                <div className="flex items-center text-amber-400">
+                <div className="flex items-center text-amber-700 dark:text-amber-400">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
@@ -143,18 +143,18 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
                   ))}
                 </div>
                 <span className="text-xs font-semibold text-slate-700">{product.rating}</span>
-                <span className="text-xs text-slate-400">({product.review_count} Bewertungen)</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">({product.review_count} Bewertungen)</span>
               </div>
 
               {/* Price */}
               <div className="flex items-baseline gap-3 mb-4">
                 <span className="text-2xl font-black text-slate-900">{price.toLocaleString('de-DE')} €</span>
                 {product.compare_at_price && product.compare_at_price > price && (
-                  <span className="text-sm font-semibold text-slate-400 line-through">{product.compare_at_price.toLocaleString('de-DE')} €</span>
+                  <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 line-through">{product.compare_at_price.toLocaleString('de-DE')} €</span>
                 )}
               </div>
 
-              <p className="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-3 mb-4 leading-relaxed">
                 {product.short_description || product.description}
               </p>
 
@@ -187,14 +187,14 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
                 <div className="flex items-center border border-slate-200 rounded-xl overflow-hidden bg-slate-50">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-9 h-9 flex items-center justify-center font-bold text-slate-600 hover:bg-slate-200"
+                    className="w-9 h-9 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200"
                   >
                     -
                   </button>
                   <span className="w-8 text-center text-xs font-bold">{quantity}</span>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
-                    className="w-9 h-9 flex items-center justify-center font-bold text-slate-600 hover:bg-slate-200"
+                    className="w-9 h-9 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200"
                   >
                     +
                   </button>
@@ -224,14 +224,14 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
                   className={`p-3 rounded-xl border transition active:scale-90 ${
                     inWishlist
                       ? 'bg-red-50 text-red-500 border-red-200'
-                      : 'bg-slate-50 text-slate-500 border-slate-200 hover:text-red-500'
+                      : 'bg-slate-50 text-slate-500 dark:text-slate-400 border-slate-200 hover:text-red-500'
                   }`}
                 >
                   <Heart className={`w-4 h-4 ${inWishlist ? 'fill-red-500' : ''}`} />
                 </button>
               </div>
 
-              <div className="flex items-center justify-between text-[11px] text-slate-500">
+              <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
                 <div className="flex items-center gap-1">
                   <Truck className="w-3.5 h-3.5 text-emerald-800" />
                   <span>Auf Lager & versandfertig</span>

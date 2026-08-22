@@ -151,7 +151,7 @@ export function Header() {
               />
             ) : (
               <span className="text-[22px] sm:text-[26px] font-black tracking-tight text-slate-900 dark:text-white leading-none">
-                <span className="text-emerald-800 dark:text-emerald-400">
+                <span className="text-emerald-800 dark:text-emerald-700">
                   {globalSettings?.store_name ? globalSettings.store_name.slice(0, Math.ceil(globalSettings.store_name.length / 2)) : 'Tech'}
                 </span>
                 {globalSettings?.store_name ? globalSettings.store_name.slice(Math.ceil(globalSettings.store_name.length / 2)) : 'nova'}
@@ -160,9 +160,9 @@ export function Header() {
           </Link>
 
           {/* Desktop Nav Links Center */}
-          <nav className="hidden lg:flex items-center gap-7 font-bold text-[14px] text-emerald-800 dark:text-emerald-400">
+          <nav className="hidden lg:flex items-center gap-7 font-bold text-[14px] text-emerald-800 dark:text-emerald-700">
             <Link href="/" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-bold">
-              <Home className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+              <Home className="w-4 h-4 text-emerald-700 dark:text-emerald-700" />
               <span>{t('nav.home')}</span>
             </Link>
 
@@ -172,9 +172,9 @@ export function Header() {
               onMouseLeave={() => setIsShopDropdownOpen(false)}
             >
               <Link href="/shop" className="flex items-center gap-1.5 hover:text-emerald-600 transition font-bold">
-                <ShoppingBag className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+                <ShoppingBag className="w-4 h-4 text-emerald-700 dark:text-emerald-700" />
                 <span>{t('nav.shop')}</span>
-                <ChevronDown className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
+                <ChevronDown className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-700" />
               </Link>
 
               {isShopDropdownOpen && (
@@ -182,7 +182,7 @@ export function Header() {
                   <Link
                     href="/shop"
                     onClick={() => setIsShopDropdownOpen(false)}
-                    className="flex items-center justify-between p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 font-extrabold text-[13px] mb-1 hover:bg-emerald-100 dark:hover:bg-emerald-900/80 transition"
+                    className="flex items-center justify-between p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-700 font-extrabold text-[13px] mb-1 hover:bg-emerald-100 dark:hover:bg-emerald-900/80 transition"
                   >
                     <span className="flex items-center gap-2">
                       <Grid className="w-4 h-4" />
@@ -196,10 +196,10 @@ export function Header() {
                       key={cat.id}
                       href={`/shop?category=${cat.slug}`}
                       onClick={() => setIsShopDropdownOpen(false)}
-                      className="flex items-center justify-between p-2 rounded-lg hover:bg-emerald-50/60 dark:hover:bg-slate-900/60 text-slate-800 dark:text-slate-200 hover:text-emerald-800 dark:hover:text-emerald-400 transition text-[13px] font-medium"
+                      className="flex items-center justify-between p-2 rounded-lg hover:bg-emerald-50/60 dark:hover:bg-slate-900/60 text-slate-800 dark:text-slate-200 hover:text-emerald-800 dark:hover:text-emerald-700 transition text-[13px] font-medium"
                     >
                       <span className="truncate">{cat.name}</span>
-                      <ChevronRight className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600" />
+                      <ChevronRight className="w-3.5 h-3.5 text-slate-600 dark:text-slate-600" />
                     </Link>
                   ))}
                 </div>
@@ -207,17 +207,17 @@ export function Header() {
             </div>
 
             <Link href="/Blog" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-bold">
-              <BookOpen className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+              <BookOpen className="w-4 h-4 text-emerald-700 dark:text-emerald-700" />
               <span>{t('nav.Blog')}</span>
             </Link>
 
-            <Link href="/track" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-black text-emerald-800 dark:text-emerald-400">
-              <Truck className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+            <Link href="/track" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-black text-emerald-800 dark:text-emerald-700">
+              <Truck className="w-4 h-4 text-emerald-700 dark:text-emerald-700" />
               <span>Sendungsverfolgung</span>
             </Link>
 
             <Link href="/contact" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-bold">
-              <Mail className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+              <Mail className="w-4 h-4 text-emerald-700 dark:text-emerald-700" />
               <span>{t('nav.contact')}</span>
             </Link>
           </nav>
@@ -236,12 +236,12 @@ export function Header() {
                     setIsSearchFocused(true);
                   }}
                   onFocus={() => setIsSearchFocused(true)}
-                  className="w-52 lg:w-72 pl-9 pr-8 py-2 bg-slate-100/90 hover:bg-slate-100 focus:bg-white border border-slate-200 focus:border-emerald-600 rounded-full text-[13px] text-slate-900 placeholder:text-slate-400 outline-none transition-all shadow-2xs focus:shadow-md font-medium"
+                  className="w-52 lg:w-72 pl-9 pr-8 py-2 bg-slate-100/90 hover:bg-slate-100 focus:bg-white border border-slate-200 focus:border-emerald-600 rounded-full text-[13px] text-slate-900 placeholder:text-slate-500 outline-none transition-all shadow-2xs focus:shadow-md font-medium"
                 />
                 <button
                   type="submit"
                   aria-label="Search"
-                  className="absolute left-3 text-slate-400 hover:text-emerald-700 transition"
+                  className="absolute left-3 text-slate-500 hover:text-emerald-700 transition"
                 >
                   <Search className="w-4 h-4" />
                 </button>
@@ -249,7 +249,7 @@ export function Header() {
                   <button
                     type="button"
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-3 p-0.5 text-slate-400 hover:text-slate-600 transition rounded-full"
+                    className="absolute right-3 p-0.5 text-slate-500 hover:text-slate-600 transition rounded-full"
                     aria-label="Clear Search"
                   >
                     <X className="w-3.5 h-3.5" />
@@ -286,7 +286,7 @@ export function Header() {
                             <div className="flex items-baseline gap-2">
                               <span className="text-[12px] font-extrabold text-slate-900">{prod.price.toLocaleString('de-DE')} €</span>
                               {prod.compare_at_price && prod.compare_at_price > prod.price && (
-                                <span className="text-[10px] text-slate-400 line-through">{prod.compare_at_price.toLocaleString('de-DE')} €</span>
+                                <span className="text-[10px] text-slate-500 line-through">{prod.compare_at_price.toLocaleString('de-DE')} €</span>
                               )}
                             </div>
                           </div>
@@ -295,7 +295,7 @@ export function Header() {
                     ) : (
                       <div className="p-4 text-center">
                         <p className="text-[13px] font-semibold text-slate-700">Keine Produkte gefunden</p>
-                        <p className="text-[11px] text-slate-400 mt-0.5">Versuchen Sie einen anderen Suchbegriff</p>
+                        <p className="text-[11px] text-slate-500 mt-0.5">Versuchen Sie einen anderen Suchbegriff</p>
                       </div>
                     )}
                   </div>
@@ -405,7 +405,7 @@ export function Header() {
             <button
               onClick={() => setIsCartOpen(true)}
               aria-label="Open Shopping Cart"
-              className="flex items-center gap-2 p-2 text-slate-900 dark:text-white hover:text-emerald-800 dark:hover:text-emerald-400 transition cursor-pointer"
+              className="flex items-center gap-2 p-2 text-slate-900 dark:text-white hover:text-emerald-800 dark:hover:text-emerald-700 transition cursor-pointer"
             >
               <div className="relative">
                 <ShoppingCart className="w-5 h-5" />
@@ -433,12 +433,12 @@ export function Header() {
               autoFocus
               className="w-full pl-9 pr-9 py-2 bg-white border border-slate-200 rounded-full text-[13px] text-slate-900 outline-none focus:border-emerald-600 shadow-2xs font-medium"
             />
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+            <Search className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600"
+                className="absolute right-3 top-2.5 text-slate-500 hover:text-slate-600"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -472,7 +472,7 @@ export function Header() {
                   </Link>
                 ))
               ) : (
-                <p className="p-3 text-[12px] text-slate-400 text-center">Keine Produkte gefunden.</p>
+                <p className="p-3 text-[12px] text-slate-500 text-center">Keine Produkte gefunden.</p>
               )}
               {searchResults.length > 0 && (
                 <button
@@ -511,7 +511,7 @@ export function Header() {
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 text-slate-400 hover:text-slate-900 rounded-full hover:bg-slate-100 transition"
+                  className="p-2 text-slate-500 hover:text-slate-900 rounded-full hover:bg-slate-100 transition"
                   aria-label="Close Menu"
                 >
                   <X className="w-5 h-5" />
@@ -544,7 +544,7 @@ export function Header() {
                   >
                     <span>{t('nav.Kategorien') || 'Kategorien'} ({Kategorien.length})</span>
                     <ChevronDown
-                      className={`w-4 h-4 text-slate-400 transition-transform ${isMobileCategoriesOpen ? 'rotate-180' : ''}`}
+                      className={`w-4 h-4 text-slate-500 transition-transform ${isMobileCategoriesOpen ? 'rotate-180' : ''}`}
                     />
                   </button>
 

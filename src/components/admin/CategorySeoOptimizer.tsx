@@ -41,12 +41,12 @@ export function CategorySeoOptimizer({ category, onApply }: CategorySeoOptimizer
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 text-white space-y-4 shadow-xl">
       <div className="flex items-center justify-between border-b border-slate-800 pb-3">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-700 flex items-center justify-center">
             <Layers className="w-4 h-4" />
           </div>
           <div>
             <h4 className="text-xs font-bold text-white">Kategorie SEO Engine (Google.de)</h4>
-            <p className="text-[10px] text-slate-400">Optimiert Kategorie-Hubs für maximale Ranking-Power</p>
+            <p className="text-[10px] text-slate-500">Optimiert Kategorie-Hubs für maximale Ranking-Power</p>
           </div>
         </div>
 
@@ -72,16 +72,16 @@ export function CategorySeoOptimizer({ category, onApply }: CategorySeoOptimizer
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">
         <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-          <span className="text-slate-400 block">Kategorie Name</span>
+          <span className="text-slate-500 block">Kategorie Name</span>
           <span className="font-bold text-white">{category.name || 'Unbekannt'}</span>
         </div>
         <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-          <span className="text-slate-400 block">SEO Slug</span>
-          <span className="font-bold text-emerald-400">/{category.slug || 'keiner'}</span>
+          <span className="text-slate-500 block">SEO Slug</span>
+          <span className="font-bold text-emerald-700">/{category.slug || 'keiner'}</span>
         </div>
         <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-          <span className="text-slate-400 block">Status</span>
-          <span className="font-bold text-emerald-400 flex items-center gap-1">
+          <span className="text-slate-500 block">Status</span>
+          <span className="font-bold text-emerald-700 flex items-center gap-1">
             <Check className="w-3 h-3" /> Bereit für Google.de
           </span>
         </div>

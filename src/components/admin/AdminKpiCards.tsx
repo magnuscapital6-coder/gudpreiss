@@ -48,7 +48,7 @@ export function AdminKpiCards({ orders, products }: AdminKpiCardsProps) {
       suffix: ' Artikel',
       change: lowStockCount > 0 ? 'Nachbestellung nötig' : 'Bestand OK',
       icon: AlertTriangle,
-      color: 'text-amber-500 bg-amber-500/10 border border-amber-500/20',
+      color: 'text-amber-700 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20',
     },
   ];
 
@@ -62,7 +62,7 @@ export function AdminKpiCards({ orders, products }: AdminKpiCardsProps) {
             className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-3 hover:-translate-y-[3px] transition-transform duration-200"
           >
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-500 dark:text-slate-400">{kpi.title}</span>
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400">{kpi.title}</span>
               <div className={`p-2 rounded-2xl ${kpi.color}`}>
                 <Icon className="w-4 h-4" />
               </div>

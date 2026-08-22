@@ -50,7 +50,7 @@ export default function CheckoutPage() {
         <Header />
         <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('cart.empty')}</h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">{t('cart.empty')}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-500 mb-6">{t('cart.empty')}</p>
           <button
             onClick={() => router.push('/shop')}
             className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-emerald-900/30 transition cursor-pointer"
@@ -135,7 +135,7 @@ export default function CheckoutPage() {
       <Header />
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 w-full py-8">
-        <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 dark:text-emerald-400 uppercase tracking-wider mb-2">
+        <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 dark:text-emerald-700 uppercase tracking-wider mb-2">
           <Lock className="w-4 h-4" />
           <span>{t('checkout.secureCheckout')}</span>
         </div>
@@ -145,17 +145,17 @@ export default function CheckoutPage() {
 
         {/* Checkout Steps Tracker */}
         <div className="flex items-center justify-between mb-8 max-w-2xl bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm text-xs font-bold overflow-x-auto no-scrollbar">
-          <div className={`flex items-center gap-2 whitespace-nowrap ${step >= 1 ? 'text-emerald-800 dark:text-emerald-400' : 'text-slate-400'}`}>
+          <div className={`flex items-center gap-2 whitespace-nowrap ${step >= 1 ? 'text-emerald-800 dark:text-emerald-700' : 'text-slate-500'}`}>
             <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${step >= 1 ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}`}>1</span>
             <span>{t('checkout.stepCustomer')}</span>
           </div>
           <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1 mx-4 min-w-[20px]" />
-          <div className={`flex items-center gap-2 whitespace-nowrap ${step >= 2 ? 'text-emerald-800 dark:text-emerald-400' : 'text-slate-400'}`}>
+          <div className={`flex items-center gap-2 whitespace-nowrap ${step >= 2 ? 'text-emerald-800 dark:text-emerald-700' : 'text-slate-500'}`}>
             <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${step >= 2 ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}`}>2</span>
             <span>{t('checkout.stepShipping')}</span>
           </div>
           <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1 mx-4 min-w-[20px]" />
-          <div className={`flex items-center gap-2 whitespace-nowrap ${step >= 3 ? 'text-emerald-800 dark:text-emerald-400' : 'text-slate-400'}`}>
+          <div className={`flex items-center gap-2 whitespace-nowrap ${step >= 3 ? 'text-emerald-800 dark:text-emerald-700' : 'text-slate-500'}`}>
             <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${step >= 3 ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-800'}`}>3</span>
             <span>{t('checkout.stepPayment')}</span>
           </div>
@@ -265,7 +265,7 @@ export default function CheckoutPage() {
                     <button
                       type="button"
                       onClick={() => setStep(1)}
-                      className="px-5 py-3 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl cursor-pointer"
+                      className="px-5 py-3 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-600 font-bold text-xs rounded-xl cursor-pointer"
                     >
                       {t('checkout.back')}
                     </button>
@@ -300,7 +300,7 @@ export default function CheckoutPage() {
                           Einzige Zahlungsart
                         </span>
                       </div>
-                      <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                      <p className="text-xs text-slate-600 dark:text-slate-600 mt-1 leading-relaxed">
                         {t('checkout.bankTransferDesc')}
                       </p>
                     </div>
@@ -309,36 +309,36 @@ export default function CheckoutPage() {
                   {/* Official Bank Account Details Box */}
                   <div className="p-5 bg-slate-900 text-white rounded-2xl border border-slate-800 space-y-4 shadow-lg">
                     <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                      <h4 className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
+                      <h4 className="text-xs font-extrabold uppercase tracking-wider text-emerald-700">
                         {t('checkout.bankDetails')}
                       </h4>
-                      <span className="text-[10px] text-slate-400 font-mono">SEPA Instant / Wire</span>
+                      <span className="text-[10px] text-slate-500 font-mono">SEPA Instant / Wire</span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
                       <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
                         <div>
-                          <div className="text-[10px] text-slate-400 uppercase font-sans font-bold">{t('checkout.bankName')}</div>
+                          <div className="text-[10px] text-slate-500 uppercase font-sans font-bold">{t('checkout.bankName')}</div>
                           <div className="font-bold text-white text-xs mt-0.5">{bankName}</div>
                         </div>
                       </div>
 
                       <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
                         <div>
-                          <div className="text-[10px] text-slate-400 uppercase font-sans font-bold">{t('checkout.accountHolder')}</div>
+                          <div className="text-[10px] text-slate-500 uppercase font-sans font-bold">{t('checkout.accountHolder')}</div>
                           <div className="font-bold text-white text-xs mt-0.5">{accountHolder}</div>
                         </div>
                       </div>
 
                       <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between sm:col-span-2">
                         <div>
-                          <div className="text-[10px] text-slate-400 uppercase font-sans font-bold">{t('checkout.iban')}</div>
-                          <div className="font-bold text-emerald-400 text-sm mt-0.5 tracking-wider">{iban}</div>
+                          <div className="text-[10px] text-slate-500 uppercase font-sans font-bold">{t('checkout.iban')}</div>
+                          <div className="font-bold text-emerald-700 text-sm mt-0.5 tracking-wider">{iban}</div>
                         </div>
                         <button
                           type="button"
                           onClick={() => copyToClipboard(iban, 'iban')}
-                          className="p-2 text-slate-400 hover:text-white bg-slate-900 rounded-lg transition text-[11px] flex items-center gap-1 font-sans cursor-pointer"
+                          className="p-2 text-slate-500 hover:text-white bg-slate-900 rounded-lg transition text-[11px] flex items-center gap-1 font-sans cursor-pointer"
                         >
                           <Copy className="w-3.5 h-3.5" />
                           <span>{copiedField === 'iban' ? 'Kopiert!' : 'Kopieren'}</span>
@@ -347,20 +347,20 @@ export default function CheckoutPage() {
 
                       <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
                         <div>
-                          <div className="text-[10px] text-slate-400 uppercase font-sans font-bold">{t('checkout.bic')}</div>
+                          <div className="text-[10px] text-slate-500 uppercase font-sans font-bold">{t('checkout.bic')}</div>
                           <div className="font-bold text-white text-xs mt-0.5">{bic}</div>
                         </div>
                       </div>
 
                       <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
                         <div>
-                          <div className="text-[10px] text-slate-400 uppercase font-sans font-bold">{t('checkout.paymentReference')}</div>
-                          <div className="font-bold text-amber-400 text-xs mt-0.5 font-sans font-bold">TN-2026-BESTELLUNG</div>
+                          <div className="text-[10px] text-slate-500 uppercase font-sans font-bold">{t('checkout.paymentReference')}</div>
+                          <div className="font-bold text-amber-700 text-xs mt-0.5 font-sans font-bold">TN-2026-BESTELLUNG</div>
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-[11px] text-slate-400 italic pt-1 border-t border-slate-800">
+                    <p className="text-[11px] text-slate-500 italic pt-1 border-t border-slate-800">
                       {t('checkout.paymentReferenceNotice')}
                     </p>
                   </div>
@@ -369,7 +369,7 @@ export default function CheckoutPage() {
                     <button
                       type="button"
                       onClick={() => setStep(2)}
-                      className="px-5 py-3.5 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl cursor-pointer"
+                      className="px-5 py-3.5 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-600 font-bold text-xs rounded-xl cursor-pointer"
                     >
                       {t('checkout.back')}
                     </button>
@@ -409,7 +409,7 @@ export default function CheckoutPage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <h5 className="text-xs font-bold text-slate-900 dark:text-white truncate">{item.product.name}</h5>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400">Menge: {item.quantity}</p>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-500">Menge: {item.quantity}</p>
                     </div>
                     <span className="text-xs font-bold text-slate-900 dark:text-white">{(price * item.quantity).toLocaleString('de-DE')} €</span>
                   </div>
@@ -417,20 +417,20 @@ export default function CheckoutPage() {
               })}
             </div>
 
-            <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-500 pt-3 border-t border-slate-100 dark:border-slate-800">
               <div className="flex justify-between">
                 <span>{t('cart.subtotal')}</span>
                 <span className="font-bold text-slate-900 dark:text-white">{subtotal.toLocaleString('de-DE')} €</span>
               </div>
               {discount > 0 && (
-                <div className="flex justify-between text-emerald-800 dark:text-emerald-400 font-bold">
+                <div className="flex justify-between text-emerald-800 dark:text-emerald-700 font-bold">
                   <span>Rabatt</span>
                   <span>-{discount.toFixed(2)} €</span>
                 </div>
               )}
               <div className="flex justify-between">
                 <span>{t('cart.shipping')}</span>
-                <span>{shipping === 0 ? <span className="text-emerald-800 dark:text-emerald-400 font-bold">KOSTENLOS</span> : `${shipping} €`}</span>
+                <span>{shipping === 0 ? <span className="text-emerald-800 dark:text-emerald-700 font-bold">KOSTENLOS</span> : `${shipping} €`}</span>
               </div>
               <div className="flex justify-between">
                 <span>{t('cart.tax')}</span>
@@ -438,7 +438,7 @@ export default function CheckoutPage() {
               </div>
               <div className="flex justify-between text-base font-black text-slate-900 dark:text-white pt-2 border-t border-slate-100 dark:border-slate-800">
                 <span>{t('cart.total')}</span>
-                <span className="text-emerald-800 dark:text-emerald-400">{total.toFixed(2)} €</span>
+                <span className="text-emerald-800 dark:text-emerald-700">{total.toFixed(2)} €</span>
               </div>
             </div>
           </div>

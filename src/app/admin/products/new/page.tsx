@@ -74,7 +74,7 @@ export default function CreateProductPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-center justify-between">
-        <Link href="/admin/Produkte" className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-white">
+        <Link href="/admin/Produkte" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-white">
           <ArrowLeft className="w-4 h-4" />
           <span>Zurück zu Produkten</span>
         </Link>
@@ -84,7 +84,7 @@ export default function CreateProductPage() {
       <form onSubmit={handleSubmit} className="bg-slate-950 p-8 rounded-3xl border border-slate-800 space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Produktname *</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Produktname *</label>
             <input
               type="text"
               required
@@ -99,7 +99,7 @@ export default function CreateProductPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Code SKU *</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Code SKU *</label>
             <input
               type="text"
               required
@@ -113,13 +113,13 @@ export default function CreateProductPage() {
 
         {/* Google Merchant Center & Identifiers (GTIN, MPN, Condition) */}
         <div className="p-4 bg-slate-950/80 rounded-2xl border border-slate-800/80 space-y-3">
-          <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block">
+          <span className="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block">
             Google Merchant Center Identifikatoren (Deutschland)
           </span>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">Code GTIN / EAN (Barcode)</label>
+              <label className="block text-xs font-bold text-slate-600 mb-1">Code GTIN / EAN (Barcode)</label>
               <input
                 type="text"
                 placeholder="ex: 4012345678901"
@@ -130,7 +130,7 @@ export default function CreateProductPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">Code MPN (Hersteller-Teilenummer)</label>
+              <label className="block text-xs font-bold text-slate-600 mb-1">Code MPN (Hersteller-Teilenummer)</label>
               <input
                 type="text"
                 placeholder="ex: MPN-SAM-901"
@@ -141,7 +141,7 @@ export default function CreateProductPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">Zustand (Condition)</label>
+              <label className="block text-xs font-bold text-slate-600 mb-1">Zustand (Condition)</label>
               <select
                 value={condition}
                 onChange={(e) => setCondition(e.target.value as any)}
@@ -155,7 +155,7 @@ export default function CreateProductPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Google Produkttkategorie</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Google Produkttkategorie</label>
             <input
               type="text"
               placeholder="ex: Electronics > Communications > Telephony > Mobile Phones"
@@ -168,7 +168,7 @@ export default function CreateProductPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Prix de vente (€) *</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Prix de vente (€) *</label>
             <input
               type="number"
               required
@@ -180,7 +180,7 @@ export default function CreateProductPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Prix barré (€)</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Prix barré (€)</label>
             <input
               type="number"
               placeholder="1199"
@@ -191,7 +191,7 @@ export default function CreateProductPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Quantité en stock *</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Quantité en stock *</label>
             <input
               type="number"
               required
@@ -204,7 +204,7 @@ export default function CreateProductPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Catégorie</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Catégorie</label>
             <select
               value={categoryName}
               onChange={(e) => setCategoryName(e.target.value)}
@@ -219,7 +219,7 @@ export default function CreateProductPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Marque</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Marque</label>
             <input
               type="text"
               value={brandName}
@@ -231,14 +231,14 @@ export default function CreateProductPage() {
 
         {/* Direct Image File Drag & Drop Uploader */}
         <div>
-          <label className="block text-xs font-bold text-slate-300 mb-2">
+          <label className="block text-xs font-bold text-slate-600 mb-2">
             Importation directe d&apos;images du produit *
           </label>
           <ImageUploader images={images} onChange={setImages} />
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-slate-300 mb-1">Description détaillée</label>
+          <label className="block text-xs font-bold text-slate-600 mb-1">Description détaillée</label>
           <textarea
             rows={4}
             required

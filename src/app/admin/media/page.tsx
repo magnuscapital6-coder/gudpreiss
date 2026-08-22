@@ -17,7 +17,7 @@ export default function AdminMediaPage() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-black text-white">Médiathèque & Stockage d&apos;Images</h1>
-          <p className="text-xs text-slate-400 mt-1">Importieren und verwalten Sie hochauflösende Produktmedien.</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Importieren und verwalten Sie hochauflösende Produktmedien.</p>
         </div>
 
         <label className="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded-xl flex items-center gap-2 shadow-md cursor-pointer">
@@ -41,7 +41,7 @@ export default function AdminMediaPage() {
                   alert('Lequel lien de l\'image a été copié !');
                 }}
                 title="Link kopieren de l'image"
-                className="p-1 text-slate-400 hover:text-blue-400"
+                className="p-1 text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:text-blue-400"
               >
                 <Copy className="w-3.5 h-3.5" />
               </button>

@@ -24,7 +24,7 @@ export function TopRatedSection({ products }: TopRatedSectionProps) {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 border-b border-slate-200/70 dark:border-slate-800/60 pb-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-amber-500 font-extrabold text-[11px] uppercase tracking-widest mb-1">
+          <div className="inline-flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-extrabold text-[11px] uppercase tracking-widest mb-1">
             <Star className="w-3.5 h-3.5 fill-amber-400" />
             <span>KUNDENLIEBLINGE</span>
           </div>

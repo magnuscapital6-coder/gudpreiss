@@ -55,28 +55,28 @@ export default function OrderHistoryPage() {
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 w-full py-8">
         <div className="mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-400 text-xs font-bold mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-700 text-xs font-bold mb-2">
             <Truck className="w-3.5 h-3.5" />
             <span>ECHTZEIT-SENDUNGSVERFOLGUNG (DEUTSCHLAND)</span>
           </div>
           <h1 className="text-3xl font-black tracking-tight">Meine Bestellungen &amp; Live-Verfolgung</h1>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">
             Verfolgen Sie Ihre Sendung in Echtzeit mit DHL Express / UPS Deutschland.
           </p>
         </div>
 
         {isLoading ? (
-          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-12 text-center text-xs text-slate-400 font-bold animate-pulse">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-12 text-center text-xs text-slate-500 font-bold animate-pulse">
             Bestellungen werden geladen...
           </div>
         ) : Bestellungen.length === 0 ? (
           <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-12 text-center shadow-sm space-y-4">
-            <div className="w-16 h-16 bg-slate-100 dark:bg-slate-800 text-slate-400 rounded-full flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 bg-slate-100 dark:bg-slate-800 text-slate-500 rounded-full flex items-center justify-center mx-auto">
               <Package className="w-8 h-8" />
             </div>
             <div>
               <h3 className="text-base font-extrabold mb-1">Keine Bestellungen vorhanden</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
+              <p className="text-xs text-slate-500 dark:text-slate-500 max-w-sm mx-auto">
                 Sie haben derzeit keine aktiven Bestellungen. Entdecken Sie unsere neuesten Angebote im Katalog.
               </p>
             </div>
@@ -101,10 +101,10 @@ export default function OrderHistoryPage() {
                   {/* Top Info Header */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
                     <div>
-                      <span className="text-xs font-mono font-bold text-emerald-800 dark:text-emerald-400">
+                      <span className="text-xs font-mono font-bold text-emerald-800 dark:text-emerald-700">
                         {order.order_number}
                       </span>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                      <p className="text-[11px] text-slate-500 dark:text-slate-500 mt-0.5">
                         Bestellt am {new Date(order.created_at).toLocaleDateString('de-DE')} • Zahlung per Vorkasse (Bank Transfer)
                       </p>
                     </div>
@@ -123,33 +123,33 @@ export default function OrderHistoryPage() {
                   <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 text-white space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
                       <div className="flex items-center gap-2">
-                        <Truck className="w-5 h-5 text-emerald-400" />
-                        <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
+                        <Truck className="w-5 h-5 text-emerald-700" />
+                        <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-700">
                           DHL Express Deutschland Live-Sendungsverfolgung
                         </span>
                       </div>
-                      <span className="text-[11px] text-slate-400 font-mono">
+                      <span className="text-[11px] text-slate-500 font-mono">
                         Voraussichtliche Lieferung: 1-2 Werktage
                       </span>
                     </div>
 
                     {/* Timeline Bar */}
                     <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-xs font-bold pt-2">
-                      <div className="flex items-center gap-2 text-emerald-400">
+                      <div className="flex items-center gap-2 text-emerald-700">
                         <div className="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-[10px]">
                           ✓
                         </div>
                         <span>Bestellung Bestätigt</span>
                       </div>
 
-                      <div className="flex items-center gap-2 text-emerald-400">
+                      <div className="flex items-center gap-2 text-emerald-700">
                         <div className="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-[10px]">
                           ✓
                         </div>
                         <span>Zahlung Registriert</span>
                       </div>
 
-                      <div className="flex items-center gap-2 text-emerald-400">
+                      <div className="flex items-center gap-2 text-emerald-700">
                         <div className="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px] animate-pulse">
                           ●
                         </div>
@@ -167,8 +167,8 @@ export default function OrderHistoryPage() {
                     {/* Tracking Code Box */}
                     <div className="p-4 bg-slate-900 rounded-xl border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
-                        <span className="text-[10px] text-slate-400 font-bold uppercase block">Tracking-Nummer / Sendungscode</span>
-                        <span className="text-sm font-mono font-bold text-emerald-400 tracking-wider">
+                        <span className="text-[10px] text-slate-500 font-bold uppercase block">Tracking-Nummer / Sendungscode</span>
+                        <span className="text-sm font-mono font-bold text-emerald-700 tracking-wider">
                           {trackingCode}
                         </span>
                       </div>
@@ -188,7 +188,7 @@ export default function OrderHistoryPage() {
 
                   {/* Items List */}
                   <div className="space-y-3 pt-2">
-                    <h4 className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 tracking-wider">
+                    <h4 className="text-xs font-bold uppercase text-slate-500 dark:text-slate-500 tracking-wider">
                       Bestellte Artikel ({order.items.length})
                     </h4>
                     <div className="divide-y divide-slate-100 dark:divide-slate-800">
@@ -202,10 +202,10 @@ export default function OrderHistoryPage() {
                             )}
                             <div>
                               <p className="font-bold text-slate-900 dark:text-white">{item.product_name}</p>
-                              <p className="text-[11px] text-slate-500 dark:text-slate-400">Menge: {item.quantity}</p>
+                              <p className="text-[11px] text-slate-500 dark:text-slate-500">Menge: {item.quantity}</p>
                             </div>
                           </div>
-                          <span className="font-extrabold text-emerald-800 dark:text-emerald-400">
+                          <span className="font-extrabold text-emerald-800 dark:text-emerald-700">
                             {item.total_price ? item.total_price.toFixed(2) : (item.unit_price * item.quantity).toFixed(2)} €
                           </span>
                         </div>

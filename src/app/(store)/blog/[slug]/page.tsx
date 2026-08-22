@@ -49,7 +49,7 @@ export default function SingleBlogPostPage() {
     return (
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
         <Header />
-        <div className="flex-1 max-w-4xl mx-auto px-4 py-16 text-center text-xs text-slate-400 font-bold animate-pulse">
+        <div className="flex-1 max-w-4xl mx-auto px-4 py-16 text-center text-xs text-slate-500 font-bold animate-pulse">
           Artikel wird geladen...
         </div>
         <Footer />
@@ -62,7 +62,7 @@ export default function SingleBlogPostPage() {
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
         <Header />
         <div className="flex-1 max-w-md mx-auto px-4 py-16 text-center space-y-4">
-          <BookOpen className="w-12 h-12 text-slate-400 mx-auto" />
+          <BookOpen className="w-12 h-12 text-slate-500 mx-auto" />
           <h2 className="text-xl font-bold">Artikel nicht gefunden</h2>
           <p className="text-xs text-slate-500">Der gesuchte Blog-Beitrag existiert nicht oder wurde verschoben.</p>
           <Link href="/blog" className="inline-block px-6 py-3 bg-emerald-600 text-white font-bold text-xs rounded-xl">
@@ -89,7 +89,7 @@ export default function SingleBlogPostPage() {
             <span>Zurück zu allen Artikeln</span>
           </Link>
 
-          <span className="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-400 text-[11px] font-extrabold rounded-full uppercase tracking-wider">
+          <span className="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-700 text-[11px] font-extrabold rounded-full uppercase tracking-wider">
             {post.category}
           </span>
         </div>
@@ -100,15 +100,15 @@ export default function SingleBlogPostPage() {
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-y border-slate-200/80 dark:border-slate-800 py-3 text-xs text-slate-500 dark:text-slate-400 font-medium">
+          <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-y border-slate-200/80 dark:border-slate-800 py-3 text-xs text-slate-500 dark:text-slate-500 font-medium">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white">
-                <User className="w-4 h-4 text-emerald-800 dark:text-emerald-400" />
+                <User className="w-4 h-4 text-emerald-800 dark:text-emerald-700" />
                 <span>{post.author_name}</span>
               </div>
               <span>•</span>
               <div className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-slate-400" />
+                <Clock className="w-4 h-4 text-slate-500" />
                 <span>{post.read_time_minutes || 5} Min. Lesezeit</span>
               </div>
               <span>•</span>
@@ -117,7 +117,7 @@ export default function SingleBlogPostPage() {
 
             <button
               onClick={copyShareLink}
-              className="px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold transition flex items-center gap-1.5 cursor-pointer"
+              className="px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-600 font-bold transition flex items-center gap-1.5 cursor-pointer"
             >
               <Share2 className="w-3.5 h-3.5" />
               <span>{copiedShare ? 'Link Kopiert!' : 'Teilen'}</span>
@@ -145,12 +145,12 @@ export default function SingleBlogPostPage() {
         {/* Keywords & Tags */}
         {post.keywords && post.keywords.length > 0 && (
           <div className="flex items-center gap-2 flex-wrap pt-4">
-            <Tag className="w-4 h-4 text-emerald-800 dark:text-emerald-400 shrink-0" />
-            <span className="text-xs font-bold text-slate-400">SEO Tags:</span>
+            <Tag className="w-4 h-4 text-emerald-800 dark:text-emerald-700 shrink-0" />
+            <span className="text-xs font-bold text-slate-500">SEO Tags:</span>
             {post.keywords.map((kw, i) => (
               <span
                 key={i}
-                className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg text-[11px] font-mono"
+                className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-600 rounded-lg text-[11px] font-mono"
               >
                 #{kw}
               </span>
@@ -172,7 +172,7 @@ export default function SingleBlogPostPage() {
                   <h4 className="font-bold text-xs line-clamp-2">{rel.title}</h4>
                   <Link
                     href={`/blog/${rel.slug}`}
-                    className="text-emerald-800 dark:text-emerald-400 font-extrabold text-[11px] hover:underline"
+                    className="text-emerald-800 dark:text-emerald-700 font-extrabold text-[11px] hover:underline"
                   >
                     Lesen →
                   </Link>

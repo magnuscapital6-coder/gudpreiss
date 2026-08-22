@@ -49,19 +49,19 @@ export function VerifiedReviewSection({ productId, reviews, onAddReview }: Verif
               100% Verifiziert
             </span>
           </h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-400 mt-1">
             Alle Bewertungen stammen von echten Käufern aus Deutschland.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="flex items-center text-amber-400">
+          <div className="flex items-center text-amber-700 dark:text-amber-400">
             {[1, 2, 3, 4, 5].map((s) => (
               <Star key={s} className="w-4 h-4 fill-amber-400" />
             ))}
           </div>
           <span className="text-sm font-black text-slate-900 dark:text-white">5.0 / 5.0</span>
-          <span className="text-xs text-slate-400">({reviews.length} Bewertungen)</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">({reviews.length} Bewertungen)</span>
         </div>
       </div>
 
@@ -74,7 +74,7 @@ export function VerifiedReviewSection({ productId, reviews, onAddReview }: Verif
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
-              <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-400 mb-1">Ihr Name *</label>
+              <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-300 dark:text-slate-400 mb-1">Ihr Name *</label>
               <input
                 type="text"
                 required
@@ -86,7 +86,7 @@ export function VerifiedReviewSection({ productId, reviews, onAddReview }: Verif
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-400 mb-1">Bestellnummer (Verifizierung)</label>
+              <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-300 dark:text-slate-400 mb-1">Bestellnummer (Verifizierung)</label>
               <input
                 type="text"
                 placeholder="z.B. TN-2026-9812"
@@ -97,7 +97,7 @@ export function VerifiedReviewSection({ productId, reviews, onAddReview }: Verif
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-400 mb-1">Bewertung</label>
+              <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-300 dark:text-slate-400 mb-1">Bewertung</label>
               <select
                 value={rating}
                 onChange={(e) => setRating(Number(e.target.value))}
@@ -111,7 +111,7 @@ export function VerifiedReviewSection({ productId, reviews, onAddReview }: Verif
           </div>
 
           <div>
-            <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-400 mb-1">Ihre Erfahrung *</label>
+            <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-300 dark:text-slate-400 mb-1">Ihre Erfahrung *</label>
             <textarea
               rows={3}
               required
@@ -149,13 +149,13 @@ export function VerifiedReviewSection({ productId, reviews, onAddReview }: Verif
                   </span>
                 )}
               </div>
-              <div className="flex items-center text-amber-400">
+              <div className="flex items-center text-amber-700 dark:text-amber-400">
                 {Array.from({ length: rev.rating }).map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
                 ))}
               </div>
             </div>
-            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{rev.comment}</p>
+            <p className="text-xs text-slate-600 dark:text-slate-300 dark:text-slate-300 leading-relaxed">{rev.comment}</p>
           </div>
         ))}
       </div>

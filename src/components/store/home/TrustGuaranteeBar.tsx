@@ -48,7 +48,7 @@ export function TrustGuaranteeBar() {
                   <span className="text-[12px] font-extrabold text-slate-900 dark:text-slate-100 leading-tight">
                     {item.title}
                   </span>
-                  <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
+                  <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-400 mt-0.5">
                     {item.subtitle}
                   </span>
                 </div>

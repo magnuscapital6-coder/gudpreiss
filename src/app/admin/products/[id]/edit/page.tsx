@@ -84,13 +84,13 @@ export default function EditProductPage() {
   };
 
   if (isLoading) {
-    return <div className="p-8 text-center text-slate-400 text-xs">Produktdetails werden geladen...</div>;
+    return <div className="p-8 text-center text-slate-500 text-xs">Produktdetails werden geladen...</div>;
   }
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-center justify-between">
-        <Link href="/admin/Produkte" className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-white">
+        <Link href="/admin/Produkte" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-white">
           <ArrowLeft className="w-4 h-4" />
           <span>Zurück zu Produkten</span>
         </Link>
@@ -100,7 +100,7 @@ export default function EditProductPage() {
       <form onSubmit={handleSubmit} className="bg-slate-950 p-8 rounded-3xl border border-slate-800 space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Produktname *</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Produktname *</label>
             <input
               type="text"
               required
@@ -115,7 +115,7 @@ export default function EditProductPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Code SKU *</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Code SKU *</label>
             <input
               type="text"
               required
@@ -128,7 +128,7 @@ export default function EditProductPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Prix de vente (€) *</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Prix de vente (€) *</label>
             <input
               type="number"
               required
@@ -139,7 +139,7 @@ export default function EditProductPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Prix barré (€)</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Prix barré (€)</label>
             <input
               type="number"
               value={compareAtPrice}
@@ -149,7 +149,7 @@ export default function EditProductPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Quantité en stock *</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Quantité en stock *</label>
             <input
               type="number"
               required
@@ -162,7 +162,7 @@ export default function EditProductPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Catégorie</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Catégorie</label>
             <select
               value={categoryName}
               onChange={(e) => setCategoryName(e.target.value)}
@@ -177,7 +177,7 @@ export default function EditProductPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Marque</label>
+            <label className="block text-xs font-bold text-slate-600 mb-1">Marque</label>
             <input
               type="text"
               value={brandName}
@@ -189,14 +189,14 @@ export default function EditProductPage() {
 
         {/* Image Uploader */}
         <div>
-          <label className="block text-xs font-bold text-slate-300 mb-2">
+          <label className="block text-xs font-bold text-slate-600 mb-2">
             Produktbilder (Direktimport) *
           </label>
           <ImageUploader images={images} onChange={setImages} />
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-slate-300 mb-1">Description</label>
+          <label className="block text-xs font-bold text-slate-600 mb-1">Description</label>
           <textarea
             rows={4}
             required

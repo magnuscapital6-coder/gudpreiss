@@ -100,7 +100,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
               {currentProduct.name}
             </h1>
 
-            <p className="text-[14px] sm:text-[16px] text-slate-600 line-clamp-2 font-medium max-w-[500px] leading-relaxed">
+            <p className="text-[14px] sm:text-[16px] text-slate-600 dark:text-slate-300 line-clamp-2 font-medium max-w-[500px] leading-relaxed">
               {currentProduct.short_description || currentProduct.description || t('hero.description')}
             </p>
 
@@ -132,7 +132,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
               </div>
               <div className="flex flex-col">
                 <span className="text-[11px] font-bold leading-tight">Kostenloser Versand</span>
-                <span className="text-[9px] text-slate-500 font-medium">Ab 99 € Bestellwert</span>
+                <span className="text-[9px] text-slate-500 dark:text-slate-400 font-medium">Ab 99 € Bestellwert</span>
               </div>
             </div>
 
@@ -142,7 +142,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
               </div>
               <div className="flex flex-col">
                 <span className="text-[11px] font-bold leading-tight">Einfache Rückgabe</span>
-                <span className="text-[9px] text-slate-500 font-medium">30 Tage Garantie</span>
+                <span className="text-[9px] text-slate-500 dark:text-slate-400 font-medium">30 Tage Garantie</span>
               </div>
             </div>
 
@@ -152,7 +152,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
               </div>
               <div className="flex flex-col">
                 <span className="text-[11px] font-bold leading-tight">Sichere Zahlung</span>
-                <span className="text-[9px] text-slate-500 font-medium">100% Verschlüsselt</span>
+                <span className="text-[9px] text-slate-500 dark:text-slate-400 font-medium">100% Verschlüsselt</span>
               </div>
             </div>
 
@@ -162,7 +162,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
               </div>
               <div className="flex flex-col">
                 <span className="text-[11px] font-bold leading-tight">24/7 Support</span>
-                <span className="text-[9px] text-slate-500 font-medium">Kundenservice</span>
+                <span className="text-[9px] text-slate-500 dark:text-slate-400 font-medium">Kundenservice</span>
               </div>
             </div>
           </div>
@@ -244,7 +244,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
                     {currentProduct.price.toLocaleString('de-DE')} €
                   </span>
                   {currentProduct.compare_at_price && currentProduct.compare_at_price > currentProduct.price && (
-                    <span className="text-[10px] text-slate-400 line-through block">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 line-through block">
                       {currentProduct.compare_at_price.toLocaleString('de-DE')} €
                     </span>
                   )}

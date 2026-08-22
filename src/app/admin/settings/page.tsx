@@ -71,7 +71,7 @@ export default function AdminSettingsPage() {
               Sofortige globale Änderung
             </span>
           </div>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-400 mt-1">
             Ändern Sie den Firmennamen, die E-Mail-Adresse, die Währung und die Konfigurationen. Änderungen werden sofort auf der gesamten Seite wirksam.
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function AdminSettingsPage() {
         <div className="flex items-center gap-2">
           <a
             href="/admin/settings/legal"
-            className="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-emerald-400 font-extrabold text-xs rounded-xl flex items-center gap-2 border border-slate-700 transition shrink-0"
+            className="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-emerald-700 dark:text-emerald-400 font-extrabold text-xs rounded-xl flex items-center gap-2 border border-slate-700 transition shrink-0"
           >
             <span>⚖️ RECHTLICHE SEITEN &amp; CMS</span>
           </a>
@@ -225,7 +225,7 @@ export default function AdminSettingsPage() {
               />
             </div>
           </div>
-          <p className="text-[11px] text-slate-400">
+          <p className="text-[11px] text-slate-500 dark:text-slate-400">
             Diese Daten werden auf der Checkout-Seite, der Bestellbestätigung und im Impressum angezeigt.
           </p>
         </div>

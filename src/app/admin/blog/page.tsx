@@ -46,10 +46,10 @@ export default function AdminBlogListPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900 text-white p-6 rounded-3xl border border-slate-800 shadow-xl">
         <div>
           <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-emerald-400" />
+            <Sparkles className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
             <h1 className="text-2xl font-black tracking-tight">Blog-Beiträge &amp; KI-SEO Optimierung</h1>
           </div>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             Verwalten Sie Ihre Blog-Artikel und optimieren Sie das Google-Ranking mit dem KI-SEO Tool.
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function AdminBlogListPage() {
 
       {/* Filter Bar */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex items-center gap-3">
-        <Search className="w-4 h-4 text-slate-400" />
+        <Search className="w-4 h-4 text-slate-500 dark:text-slate-400" />
         <input
           type="text"
           placeholder="Nach Titel oder Kategorie suchen..."
@@ -77,14 +77,14 @@ export default function AdminBlogListPage() {
 
       {/* Table */}
       {isLoading ? (
-        <div className="p-12 text-center text-xs text-slate-400 font-bold bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 animate-pulse">
+        <div className="p-12 text-center text-xs text-slate-500 dark:text-slate-400 font-bold bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 animate-pulse">
           Blog-Beiträge werden geladen...
         </div>
       ) : filteredPosts.length === 0 ? (
         <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-12 text-center space-y-4">
-          <FileText className="w-12 h-12 text-slate-400 mx-auto" />
+          <FileText className="w-12 h-12 text-slate-500 dark:text-slate-400 mx-auto" />
           <h3 className="text-base font-bold">Keine Blog-Beiträge gefunden</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400">
+          <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-400">
             Erstellen Sie Ihren ersten SEO-optimierten Artikel für Ihren Store.
           </p>
           <Link
@@ -100,7 +100,7 @@ export default function AdminBlogListPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="bg-slate-50 dark:bg-slate-950/60 border-b border-slate-100 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px]">
+                <tr className="bg-slate-50 dark:bg-slate-950/60 border-b border-slate-100 dark:border-slate-800 text-slate-500 dark:text-slate-400 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px]">
                   <th className="py-4 px-6">Titel &amp; Kategorie</th>
                   <th className="py-4 px-4">Autor</th>
                   <th className="py-4 px-4">SEO-Score</th>
@@ -116,7 +116,7 @@ export default function AdminBlogListPage() {
                     <tr key={post.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
                       <td className="py-4 px-6">
                         <div className="font-bold text-slate-900 dark:text-white line-clamp-1">{post.title}</div>
-                        <div className="text-[11px] text-slate-400 font-mono">/Blog/{post.slug} • <span className="text-emerald-800 dark:text-emerald-400">{post.category}</span></div>
+                        <div className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">/Blog/{post.slug} • <span className="text-emerald-800 dark:text-emerald-400">{post.category}</span></div>
                       </td>
                       <td className="py-4 px-4 font-semibold text-slate-700 dark:text-slate-300">
                         {post.author_name}
@@ -135,12 +135,12 @@ export default function AdminBlogListPage() {
                         <span className={`px-2.5 py-0.5 rounded-full font-extrabold text-[10px] uppercase ${
                           post.status === 'published'
                             ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-400'
-                            : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
+                            : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
                         }`}>
                           {post.status}
                         </span>
                       </td>
-                      <td className="py-4 px-4 text-slate-500 dark:text-slate-400 font-mono text-[11px]">
+                      <td className="py-4 px-4 text-slate-500 dark:text-slate-400 dark:text-slate-400 font-mono text-[11px]">
                         {new Date(post.published_at).toLocaleDateString('de-DE')}
                       </td>
                       <td className="py-4 px-6 text-right">
@@ -148,7 +148,7 @@ export default function AdminBlogListPage() {
                           <Link
                             href={`/Blog/${post.slug}`}
                             target="_blank"
-                            className="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                            className="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition"
                             title="Vorschau"
                           >
                             <Eye className="w-4 h-4" />
@@ -162,7 +162,7 @@ export default function AdminBlogListPage() {
                           </Link>
                           <button
                             onClick={() => handleDelete(post.id)}
-                            className="p-2 text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 rounded-lg transition cursor-pointer"
+                            className="p-2 text-slate-500 dark:text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 rounded-lg transition cursor-pointer"
                             title="Löschen"
                           >
                             <Trash2 className="w-4 h-4" />

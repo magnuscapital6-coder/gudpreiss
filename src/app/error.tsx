@@ -12,11 +12,11 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 text-white text-center">
       <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 max-w-md w-full space-y-4 shadow-2xl">
-        <div className="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center mx-auto">
+        <div className="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-700 border border-amber-500/40 flex items-center justify-center mx-auto">
           <AlertTriangle className="w-7 h-7" />
         </div>
         <h2 className="text-lg font-black text-white">Ein unerwarteter Fehler ist aufgetreten</h2>
-        <p className="text-xs text-slate-400 leading-relaxed">
+        <p className="text-xs text-slate-500 leading-relaxed">
           Die Seite konnte nicht geladen werden. Bitte versuchen Sie es erneut oder kehren Sie zur Startseite zurück.
         </p>
 
@@ -41,7 +41,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
           </button>
           <Link
             href="/"
-            className="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl flex items-center justify-center gap-1 transition"
+            className="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-600 font-bold text-xs rounded-xl flex items-center justify-center gap-1 transition"
           >
             <Home className="w-4 h-4" />
           </Link>

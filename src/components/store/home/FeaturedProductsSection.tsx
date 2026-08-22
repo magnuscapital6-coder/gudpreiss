@@ -74,7 +74,7 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
             <Link
               href="/shop?sort=best-selling"
               prefetch={true}
-              className="inline-flex items-center gap-1.5 text-[12px] font-extrabold text-slate-700 dark:text-slate-300 hover:text-emerald-800 dark:hover:text-emerald-400 transition"
+              className="inline-flex items-center gap-1.5 text-[12px] font-extrabold text-slate-700 dark:text-slate-300 hover:text-emerald-800 dark:hover:text-emerald-700 dark:text-emerald-400 transition"
             >
               <span>{t('home.viewAll') || 'Alle anzeigen'}</span>
               <ArrowRight className="w-4 h-4" />
@@ -132,7 +132,7 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
                   'Exklusive VIP-Angebote & Pre-Access',
                 ].map((benefit, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-[11px] font-bold text-slate-200">
-                    <div className="w-4 h-4 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shrink-0">
+                    <div className="w-4 h-4 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-700 dark:text-emerald-400 shrink-0">
                       <Check className="w-2.5 h-2.5" />
                     </div>
                     <span>{benefit}</span>

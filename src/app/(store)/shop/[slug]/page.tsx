@@ -196,12 +196,12 @@ export default function ProductDetailPage() {
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 w-full py-8 text-slate-900 dark:text-white">
         {/* Breadcrumb */}
-        <div className="text-xs text-slate-500 dark:text-slate-400 mb-6 flex items-center gap-1.5 flex-wrap">
+        <div className="text-xs text-slate-500 dark:text-slate-500 mb-6 flex items-center gap-1.5 flex-wrap">
           <Link href="/" className="hover:underline">{t('nav.home')}</Link>
-          <ChevronRight className="w-3 h-3 text-slate-400" />
+          <ChevronRight className="w-3 h-3 text-slate-500" />
           <Link href="/shop" className="hover:underline">{t('nav.shop')}</Link>
-          <ChevronRight className="w-3 h-3 text-slate-400" />
-          <span className="text-emerald-800 dark:text-emerald-400 font-semibold truncate max-w-[200px] sm:max-w-none">{product.name}</span>
+          <ChevronRight className="w-3 h-3 text-slate-500" />
+          <span className="text-emerald-800 dark:text-emerald-700 font-semibold truncate max-w-[200px] sm:max-w-none">{product.name}</span>
         </div>
 
         {/* Main Product Container */}
@@ -251,7 +251,7 @@ export default function ProductDetailPage() {
             <div className="lg:col-span-6 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 border border-emerald-500/20 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="bg-emerald-500/10 text-emerald-800 dark:text-emerald-700 border border-emerald-500/20 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
                     {product.brand_name || 'GudPreiss'}
                   </span>
                   {product.on_sale && (
@@ -259,7 +259,7 @@ export default function ProductDetailPage() {
                       {t('product.onSaleTag')}
                     </span>
                   )}
-                  <span className="text-xs font-bold text-slate-400 ml-auto">{t('product.sku')}: {product.sku}</span>
+                  <span className="text-xs font-bold text-slate-500 ml-auto">{t('product.sku')}: {product.sku}</span>
                 </div>
 
                 <h1 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-3">
@@ -268,24 +268,24 @@ export default function ProductDetailPage() {
 
                 {/* Rating & Reviews */}
                 <div className="flex items-center gap-3 mb-4 text-xs">
-                  <div className="flex items-center text-amber-400">
+                  <div className="flex items-center text-amber-700">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-amber-400' : 'text-slate-300 dark:text-slate-700'}`}
+                        className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-amber-400' : 'text-slate-600 dark:text-slate-700'}`}
                       />
                     ))}
                   </div>
                   <span className="font-bold text-slate-900 dark:text-white">{product.rating}</span>
-                  <span className="text-slate-400">|</span>
-                  <span className="text-slate-500 dark:text-slate-400 font-medium">{product.review_count} {t('product.reviewsCount')}</span>
+                  <span className="text-slate-500">|</span>
+                  <span className="text-slate-500 dark:text-slate-500 font-medium">{product.review_count} {t('product.reviewsCount')}</span>
                 </div>
 
                 {/* Price Display */}
                 <div className="flex items-baseline gap-4 mb-6">
-                  <span className="text-3xl font-black text-emerald-800 dark:text-emerald-400">{price.toLocaleString('de-DE')} €</span>
+                  <span className="text-3xl font-black text-emerald-800 dark:text-emerald-700">{price.toLocaleString('de-DE')} €</span>
                   {product.compare_at_price && product.compare_at_price > price && (
-                    <span className="text-base font-semibold text-slate-400 line-through">
+                    <span className="text-base font-semibold text-slate-500 line-through">
                       {product.compare_at_price.toLocaleString('de-DE')} €
                     </span>
                   )}
@@ -296,7 +296,7 @@ export default function ProductDetailPage() {
                   )}
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6 font-medium">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-600 leading-relaxed mb-6 font-medium">
                   {(product.short_description || product.description)
                     .replace(/<[^>]+>/g, ' ')
                     .replace(/\s+/g, ' ')
@@ -321,7 +321,7 @@ export default function ProductDetailPage() {
                           className={`px-4 py-2.5 rounded-xl text-xs font-bold border transition ${
                             selectedVariant?.id === v.id
                               ? 'bg-emerald-600 text-white border-emerald-600 shadow-md shadow-emerald-900/30'
-                              : 'bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-emerald-500'
+                              : 'bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-600 border-slate-200 dark:border-slate-800 hover:border-emerald-500'
                           }`}
                         >
                           {v.name}
@@ -344,14 +344,14 @@ export default function ProductDetailPage() {
                   <div className="flex items-center border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-50 dark:bg-slate-950">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="w-11 h-11 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 text-base"
+                      className="w-11 h-11 flex items-center justify-center font-bold text-slate-600 dark:text-slate-600 hover:bg-slate-200 dark:hover:bg-slate-800 text-base"
                     >
                       -
                     </button>
                     <span className="w-12 text-center text-sm font-bold text-slate-900 dark:text-white">{quantity}</span>
                     <button
                       onClick={() => setQuantity(quantity + 1)}
-                      className="w-11 h-11 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 text-base"
+                      className="w-11 h-11 flex items-center justify-center font-bold text-slate-600 dark:text-slate-600 hover:bg-slate-200 dark:hover:bg-slate-800 text-base"
                     >
                       +
                     </button>
@@ -383,7 +383,7 @@ export default function ProductDetailPage() {
                     className={`p-3.5 rounded-2xl border transition cursor-pointer ${
                       inWishlist
                         ? 'bg-rose-500/10 text-rose-500 border-rose-500/30'
-                        : 'bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:text-rose-500'
+                        : 'bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-500 border-slate-200 dark:border-slate-800 hover:text-rose-500'
                     }`}
                   >
                     <Heart className={`w-5 h-5 ${inWishlist ? 'fill-rose-500 text-rose-500' : ''}`} />
@@ -391,17 +391,17 @@ export default function ProductDetailPage() {
                 </div>
 
                 {/* Trust Badges */}
-                <div className="grid grid-cols-3 gap-2 pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-400 font-semibold text-center">
+                <div className="grid grid-cols-3 gap-2 pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-500 font-semibold text-center">
                   <div className="flex flex-col items-center gap-1 p-2 bg-slate-50 dark:bg-slate-950/60 rounded-xl border border-slate-100 dark:border-slate-800">
-                    <Truck className="w-4 h-4 text-emerald-800 dark:text-emerald-400" />
+                    <Truck className="w-4 h-4 text-emerald-800 dark:text-emerald-700" />
                     <span>{t('product.freeShipping')}</span>
                   </div>
                   <div className="flex flex-col items-center gap-1 p-2 bg-slate-50 dark:bg-slate-950/60 rounded-xl border border-slate-100 dark:border-slate-800">
-                    <ShieldCheck className="w-4 h-4 text-emerald-800 dark:text-emerald-400" />
+                    <ShieldCheck className="w-4 h-4 text-emerald-800 dark:text-emerald-700" />
                     <span>{t('product.warranty2yr')}</span>
                   </div>
                   <div className="flex flex-col items-center gap-1 p-2 bg-slate-50 dark:bg-slate-950/60 rounded-xl border border-slate-100 dark:border-slate-800">
-                    <RefreshCw className="w-4 h-4 text-emerald-800 dark:text-emerald-400" />
+                    <RefreshCw className="w-4 h-4 text-emerald-800 dark:text-emerald-700" />
                     <span>{t('product.returns30d')}</span>
                   </div>
                 </div>
@@ -424,7 +424,7 @@ export default function ProductDetailPage() {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`pb-4 text-sm font-bold border-b-2 transition-all duration-150 whitespace-nowrap cursor-pointer ${
                   activeTab === tab.id
-                    ? 'border-emerald-600 dark:border-emerald-400 text-emerald-800 dark:text-emerald-400 font-extrabold'
+                    ? 'border-emerald-600 dark:border-emerald-400 text-emerald-800 dark:text-emerald-700 font-extrabold'
                     : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
@@ -443,19 +443,19 @@ export default function ProductDetailPage() {
             <div className="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
               <div className="py-2.5 grid grid-cols-3">
                 <span className="font-bold text-slate-900 dark:text-white">{t('product.brand')}</span>
-                <span className="col-span-2 text-slate-600 dark:text-slate-300">{product.brand_name || 'GudPreiss'}</span>
+                <span className="col-span-2 text-slate-600 dark:text-slate-600">{product.brand_name || 'GudPreiss'}</span>
               </div>
               <div className="py-2.5 grid grid-cols-3">
                 <span className="font-bold text-slate-900 dark:text-white">{t('product.category')}</span>
-                <span className="col-span-2 text-slate-600 dark:text-slate-300">{product.category_name}</span>
+                <span className="col-span-2 text-slate-600 dark:text-slate-600">{product.category_name}</span>
               </div>
               <div className="py-2.5 grid grid-cols-3">
                 <span className="font-bold text-slate-900 dark:text-white">{t('product.weight')}</span>
-                <span className="col-span-2 text-slate-600 dark:text-slate-300">{product.weight_kg} kg</span>
+                <span className="col-span-2 text-slate-600 dark:text-slate-600">{product.weight_kg} kg</span>
               </div>
               <div className="py-2.5 grid grid-cols-3">
                 <span className="font-bold text-slate-900 dark:text-white">{t('product.warranty')}</span>
-                <span className="col-span-2 text-slate-600 dark:text-slate-300">{t('product.warranty2yr')}</span>
+                <span className="col-span-2 text-slate-600 dark:text-slate-600">{t('product.warranty2yr')}</span>
               </div>
             </div>
           </div>
@@ -469,14 +469,14 @@ export default function ProductDetailPage() {
                   <div key={rev.id} className="p-4 bg-slate-50 dark:bg-slate-950/60 rounded-2xl border border-slate-100 dark:border-slate-800 space-y-1">
                     <div className="flex items-center justify-between">
                       <h4 className="font-bold text-slate-900 dark:text-white text-xs">{rev.user_name}</h4>
-                      <div className="flex items-center text-amber-400">
+                      <div className="flex items-center text-amber-700">
                         {[...Array(rev.rating)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                          <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-700" />
                         ))}
                       </div>
                     </div>
                     <p className="font-bold text-xs text-slate-800 dark:text-slate-200">{rev.title}</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400">{rev.comment}</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-500">{rev.comment}</p>
                   </div>
                 ))
               )}

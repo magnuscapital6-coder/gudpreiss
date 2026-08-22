@@ -41,7 +41,7 @@ export function CategoryPromoCards() {
           {/* Left Text & CTA Column */}
           <div className="flex flex-col justify-between items-center sm:items-start h-full py-1 min-w-0 flex-1">
             <div>
-              <h3 className="text-[15px] sm:text-[16px] font-bold text-text-primary dark:text-slate-100 group-hover:text-primary-500 dark:group-hover:text-emerald-400 transition line-clamp-1">
+              <h3 className="text-[15px] sm:text-[16px] font-bold text-text-primary dark:text-slate-100 group-hover:text-primary-500 dark:group-hover:text-emerald-700 dark:text-emerald-400 transition line-clamp-1">
                 {card.title}
               </h3>
               <p className="text-[12px] font-semibold text-primary-500 dark:text-emerald-400 mt-1">{card.price}</p>

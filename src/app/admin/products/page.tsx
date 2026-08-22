@@ -45,7 +45,7 @@ export default function AdminProductsPage() {
           <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
             {t('admin.Produkte')}
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
             Verwalten Sie den Produktkatalog, Preise und Bestände Ihres Shops.
           </p>
         </div>
@@ -61,7 +61,7 @@ export default function AdminProductsPage() {
 
       {/* Search Filter */}
       <div className="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center gap-3">
-        <Search className="w-4 h-4 text-slate-400" />
+        <Search className="w-4 h-4 text-slate-500 dark:text-slate-400" />
         <input
           type="text"
           placeholder="Nach Name oder SKU suchen..."
@@ -75,7 +75,7 @@ export default function AdminProductsPage() {
       <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-slate-50 text-slate-500 font-bold border-b border-slate-100">
+            <thead className="bg-slate-50 text-slate-500 dark:text-slate-400 font-bold border-b border-slate-100">
               <tr>
                 <th className="p-3.5 pl-5">Produkt</th>
                 <th className="p-3.5">SKU</th>
@@ -87,11 +87,11 @@ export default function AdminProductsPage() {
             <tbody className="divide-y divide-slate-100 font-medium">
               {isLoading ? (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-slate-400">Produktkatalog wird geladen...</td>
+                  <td colSpan={5} className="p-8 text-center text-slate-500 dark:text-slate-400">Produktkatalog wird geladen...</td>
                 </tr>
               ) : filteredProducts.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-slate-400">Keine Produkte gefunden.</td>
+                  <td colSpan={5} className="p-8 text-center text-slate-500 dark:text-slate-400">Keine Produkte gefunden.</td>
                 </tr>
               ) : (
                 filteredProducts.map((p) => (
@@ -103,11 +103,11 @@ export default function AdminProductsPage() {
                         </div>
                         <div className="min-w-0">
                           <p className="font-bold text-slate-900 truncate">{p.name}</p>
-                          <span className="text-[10px] text-slate-400 uppercase">{p.category_name}</span>
+                          <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase">{p.category_name}</span>
                         </div>
                       </div>
                     </td>
-                    <td className="p-3.5 text-slate-500 font-mono text-[11px]">{p.sku || 'N/A'}</td>
+                    <td className="p-3.5 text-slate-500 dark:text-slate-400 font-mono text-[11px]">{p.sku || 'N/A'}</td>
                     <td className="p-3.5 font-bold text-slate-900">{p.price.toLocaleString('de-DE')} €</td>
                     <td className="p-3.5">
                       <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold ${
@@ -120,14 +120,14 @@ export default function AdminProductsPage() {
                       <div className="flex items-center justify-end gap-2">
                         <Link
                           href={`/admin/Produkte/${p.id}/edit`}
-                          className="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
+                          className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
                           title="Bearbeiten"
                         >
                           <Edit3 className="w-4 h-4" />
                         </Link>
                         <button
                           onClick={() => handleDelete(p.id)}
-                          className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition"
+                          className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition"
                           title="Löschen"
                         >
                           <Trash2 className="w-4 h-4" />

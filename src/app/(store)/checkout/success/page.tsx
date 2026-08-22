@@ -30,18 +30,18 @@ function SuccessContent() {
   return (
     <main className="flex-1 max-w-3xl mx-auto px-4 sm:px-6 w-full py-12 text-center">
       <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-6 sm:p-10 shadow-xl space-y-6">
-        <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto">
+        <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-700 rounded-full flex items-center justify-center mx-auto">
           <Building2 className="w-8 h-8" />
         </div>
 
         <div>
-          <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-700">
             {t('checkout.bankTransfer')}
           </span>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight mt-1">
             {t('checkout.orderSuccessTitle')}
           </h1>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 max-w-lg mx-auto leading-relaxed">
+          <p className="text-xs text-slate-500 dark:text-slate-500 mt-2 max-w-lg mx-auto leading-relaxed">
             {t('checkout.orderNumber')} <span className="font-bold text-slate-900 dark:text-white">#{orderNumber}</span> {t('checkout.orderProcessedText')}
           </p>
         </div>
@@ -50,14 +50,14 @@ function SuccessContent() {
         <div className="p-5 bg-slate-950 text-white rounded-2xl border border-slate-800 space-y-4 shadow-lg text-left">
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <div className="flex items-center gap-2">
-              <Building2 className="w-4 h-4 text-emerald-400" />
-              <h4 className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
+              <Building2 className="w-4 h-4 text-emerald-700" />
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-emerald-700">
                 {t('checkout.bankDetails')}
               </h4>
             </div>
             <button
               onClick={() => window.print()}
-              className="p-1.5 text-slate-400 hover:text-white bg-slate-800 rounded-lg transition text-[11px] flex items-center gap-1"
+              className="p-1.5 text-slate-500 hover:text-white bg-slate-800 rounded-lg transition text-[11px] flex items-center gap-1"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>Drucken</span>
@@ -66,24 +66,24 @@ function SuccessContent() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
             <div className="bg-slate-900 p-3 rounded-xl border border-slate-800">
-              <div className="text-[10px] text-slate-400 uppercase font-sans font-bold">{t('checkout.bankName')}</div>
+              <div className="text-[10px] text-slate-500 uppercase font-sans font-bold">{t('checkout.bankName')}</div>
               <div className="font-bold text-white text-xs mt-0.5">{bankName}</div>
             </div>
 
             <div className="bg-slate-900 p-3 rounded-xl border border-slate-800">
-              <div className="text-[10px] text-slate-400 uppercase font-sans font-bold">{t('checkout.accountHolder')}</div>
+              <div className="text-[10px] text-slate-500 uppercase font-sans font-bold">{t('checkout.accountHolder')}</div>
               <div className="font-bold text-white text-xs mt-0.5">{accountHolder}</div>
             </div>
 
             <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-center justify-between sm:col-span-2">
               <div>
-                <div className="text-[10px] text-slate-400 uppercase font-sans font-bold">{t('checkout.iban')}</div>
-                <div className="font-bold text-emerald-400 text-sm mt-0.5 tracking-wider">{iban}</div>
+                <div className="text-[10px] text-slate-500 uppercase font-sans font-bold">{t('checkout.iban')}</div>
+                <div className="font-bold text-emerald-700 text-sm mt-0.5 tracking-wider">{iban}</div>
               </div>
               <button
                 type="button"
                 onClick={() => copyToClipboard(iban, 'iban')}
-                className="p-2 text-slate-400 hover:text-white bg-slate-800 rounded-lg transition text-[11px] flex items-center gap-1 font-sans"
+                className="p-2 text-slate-500 hover:text-white bg-slate-800 rounded-lg transition text-[11px] flex items-center gap-1 font-sans"
               >
                 <Copy className="w-3.5 h-3.5" />
                 <span>{copiedField === 'iban' ? 'Kopiert!' : 'Kopieren'}</span>
@@ -91,18 +91,18 @@ function SuccessContent() {
             </div>
 
             <div className="bg-slate-900 p-3 rounded-xl border border-slate-800">
-              <div className="text-[10px] text-slate-400 uppercase font-sans font-bold">{t('checkout.bic')}</div>
+              <div className="text-[10px] text-slate-500 uppercase font-sans font-bold">{t('checkout.bic')}</div>
               <div className="font-bold text-white text-xs mt-0.5">{bic}</div>
             </div>
 
             <div className="bg-slate-900 p-3 rounded-xl border border-slate-800">
-              <div className="text-[10px] text-slate-400 uppercase font-sans font-bold">{t('checkout.paymentReference')}</div>
-              <div className="font-bold text-amber-400 text-xs mt-0.5 font-sans font-bold">{orderNumber}</div>
+              <div className="text-[10px] text-slate-500 uppercase font-sans font-bold">{t('checkout.paymentReference')}</div>
+              <div className="font-bold text-amber-700 text-xs mt-0.5 font-sans font-bold">{orderNumber}</div>
             </div>
           </div>
 
-          <div className="flex items-start gap-2 text-[11px] text-slate-300 pt-2 border-t border-slate-800 font-sans">
-            <AlertCircle className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+          <div className="flex items-start gap-2 text-[11px] text-slate-600 pt-2 border-t border-slate-800 font-sans">
+            <AlertCircle className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
             <span>{t('checkout.paymentReferenceNotice')}</span>
           </div>
         </div>
@@ -117,7 +117,7 @@ function SuccessContent() {
           </Link>
           <Link
             href="/shop"
-            className="px-6 py-3.5 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-bold text-xs rounded-2xl transition"
+            className="px-6 py-3.5 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 font-bold text-xs rounded-2xl transition"
           >
             {t('cart.continueShopping')}
           </Link>

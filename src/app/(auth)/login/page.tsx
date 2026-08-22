@@ -94,13 +94,13 @@ export default function LoginPage() {
               <Lock className="w-6 h-6" />
             </div>
             <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Anmelden bei GudPreiss</h1>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Zugang zum Kundenkonto und Admin-Dashboard</p>
+            <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">Zugang zum Kundenkonto und Admin-Dashboard</p>
           </div>
 
           {/* Rate limit lockout banner */}
           {isLocked && (
             <div className="p-4 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-xl text-xs text-amber-700 dark:text-amber-300 flex items-center gap-3">
-              <ShieldAlert className="w-5 h-5 flex-shrink-0 text-amber-500" />
+              <ShieldAlert className="w-5 h-5 flex-shrink-0 text-amber-700" />
               <div>
                 <p className="font-bold">Zu viele Anmeldeversuche</p>
                 <p className="mt-0.5">
@@ -170,9 +170,9 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <p className="text-center text-xs text-slate-500 dark:text-slate-400">
+          <p className="text-center text-xs text-slate-500 dark:text-slate-500">
             Noch kein Konto?{' '}
-            <Link href="/register" className="font-bold text-emerald-600 dark:text-emerald-400 hover:underline">
+            <Link href="/register" className="font-bold text-emerald-600 dark:text-emerald-700 hover:underline">
               Konto erstellen
             </Link>
           </p>

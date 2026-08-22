@@ -14,7 +14,7 @@ export default function AdminError({ error, reset }: { error: Error & { digest?:
         <AlertTriangle className="w-6 h-6" />
       </div>
       <h2 className="text-base font-black text-white">Fehler im Admin-Bereich</h2>
-      <p className="text-xs text-slate-400 leading-relaxed">
+      <p className="text-xs text-slate-500 leading-relaxed">
         Beim Laden des Administrations-Moduls ist ein Fehler aufgetreten.
       </p>
 

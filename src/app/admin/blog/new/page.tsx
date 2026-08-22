@@ -92,7 +92,7 @@ export default function NewBlogPostPage() {
       <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
         <Link
           href="/admin/Blog"
-          className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-slate-900 dark:hover:text-white transition"
+          className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Zurück zur Blog-Übersicht</span>
@@ -206,8 +206,8 @@ export default function NewBlogPostPage() {
         <div className="bg-slate-950 text-white rounded-3xl border border-slate-800 p-6 sm:p-8 space-y-6 shadow-2xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div className="flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-emerald-400" />
-              <h3 className="text-base font-extrabold uppercase tracking-wider text-emerald-400">
+              <Sparkles className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
+              <h3 className="text-base font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
                 KI-SEO Optimierungs-Cockpit
               </h3>
             </div>
@@ -223,7 +223,7 @@ export default function NewBlogPostPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">Google Meta Title (50-60 Zeichen)</label>
+                <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">Google Meta Title (50-60 Zeichen)</label>
                 <input
                   type="text"
                   value={seoTitle}
@@ -231,11 +231,11 @@ export default function NewBlogPostPage() {
                   placeholder="Automatisch generiert mit KI..."
                   className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white outline-none focus:border-emerald-500"
                 />
-                <span className="text-[10px] text-slate-500 mt-1 block">Länge: {seoTitle.length} Zeichen</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-1 block">Länge: {seoTitle.length} Zeichen</span>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">Google Meta Description (140-160 Zeichen)</label>
+                <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">Google Meta Description (140-160 Zeichen)</label>
                 <textarea
                   rows={3}
                   value={seoDescription}
@@ -243,22 +243,22 @@ export default function NewBlogPostPage() {
                   placeholder="Automatisch generiert mit KI..."
                   className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white outline-none focus:border-emerald-500"
                 />
-                <span className="text-[10px] text-slate-500 mt-1 block">Länge: {seoDescription.length} Zeichen</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-1 block">Länge: {seoDescription.length} Zeichen</span>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">URL Slug</label>
+                <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">URL Slug</label>
                 <input
                   type="text"
                   value={slug}
                   onChange={(e) => setSlug(e.target.value)}
                   placeholder="ex: die-zehn-besten-smartphones-2026"
-                  className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-emerald-400 font-mono outline-none focus:border-emerald-500"
+                  className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-emerald-700 dark:text-emerald-400 font-mono outline-none focus:border-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">SEO-Keywords (kommagetrennt)</label>
+                <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">SEO-Keywords (kommagetrennt)</label>
                 <input
                   type="text"
                   value={keywordsInput}
@@ -270,13 +270,13 @@ export default function NewBlogPostPage() {
 
             {/* Google Live SERP Snippet Preview */}
             <div className="space-y-4">
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                <Globe className="w-4 h-4 text-emerald-400" />
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                <Globe className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
                 <span>Google SERP Live Vorschau</span>
               </div>
 
               <div className="bg-white text-slate-900 p-5 rounded-2xl border border-slate-200 font-sans space-y-1 shadow-md">
-                <div className="text-[11px] text-slate-600 truncate flex items-center gap-1">
+                <div className="text-[11px] text-slate-600 dark:text-slate-300 truncate flex items-center gap-1">
                   <span>https://gudpreiss.de</span>
                   <span>›</span>
                   <span>Blog</span>
@@ -290,7 +290,7 @@ export default function NewBlogPostPage() {
               {/* Actionable Recommendations */}
               {seoAnalysis && (
                 <div className="space-y-2 pt-2">
-                  <span className="text-[11px] font-bold uppercase text-slate-400 block">Empfehlungen &amp; Analyse</span>
+                  <span className="text-[11px] font-bold uppercase text-slate-500 dark:text-slate-400 block">Empfehlungen &amp; Analyse</span>
                   <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
                     {seoAnalysis.recommendations.map((rec, idx) => (
                       <div

@@ -73,7 +73,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
           </Link>
 
           <div className="flex-1 min-w-0">
-            <span className="text-[10px] font-semibold uppercase text-text-secondary dark:text-slate-400">
+            <span className="text-[10px] font-semibold uppercase text-text-secondary dark:text-slate-500">
               {product.category_name}
             </span>
             <Link href={`/shop/${product.slug}`}>
@@ -95,7 +95,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
             className={`p-2 rounded-xl transition-all duration-150 active:scale-90 flex items-center justify-center cursor-pointer ${
               added
                 ? 'text-emerald-600 bg-emerald-100/80 dark:bg-emerald-950/60'
-                : 'text-slate-600 dark:text-slate-300 hover:text-emerald-800 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 hover:scale-110'
+                : 'text-slate-600 dark:text-slate-600 hover:text-emerald-800 dark:hover:text-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 hover:scale-110'
             }`}
           >
             {added ? <Check className="w-4 h-4 text-emerald-600" /> : <ShoppingCart className="w-4 h-4 stroke-[2.2]" />}
@@ -125,7 +125,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
             onClick={handleWishlistClick}
             aria-label="Save to Wishlist"
             className={`p-1.5 rounded-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-xs shadow-xs transition-all active:scale-75 border border-slate-200/50 dark:border-slate-800/60 ${
-              inWishlist ? 'text-status-danger' : 'text-slate-400 hover:text-status-danger'
+              inWishlist ? 'text-status-danger' : 'text-slate-500 hover:text-status-danger'
             }`}
           >
             <Heart className={`w-3.5 h-3.5 ${inWishlist ? 'fill-status-danger' : ''}`} />
@@ -133,7 +133,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
           <button
             onClick={handleQuickViewClick}
             aria-label="Quick View"
-            className="p-1.5 rounded-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-xs text-slate-400 hover:text-primary-500 opacity-0 group-hover:opacity-100 transition-opacity shadow-xs border border-slate-200/50 dark:border-slate-800/60"
+            className="p-1.5 rounded-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-xs text-slate-500 hover:text-primary-500 opacity-0 group-hover:opacity-100 transition-opacity shadow-xs border border-slate-200/50 dark:border-slate-800/60"
           >
             <Eye className="w-3.5 h-3.5" />
           </button>
@@ -162,7 +162,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
 
         {/* Product Details Footer */}
         <div className="w-full flex flex-col items-center justify-end">
-          <div className="text-[9px] font-semibold text-text-secondary dark:text-slate-400 uppercase truncate mb-0.5 max-w-full">
+          <div className="text-[9px] font-semibold text-text-secondary dark:text-slate-500 uppercase truncate mb-0.5 max-w-full">
             {product.category_name}
           </div>
 
@@ -187,7 +187,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
               className={`p-1.5 rounded-lg transition-all duration-150 active:scale-90 flex items-center justify-center cursor-pointer ${
                 added
                   ? 'text-emerald-600 bg-emerald-100/80 dark:bg-emerald-950/60'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-emerald-800 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 hover:scale-110'
+                  : 'text-slate-600 dark:text-slate-600 hover:text-emerald-800 dark:hover:text-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 hover:scale-110'
               }`}
             >
               {added ? <Check className="w-4 h-4 text-emerald-600" /> : <ShoppingCart className="w-4 h-4 stroke-[2.2]" />}

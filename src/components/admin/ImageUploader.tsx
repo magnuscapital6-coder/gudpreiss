@@ -85,14 +85,14 @@ export function ImageUploader({ images, onChange }: ImageUploaderProps) {
           className="hidden"
         />
 
-        <div className="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center mx-auto mb-3">
+        <div className="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-700 flex items-center justify-center mx-auto mb-3">
           <Upload className="w-6 h-6" />
         </div>
 
         <h4 className="text-sm font-bold text-white mb-1">
           Cliquez pour parcourir ou glissez-déposez vos images ici
         </h4>
-        <p className="text-[11px] text-slate-400">
+        <p className="text-[11px] text-slate-500">
           Formats acceptés: PNG, JPG, WEBP, GIF (Haute résolution recommandée)
         </p>
       </div>

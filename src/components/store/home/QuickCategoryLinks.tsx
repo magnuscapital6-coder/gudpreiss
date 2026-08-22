@@ -51,7 +51,7 @@ export function QuickCategoryLinks() {
                 <Icon className="w-4 h-4" />
               </div>
               <div className="flex flex-col">
-                <span className="font-semibold text-text-primary dark:text-slate-100 group-hover:text-primary-500 dark:group-hover:text-emerald-400 transition">
+                <span className="font-semibold text-text-primary dark:text-slate-100 group-hover:text-primary-500 dark:group-hover:text-emerald-700 dark:text-emerald-400 transition">
                   {link.title}
                 </span>
                 <span className="text-[10px] font-semibold text-primary-500 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-0.5">

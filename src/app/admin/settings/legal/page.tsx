@@ -72,10 +72,10 @@ export default function AdminLegalPagesEditor() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900 text-white p-6 rounded-3xl border border-slate-800 shadow-xl">
         <div>
           <div className="flex items-center gap-2">
-            <Scale className="w-5 h-5 text-emerald-400" />
+            <Scale className="w-5 h-5 text-emerald-700" />
             <h1 className="text-2xl font-black tracking-tight">Rechtliche Seiten Verwalten (Legal CMS)</h1>
           </div>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Bearbeiten Sie Impressum, Datenschutzerklärung, AGB und Widerrufsbelehrung in Echtzeit.
           </p>
         </div>
@@ -103,7 +103,7 @@ export default function AdminLegalPagesEditor() {
               className={`flex items-center gap-2 px-4 py-3 rounded-xl text-xs font-extrabold transition whitespace-nowrap cursor-pointer ${
                 isActive
                   ? 'bg-emerald-600 text-white shadow-md shadow-emerald-900/30'
-                  : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                  : 'text-slate-600 dark:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800'
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -115,7 +115,7 @@ export default function AdminLegalPagesEditor() {
 
       {/* Editor Form */}
       {isLoading ? (
-        <div className="p-12 text-center text-xs text-slate-400 font-bold bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 animate-pulse">
+        <div className="p-12 text-center text-xs text-slate-500 font-bold bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 animate-pulse">
           Lade rechtliche Seite...
         </div>
       ) : (
@@ -162,7 +162,7 @@ export default function AdminLegalPagesEditor() {
           </div>
 
           <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
-            <span className="text-[11px] text-slate-400 font-mono">
+            <span className="text-[11px] text-slate-500 font-mono">
               Zuletzt aktualisiert: {pageData.last_updated ? new Date(pageData.last_updated).toLocaleString('de-DE') : 'Jetzt'}
             </span>
 

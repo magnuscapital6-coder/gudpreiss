@@ -34,7 +34,7 @@ export default function AdminInventoryPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-black text-white">Lagerbestand & Inventar</h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
           Überwachen Sie Bestandslevels in Echtzeit, passen Sie Schwellenwerte an und tätigen Sie Nachbestellungen.
         </p>
       </div>
@@ -50,8 +50,8 @@ export default function AdminInventoryPage() {
       </div>
 
       <div className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden">
-        <table className="w-full text-left text-xs text-slate-300">
-          <thead className="bg-slate-900/60 text-[11px] font-bold text-slate-400 uppercase border-b border-slate-800">
+        <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+          <thead className="bg-slate-900/60 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase border-b border-slate-800">
             <tr>
               <th className="p-4">SKU-Code</th>
               <th className="p-4">Produktname</th>
@@ -63,19 +63,19 @@ export default function AdminInventoryPage() {
           <tbody className="divide-y divide-slate-800/60">
             {filtered.map((p) => (
               <tr key={p.id} className="hover:bg-slate-900/50">
-                <td className="p-4 font-mono text-slate-400">{p.sku}</td>
+                <td className="p-4 font-mono text-slate-500 dark:text-slate-400">{p.sku}</td>
                 <td className="p-4 font-bold text-white">{p.name}</td>
                 <td className="p-4 font-bold">
-                  <span className={p.stock <= p.low_stock_threshold ? 'text-orange-400 font-extrabold' : 'text-green-400'}>
+                  <span className={p.stock <= p.low_stock_threshold ? 'text-orange-400 font-extrabold' : 'text-green-700 dark:text-green-400'}>
                     {p.stock} Stück
                   </span>
                 </td>
-                <td className="p-4 text-slate-400">{p.low_stock_threshold} Stück</td>
+                <td className="p-4 text-slate-500 dark:text-slate-400">{p.low_stock_threshold} Stück</td>
                 <td className="p-4 text-right">
                   <div className="flex items-center justify-end gap-2">
                     <button
                       onClick={() => handleStockUpdate(p.id, p.stock - 5)}
-                      className="px-2 py-1 bg-slate-900 border border-slate-800 hover:bg-slate-800 text-xs font-bold rounded-lg text-slate-300 hover:text-white"
+                      className="px-2 py-1 bg-slate-900 border border-slate-800 hover:bg-slate-800 text-xs font-bold rounded-lg text-slate-600 dark:text-slate-300 hover:text-white"
                     >
                       -5
                     </button>

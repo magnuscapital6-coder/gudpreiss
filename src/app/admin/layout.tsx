@@ -54,7 +54,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             🔒
           </div>
           <h2 className="text-lg font-black text-white">Zugriff Verweigert / Access Denied</h2>
-          <p className="text-xs text-slate-400 leading-relaxed">
+          <p className="text-xs text-slate-500 leading-relaxed">
             Sie müssen als Administrator angemeldet sein, um auf das Admin-Dashboard zuzugreifen.
           </p>
           <a
@@ -76,7 +76,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <button
             onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
             aria-label="Toggle Admin Sidebar"
-            className="p-1.5 text-slate-300 hover:text-white rounded-lg touch-target"
+            className="p-1.5 text-slate-600 hover:text-white rounded-lg touch-target"
           >
             {isMobileSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -88,7 +88,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <Link
           href="/"
           target="_blank"
-          className="flex items-center gap-1 text-xs bg-slate-800 px-2.5 py-1.5 rounded-lg text-blue-400 font-semibold"
+          className="flex items-center gap-1 text-xs bg-slate-800 px-2.5 py-1.5 rounded-lg text-blue-700 font-semibold"
         >
           <Store className="w-3.5 h-3.5" />
           <span>Boutique</span>
@@ -97,7 +97,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       {/* Admin Sidebar Drawer (Desktop permanent, Mobile overlay drawer) */}
       <aside
-        className={`fixed md:sticky top-0 z-50 h-screen w-64 bg-slate-900 text-slate-300 flex flex-col justify-between border-r border-slate-800 transition-transform duration-200 ${
+        className={`fixed md:sticky top-0 z-50 h-screen w-64 bg-slate-900 text-slate-600 flex flex-col justify-between border-r border-slate-800 transition-transform duration-200 ${
           isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
@@ -115,7 +115,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
             <button
               onClick={() => setIsMobileSidebarOpen(false)}
-              className="md:hidden p-1 text-slate-400 hover:text-white"
+              className="md:hidden p-1 text-slate-500 hover:text-white"
             >
               <X className="w-5 h-5" />
             </button>
@@ -134,11 +134,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition ${
                     isActive
                       ? 'bg-blue-600 text-white font-bold shadow-lg shadow-blue-600/20'
-                      : 'hover:bg-slate-800 text-slate-400 hover:text-slate-200'
+                      : 'hover:bg-slate-800 text-slate-500 hover:text-slate-200'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`} />
+                    <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500'}`} />
                     <span>{t(item.labelKey)}</span>
                   </div>
                   {isActive && <ChevronRight className="w-3.5 h-3.5 opacity-80" />}
@@ -156,7 +156,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-xs font-bold text-white truncate">{user?.full_name || 'Administrateur'}</p>
-              <p className="text-[10px] text-slate-400 truncate">{user?.email || 'admin@gudpreiss.store'}</p>
+              <p className="text-[10px] text-slate-500 truncate">{user?.email || 'admin@gudpreiss.store'}</p>
             </div>
           </div>
 
@@ -164,7 +164,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Link
               href="/"
               target="_blank"
-              className="flex items-center gap-1.5 text-[11px] text-blue-400 hover:text-blue-300 font-semibold"
+              className="flex items-center gap-1.5 text-[11px] text-blue-700 hover:text-blue-300 font-semibold"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               <span>Shop anzeigen</span>
@@ -172,7 +172,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
             <button
               onClick={logout}
-              className="p-1.5 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-lg transition"
+              className="p-1.5 text-slate-500 hover:text-red-400 hover:bg-slate-800 rounded-lg transition"
               title="Abmelden"
             >
               <LogOut className="w-4 h-4" />

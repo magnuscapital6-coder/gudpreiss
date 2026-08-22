@@ -28,7 +28,7 @@ export function AdminRecentOrders({ orders }: AdminRecentOrdersProps) {
       <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
         <div>
           <h2 className="font-extrabold text-sm">{t('admin.recentOrders')} ({recentOrders.length})</h2>
-          <p className="text-[11px] text-slate-400">Neueste Bestellungen aus dem Shop</p>
+          <p className="text-[11px] text-slate-500 dark:text-slate-400">Neueste Bestellungen aus dem Shop</p>
         </div>
 
         <Link
@@ -42,13 +42,13 @@ export function AdminRecentOrders({ orders }: AdminRecentOrdersProps) {
 
       <div className="overflow-x-auto">
         {recentOrders.length === 0 ? (
-          <div className="p-8 text-center text-xs text-slate-400 font-bold">
+          <div className="p-8 text-center text-xs text-slate-500 dark:text-slate-400 font-bold">
             Noch keine Bestellungen vorhanden.
           </div>
         ) : (
           <table className="w-full text-left text-xs border-collapse">
             <thead>
-              <tr className="bg-slate-50 dark:bg-slate-950/60 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] border-b border-slate-100 dark:border-slate-800">
+              <tr className="bg-slate-50 dark:bg-slate-950/60 text-slate-500 dark:text-slate-400 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px] border-b border-slate-100 dark:border-slate-800">
                 <th className="p-4 pl-6">Bestell-Nr.</th>
                 <th className="p-4">Kunde</th>
                 <th className="p-4">Datum</th>
@@ -65,7 +65,7 @@ export function AdminRecentOrders({ orders }: AdminRecentOrdersProps) {
                   <td className="p-4 font-bold">
                     {ord.shipping_address?.full_name || ord.customer_email}
                   </td>
-                  <td className="p-4 text-slate-500 dark:text-slate-400 font-mono text-[11px]">
+                  <td className="p-4 text-slate-500 dark:text-slate-400 dark:text-slate-400 font-mono text-[11px]">
                     {new Date(ord.created_at || Date.now()).toLocaleString('de-DE')}
                   </td>
                   <td className="p-4 font-black text-slate-900 dark:text-white">

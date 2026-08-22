@@ -53,7 +53,7 @@ export function SpecialDealsSection({ products }: SpecialDealsSectionProps) {
             <Flame className="w-6 h-6 fill-slate-950" />
           </div>
           <div>
-            <div className="inline-flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-extrabold text-[11px] uppercase tracking-widest">
+            <div className="inline-flex items-center gap-1.5 text-amber-700 dark:text-amber-400 dark:text-amber-400 font-extrabold text-[11px] uppercase tracking-widest">
               <Zap className="w-3.5 h-3.5 fill-amber-500" />
               <span>BLITZANGEBOTE & AKTIONEN</span>
             </div>

@@ -45,11 +45,11 @@ export default function CustomerAccountPage() {
                 <span>Kontoübersicht</span>
               </Link>
               <Link href="/account/Bestellungen" className="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition">
-                <Package className="w-4 h-4 text-slate-400" />
+                <Package className="w-4 h-4 text-slate-500" />
                 <span>Meine Bestellungen</span>
               </Link>
               <Link href="/wishlist" className="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition">
-                <Heart className="w-4 h-4 text-slate-400" />
+                <Heart className="w-4 h-4 text-slate-500" />
                 <span>Gespeicherte Wunschliste</span>
               </Link>
               {isAdmin && (

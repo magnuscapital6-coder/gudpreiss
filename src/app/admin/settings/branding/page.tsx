@@ -99,7 +99,7 @@ export default function BrandingSettingsPage() {
 
   if (isLoading) {
     return (
-      <div className="p-8 text-center text-xs text-slate-400 font-bold">
+      <div className="p-8 text-center text-xs text-slate-500 dark:text-slate-400 font-bold">
         Branding-Einstellungen werden geladen...
       </div>
     );
@@ -110,12 +110,12 @@ export default function BrandingSettingsPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-1">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-xs font-bold mb-1">
             <ImageIcon className="w-3.5 h-3.5" />
             <span>VISUELLE IDENTITÄT &amp; BRANDING</span>
           </div>
           <h1 className="text-2xl font-black text-white">Erscheinungsbild / Branding</h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             Verwalten Sie Logos, Favicons, Farbschemata und Metadaten ohne Neustart der Anwendung.
           </p>
         </div>
@@ -123,7 +123,7 @@ export default function BrandingSettingsPage() {
         <button
           type="button"
           onClick={handleResetToDefault}
-          className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-xs rounded-xl flex items-center gap-2 border border-slate-800 transition"
+          className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-white font-bold text-xs rounded-xl flex items-center gap-2 border border-slate-800 transition"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>Zurücksetzen</span>
@@ -132,7 +132,7 @@ export default function BrandingSettingsPage() {
 
       {savedSuccess && (
         <div className="p-4 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 rounded-2xl flex items-center gap-2 text-xs font-bold shadow-lg">
-          <Check className="w-4 h-4 text-emerald-400" />
+          <Check className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
           <span>Erscheinungsbild erfolgreich gespeichert! Die Änderungen wurden auf allen Seiten revalidiert.</span>
         </div>
       )}
@@ -141,13 +141,13 @@ export default function BrandingSettingsPage() {
       <form onSubmit={handleSave} className="space-y-6">
         {/* Plattform General Settings */}
         <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4 shadow-xl">
-          <h3 className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
+          <h3 className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
             1. Plattform Name &amp; Farben
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="sm:col-span-1">
-              <label className="block text-xs font-bold text-slate-300 mb-1">Plattform Name *</label>
+              <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">Plattform Name *</label>
               <input
                 type="text"
                 required
@@ -158,7 +158,7 @@ export default function BrandingSettingsPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">Hauptfarbe (Primary)</label>
+              <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">Hauptfarbe (Primary)</label>
               <div className="flex items-center gap-2">
                 <input
                   type="color"
@@ -176,7 +176,7 @@ export default function BrandingSettingsPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">Zweitfarbe (Secondary)</label>
+              <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">Zweitfarbe (Secondary)</label>
               <div className="flex items-center gap-2">
                 <input
                   type="color"
@@ -197,27 +197,27 @@ export default function BrandingSettingsPage() {
 
         {/* Desktop & Mobile Logos */}
         <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-6 shadow-xl">
-          <h3 className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
+          <h3 className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
             2. Logos (Light, Dark &amp; Mobile)
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-2">
+              <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-2">
                 Logo Helles Thema (Light Mode)
               </label>
               <ImageUploader images={logoUrl} onChange={setLogoUrl} />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-2">
+              <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-2">
                 Logo Dunkles Thema (Dark Mode)
               </label>
               <ImageUploader images={logoDarkUrl} onChange={setLogoDarkUrl} />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-2">
+              <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-2">
                 Logo Mobile Header
               </label>
               <ImageUploader images={logoMobileUrl} onChange={setLogoMobileUrl} />
@@ -227,20 +227,20 @@ export default function BrandingSettingsPage() {
 
         {/* Favicon & Apple Touch Icon */}
         <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-6 shadow-xl">
-          <h3 className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
+          <h3 className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
             3. Favicon &amp; App Icons
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-2">
+              <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-2">
                 Favicon Browser-Tab (.ico / .png / .svg)
               </label>
               <ImageUploader images={faviconUrl} onChange={setFaviconUrl} />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-2">
+              <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-2">
                 Apple Touch Icon (iOS App Home Screen)
               </label>
               <ImageUploader images={appleTouchIconUrl} onChange={setAppleTouchIconUrl} />
@@ -250,14 +250,14 @@ export default function BrandingSettingsPage() {
 
         {/* Live Preview Cards */}
         <div className="bg-slate-950 border border-slate-800 rounded-3xl p-6 space-y-4">
-          <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+          <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
             Echtzeit-Vorschau der Plattform-Header
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
             {/* Light Mode Preview */}
             <div className="bg-white text-slate-900 p-4 rounded-2xl border border-slate-200 space-y-2">
-              <span className="text-[10px] text-slate-500 font-bold block uppercase">Header Light Mode</span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold block uppercase">Header Light Mode</span>
               <div className="flex items-center gap-2">
                 {logoUrl[0] ? (
                   <Image src={logoUrl[0]} alt="Light Logo" width={140} height={28} className="h-7 w-auto object-contain" />
@@ -269,12 +269,12 @@ export default function BrandingSettingsPage() {
 
             {/* Dark Mode Preview */}
             <div className="bg-slate-950 text-white p-4 rounded-2xl border border-slate-800 space-y-2">
-              <span className="text-[10px] text-slate-400 font-bold block uppercase">Header Dark Mode</span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold block uppercase">Header Dark Mode</span>
               <div className="flex items-center gap-2">
                 {logoDarkUrl[0] || logoUrl[0] ? (
                   <Image src={logoDarkUrl[0] || logoUrl[0]} alt="Dark Logo" width={140} height={28} className="h-7 w-auto object-contain" />
                 ) : (
-                  <span className="font-black text-lg text-emerald-400 tracking-tight">{storeName}</span>
+                  <span className="font-black text-lg text-emerald-700 dark:text-emerald-400 tracking-tight">{storeName}</span>
                 )}
               </div>
             </div>

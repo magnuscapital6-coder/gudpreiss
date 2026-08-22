@@ -111,12 +111,12 @@ export function CategoryGridSection({ categories, products = [] }: CategoryGridS
 
                 {/* Right Title + Subtext Link */}
                 <div className="flex flex-col justify-center min-w-0 flex-1">
-                  <h3 className="text-[12px] sm:text-[13px] font-extrabold text-slate-900 dark:text-slate-100 leading-tight group-hover:text-emerald-800 dark:group-hover:text-emerald-400 transition-colors truncate">
+                  <h3 className="text-[12px] sm:text-[13px] font-extrabold text-slate-900 dark:text-slate-100 leading-tight group-hover:text-emerald-800 dark:group-hover:text-emerald-700 dark:text-emerald-400 transition-colors truncate">
                     {cat.name}
                   </h3>
-                  <div className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-slate-500 dark:text-slate-400 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 mt-1 transition-colors">
+                  <div className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 group-hover:text-emerald-700 dark:text-emerald-400 dark:group-hover:text-emerald-700 dark:text-emerald-400 mt-1 transition-colors">
                     <span>{t('quickLinks.shopNow') || 'JETZT EINKAUFEN'}</span>
-                    <ArrowRight className="w-3 h-3 text-slate-400 dark:text-slate-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-transform group-hover:translate-x-0.5" />
+                    <ArrowRight className="w-3 h-3 text-slate-500 dark:text-slate-400 dark:text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-700 dark:text-emerald-400 transition-transform group-hover:translate-x-0.5" />
                   </div>
                 </div>
               </Link>

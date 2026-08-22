@@ -131,7 +131,7 @@ export default function CartPage() {
 
                       <button
                         onClick={() => removeItem(item.id)}
-                        className="text-slate-400 hover:text-red-500 p-2 transition"
+                        className="text-slate-500 hover:text-red-500 p-2 transition"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -216,7 +216,7 @@ export default function CartPage() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
-                <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 pt-2">
+                <div className="flex items-center justify-center gap-2 text-[11px] text-slate-500 pt-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-500" />
                   <span>256-Bit verschlüsselte Kasse</span>
                 </div>

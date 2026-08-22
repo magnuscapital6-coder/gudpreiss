@@ -25,7 +25,7 @@ export default function AdminMarketingPage() {
     <div className="max-w-3xl space-y-6">
       <div>
         <h1 className="text-2xl font-black text-white">Gutscheincode & Marketing</h1>
-        <p className="text-xs text-slate-400 mt-1">Konfigurieren Sie Rabattcodes und Werbebanner.</p>
+        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Konfigurieren Sie Rabattcodes und Werbebanner.</p>
       </div>
 
       <div className="bg-slate-950 p-6 rounded-3xl border border-slate-800 space-y-4">
@@ -33,7 +33,7 @@ export default function AdminMarketingPage() {
         <form onSubmit={handleCreateCoupon} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">Gutscheincode *</label>
+              <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">Gutscheincode *</label>
               <input
                 type="text"
                 required
@@ -44,7 +44,7 @@ export default function AdminMarketingPage() {
               />
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">Rabatt in Prozent (%) *</label>
+              <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">Rabatt in Prozent (%) *</label>
               <input
                 type="number"
                 required

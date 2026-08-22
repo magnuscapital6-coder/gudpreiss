@@ -17,12 +17,12 @@ export function SeoReleaseGate({ score, checks, onPublishAnyway }: SeoReleaseGat
     <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4 text-white space-y-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <ShieldCheck className={`w-5 h-5 ${isReady ? 'text-emerald-400' : isWarning ? 'text-amber-400' : 'text-rose-400'}`} />
+          <ShieldCheck className={`w-5 h-5 ${isReady ? 'text-emerald-700' : isWarning ? 'text-amber-700' : 'text-rose-400'}`} />
           <h4 className="text-xs font-black uppercase tracking-wider text-white">SEO Release Gate Check</h4>
         </div>
         <div className="flex items-center gap-1 bg-slate-900 px-3 py-1 rounded-full border border-slate-800">
-          <span className="text-[10px] text-slate-400">Score:</span>
-          <span className={`text-xs font-black ${isReady ? 'text-emerald-400' : isWarning ? 'text-amber-400' : 'text-rose-400'}`}>
+          <span className="text-[10px] text-slate-500">Score:</span>
+          <span className={`text-xs font-black ${isReady ? 'text-emerald-700' : isWarning ? 'text-amber-700' : 'text-rose-400'}`}>
             {score}/100
           </span>
         </div>
@@ -38,7 +38,7 @@ export function SeoReleaseGate({ score, checks, onPublishAnyway }: SeoReleaseGat
                 : 'bg-rose-950/20 border-rose-800/40 text-rose-300'
             }`}
           >
-            {c.passed ? <Check className="w-3 h-3 text-emerald-400 shrink-0" /> : <AlertTriangle className="w-3 h-3 text-rose-400 shrink-0" />}
+            {c.passed ? <Check className="w-3 h-3 text-emerald-700 shrink-0" /> : <AlertTriangle className="w-3 h-3 text-rose-400 shrink-0" />}
             <span className="truncate">{c.label}</span>
           </div>
         ))}
@@ -46,12 +46,12 @@ export function SeoReleaseGate({ score, checks, onPublishAnyway }: SeoReleaseGat
 
       {!isReady && (
         <div className="flex items-center justify-between text-[11px] pt-1">
-          <span className="text-amber-400">⚠️ SEO-Qualität unter 85%. Optimierung empfohlen vor Veröffentlichung.</span>
+          <span className="text-amber-700">⚠️ SEO-Qualität unter 85%. Optimierung empfohlen vor Veröffentlichung.</span>
           {onPublishAnyway && (
             <button
               type="button"
               onClick={onPublishAnyway}
-              className="text-slate-400 hover:text-white underline text-[10px]"
+              className="text-slate-500 hover:text-white underline text-[10px]"
             >
               Trotzdem veröffentlichen
             </button>

@@ -14,12 +14,12 @@ export default function AdminCustomersPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-black text-white">Kundenverwaltung</h1>
-        <p className="text-xs text-slate-400 mt-1">Verwalten Sie registrierte Kunden, Kontaktdaten und Zugriffsrechte.</p>
+        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Verwalten Sie registrierte Kunden, Kontaktdaten und Zugriffsrechte.</p>
       </div>
 
       <div className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden">
-        <table className="w-full text-left text-xs text-slate-300">
-          <thead className="bg-slate-900/60 text-[11px] font-bold text-slate-400 uppercase border-b border-slate-800">
+        <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+          <thead className="bg-slate-900/60 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase border-b border-slate-800">
             <tr>
               <th className="p-4">Kunde</th>
               <th className="p-4">Telefon</th>
@@ -33,13 +33,13 @@ export default function AdminCustomersPage() {
               <tr key={c.id} className="hover:bg-slate-900/50">
                 <td className="p-4">
                   <div className="font-bold text-white">{c.name}</div>
-                  <div className="text-[11px] text-slate-500">{c.email}</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400">{c.email}</div>
                 </td>
-                <td className="p-4 text-slate-400">{c.phone}</td>
+                <td className="p-4 text-slate-500 dark:text-slate-400">{c.phone}</td>
                 <td className="p-4 font-bold text-white">{c.Bestellungen} Bestellungen</td>
-                <td className="p-4 font-black text-blue-400">{c.total_spent.toLocaleString('de-DE')} €</td>
+                <td className="p-4 font-black text-blue-700 dark:text-blue-400">{c.total_spent.toLocaleString('de-DE')} €</td>
                 <td className="p-4 text-right">
-                  <span className="bg-blue-500/10 text-blue-400 font-extrabold text-[10px] px-2.5 py-0.5 rounded-full uppercase">
+                  <span className="bg-blue-500/10 text-blue-700 dark:text-blue-400 font-extrabold text-[10px] px-2.5 py-0.5 rounded-full uppercase">
                     {c.role}
                   </span>
                 </td>

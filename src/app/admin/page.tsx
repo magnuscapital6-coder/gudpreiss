@@ -89,7 +89,7 @@ export default function AdminDashboardPage() {
               Live-Daten
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 dark:text-slate-400 mt-1">
             Verkaufs-, Bestands- und Kundenstatistiken in Echtzeit.
           </p>
         </div>
@@ -97,7 +97,7 @@ export default function AdminDashboardPage() {
         <div className="flex items-center gap-2">
           <button
             onClick={loadRealDashboardData}
-            className="p-2.5 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition cursor-pointer"
+            className="p-2.5 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 dark:text-slate-300 transition cursor-pointer"
             title="Daten aktualisieren"
           >
             <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />

@@ -92,12 +92,12 @@ export function JustArrivedSection({ products }: JustArrivedSectionProps) {
                 </p>
 
                 <div className="flex items-baseline gap-2.5 mt-3 justify-center lg:justify-start">
-                  <span className="text-[11px] text-slate-300 font-medium">{t('home.shippingAt')}</span>
-                  <span className="text-[24px] sm:text-[26px] font-black text-amber-400 drop-shadow-md">
+                  <span className="text-[11px] text-slate-600 dark:text-slate-300 font-medium">{t('home.shippingAt')}</span>
+                  <span className="text-[24px] sm:text-[26px] font-black text-amber-700 dark:text-amber-400 drop-shadow-md">
                     {currentPromo?.price.toLocaleString('de-DE')} €
                   </span>
                   {currentPromo?.compare_at_price && currentPromo.compare_at_price > currentPromo.price && (
-                    <span className="text-[13px] font-semibold text-slate-400 line-through">
+                    <span className="text-[13px] font-semibold text-slate-500 dark:text-slate-400 line-through">
                       {currentPromo.compare_at_price.toLocaleString('de-DE')} €
                     </span>
                   )}

@@ -32,10 +32,10 @@ export function Footer() {
               {t('nav.shop')}
             </h4>
             <ul className="space-y-2">
-              <li><Link href="/shop?category=smartphones" className="hover:text-primary-500 dark:hover:text-emerald-400 transition">{t('nav.smartphones')}</Link></li>
-              <li><Link href="/shop?category=laptops" className="hover:text-primary-500 dark:hover:text-emerald-400 transition">{t('nav.laptops')}</Link></li>
-              <li><Link href="/shop?category=headphones" className="hover:text-primary-500 dark:hover:text-emerald-400 transition">{t('nav.headphones')}</Link></li>
-              <li><Link href="/shop?category=gaming" className="hover:text-primary-500 dark:hover:text-emerald-400 transition">{t('nav.gaming')}</Link></li>
+              <li><Link href="/shop?category=smartphones" className="hover:text-primary-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">{t('nav.smartphones')}</Link></li>
+              <li><Link href="/shop?category=laptops" className="hover:text-primary-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">{t('nav.laptops')}</Link></li>
+              <li><Link href="/shop?category=headphones" className="hover:text-primary-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">{t('nav.headphones')}</Link></li>
+              <li><Link href="/shop?category=gaming" className="hover:text-primary-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">{t('nav.gaming')}</Link></li>
             </ul>
           </div>
 
@@ -45,8 +45,8 @@ export function Footer() {
               {t('footer.customerService')}
             </h4>
             <ul className="space-y-2">
-              <li><Link href="/contact" className="hover:text-primary-500 dark:hover:text-emerald-400 transition">{t('nav.contact')}</Link></li>
-              <li><Link href="/faq" className="hover:text-primary-500 dark:hover:text-emerald-400 transition">FAQ</Link></li>
+              <li><Link href="/contact" className="hover:text-primary-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">{t('nav.contact')}</Link></li>
+              <li><Link href="/faq" className="hover:text-primary-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">FAQ</Link></li>
               <li><Link href="/track" className="hover:text-emerald-500 font-bold transition text-emerald-800 dark:text-emerald-400">Sendungsverfolgung / Sendungsverfolgung</Link></li>
             </ul>
           </div>
@@ -57,10 +57,10 @@ export function Footer() {
               Rechtliches / Legal
             </h4>
             <ul className="space-y-2">
-              <li><Link href="/impressum" className="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Impressum</Link></li>
-              <li><Link href="/privacy" className="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Datenschutzerklärung</Link></li>
-              <li><Link href="/terms" className="hover:text-emerald-500 dark:hover:text-emerald-400 transition">AGB &amp; Bedingungen</Link></li>
-              <li><Link href="/return-policy" className="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Widerrufsbelehrung &amp; Rückgabe</Link></li>
+              <li><Link href="/impressum" className="hover:text-emerald-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">Impressum</Link></li>
+              <li><Link href="/privacy" className="hover:text-emerald-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">Datenschutzerklärung</Link></li>
+              <li><Link href="/terms" className="hover:text-emerald-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">AGB &amp; Bedingungen</Link></li>
+              <li><Link href="/return-policy" className="hover:text-emerald-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">Widerrufsbelehrung &amp; Rückgabe</Link></li>
             </ul>
           </div>
         </div>
