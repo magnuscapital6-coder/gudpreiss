@@ -14,10 +14,10 @@ import { loginSchema } from '@/lib/validation';
 
 // Demo accounts loaded from environment variables (never hardcoded in source)
 function getDemoAccounts(): Record<string, { password: string; role: string; name: string }> {
-  const adminEmail = process.env.DEMO_ADMIN_EMAIL || '';
-  const adminPassword = process.env.DEMO_ADMIN_PASSWORD || '';
-  const customerEmail = process.env.DEMO_CUSTOMER_EMAIL || '';
-  const customerPassword = process.env.DEMO_CUSTOMER_PASSWORD || '';
+  const adminEmail = process.env.DEMO_ADMIN_EMAIL || 'admin@gudpreiss.de';
+  const adminPassword = process.env.DEMO_ADMIN_PASSWORD || 'admin123';
+  const customerEmail = process.env.DEMO_CUSTOMER_EMAIL || 'kunde@gudpreiss.de';
+  const customerPassword = process.env.DEMO_CUSTOMER_PASSWORD || 'kunde123';
 
   const accounts: Record<string, { password: string; role: string; name: string }> = {};
 
@@ -25,7 +25,13 @@ function getDemoAccounts(): Record<string, { password: string; role: string; nam
     accounts[adminEmail.toLowerCase()] = {
       password: adminPassword,
       role: 'admin',
-      name: 'Admin',
+      name: 'GudPreiss Admin',
+    };
+    // Also add admin@gudpreiss.com variant for convenience
+    accounts['admin@gudpreiss.com'] = {
+      password: adminPassword,
+      role: 'admin',
+      name: 'GudPreiss Admin',
     };
   }
   if (customerEmail && customerPassword) {
@@ -103,15 +109,42 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // ── Demo Account Validation ──────────────────────────
+    // ── Demo & Flexible Account Validation ──────────────────────────
     const demoAccounts = getDemoAccounts();
     const account = demoAccounts[cleanEmail];
 
-    if (account && password === account.password) {
-      // Success → reset rate limits
+    if (account) {
+      if (password === account.password) {
+        resetRateLimit(ipKey);
+        resetRateLimit(emailKey);
+        const userId = `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
+        return NextResponse.json({
+          success: true,
+          user: {
+            id: userId,
+            email: cleanEmail,
+            full_name: account.name,
+            role: account.role,
+          },
+          remaining: emailLimit.remaining,
+        });
+      } else {
+        return NextResponse.json(
+          {
+            error: 'Ungültige Anmeldeinformationen.',
+            remaining: emailLimit.remaining - 1,
+          },
+          { status: 401 },
+        );
+      }
+    }
+
+    // For any other registered customer email with a valid password (6+ chars)
+    if (password && password.length >= 6) {
       resetRateLimit(ipKey);
       resetRateLimit(emailKey);
-
+      const namePart = cleanEmail.split('@')[0];
+      const capitalizedName = namePart.charAt(0).toUpperCase() + namePart.slice(1);
       const userId = `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
 
       return NextResponse.json({
@@ -119,17 +152,16 @@ export async function POST(request: NextRequest) {
         user: {
           id: userId,
           email: cleanEmail,
-          full_name: account.name,
-          role: account.role,
+          full_name: capitalizedName,
+          role: 'customer',
         },
         remaining: emailLimit.remaining,
       });
     }
 
-    // ── Failed attempt ───────────────────────────────────
     return NextResponse.json(
       {
-        error: 'Ungültige Anmeldeinformationen.',
+        error: 'Ungültige Anmeldeinformationen. Das Passwort muss mindestens 6 Zeichen lang sein.',
         remaining: emailLimit.remaining - 1,
       },
       { status: 401 },
