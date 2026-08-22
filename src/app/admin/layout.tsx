@@ -26,17 +26,17 @@ import { useAuth } from '@/context/auth-context';
 import { useTranslation } from '@/context/language-context';
 
 const navItems = [
-  { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/admin/seo', label: 'SEO & Feeds', icon: Globe },
-  { href: '/admin/products', label: 'Produkte', icon: Package },
-  { href: '/admin/categories', label: 'Kategorien', icon: FolderTree },
-  { href: '/admin/orders', label: 'Bestellungen', icon: ShoppingBag },
-  { href: '/admin/inventory', label: 'Lagerbestand', icon: Boxes },
-  { href: '/admin/marketing', label: 'Marketing', icon: Tag },
-  { href: '/admin/reviews', label: 'Bewertungen', icon: Star },
-  { href: '/admin/customers', label: 'Kunden', icon: Users },
-  { href: '/admin/media', label: 'Medien', icon: ImageIcon },
-  { href: '/admin/settings', label: 'Einstellungen', icon: Settings },
+  { href: '/admin', labelKey: 'admin.dashboard', icon: LayoutDashboard },
+  { href: '/admin/seo', labelKey: 'admin.seo', icon: Globe },
+  { href: '/admin/products', labelKey: 'admin.products', icon: Package },
+  { href: '/admin/categories', labelKey: 'admin.categories', icon: FolderTree },
+  { href: '/admin/orders', labelKey: 'admin.orders', icon: ShoppingBag },
+  { href: '/admin/inventory', labelKey: 'admin.inventory', icon: Boxes },
+  { href: '/admin/marketing', labelKey: 'admin.marketing', icon: Tag },
+  { href: '/admin/reviews', labelKey: 'admin.reviews', icon: Star },
+  { href: '/admin/customers', labelKey: 'admin.customers', icon: Users },
+  { href: '/admin/media', labelKey: 'admin.media', icon: ImageIcon },
+  { href: '/admin/settings', labelKey: 'admin.settings', icon: Settings },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -126,6 +126,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href));
+              const labelText = t(item.labelKey);
+
               return (
                 <Link
                   key={item.href}
@@ -139,7 +141,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 >
                   <div className="flex items-center gap-3">
                     <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500'}`} />
-                    <span>{item.label}</span>
+                    <span>{labelText}</span>
                   </div>
                   {isActive && <ChevronRight className="w-3.5 h-3.5 opacity-80" />}
                 </Link>
