@@ -81,14 +81,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {isMobileSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
           <span className="font-extrabold text-lg tracking-tight">
-            Gud<span className="text-blue-500">Preiss</span> Admin
+            Gud<span className="text-emerald-500">Preiss</span> Admin
           </span>
         </div>
 
         <Link
           href="/"
           target="_blank"
-          className="flex items-center gap-1 text-xs bg-slate-800 px-2.5 py-1.5 rounded-lg text-blue-700 font-semibold"
+          className="flex items-center gap-1 text-xs bg-slate-800 px-2.5 py-1.5 rounded-lg text-emerald-400 font-semibold"
         >
           <Store className="w-3.5 h-3.5" />
           <span>Shop</span>
@@ -105,11 +105,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {/* Logo Brand Header */}
           <div className="h-16 px-6 flex items-center justify-between border-b border-slate-800/80">
             <Link href="/admin" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-sm">
+              <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-black text-sm">
                 GP
               </div>
               <span className="font-black text-lg text-white tracking-tight">
-                Gud<span className="text-blue-500">Preiss</span>
+                Gud<span className="text-emerald-500">Preiss</span>
               </span>
             </Link>
 
@@ -135,12 +135,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   onClick={() => setIsMobileSidebarOpen(false)}
                   className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition ${
                     isActive
-                      ? 'bg-blue-600 text-white font-bold shadow-lg shadow-blue-600/20'
-                      : 'hover:bg-slate-800 text-slate-500 hover:text-slate-200'
+                      ? 'bg-emerald-600 text-white font-bold shadow-lg shadow-emerald-900/30'
+                      : 'hover:bg-slate-800 text-slate-400 hover:text-slate-200'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                    <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`} />
                     <span>{labelText}</span>
                   </div>
                   {isActive && <ChevronRight className="w-3.5 h-3.5 opacity-80" />}
@@ -153,7 +153,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Admin Footer Profile */}
         <div className="p-4 border-t border-slate-800 bg-slate-950/50 space-y-3">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">
+            <div className="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs">
               {user?.full_name?.charAt(0) || 'A'}
             </div>
             <div className="flex-1 min-w-0">
@@ -166,7 +166,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Link
               href="/"
               target="_blank"
-              className="flex items-center gap-1.5 text-[11px] text-blue-700 hover:text-blue-300 font-semibold"
+              className="flex items-center gap-1.5 text-[11px] text-emerald-400 hover:text-emerald-300 font-semibold"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               <span>Shop anzeigen</span>
