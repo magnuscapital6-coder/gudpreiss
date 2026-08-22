@@ -26,17 +26,17 @@ import { useAuth } from '@/context/auth-context';
 import { useTranslation } from '@/context/language-context';
 
 const navItems = [
-  { href: '/admin', labelKey: 'admin.dashboard', icon: LayoutDashboard },
-  { href: '/admin/seo', labelKey: 'admin.seo', icon: Globe },
-  { href: '/admin/products', labelKey: 'admin.Produkte', icon: Package },
-  { href: '/admin/Kategorien', labelKey: 'admin.Kategorien', icon: FolderTree },
-  { href: '/admin/Bestellungen', labelKey: 'admin.Bestellungen', icon: ShoppingBag },
-  { href: '/admin/Lagerbestand', labelKey: 'admin.Lagerbestand', icon: Boxes },
-  { href: '/admin/Marketing', labelKey: 'admin.Marketing', icon: Tag },
-  { href: '/admin/Bewertungen', labelKey: 'admin.Bewertungen', icon: Star },
-  { href: '/admin/Kunden', labelKey: 'admin.Kunden', icon: Users },
-  { href: '/admin/Medien', labelKey: 'admin.Medien', icon: ImageIcon },
-  { href: '/admin/settings', labelKey: 'admin.settings', icon: Settings },
+  { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/admin/seo', label: 'SEO & Feeds', icon: Globe },
+  { href: '/admin/products', label: 'Produkte', icon: Package },
+  { href: '/admin/Kategorien', label: 'Kategorien', icon: FolderTree },
+  { href: '/admin/Bestellungen', label: 'Bestellungen', icon: ShoppingBag },
+  { href: '/admin/Lagerbestand', label: 'Lagerbestand', icon: Boxes },
+  { href: '/admin/Marketing', label: 'Marketing', icon: Tag },
+  { href: '/admin/Bewertungen', label: 'Bewertungen', icon: Star },
+  { href: '/admin/Kunden', label: 'Kunden', icon: Users },
+  { href: '/admin/Medien', label: 'Medien', icon: ImageIcon },
+  { href: '/admin/settings', label: 'Einstellungen', icon: Settings },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -139,7 +139,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 >
                   <div className="flex items-center gap-3">
                     <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500'}`} />
-                    <span>{t(item.labelKey)}</span>
+                    <span>{item.label}</span>
                   </div>
                   {isActive && <ChevronRight className="w-3.5 h-3.5 opacity-80" />}
                 </Link>
