@@ -10,7 +10,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { QuickViewModal } from './QuickViewModal';
-import { getValidImageUrl, CATEGORY_FALLBACK_IMAGES } from '@/lib/image-fallback';
+import { getValidImageUrl } from '@/lib/image-fallback';
+import { getSvgFallback } from '@/lib/svg-placeholders';
 
 interface ProductCardProps {
   product: Product;
@@ -62,7 +63,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
               src={currentImg}
               alt={product.name}
               fill
-              onError={() => setCurrentImg(CATEGORY_FALLBACK_IMAGES.default)}
+              onError={() => setCurrentImg(getSvgFallback(product.category_id))}
               className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
             />
             {product.on_sale && (
@@ -145,7 +146,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
             src={currentImg}
             alt={product.name}
             fill
-            onError={() => setCurrentImg(CATEGORY_FALLBACK_IMAGES.default)}
+            onError={() => setCurrentImg(getSvgFallback(product.category_id))}
             className={`object-contain p-2 w-full h-full transition-all duration-300 ${
               hasSecondImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'
             }`}
