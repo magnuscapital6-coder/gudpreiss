@@ -730,7 +730,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 98,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 3499,
     "stock": 12,
@@ -756,7 +756,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 64,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 4699,
     "stock": 8,
@@ -834,7 +834,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 380,
     "images": [
-      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/51rpbVmi7eL._SL1500_.jpg"
     ],
     "compare_at_price": 449.95,
     "stock": 25,
@@ -938,7 +938,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 450,
     "images": [
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80"
+      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-ultra-2-digitalmat-gallery-2-202309?wid=730&hei=730&fmt=png-alpha&.v=1693524953490"
     ],
     "compare_at_price": 949,
     "stock": 15,
@@ -964,7 +964,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 512,
     "images": [
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/718yGStyJDL._SL1500_.jpg"
     ],
     "compare_at_price": 969.99,
     "stock": 22,
@@ -990,7 +990,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 290,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "compare_at_price": 749.99,
     "stock": 30,
@@ -1016,7 +1016,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 42,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 5399,
     "stock": 6,
@@ -1042,7 +1042,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 28,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 6999,
     "stock": 4,
@@ -1068,7 +1068,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 55,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 4399,
     "stock": 9,
@@ -1094,7 +1094,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 88,
     "images": [
-      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71u-sE5uOqL._SL1500_.jpg"
     ],
     "compare_at_price": 3199,
     "stock": 10,
@@ -1120,7 +1120,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 74,
     "images": [
-      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71c8Q7VfP-L._SL1500_.jpg"
     ],
     "compare_at_price": 3899,
     "stock": 7,
@@ -1172,7 +1172,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 850,
     "images": [
-      "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/610N4C9fSFL._SL1500_.jpg"
     ],
     "compare_at_price": 719,
     "stock": 25,
@@ -1198,7 +1198,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 310,
     "images": [
-      "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&w=1000&q=80"
+      "https://dlcdnrog.asus.com/rog/media/1717382218731.jpg"
     ],
     "compare_at_price": 949,
     "stock": 15,
@@ -1224,7 +1224,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 940,
     "images": [
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/81w3n+S5SdL._SL1500_.jpg"
     ],
     "compare_at_price": 2499,
     "stock": 12,
@@ -1250,7 +1250,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 420,
     "images": [
-      "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61N+B4Z-m0L._SL1500_.jpg"
     ],
     "compare_at_price": 499,
     "stock": 35,
@@ -1276,7 +1276,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1150,
     "images": [
-      "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61+eQ-5nCGL._SL1500_.jpg"
     ],
     "compare_at_price": 549,
     "stock": 28,
@@ -1302,7 +1302,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1680,
     "images": [
-      "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/51r4x9U2KOL._SL1500_.jpg"
     ],
     "compare_at_price": 829,
     "stock": 20,
@@ -1328,7 +1328,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 730,
     "images": [
-      "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71W2b-yZ4-L._SL1500_.jpg"
     ],
     "compare_at_price": 999,
     "stock": 14,
@@ -1354,7 +1354,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 14200,
     "images": [
-      "https://images.unsplash.com/photo-1517668808822-9eaa03afd2af?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61-v8jA90VL._SL1500_.jpg"
     ],
     "compare_at_price": 399,
     "stock": 45,
@@ -1380,7 +1380,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 8900,
     "images": [
-      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71J4vGz1N-L._SL1500_.jpg"
     ],
     "compare_at_price": 249.99,
     "stock": 55,
@@ -1406,7 +1406,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 620,
     "images": [
-      "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61kMvFpM+2L._SL1500_.jpg"
     ],
     "compare_at_price": 1199,
     "stock": 18,
@@ -1432,7 +1432,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1250,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61t7qA1HULL._SL1500_.jpg"
     ],
     "compare_at_price": 449.99,
     "stock": 30,
@@ -1458,7 +1458,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 410,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61A8vL9G-BL._SL1500_.jpg"
     ],
     "compare_at_price": 559.99,
     "stock": 22,
@@ -1484,7 +1484,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 185,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "compare_at_price": 1399.99,
     "stock": 11,
@@ -1510,7 +1510,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 4500,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "compare_at_price": 149.99,
     "stock": 90,
@@ -1536,7 +1536,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 3200,
     "images": [
-      "https://images.unsplash.com/photo-1597872240959-29aea88c5c66?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/81fH-s7TzCL._SL1500_.jpg"
     ],
     "compare_at_price": 199.99,
     "stock": 65,
@@ -1562,7 +1562,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 5600,
     "images": [
-      "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "compare_at_price": 129,
     "stock": 80,
@@ -1588,7 +1588,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 820,
     "images": [
-      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61b7L4oG52L._SL1500_.jpg"
     ],
     "compare_at_price": 379.99,
     "stock": 20,
@@ -1640,7 +1640,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1100,
     "images": [
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71n047S2B7L._SL1500_.jpg"
     ],
     "compare_at_price": 369.9,
     "stock": 30,
@@ -1666,7 +1666,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 780,
     "images": [
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80"
+      "https://images.samsung.com/is/image/samsung/p6pim/de/2307/gallery/de-galaxy-watch6-classic-r960-sm-r965fzkadbe-537402644?$1300_1040_PNG$"
     ],
     "compare_at_price": 449,
     "stock": 25,
@@ -1692,7 +1692,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 950,
     "images": [
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/716b68j0s3L._SL1500_.jpg"
     ],
     "compare_at_price": 1159,
     "stock": 20,
@@ -1744,7 +1744,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 92,
     "images": [
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71b2gL55YmL._SL1500_.jpg"
     ],
     "compare_at_price": 2999,
     "stock": 12,
@@ -1822,7 +1822,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 510,
     "images": [
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/91rR4sN-uXL._SL1500_.jpg"
     ],
     "compare_at_price": 2299,
     "stock": 14,
@@ -1848,7 +1848,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 4800,
     "images": [
-      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61I21jZ6S3L._SL1500_.jpg"
     ],
     "compare_at_price": 1499,
     "stock": 10,
@@ -1874,7 +1874,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 320,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "compare_at_price": 1299.99,
     "stock": 15,
@@ -1900,7 +1900,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 640,
     "images": [
-      "https://images.unsplash.com/photo-1517668808822-9eaa03afd2af?auto=format&fit=crop&w=1000&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "compare_at_price": 149.99,
     "stock": 50,
@@ -1926,7 +1926,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 980,
     "images": [
-      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61wM3w4gW-L._SL1500_.jpg"
     ],
     "compare_at_price": 269,
     "stock": 40,
@@ -1965,8 +1965,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 142,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Speicherkapazität": "2TB NVMe Custom SSD",
@@ -2006,7 +2005,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 310,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -2043,7 +2042,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 188,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -2078,7 +2077,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 94,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Inhalt": "PS5 Slim 1TB Disc Edition, ASTRO BOT Spielcode, DualSense Controller",
@@ -2112,7 +2111,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 520,
     "images": [
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Farbe": "Original Weiß / Schwarz",
@@ -2147,7 +2146,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 410,
     "images": [
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Farbe": "Midnight Black (Schwarz)",
@@ -2181,7 +2180,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 210,
     "images": [
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Features": "Austauschbare Stick-Caps & Module, 2 Rücktasten (Paddles), Trigger-Stopps",
@@ -2215,7 +2214,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 165,
     "images": [
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Bildschirm": "8-Zoll LCD Touchscreen (1920x1080 Full HD)",
@@ -2250,7 +2249,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 175,
     "images": [
-      "https://images.unsplash.com/photo-1622979135225-d2ba269bc1bd?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Display": "OLED (2000 x 2040 Pixel pro Auge)",
@@ -2286,7 +2285,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 115,
     "images": [
-      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Treiber": "Planar-Magnetostatische Treiber",
@@ -2321,7 +2320,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 290,
     "images": [
-      "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Kapazität": "2TB (2000 GB)",
@@ -2357,7 +2356,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 178,
     "images": [
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Technologie": "TRUEFORCE Feedback",
@@ -4532,8 +4531,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 142,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Speicherkapazität": "2TB NVMe Custom SSD",
@@ -4573,7 +4571,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 310,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -4610,7 +4608,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 188,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -4645,7 +4643,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 94,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Inhalt": "PS5 Slim 1TB Disc Edition, ASTRO BOT Spielcode, DualSense Controller",
@@ -4679,7 +4677,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 520,
     "images": [
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Farbe": "Original Weiß / Schwarz",
@@ -4714,7 +4712,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 410,
     "images": [
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Farbe": "Midnight Black (Schwarz)",
@@ -4748,7 +4746,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 210,
     "images": [
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Features": "Austauschbare Stick-Caps & Module, 2 Rücktasten (Paddles), Trigger-Stopps",
@@ -4782,7 +4780,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 165,
     "images": [
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Bildschirm": "8-Zoll LCD Touchscreen (1920x1080 Full HD)",
@@ -4817,7 +4815,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 175,
     "images": [
-      "https://images.unsplash.com/photo-1622979135225-d2ba269bc1bd?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Display": "OLED (2000 x 2040 Pixel pro Auge)",
@@ -4853,7 +4851,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 115,
     "images": [
-      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Treiber": "Planar-Magnetostatische Treiber",
@@ -4888,7 +4886,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 290,
     "images": [
-      "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Kapazität": "2TB (2000 GB)",
@@ -4924,7 +4922,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 178,
     "images": [
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "specifications": {
       "Technologie": "TRUEFORCE Feedback",
