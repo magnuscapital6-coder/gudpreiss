@@ -130,11 +130,11 @@ export function Header() {
 
       <div className="mx-auto w-full max-w-[1360px] px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[60px] sm:h-[68px] gap-2 sm:gap-4">
-          {/* Mobile Menu Button */}
+          {/* Mobile / Responsive Menu Button (< 1280px) */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Mobile Navigation Menu"
-            className="lg:hidden p-2.5 text-text-primary focus:outline-none rounded-lg hover:bg-surface-soft touch-target"
+            className="xl:hidden p-2.5 text-text-primary focus:outline-none rounded-lg hover:bg-surface-soft touch-target"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -159,8 +159,8 @@ export function Header() {
             )}
           </Link>
 
-          {/* Desktop Nav Links Center */}
-          <nav className="hidden lg:flex items-center gap-7 font-bold text-[14px] text-emerald-800 dark:text-emerald-700">
+          {/* Desktop Nav Links Center (>= 1280px) */}
+          <nav className="hidden xl:flex items-center gap-7 font-bold text-[14px] text-emerald-800 dark:text-emerald-700">
             <Link href="/" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-bold">
               <Home className="w-4 h-4 text-emerald-700 dark:text-emerald-700" />
               <span>{t('nav.home')}</span>
@@ -219,8 +219,8 @@ export function Header() {
 
           {/* Right Action Icons */}
           <div className="flex items-center gap-1.5 sm:gap-3">
-            {/* Desktop Real-time Live Search Bar */}
-            <div ref={searchContainerRef} className="relative hidden md:block z-50">
+            {/* Desktop Real-time Live Search Bar (>= 1280px) */}
+            <div ref={searchContainerRef} className="relative hidden xl:block z-50">
               <form onSubmit={handleSearchSubmit} className="relative flex items-center">
                 <input
                   type="text"
@@ -231,7 +231,7 @@ export function Header() {
                     setIsSearchFocused(true);
                   }}
                   onFocus={() => setIsSearchFocused(true)}
-                  className="w-52 lg:w-72 pl-9 pr-8 py-2 bg-slate-100/90 hover:bg-slate-100 focus:bg-white border border-slate-200 focus:border-emerald-600 rounded-full text-[13px] text-slate-900 placeholder:text-slate-500 outline-none transition-all shadow-2xs focus:shadow-md font-medium"
+                  className="w-52 xl:w-72 pl-9 pr-8 py-2 bg-slate-100/90 hover:bg-slate-100 focus:bg-white border border-slate-200 focus:border-emerald-600 rounded-full text-[13px] text-slate-900 placeholder:text-slate-500 outline-none transition-all shadow-2xs focus:shadow-md font-medium"
                 />
                 <button
                   type="submit"
@@ -312,10 +312,10 @@ export function Header() {
               )}
             </div>
 
-            {/* Mobile Search Toggle Button */}
+            {/* Mobile / Responsive Search Toggle Button (< 1280px) */}
             <button
               onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
-              className="md:hidden p-2 text-text-primary hover:text-primary-500 transition"
+              className="xl:hidden p-2 text-text-primary hover:text-primary-500 transition"
               aria-label="Toggle Search"
             >
               <Search className="w-5 h-5" />
@@ -418,9 +418,9 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Search Overlay Bar */}
+      {/* Mobile Search Overlay Bar (< 1280px) */}
       {isMobileSearchOpen && (
-        <div className="md:hidden border-t border-border-soft p-3 bg-surface-soft">
+        <div className="xl:hidden border-t border-border-soft p-3 bg-surface-soft">
           <form onSubmit={handleSearchSubmit} className="relative">
             <input
               type="text"
@@ -491,7 +491,7 @@ export function Header() {
 
       {/* Mobile Navigation Drawer */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[999] lg:hidden">
+        <div className="fixed inset-0 z-[999] xl:hidden">
           {/* Semi-transparent Backdrop */}
           <div
             className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
