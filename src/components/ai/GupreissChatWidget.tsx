@@ -10,6 +10,7 @@ import {
   Send,
   Bot,
   User,
+  UserCheck,
   ExternalLink,
   MailCheck,
   Headphones,
@@ -149,7 +150,7 @@ export function GupreissChatWidget() {
           <div className="flex items-start justify-between gap-2">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">
-                <Bot className="w-3.5 h-3.5 text-slate-950" />
+                <UserCheck className="w-3.5 h-3.5 text-slate-950" />
               </div>
               <span className="text-[11px] font-black text-emerald-400 uppercase tracking-wider">
                 Gupreiss Kaufberater
@@ -173,33 +174,33 @@ export function GupreissChatWidget() {
             className="mt-2.5 w-full py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl shadow-md transition flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <span>Jetzt beraten lassen</span>
-            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+            <UserCheck className="w-3.5 h-3.5 text-emerald-200" />
           </button>
         </div>
       )}
 
-      {/* Floating Trigger Button */}
+      {/* Floating Trigger Button with User Avatar */}
       {!isOpen && (
         <button
           onClick={() => {
             setIsOpen(true);
             setIsMinimized(false);
           }}
-          aria-label="Gupreiss AI Assistent öffnen"
+          aria-label="Gupreiss Berater öffnen"
           className="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-extrabold px-4 py-3.5 rounded-full shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105 active:scale-95 group border border-emerald-400/30"
         >
           <div className="relative">
             <div className="w-8 h-8 rounded-full bg-slate-950/40 flex items-center justify-center border border-white/20">
-              <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
+              <User className="w-4.5 h-4.5 text-emerald-300" />
             </div>
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 border-2 border-slate-900 rounded-full animate-ping" />
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 border-2 border-slate-900 rounded-full" />
           </div>
           <div className="flex flex-col items-start text-left">
             <span className="text-[10px] uppercase tracking-wider text-emerald-200 font-bold leading-none">
-              Autonomer AI Berater
+              Kundenservice &amp; Berater
             </span>
-            <span className="text-[14px] font-black tracking-tight leading-tight">Gupreiss IA</span>
+            <span className="text-[14px] font-black tracking-tight leading-tight">Gupreiss</span>
           </div>
         </button>
       )}
@@ -215,14 +216,14 @@ export function GupreissChatWidget() {
           <div className="bg-gradient-to-r from-slate-900 via-slate-950 to-emerald-950 text-white px-4 py-3.5 flex items-center justify-between border-b border-emerald-500/20 shrink-0">
             <div className="flex items-center gap-3">
               <div className="relative w-9 h-9 rounded-2xl bg-emerald-600 text-slate-950 flex items-center justify-center font-black shadow-md border border-emerald-400/30 shrink-0">
-                <Bot className="w-5 h-5 text-white" />
+                <UserCheck className="w-5 h-5 text-white" />
                 <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 border-2 border-slate-900 rounded-full" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <h3 className="font-black text-sm text-white tracking-tight">Gupreiss AI</h3>
+                  <h3 className="font-black text-sm text-white tracking-tight">Gupreiss</h3>
                   <span className="px-1.5 py-0.5 bg-emerald-500/20 text-emerald-300 text-[9px] font-extrabold uppercase rounded-md border border-emerald-500/30">
-                    Autonom
+                    Berater
                   </span>
                 </div>
                 <p className="text-[11px] text-emerald-300/80 font-medium">Online &amp; Bereit zur Beratung</p>
@@ -408,7 +409,7 @@ export function GupreissChatWidget() {
                 </form>
 
                 <div className="mt-2 flex items-center justify-between text-[10px] text-slate-600 dark:text-slate-600 px-1">
-                  <span>Autonomer AI Assistent • Gudpreiss GmbH</span>
+                  <span>Gudpreiss Kundenservice &amp; Berater</span>
                   <button
                     onClick={() => handleSendMessage('Ich möchte den Kundenservice kontaktieren')}
                     className="hover:underline flex items-center gap-1 font-bold text-emerald-800 dark:text-emerald-700 cursor-pointer"

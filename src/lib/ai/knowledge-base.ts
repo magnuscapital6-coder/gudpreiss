@@ -5,9 +5,9 @@ import { Product } from '@/types';
 // Default Assistant Configuration
 export const DEFAULT_GUPREISS_CONFIG: GupreissConfig = {
   enabled: true,
-  name: 'Gupreiss AI',
-  avatar: '/images/ai-avatar.png',
-  welcomeMessage: 'Hallo! Ich bin Gupreiss, Ihr autonomer Einkaufs- und Service-Assistent. Wie kann ich Ihnen heute bei E-Bikes, PlayStation oder Bestellungen helfen?',
+  name: 'Gupreiss',
+  avatar: '/images/avatar.png',
+  welcomeMessage: 'Hallo! Ich bin Gupreiss, Ihr persönlicher Einkaufs- und Service-Berater. Wie kann ich Ihnen heute bei E-Bikes, PlayStation oder Bestellungen helfen?',
   systemPrompt: `Du bist Gupreiss, der hochintelligente, autonome Kundenservice- und Verkaufs-Assistent von Gudpreiss (gudpreiss.de).
 Deine primäre Aufgabe ist es, Kunden präzise, sachlich und verlässlich zu beraten.
 

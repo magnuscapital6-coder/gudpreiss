@@ -94,7 +94,7 @@ export default function AdminAIPage() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-black tracking-tight">Gupreiss IA Autonome</h1>
+              <h1 className="text-2xl font-black tracking-tight">Gupreiss Assistant &amp; Berater</h1>
               <span className="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 text-xs font-extrabold rounded-full border border-emerald-500/30">
                 v2.4 Production
               </span>

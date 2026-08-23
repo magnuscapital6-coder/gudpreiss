@@ -22,14 +22,14 @@ import {
   Store,
   Globe,
   User,
-  Bot,
+  UserCheck,
 } from 'lucide-react';
 import { useAuth } from '@/context/auth-context';
 import { useTranslation } from '@/context/language-context';
 
 const navItems = [
   { href: '/admin', labelKey: 'admin.dashboard', icon: LayoutDashboard },
-  { href: '/admin/ai', labelKey: 'Gupreiss IA', icon: Bot },
+  { href: '/admin/ai', labelKey: 'Gupreiss Berater', icon: UserCheck },
   { href: '/admin/seo', labelKey: 'admin.seo', icon: Globe },
   { href: '/admin/products', labelKey: 'admin.products', icon: Package },
   { href: '/admin/categories', labelKey: 'admin.categories', icon: FolderTree },
