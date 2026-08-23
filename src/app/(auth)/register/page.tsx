@@ -1,17 +1,19 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { Header } from '@/components/store/layout/Header';
 import { Footer } from '@/components/store/layout/Footer';
 import { useAuth } from '@/context/auth-context';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowRight, AlertCircle } from 'lucide-react';
 import { registerSchema } from '@/lib/validation';
 
-export default function RegisterPage() {
+function RegisterForm() {
   const { register } = useAuth();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams?.get('redirect') || '/account';
 
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -42,7 +44,7 @@ export default function RegisterPage() {
     try {
       const res = await register(email, password, fullName);
       if (res.success) {
-        router.push('/account');
+        router.push(redirectTo);
       } else {
         setErrorMsg(res.error || 'Fehler bei der Registrierung.');
       }
@@ -128,7 +130,7 @@ export default function RegisterPage() {
 
           <p className="text-center text-xs text-slate-500 dark:text-slate-400">
             Bereits ein Konto?{' '}
-            <Link href="/login" className="font-bold text-emerald-600 dark:text-emerald-500 hover:underline">
+            <Link href={`/login${redirectTo !== '/account' ? `?redirect=${encodeURIComponent(redirectTo)}` : ''}`} className="font-bold text-emerald-600 dark:text-emerald-500 hover:underline">
               Anmelden
             </Link>
           </p>
@@ -137,5 +139,13 @@ export default function RegisterPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center text-xs font-bold">Laden...</div>}>
+      <RegisterForm />
+    </Suspense>
   );
 }

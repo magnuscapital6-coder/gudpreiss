@@ -41,6 +41,12 @@ export async function createOrderServerAction(orderPayload: {
 
     const order = await createOrder(orderPayload);
 
+    // Non-blocking dispatch of real email via Resend API
+    try {
+      const { sendOrderConfirmationEmail } = await import('@/lib/email/resend-service');
+      sendOrderConfirmationEmail(order).catch(console.error);
+    } catch {}
+
     return { success: true, order };
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Server error processing order';

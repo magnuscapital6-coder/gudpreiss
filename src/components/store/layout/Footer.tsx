@@ -45,9 +45,10 @@ export function Footer() {
               {t('footer.customerService')}
             </h4>
             <ul className="space-y-2">
+              <li><Link href="/blog" className="hover:text-emerald-500 font-bold transition text-slate-700 dark:text-slate-300">Blog &amp; Magazin</Link></li>
               <li><Link href="/contact" className="hover:text-primary-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">{t('nav.contact')}</Link></li>
               <li><Link href="/faq" className="hover:text-primary-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">FAQ</Link></li>
-              <li><Link href="/track" className="hover:text-emerald-500 font-bold transition text-emerald-800 dark:text-emerald-400">Sendungsverfolgung / Sendungsverfolgung</Link></li>
+              <li><Link href="/track" className="hover:text-emerald-500 font-bold transition text-emerald-800 dark:text-emerald-400">Sendungsverfolgung</Link></li>
             </ul>
           </div>
 

@@ -49,10 +49,6 @@ export default function BlogListingPage() {
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 w-full py-8 space-y-10">
         {/* Header Banner */}
         <div className="text-center space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-700 text-xs font-extrabold">
-            <Sparkles className="w-4 h-4" />
-            <span>GUDPREISS BLOG &amp; KAUFBERATER</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight">
             Magazin, Tests &amp; Tech-Trends 2026
           </h1>
@@ -63,7 +59,7 @@ export default function BlogListingPage() {
 
         {/* Featured Post Card */}
         {featuredPost && (
-          <div className="bg-slate-950 text-white rounded-3xl border border-slate-800 overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-0">
+          <div className="bg-slate-950 text-white rounded-3xl overflow-hidden shadow-2xl border-0 grid grid-cols-1 lg:grid-cols-12 gap-0">
             <div className="lg:col-span-7 relative min-h-[280px] lg:min-h-[380px]">
               <Image
                 src={featuredPost.cover_image}

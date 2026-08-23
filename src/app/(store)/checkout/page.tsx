@@ -9,7 +9,7 @@ import { useTranslation } from '@/context/language-context';
 import { useStoreSettings } from '@/context/store-settings-context';
 import { useRouter } from 'next/navigation';
 import { createOrderServerAction } from '@/app/actions/store-actions';
-import { Check, Building2, ArrowRight, Lock, Copy, ShieldCheck } from 'lucide-react';
+import { Check, Building2, ArrowRight, Lock, Copy, ShieldCheck, UserPlus } from 'lucide-react';
 import Image from 'next/image';
 
 export default function CheckoutPage() {
@@ -27,6 +27,7 @@ export default function CheckoutPage() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
   // Form Fields State
   const [email, setEmail] = useState(user?.email || 'kunden.demo@gudpreiss.de');
@@ -65,6 +66,22 @@ export default function CheckoutPage() {
 
   const handlePlaceOrder = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // If guest user without session, trigger auth modal & confirm redirection to registration
+    if (!user) {
+      setShowAuthModal(true);
+      if (typeof window !== 'undefined') {
+        const wantsToRegister = window.confirm(
+          'Une inscription est requise pour valider votre commande par virement et recevoir la confirmation.\n\nSouhaitez-vous vous inscrire maintenant ?'
+        );
+        if (wantsToRegister) {
+          router.push('/register?redirect=/checkout');
+          return;
+        }
+      }
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -120,7 +137,15 @@ export default function CheckoutPage() {
         clearCart();
         router.push(`/checkout/success?order_number=${res.order.order_number}`);
       } else {
-        alert(res.error || 'Fehler beim Erstellen der Bestellung.');
+        setShowAuthModal(true);
+        if (typeof window !== 'undefined') {
+          const wantsToRegister = window.confirm(
+            `${res.error || 'Une inscription est requise pour valider votre commande.'}\n\nSouhaitez-vous vous inscrire maintenant ?`
+          );
+          if (wantsToRegister) {
+            router.push('/register?redirect=/checkout');
+          }
+        }
       }
     } catch (err) {
       console.error('Failed to create order', err);
@@ -443,6 +468,47 @@ export default function CheckoutPage() {
             </div>
           </div>
         </div>
+
+        {/* Guest Order Auth Required Modal */}
+        {showAuthModal && (
+          <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl space-y-6 text-center animate-fadeIn">
+              <div className="w-14 h-14 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl flex items-center justify-center mx-auto text-emerald-600">
+                <UserPlus className="w-8 h-8" />
+              </div>
+              <div>
+                <h3 className="text-xl font-black text-slate-900 dark:text-white">Inscription requise</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                  Pour valider votre commande par virement et recevoir le récapitulatif de paiement, veuillez vous inscrire ou vous connecter.
+                </p>
+              </div>
+              <div className="space-y-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => router.push('/register?redirect=/checkout')}
+                  className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-emerald-900/30 transition flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Créer mon compte (S&apos;inscrire)</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => router.push('/login?redirect=/checkout')}
+                  className="w-full py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs rounded-xl transition cursor-pointer"
+                >
+                  Déjà un compte ? Se connecter
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowAuthModal(false)}
+                  className="text-xs font-bold text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 pt-2 block mx-auto cursor-pointer"
+                >
+                  Fermer
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
 
       <Footer />

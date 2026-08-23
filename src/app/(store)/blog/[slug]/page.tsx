@@ -126,7 +126,7 @@ export default function SingleBlogPostPage() {
         </div>
 
         {/* Cover Image Header */}
-        <div className="relative h-64 sm:h-96 bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
+        <div className="relative h-64 sm:h-96 bg-slate-900 rounded-3xl overflow-hidden shadow-xl border-0">
           <Image src={post.cover_image} alt={post.title} fill className="object-cover" priority />
         </div>
 
@@ -137,9 +137,96 @@ export default function SingleBlogPostPage() {
           </div>
         )}
 
-        {/* Article Content Renderer */}
-        <article className="prose dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 text-sm leading-relaxed space-y-6 bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm whitespace-pre-wrap">
-          {post.content}
+        {/* Article Content Renderer with rich markdown/HTML support */}
+        <article className="prose dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 text-sm sm:text-base leading-relaxed bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+          {post.content.split('\n\n').map((paragraph, index) => {
+            const trimmed = paragraph.trim();
+
+            if (trimmed.startsWith('## ')) {
+              return (
+                <h2 key={index} className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white pt-4 pb-2 border-b border-slate-100 dark:border-slate-800 tracking-tight">
+                  {trimmed.replace(/^##\s+/, '')}
+                </h2>
+              );
+            }
+
+            if (trimmed.startsWith('### ')) {
+              return (
+                <h3 key={index} className="text-lg font-extrabold text-emerald-600 dark:text-emerald-400 pt-2">
+                  {trimmed.replace(/^###\s+/, '')}
+                </h3>
+              );
+            }
+
+            if (trimmed.startsWith('> ')) {
+              return (
+                <div key={index} className="p-4 bg-emerald-500/10 border-l-4 border-emerald-500 rounded-r-2xl text-xs sm:text-sm font-medium text-emerald-950 dark:text-emerald-300">
+                  {trimmed.replace(/^>\s+/, '')}
+                </div>
+              );
+            }
+
+            if (trimmed.startsWith('---')) {
+              return <hr key={index} className="my-6 border-slate-200 dark:border-slate-800" />;
+            }
+
+            // Table rendering check
+            if (trimmed.includes('|') && trimmed.includes('\n')) {
+              const rows = trimmed.split('\n').filter(r => !r.includes(':---'));
+              return (
+                <div key={index} className="overflow-x-auto my-4">
+                  <table className="w-full text-xs text-left border-collapse border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+                    <tbody>
+                      {rows.map((row, rIdx) => {
+                        const cols = row.split('|').filter(c => c.trim() !== '');
+                        const isHeader = rIdx === 0;
+                        return (
+                          <tr key={rIdx} className={isHeader ? 'bg-slate-100 dark:bg-slate-800 font-bold' : 'border-t border-slate-100 dark:border-slate-800'}>
+                            {cols.map((cell, cIdx) => (
+                              <td key={cIdx} className="p-3">
+                                {cell.trim().replace(/\*\*(.*?)\*\*/g, '$1')}
+                              </td>
+                            ))}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              );
+            }
+
+            // Paragraph with link parsing
+            const formattedText = trimmed.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, pIdx) => {
+              const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+              if (match) {
+                const [, linkText, linkUrl] = match;
+                return (
+                  <Link
+                    key={pIdx}
+                    href={linkUrl}
+                    className="text-emerald-600 dark:text-emerald-400 font-extrabold underline hover:text-emerald-500 transition"
+                  >
+                    {linkText}
+                  </Link>
+                );
+              }
+
+              // Bold text parsing
+              return part.split(/(\*\*[^*]+\*\*)/g).map((subPart, sIdx) => {
+                if (subPart.startsWith('**') && subPart.endsWith('**')) {
+                  return <strong key={sIdx} className="font-extrabold text-slate-900 dark:text-white">{subPart.slice(2, -2)}</strong>;
+                }
+                return subPart;
+              });
+            });
+
+            return (
+              <p key={index} className="leading-relaxed text-slate-700 dark:text-slate-300">
+                {formattedText}
+              </p>
+            );
+          })}
         </article>
 
         {/* Keywords & Tags */}

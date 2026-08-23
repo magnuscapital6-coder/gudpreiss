@@ -57,10 +57,11 @@ export const metadata = {
     siteName: 'Gudpreiss',
     images: [
       {
-        url: 'https://gudpreiss.de/icon.svg',
-        width: 512,
-        height: 512,
-        alt: 'Gudpreiss Store Logo',
+        url: 'https://gudpreiss.de/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Gudpreiss Store Deutschland — E-Bikes & PlayStation 5',
+        type: 'image/png',
       },
     ],
     locale: 'de_DE',
@@ -70,7 +71,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Gudpreiss — E-Bikes & PlayStation 5 Store Deutschland',
     description: 'Beste Angebote für Elektrofahrräder und Sony PlayStation 5 Konsolen mit schnellem Versand.',
-    images: ['https://gudpreiss.de/icon.svg'],
+    images: ['https://gudpreiss.de/opengraph-image'],
   },
   robots: {
     index: true,

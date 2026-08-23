@@ -206,11 +206,6 @@ export function Header() {
               )}
             </div>
 
-            <Link href="/blog" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-bold">
-              <BookOpen className="w-4 h-4 text-emerald-700 dark:text-emerald-700" />
-              <span>{t('nav.blog') || 'Blog'}</span>
-            </Link>
-
             <Link href="/track" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-black text-emerald-800 dark:text-emerald-700">
               <Truck className="w-4 h-4 text-emerald-700 dark:text-emerald-700" />
               <span>Sendungsverfolgung</span>
@@ -581,14 +576,6 @@ export function Header() {
                 >
                   <Truck className="w-4 h-4" />
                   <span>Sendungsverfolgung</span>
-                </Link>
-
-                <Link
-                  href="/Blog"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block p-3 rounded-xl hover:bg-slate-100 transition"
-                >
-                  {t('nav.Blog')}
                 </Link>
 
                 <Link

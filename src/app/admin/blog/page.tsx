@@ -54,13 +54,23 @@ export default function AdminBlogListPage() {
           </p>
         </div>
 
-        <Link
-          href="/admin/blog/new"
-          className="px-5 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 transition shrink-0 cursor-pointer"
-        >
-          <Plus className="w-4 h-4" />
-          <span>Neuen Beitrag Erstellen</span>
-        </Link>
+        <div className="flex flex-wrap items-center gap-3">
+          <Link
+            href="/admin/blog/auto-generator"
+            className="px-5 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-xs rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/40 transition shrink-0 cursor-pointer border border-emerald-400/30"
+          >
+            <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
+            <span>Générateur Auto (1-2 articles/jour/produit)</span>
+          </Link>
+
+          <Link
+            href="/admin/blog/new"
+            className="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-white font-extrabold text-xs rounded-2xl flex items-center justify-center gap-2 shadow-lg transition shrink-0 cursor-pointer border border-slate-700"
+          >
+            <Plus className="w-4 h-4" />
+            <span>Neuen Beitrag Erstellen</span>
+          </Link>
+        </div>
       </div>
 
       {/* Filter Bar */}

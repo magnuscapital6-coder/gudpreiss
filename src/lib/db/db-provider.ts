@@ -20,7 +20,126 @@ let memoryBrands: Brand[] = [...INITIAL_BRANDS];
 let memoryBanners: Banner[] = [...INITIAL_BANNERS];
 let memoryReviews: Review[] = [...INITIAL_REVIEWS];
 let memoryCoupons: Coupon[] = [...INITIAL_COUPONS];
-let memoryBlogPosts: BlogPost[] = [...INITIAL_BLOG_POSTS];
+let memoryBlogPosts: BlogPost[] = [
+  {
+    id: 'post-1',
+    title: 'Die besten E-Bikes & Elektrofahrräder 2026: Kaufberater & Vergleich',
+    slug: 'beste-e-bikes-elektrofahrraeder-2026',
+    excerpt: 'Welches E-Bike passt zu Ihrem Fahrstil? Entdecken Sie die Top-Modelle von CUBE, SCOTT und Haibike mit Bosch CX Antrieben im großen GudPreiss Test.',
+    content: `## Einleitung: Die E-Bike Revolution im Jahr 2026
+
+Elektrofahrräder haben das Mobilitätsverhalten in Deutschland nachhaltig verändert. Egal ob tägliches Pendeln in der Stadt, sportliche Ausfahrten im Gelände oder ausgedehnte Wochenendtouren: Moderne E-Bikes bieten dank leistungsstarker Akkus und intelligenter Motoren eine unvergleichliche Freiheit.
+
+In unserem großen **[GudPreiss E-Bike Kaufberater](/shop?category=e-bikes)** stellen wir Ihnen die wichtigsten Kriterien für die perfekte Wahl vor und vergleichen die aktuellen Spitzenmodelle führender Hersteller wie **SCOTT, CUBE und Haibike**.
+
+---
+
+## 1. Worauf müssen Sie beim E-Bike Kauf achten?
+
+Wer heute ein E-Bike kaufen möchte, steht vor einer großen Auswahl verschiedener Kategorien und Antriebssysteme. Hier sind die 4 wichtigsten Kaufkriterien im Überblick:
+
+### A. Der passende Motortyp (Bosch Performance CX vs. Yamaha)
+Der Motor ist das Herzstück jedes E-Bikes. Hersteller wie Bosch setzen mit der Performance Line CX Serie Maßstäbe in Sachen Drehmoment (bis zu 85 Nm) und feinfühliger Unterstützung.
+
+### B. Akkukapazität & Reichweite (625Wh bis 800Wh)
+Für lange Touren empfiehlt sich ein integrierter Akku mit mindestens 625 Wh oder 800 Wh Kapazität. Damit erreichen Sie mühelos Reichweiten von über 120 Kilometern pro Ladung.
+
+### C. Rahmenform & Ergonomie
+Ob Tiefeinsteiger (Wave-Rahmen), Diamantrahmen für Herren oder sportliches E-MTB Hardtail: Die richtige Rahmengeometrie garantiert schmerzfreies Fahren auch auf langen Strecken.
+
+---
+
+## 2. Unsere Top-Empfehlung: SCOTT Aspect eRIDE 930
+
+Für Geländefahrer und Tourenliebhaber ist das **[SCOTT Aspect eRIDE 930](/shop/scott-aspect-eride-930)** unser absoluter Testsieger. 
+
+- **Motor**: Bosch Performance CX (85 Nm)
+- **Akku**: PowerTube 625Wh
+- **Schaltung**: SRAM Eagle 12-Gang
+- **Besonderheit**: Extrem robuster Aluminiumrahmen und hervorragende Dämpfung.
+
+👉 **[Jetzt Produktdetails ansehen & SCOTT Aspect eRIDE 930 bei GudPreiss kaufen](/shop/scott-aspect-eride-930)**
+
+---
+
+## 3. Vor- und Nachteile im Vergleich
+
+| E-Bike Kategorie | Ideal geeignet für | Preisbereich bei GudPreiss |
+| :--- | :--- | :--- |
+| **E-MTB Hardtail** | Sportliche Touren & Waldwege | Ab 2.499 € |
+| **E-Trekkingbike** | Langstrecken, Pendeln & Alltag | Ab 2.199 € |
+| **E-Citybike** | Stadtverkehr & Einkäufe | Ab 1.899 € |
+
+---
+
+## Fazit & Kaufempfehlung
+
+Ein gutes E-Bike ist eine Investition in Ihre Gesundheit und Mobilität. Profitieren Sie bei **GudPreiss** von schnellem Versand aus Deutschland, 30 Tagen Rückgaberecht und persönlichem Support!`,
+    cover_image: 'https://elektrofahrrad.de/media/3c/42/de/1756805204/108420-Cube-Reaction-Hybrid-Race-800-polarlight-n-prism-2026-EBike-Hardtail-Mountainbike-00.jpg',
+    author_name: 'GudPreiss Redaktion',
+    category: 'E-Bikes',
+    tags: ['E-Bike', 'SCOTT', 'Bosch CX', 'Kaufberater'],
+    status: 'published',
+    published_at: new Date().toISOString(),
+    seo_title: 'Die besten E-Bikes 2026: Kaufberater & Test - GudPreiss',
+    seo_description: 'E-Bike Kaufberater 2026: Alle Testsieger von SCOTT, CUBE & Haibike im Vergleich. Jetzt Top-Angebote bei GudPreiss entdecken!',
+    keywords: ['E-Bike Test 2026', 'SCOTT E-Bike', 'CUBE E-Bike', 'Kaufberater E-Bike', 'GudPreiss'],
+    seo_score: 96,
+    read_time_minutes: 6,
+    featured: true,
+  },
+  {
+    id: 'post-2',
+    title: 'PlayStation 5 Pro im Praxistest: Raytracing & 4K Gaming auf neuem Niveau',
+    slug: 'playstation-5-pro-praxistest-review',
+    excerpt: 'Lohnt sich das Upgrade auf die PS5 Pro? Wir haben Grafikleistung, PSSR Upscaling und Ladezeiten im ausführlichen Testbericht analysiert.',
+    content: `## Einleitung: Die leistungsstärkste Konsole auf dem Markt
+
+Mit der Einführung der **[PlayStation 5 Pro](/shop/playstation-5-pro-konsole)** hebt Sony das Konsolengaming auf ein bisher unerreichtes Level. Höhere Bildraten bei gleichzeitig voller 4K-Auflösung, erweitertes Raytracing und das KI-gestützte Upscaling PSSR (PlayStation Spectral Super Resolution) machen die Pro-Variante zum Traum jedes Gamers.
+
+In diesem ausführlichen Testbericht beleuchten wir alle Vorteile der Konsole und zeigen Ihnen, wo Sie die Konsole und das beste Zubehör bei **GudPreiss** sichern können.
+
+---
+
+## 1. Was ist neu bei der PS5 Pro?
+
+Im Vergleich zur regulären PS5 Slim bietet die Pro-Version entscheidende Hardware-Upgrades:
+
+- **67% mehr Compute Units**: Die Grafikkarte liefert bis zu 45% schnelleres Rendering.
+- **Fortgeschrittenes Raytracing**: Dynamische Lichtreflexionen und Schattenwurf mit doppelter bis dreifacher Geschwindigkeit.
+- **2 TB NVMe SSD integriert**: Doppelter Speicherplatz ab Werk für Ihre Spielebibliothek.
+- **Wi-Fi 7 Unterstützung**: Extrem schnelle Online-Downloads und stabilere Verbindung.
+
+---
+
+## 2. DualSense Edge & Must-Have Zubehör
+
+Um das volle Potenzial der **[PS5 Pro](/shop/playstation-5-pro-konsole)** auszuschöpfen, empfiehlt sich die Kombination mit dem offiziellen Pro-Equipment:
+
+- **[DualSense Edge Wireless Controller](/shop/dualsense-edge-wireless-controller)**: Mit anpassbaren Tasten, austauschbaren Stick-Modulen und Trigger-Stopps für kompetitives Gaming.
+- **[PlayStation VR2 Headset](/shop/playstation-vr2-headset)**: Next-Gen VR-Erlebnis mit OLED 4K HDR Displays und Augen-Tracking.
+
+👉 **[Jetzt PS5 Konsolen & Zubehör bei GudPreiss entdecken](/shop?category=playstation-konsolen)**
+
+---
+
+## Fazit: Für wen lohnt sich der Kauf?
+
+Die PS5 Pro richtet sich an anspruchsvolle Spieler, die keine Kompromisse bei Bildrate und Grafikqualität eingehen wollen. Bestellen Sie Ihre Konsole jetzt bei GudPreiss mit garantiert schnellem Versand!`,
+    cover_image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=800&q=80',
+    author_name: 'GudPreiss Redaktion',
+    category: 'Gaming',
+    tags: ['PS5 Pro', 'PlayStation', 'DualSense Edge', 'Testbericht'],
+    status: 'published',
+    published_at: new Date().toISOString(),
+    seo_title: 'PS5 Pro im Test: Lohnt sich der Kauf? - GudPreiss',
+    seo_description: 'Ausführlicher Testbericht zur PlayStation 5 Pro: PSSR, Raytracing, Ladezeiten & Zubehör im Vergleich. Jetzt bei GudPreiss bestellen!',
+    keywords: ['PS5 Pro Test', 'PlayStation 5 Pro kaufen', 'DualSense Edge', 'GudPreiss'],
+    seo_score: 95,
+    read_time_minutes: 5,
+    featured: false,
+  }
+];
 let memoryOrders: Order[] = [...INITIAL_ORDERS];
 let memorySettings: StoreSettings = { ...DEFAULT_STORE_SETTINGS };
 
@@ -222,12 +341,12 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
 
 export async function createBlogPost(post: Partial<BlogPost>): Promise<BlogPost> {
   const newPost: BlogPost = {
-    id: `post-${Date.now()}`,
+    id: post.id || `post-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
     title: post.title || 'Neuer Blog-Beitrag',
     slug: post.slug || `post-${Date.now()}`,
     excerpt: post.excerpt || '',
     content: post.content || '',
-    cover_image: post.cover_image || 'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg',
+    cover_image: post.cover_image || 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80',
     author_name: post.author_name || 'GudPreiss Redaktion',
     category: post.category || 'Technologie',
     tags: post.tags || ['Tech', 'News'],
@@ -242,6 +361,28 @@ export async function createBlogPost(post: Partial<BlogPost>): Promise<BlogPost>
     views_count: 0,
   };
   memoryBlogPosts.unshift(newPost);
+
+  if (supabase) {
+    try {
+      await supabase.from('blog_posts').insert([{
+        id: newPost.id,
+        title: newPost.title,
+        slug: newPost.slug,
+        excerpt: newPost.excerpt,
+        content: newPost.content,
+        cover_image: newPost.cover_image,
+        author: newPost.author_name,
+        category: newPost.category,
+        tags: newPost.tags,
+        published_at: newPost.published_at,
+        read_time: `${newPost.read_time_minutes} min`,
+      }]);
+    } catch {
+      // Non-blocking fallback to memory store
+    }
+  }
+
+  triggerRevalidation(['/blog', `/blog/${newPost.slug}`, '/admin/blog']);
   return newPost;
 }
 
