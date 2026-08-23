@@ -7,6 +7,7 @@ import { AuthProvider } from '@/context/auth-context';
 import { LanguageProvider } from '@/context/language-context';
 import { ThemeProvider } from '@/context/theme-context';
 import { StoreSettingsProvider } from '@/context/store-settings-context';
+import { GupreissChatWidget } from '@/components/ai/GupreissChatWidget';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -124,6 +125,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <WishlistProvider>
                   <CartProvider>
                     {children}
+                    <GupreissChatWidget />
                   </CartProvider>
                 </WishlistProvider>
               </AuthProvider>

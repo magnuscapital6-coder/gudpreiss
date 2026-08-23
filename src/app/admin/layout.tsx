@@ -22,12 +22,14 @@ import {
   Store,
   Globe,
   User,
+  Bot,
 } from 'lucide-react';
 import { useAuth } from '@/context/auth-context';
 import { useTranslation } from '@/context/language-context';
 
 const navItems = [
   { href: '/admin', labelKey: 'admin.dashboard', icon: LayoutDashboard },
+  { href: '/admin/ai', labelKey: 'Gupreiss IA', icon: Bot },
   { href: '/admin/seo', labelKey: 'admin.seo', icon: Globe },
   { href: '/admin/products', labelKey: 'admin.products', icon: Package },
   { href: '/admin/categories', labelKey: 'admin.categories', icon: FolderTree },
@@ -124,7 +126,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href));
-              const labelText = t(item.labelKey);
+              const labelText = item.labelKey.startsWith('admin.') ? t(item.labelKey) : item.labelKey;
 
               return (
                 <Link
