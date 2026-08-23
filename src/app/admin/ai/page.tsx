@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import {
   Sparkles,
   Bot,
@@ -174,6 +175,14 @@ export default function AdminAIPage() {
           <BarChart3 className="w-4 h-4" />
           <span>Statistiken &amp; Analytics</span>
         </button>
+
+        <Link
+          href="/admin/ai/conversion"
+          className="px-4 py-2 rounded-xl text-xs font-extrabold transition flex items-center gap-2 cursor-pointer bg-emerald-600/10 border border-emerald-500/30 text-emerald-600 hover:bg-emerald-600 hover:text-white"
+        >
+          <Sparkles className="w-4 h-4" />
+          <span>Conversion Intelligence</span>
+        </Link>
       </div>
 
       {/* Tab 1: Assistant Settings */}

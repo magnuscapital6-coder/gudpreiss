@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { ChatMessage, RecommendedProductRef } from '@/types/ai';
+import { getStoredSignals } from '@/lib/ai/behavior-tracker';
 import {
   Sparkles,
   X,
@@ -108,12 +109,75 @@ export function GupreissChatWidget() {
     }
   };
 
+  const [proactivePrompt, setProactivePrompt] = useState<string | null>(null);
+
+  // Behavioral tracking hook
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Track initial page view
+    const signals = getStoredSignals();
+
+    // Check for proactive intervention decision
+    fetch('/api/ai/conversion', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'evaluate',
+        signals,
+        currentUrl: window.location.pathname,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.intervention?.shouldIntervene && data.intervention?.promptMessage) {
+          setProactivePrompt(data.intervention.promptMessage);
+        }
+      })
+      .catch((err) => console.error('Conversion evaluation error:', err));
+  }, []);
+
   const handleQuickQuestion = (q: string) => {
     handleSendMessage(q);
   };
 
   return (
     <>
+      {/* Proactive Intervention Bubble (Non-Intrusive) */}
+      {!isOpen && proactivePrompt && (
+        <div className="fixed bottom-20 right-5 z-50 max-w-[320px] bg-slate-900 text-white p-3.5 rounded-2xl shadow-2xl border border-emerald-500/40 animate-in fade-in slide-in-from-bottom-3 duration-300">
+          <div className="flex items-start justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">
+                <Bot className="w-3.5 h-3.5 text-slate-950" />
+              </div>
+              <span className="text-[11px] font-black text-emerald-400 uppercase tracking-wider">
+                Gupreiss Kaufberater
+              </span>
+            </div>
+            <button
+              onClick={() => setProactivePrompt(null)}
+              className="text-slate-400 hover:text-white p-0.5"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+          <p className="text-xs text-slate-200 mt-2 leading-relaxed font-medium">{proactivePrompt}</p>
+          <button
+            onClick={() => {
+              setIsOpen(true);
+              setIsMinimized(false);
+              handleSendMessage(proactivePrompt);
+              setProactivePrompt(null);
+            }}
+            className="mt-2.5 w-full py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl shadow-md transition flex items-center justify-center gap-1.5 cursor-pointer"
+          >
+            <span>Jetzt beraten lassen</span>
+            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+          </button>
+        </div>
+      )}
+
       {/* Floating Trigger Button */}
       {!isOpen && (
         <button
