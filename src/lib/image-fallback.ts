@@ -54,7 +54,7 @@ export function getValidImageUrl(url?: string | { src?: string; thumbnail?: stri
     extractedUrl = (img.src as string) || (img.thumbnail as string) || (img.url as string) || undefined;
   }
 
-  if (!extractedUrl || typeof extractedUrl !== 'string' || extractedUrl.includes('undefined') || extractedUrl.includes('null') || extractedUrl.includes('unsplash')) {
+  if (!extractedUrl || typeof extractedUrl !== 'string' || extractedUrl.includes('undefined') || extractedUrl.includes('null')) {
     const key = (catKey || 'default').toLowerCase();
     for (const [k, fallback] of Object.entries(CATEGORY_FALLBACK_IMAGES)) {
       if (key.includes(k)) return fallback;

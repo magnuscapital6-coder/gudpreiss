@@ -14,10 +14,47 @@ interface SpecialDealsSectionProps {
 export function SpecialDealsSection({ products }: SpecialDealsSectionProps) {
   const { t } = useTranslation();
 
-  // Filter on-sale deals
-  const dealProducts = products
-    .filter((p) => p.on_sale || (p.compare_at_price && p.compare_at_price > p.price))
-    .slice(0, 4);
+  // Filter and prioritize PlayStation and E-Bike deals in top priority (alternating PS5 and E-Bikes)
+  const allDeals = products.filter(
+    (p) => p.on_sale || (p.compare_at_price && p.compare_at_price > p.price)
+  );
+
+  const psDeals = allDeals.filter((p) =>
+    p.category_id?.includes('ps5') ||
+    p.brand_id === 'b-sony-playstation' ||
+    p.name.toLowerCase().includes('playstation') ||
+    p.name.toLowerCase().includes('ps5') ||
+    p.name.toLowerCase().includes('dualsense') ||
+    p.name.toLowerCase().includes('vr2')
+  );
+
+  const bikeDeals = allDeals.filter((p) =>
+    p.category_id?.includes('e-') ||
+    p.category_id === 'cat-ebikes' ||
+    p.brand_id === 'b-cube' ||
+    p.brand_id === 'b-scott' ||
+    p.brand_id === 'b-haibike' ||
+    p.brand_id === 'b-conway' ||
+    p.brand_id === 'b-kalkhoff' ||
+    p.brand_id === 'b-winora' ||
+    p.name.toLowerCase().includes('bike') ||
+    p.name.toLowerCase().includes('cube') ||
+    p.name.toLowerCase().includes('scott')
+  );
+
+  const otherDeals = allDeals.filter(
+    (p) => !psDeals.includes(p) && !bikeDeals.includes(p)
+  );
+
+  // Interleave PlayStation and E-Bike deals: [PS5, E-Bike, PS5, E-Bike...]
+  const interleavedDeals: Product[] = [];
+  const maxLength = Math.max(psDeals.length, bikeDeals.length);
+  for (let i = 0; i < maxLength; i++) {
+    if (psDeals[i]) interleavedDeals.push(psDeals[i]);
+    if (bikeDeals[i]) interleavedDeals.push(bikeDeals[i]);
+  }
+
+  const dealProducts = [...interleavedDeals, ...otherDeals].slice(0, 4);
 
   // Live Countdown Timer (12h 45m 30s)
   const [timeLeft, setTimeLeft] = useState({ hours: 12, minutes: 45, seconds: 30 });

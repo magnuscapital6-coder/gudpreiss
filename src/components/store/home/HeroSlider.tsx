@@ -19,36 +19,47 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
   const [activePromoItems, setActivePromoItems] = useState<Product[]>([]);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Pick 8 random products spanning different categories
+  // Pick top priority PlayStation and E-Bike products for the Hero Swap Card
   useEffect(() => {
     if (!products || products.length === 0) return;
 
-    const categoryMap = new Map<string, Product[]>();
-    for (const p of products) {
-      const catKey = (p.category_id || p.category_name || 'general').toLowerCase().trim();
-      if (!categoryMap.has(catKey)) {
-        categoryMap.set(catKey, []);
-      }
-      categoryMap.get(catKey)!.push(p);
+    const psProducts = products.filter((p) =>
+      p.category_id?.includes('ps5') ||
+      p.brand_id === 'b-sony-playstation' ||
+      p.name.toLowerCase().includes('playstation') ||
+      p.name.toLowerCase().includes('ps5') ||
+      p.name.toLowerCase().includes('dualsense') ||
+      p.name.toLowerCase().includes('vr2')
+    );
+
+    const bikeProducts = products.filter((p) =>
+      p.category_id?.includes('e-') ||
+      p.category_id === 'cat-ebikes' ||
+      p.brand_id === 'b-cube' ||
+      p.brand_id === 'b-scott' ||
+      p.brand_id === 'b-haibike' ||
+      p.brand_id === 'b-conway' ||
+      p.brand_id === 'b-kalkhoff' ||
+      p.brand_id === 'b-winora' ||
+      p.name.toLowerCase().includes('bike') ||
+      p.name.toLowerCase().includes('cube') ||
+      p.name.toLowerCase().includes('scott')
+    );
+
+    const otherProducts = products.filter(
+      (p) => !psProducts.includes(p) && !bikeProducts.includes(p)
+    );
+
+    // Interleave PlayStation & E-Bike products: [PS5, E-Bike, PS5, E-Bike...]
+    const priorityPool: Product[] = [];
+    const maxLen = Math.max(psProducts.length, bikeProducts.length);
+    for (let i = 0; i < maxLen; i++) {
+      if (psProducts[i]) priorityPool.push(psProducts[i]);
+      if (bikeProducts[i]) priorityPool.push(bikeProducts[i]);
     }
 
-    const categoryPools = Array.from(categoryMap.values());
-    categoryPools.sort(() => 0.5 - Math.random());
-
-    const selected: Product[] = [];
-    for (const pool of categoryPools) {
-      const randomProd = pool[Math.floor(Math.random() * pool.length)];
-      selected.push(randomProd);
-      if (selected.length >= 8) break;
-    }
-
-    if (selected.length < 8) {
-      const remaining = products.filter((p) => !selected.some((s) => s.id === p.id));
-      const shuffledRemaining = [...remaining].sort(() => 0.5 - Math.random());
-      selected.push(...shuffledRemaining.slice(0, 8 - selected.length));
-    }
-
-    setActivePromoItems(selected.sort(() => 0.5 - Math.random()));
+    const selected = [...priorityPool, ...otherProducts].slice(0, 8);
+    setActivePromoItems(selected);
   }, [products]);
 
   // Autoplay every 5 seconds

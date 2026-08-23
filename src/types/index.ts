@@ -86,6 +86,7 @@ export interface Product {
   rating: number;
   review_count: number;
   images: string[];
+  specifications?: Record<string, any>;
   variants?: ProductVariant[];
   seo_title?: string;
   seo_description?: string;
