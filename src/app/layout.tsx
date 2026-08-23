@@ -8,6 +8,7 @@ import { LanguageProvider } from '@/context/language-context';
 import { ThemeProvider } from '@/context/theme-context';
 import { StoreSettingsProvider } from '@/context/store-settings-context';
 import { GupreissChatWidget } from '@/components/ai/GupreissChatWidget';
+import { CookieConsentBanner } from '@/components/store/privacy/CookieConsentBanner';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -162,6 +163,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <CartProvider>
                     {children}
                     <GupreissChatWidget />
+                    <CookieConsentBanner />
                   </CartProvider>
                 </WishlistProvider>
               </AuthProvider>

@@ -60,6 +60,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li><Link href="/impressum" className="hover:text-emerald-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">Impressum</Link></li>
               <li><Link href="/privacy" className="hover:text-emerald-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">Datenschutzerklärung</Link></li>
+              <li><Link href="/datenschutz-center" className="hover:text-emerald-500 font-semibold text-emerald-600 dark:text-emerald-400 transition">Datenschutz-Center &amp; Rechte</Link></li>
               <li><Link href="/terms" className="hover:text-emerald-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">AGB &amp; Bedingungen</Link></li>
               <li><Link href="/return-policy" className="hover:text-emerald-500 dark:hover:text-emerald-700 dark:text-emerald-400 transition">Widerrufsbelehrung &amp; Rückgabe</Link></li>
             </ul>

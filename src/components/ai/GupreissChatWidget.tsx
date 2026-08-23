@@ -223,10 +223,10 @@ export function GupreissChatWidget() {
                 <div className="flex items-center gap-1.5">
                   <h3 className="font-black text-sm text-white tracking-tight">Gupreiss</h3>
                   <span className="px-1.5 py-0.5 bg-emerald-500/20 text-emerald-300 text-[9px] font-extrabold uppercase rounded-md border border-emerald-500/30">
-                    Berater
+                    KI-Assistent
                   </span>
                 </div>
-                <p className="text-[11px] text-emerald-300/80 font-medium">Online &amp; Bereit zur Beratung</p>
+                <p className="text-[10px] text-emerald-300/90 font-medium">Sie chatten mit GudPreiss, unserem KI-Assistenten.</p>
               </div>
             </div>
 
