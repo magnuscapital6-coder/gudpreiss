@@ -1,0 +1,17 @@
+{
+  "name": "Gudpreiss Deutschland — E-Bikes & PlayStation Store",
+  "short_name": "Gudpreiss",
+  "description": "Premium E-Bikes (SCOTT, CUBE, Haibike) & PlayStation 5 Konsolen online kaufen bei Gudpreiss Deutschland.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#022c22",
+  "theme_color": "#059669",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

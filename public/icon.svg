@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Rounded Squircle Box -->
+  <rect x="16" y="16" width="480" height="480" rx="120" ry="120" fill="url(#bgGrad)" />
+
+  <!-- Outer Glow Ring -->
+  <rect x="24" y="24" width="464" height="464" rx="112" ry="112" fill="none" stroke="url(#accentGrad)" stroke-width="8" stroke-opacity="0.4" />
+
+  <!-- Stylized "G" Mark -->
+  <g filter="url(#shadow)">
+    <path d="M340 180 C310 130 220 130 170 180 C110 240 110 340 170 400 C230 460 330 440 370 380 C390 350 390 300 390 280 L250 280 L250 330 L330 330 C325 365 295 390 250 390 C190 390 165 330 165 280 C165 230 195 170 250 170 C290 170 320 190 340 215 L375 180 Z" fill="#FFFFFF" />
+    <circle cx="340" cy="180" r="18" fill="#34d399" />
+  </g>
+</svg>

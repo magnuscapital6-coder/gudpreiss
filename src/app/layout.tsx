@@ -19,19 +19,29 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de'),
   title: {
-    default: 'Elektronik & Tech-Gadgets online kaufen | GudPreiss Deutschland',
-    template: '%s | GudPreiss Deutschland',
+    default: 'E-Bikes & PlayStation 5 online kaufen | Gudpreiss Deutschland',
+    template: '%s | Gudpreiss Deutschland',
   },
-  description: 'Entdecken Sie neueste Smartphones, Laptops, Noise-Cancelling Kopfhörer & Smart-Home Roboter online bei GudPreiss. Kostenloser Versand & 30 Tage Rückgabe in Deutschland.',
+  description: 'Kaufen Sie Premium E-Bikes (SCOTT, CUBE, Haibike, Conway) & Sony PlayStation 5 Konsolen, DualSense Controller & VR2 günstig online bei Gudpreiss. Kostenloser Versand ab 50 € & 30 Tage Rückgabe in Deutschland.',
   keywords: [
-    'elektronik online kaufen',
-    'smartphones kaufen deutschland',
-    'laptops angebote',
-    'kopfhörer testsieger',
-    'gaming controller günstig',
-    'smart home robotik',
+    'e-bikes online kaufen deutschland',
+    'elektrofahrrad kaufen',
+    'cube e-bike angebote',
+    'scott lumen eride',
+    'playstation 5 pro kaufen',
+    'ps5 konsole günstig',
+    'dualsense controller sonderangebot',
     'gudpreiss store',
+    'gudpreiss deutschland',
   ],
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
+  manifest: '/site.webmanifest',
   alternates: {
     canonical: 'https://gudpreiss.de',
     languages: {
@@ -41,12 +51,26 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: 'GudPreiss — Erstklassige Elektronik & Tech-Gadgets Deutschland',
-    description: 'Beste Elektronik-Angebote mit verifizierten Testberichten und schnellem Versand in Deutschland.',
+    title: 'Gudpreiss — E-Bikes & PlayStation 5 Store Deutschland',
+    description: 'Beste Angebote für Elektrofahrräder von CUBE, SCOTT, Haibike sowie originale Sony PlayStation 5 Konsolen mit verifizierter Garantie.',
     url: 'https://gudpreiss.de',
-    siteName: 'GudPreiss',
+    siteName: 'Gudpreiss',
+    images: [
+      {
+        url: 'https://gudpreiss.de/icon.svg',
+        width: 512,
+        height: 512,
+        alt: 'Gudpreiss Store Logo',
+      },
+    ],
     locale: 'de_DE',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gudpreiss — E-Bikes & PlayStation 5 Store Deutschland',
+    description: 'Beste Angebote für Elektrofahrräder und Sony PlayStation 5 Konsolen mit schnellem Versand.',
+    images: ['https://gudpreiss.de/icon.svg'],
   },
   robots: {
     index: true,
@@ -62,32 +86,43 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // JSON-LD Organization & WebSite Schema
+  // Enhanced JSON-LD Organization, OnlineStore & WebSite Schema
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'Organization',
-        '@id': 'https://gudpreiss.de/#organization',
-        name: 'GudPreiss Deutschland',
+        '@type': 'OnlineStore',
+        '@id': 'https://gudpreiss.de/#store',
+        name: 'Gudpreiss Deutschland',
         url: 'https://gudpreiss.de',
-        logo: 'https://gudpreiss.de/logo.png',
-        description: 'Erstklassiger E-Commerce Händler für Elektronik, Smartphones, Laptops und Smart Home in Deutschland.',
+        logo: 'https://gudpreiss.de/icon.svg',
+        image: 'https://gudpreiss.de/icon.svg',
+        description: 'Offizieller E-Commerce Händler für Premium E-Bikes (CUBE, SCOTT, Haibike) und Sony PlayStation 5 Hardware in Deutschland.',
+        priceRange: '€€€',
+        currenciesAccepted: 'EUR',
+        paymentAccepted: 'Klarna, PayPal, Credit Card, Apple Pay, Google Pay, SEPA Direct Debit',
         address: {
           '@type': 'PostalAddress',
           addressCountry: 'DE',
           addressLocality: 'Berlin',
-          postalCode: '10117',
-          streetAddress: 'Friedrichstraße 12',
+          postalCode: '10115',
+          streetAddress: 'Gudpreiss Straße 42',
+        },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+49-30-12345678',
+          contactType: 'customer service',
+          email: 'kontakt@gudpreiss.de',
+          availableLanguage: ['German', 'English'],
         },
       },
       {
         '@type': 'WebSite',
         '@id': 'https://gudpreiss.de/#website',
         url: 'https://gudpreiss.de',
-        name: 'GudPreiss Deutschland',
+        name: 'Gudpreiss Deutschland',
         publisher: {
-          '@id': 'https://gudpreiss.de/#organization',
+          '@id': 'https://gudpreiss.de/#store',
         },
         potentialAction: {
           '@type': 'SearchAction',
