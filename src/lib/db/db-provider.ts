@@ -412,20 +412,20 @@ export const memoryLegalPages: Record<string, LegalPage> = {
     subtitle: 'Offizielle Angaben gemäß § 5 TMG zum Betreiber der Plattform GudPreiss Deutschland.',
     content: `## Angaben gemäß § 5 TMG
 GudPreiss GmbH
-Friedrichstraße 12
-10117 Berlin
-Deutschland / Germany
+Prenzlauer Allee 116
+04332 Leipzig
+Freistaat Sachsen, Deutschland
 
 ### Kontakt & Kundenservice
-Telefon: +49 30 1234567
-E-Mail: kontakt@gudpreiss-store.de
+Telefon: +49 (0) 341 98765432
+E-Mail: kontakt@gudpreiss.de
 
 ### Vertreten durch
 Geschäftsführer: Klaus Weber
 
 ### Registereintrag
-Registergericht: Amtsgericht Berlin-Charlottenburg
-Registernummer: HRB 248912 B
+Registergericht: Amtsgericht Leipzig
+Registernummer: HRB 38912 L
 
 ### Umsatzsteuer-ID
 Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE 349 812 705
