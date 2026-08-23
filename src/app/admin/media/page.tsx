@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 export default function AdminMediaPage() {
   const MedienItems = [
-    { name: 'Samsung Yantabalt Expe Ultra', url: 'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg' },
-    { name: 'MacBook Air M2', url: 'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg' },
-    { name: 'Sony WH-1000XM5', url: 'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg' },
-    { name: 'DualSense Controller', url: 'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg' },
+    { name: 'Samsung Yantabalt Expe Ultra', url: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80' },
+    { name: 'MacBook Air M2', url: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Sony WH-1000XM5', url: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80' },
+    { name: 'DualSense Controller', url: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80' },
   ];
 
   return (

@@ -653,7 +653,7 @@ export async function createProduct(productData: Partial<Product>): Promise<Prod
     images:
       productData.images && productData.images.length > 0
         ? productData.images
-        : ['https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg'],
+        : ['https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'],
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   };
@@ -876,7 +876,7 @@ export async function createCategory(categoryData: Partial<Category>): Promise<C
     name: categoryData.name || 'New Category',
     slug: categoryData.slug || categoryData.name?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || `category-${Date.now()}`,
     description: categoryData.description || '',
-    image_url: categoryData.image_url || 'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg',
+    image_url: categoryData.image_url || 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80',
     sort_order: memoryCategories.length + 1,
     active: true,
     created_at: new Date().toISOString(),

@@ -27,7 +27,7 @@ export default function CreateProductPage() {
   const [brandName, setBrandName] = useState('Samsung');
   const [description, setDescription] = useState('');
   const [images, setImages] = useState<string[]>([
-    'https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg'
+    'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'
   ]);
 
   const handleSubmit = async (e: React.FormEvent) => {

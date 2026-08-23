@@ -77,7 +77,7 @@ export default function AdminCategoriesPage() {
     setEditingCategory(null);
     setName('');
     setDescription('');
-    setImageUrl('https://abt-distribution.com/wp-content/uploads/2026/08/cat-electronique.jpg');
+    setImageUrl('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80');
     setIsModalOpen(true);
   };
 
@@ -366,7 +366,7 @@ export default function AdminCategoriesPage() {
                   required
                   value={imageUrl}
                   onChange={(e) => setImageUrl(e.target.value)}
-                  placeholder="https://abt-distribution.com/wp-content/uploads/..."
+                  placeholder="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80"
                   className="w-full px-4 py-2.5 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white font-mono text-[11px]"
                 />
               </div>

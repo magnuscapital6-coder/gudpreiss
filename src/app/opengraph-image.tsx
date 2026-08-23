@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og';
 
+export const runtime = 'edge';
 export const alt = 'GudPreiss — E-Bikes & PlayStation 5 Store Deutschland';
 export const size = {
   width: 1200,
