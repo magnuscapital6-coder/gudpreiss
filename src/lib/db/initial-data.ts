@@ -652,8 +652,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 312,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1000&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-pro-console-product-thumbnail-01-en-11sep24?$facebook$"
     ],
     "compare_at_price": 849.99,
     "stock": 25,
@@ -679,7 +678,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 540,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1000&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps5-slim-disc-console-product-thumbnail-01-en-10oct23?$facebook$"
     ],
     "compare_at_price": 599.99,
     "stock": 40,
@@ -705,7 +704,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 890,
     "images": [
-      "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=1000&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/dualsense-midnight-black-thumbnail-01-en-24may21?$facebook$"
     ],
     "compare_at_price": 74.99,
     "stock": 85,
@@ -783,7 +782,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 210,
     "images": [
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80"
+      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-15-midnight-select-202403?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1707436033486"
     ],
     "compare_at_price": 1759,
     "stock": 30,
@@ -809,7 +808,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1420,
     "images": [
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80"
+      "https://www.sony.de/image/6145c1d32e6ac8e63a46c912dc33c5bb?fmt=png-alpha&wid=1200"
     ],
     "compare_at_price": 419,
     "stock": 50,
@@ -861,7 +860,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 2400,
     "images": [
-      "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=1000&q=80"
+      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MTKV3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694039860649"
     ],
     "compare_at_price": 279,
     "stock": 75,
@@ -887,7 +886,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 670,
     "images": [
-      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1000&q=80"
+      "https://images.samsung.com/is/image/samsung/p6pim/de/2401/gallery/de-galaxy-s24-s928-sm-s928bztdeub-539304381?$1300_1040_PNG$"
     ],
     "compare_at_price": 1449,
     "stock": 20,
@@ -913,7 +912,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 1820,
     "images": [
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1000&q=80"
+      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch-naturaltitanium?wid=1280&hei=1280&fmt=jpeg&qlt=95&.v=1692845702708"
     ],
     "compare_at_price": 1449,
     "stock": 18,
@@ -1147,7 +1146,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 3200,
     "images": [
-      "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&w=1000&q=80"
+      "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_600/ncom/en_US/switch/site-design-v2/hardware/switch-oled-white-hardware"
     ],
     "compare_at_price": 369.99,
     "stock": 60,
@@ -1615,7 +1614,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 1980,
     "images": [
-      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1000&q=80"
+      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-select-spacegray-202011?wid=940&hei=1112&fmt=png-alpha&.v=1604709508000"
     ],
     "compare_at_price": 579,
     "stock": 15,
@@ -1719,7 +1718,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 140,
     "images": [
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80"
+      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp16-spaceblack-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697230830200"
     ],
     "compare_at_price": 4249,
     "stock": 8,
@@ -1771,7 +1770,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 480,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1000&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/ps-vr2-horizon-bundle-thumbnail-01-en-15nov22?$facebook$"
     ],
     "compare_at_price": 649.99,
     "stock": 22,
@@ -1797,7 +1796,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 670,
     "images": [
-      "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=1000&q=80"
+      "https://gmedia.playstation.com/is/image/SIEPDC/dualsense-edge-thumbnail-01-en-23aug22?$facebook$"
     ],
     "compare_at_price": 239.99,
     "stock": 35,
