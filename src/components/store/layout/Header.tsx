@@ -206,9 +206,9 @@ export function Header() {
               )}
             </div>
 
-            <Link href="/Blog" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-bold">
+            <Link href="/blog" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-bold">
               <BookOpen className="w-4 h-4 text-emerald-700 dark:text-emerald-700" />
-              <span>{t('nav.Blog')}</span>
+              <span>{t('nav.blog') || 'Blog'}</span>
             </Link>
 
             <Link href="/track" className="hover:text-emerald-600 transition flex items-center gap-1.5 font-black text-emerald-800 dark:text-emerald-700">

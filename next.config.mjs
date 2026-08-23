@@ -52,6 +52,8 @@ const nextConfig = {
       { source: '/admin/medien/:path*', destination: '/admin/media/:path*' },
       { source: '/admin/Blog', destination: '/admin/blog' },
       { source: '/admin/Blog/:path*', destination: '/admin/blog/:path*' },
+      { source: '/Blog', destination: '/blog' },
+      { source: '/Blog/:path*', destination: '/blog/:path*' },
     ];
   },
 };
