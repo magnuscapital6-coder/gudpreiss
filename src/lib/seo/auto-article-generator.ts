@@ -179,7 +179,7 @@ Zusammenfassend überzeugt das **[${product.name}](${productUrl})** auf ganzer L
 👉 **[Jetzt Produktdetails aufrufen & ${product.name} zum Bestpreis im GudPreiss Shop kaufen](${productUrl})**`;
 
   // Cover image
-  const coverImage = product.images?.[0] || 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80';
+  const coverImage = product.images?.[0] || `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none"><rect width="600" height="600" fill="%23020617"/><rect x="200" y="200" width="200" height="200" rx="20" fill="%231e293b" stroke="%2310b981" stroke-width="4"/><circle cx="300" cy="300" r="50" stroke="%2334d399" stroke-width="6"/><text x="300" y="440" font-family="sans-serif" font-size="22" font-weight="bold" fill="%2394a3b8" text-anchor="middle">GudPreiss Premium</text></svg>`;
 
   // German Keywords for Google.de ranking
   const keywords = [
