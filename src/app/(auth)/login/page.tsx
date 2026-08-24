@@ -6,11 +6,11 @@ import { Footer } from '@/components/store/layout/Footer';
 import { useAuth } from '@/context/auth-context';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowRight, AlertCircle, ShieldAlert } from 'lucide-react';
+import { ArrowRight, AlertCircle, ShieldAlert, ShieldCheck } from 'lucide-react';
 import { loginSchema } from '@/lib/validation';
 
 function LoginForm() {
-  const { login, isLoading } = useAuth();
+  const { user, isAdmin, login, isLoading } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get('redirect');
@@ -23,6 +23,21 @@ function LoginForm() {
   const [remainingAttempts, setRemainingAttempts] = useState<number | null>(null);
 
   const isLocked = retryAfter > 0;
+
+  // Auto-redirect if user is already logged in
+  useEffect(() => {
+    if (!user) return;
+    const targetUrl = (redirectTo && redirectTo.startsWith('/'))
+      ? redirectTo
+      : (isAdmin ? '/admin' : '/account');
+
+    const timer = setTimeout(() => {
+      window.location.href = targetUrl;
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, [user, isAdmin, redirectTo]);
+
   useEffect(() => {
     if (!isLocked) return;
     const timer = setInterval(() => {
@@ -37,6 +52,49 @@ function LoginForm() {
     }, 1000);
     return () => clearInterval(timer);
   }, [isLocked]);
+
+  // ── Render Toast / Redirection Card for Logged-In Users ──
+  if (user) {
+    const targetUrl = (redirectTo && redirectTo.startsWith('/'))
+      ? redirectTo
+      : (isAdmin ? '/admin' : '/account');
+
+    return (
+      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-emerald-500/30 p-8 shadow-2xl space-y-6 text-center animate-in fade-in zoom-in-95 duration-200">
+        <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto shadow-inner">
+          <ShieldCheck className="w-10 h-10" />
+        </div>
+        <div>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 rounded-full text-xs font-black text-emerald-700 dark:text-emerald-300 mb-3 shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+            <span>DÉJÀ CONNECTÉ / BEREITS ANGEMELDET</span>
+          </div>
+          <h2 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">
+            Vous êtes déjà connecté !
+          </h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+            Connecté en tant que <strong className="text-slate-900 dark:text-slate-200 font-bold">{user.full_name || user.email}</strong>{' '}
+            <span className="inline-block px-2 py-0.5 ml-1 bg-slate-100 dark:bg-slate-800 rounded text-[10px] font-extrabold uppercase text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+              {user.role === 'admin' || isAdmin ? 'Administrateur' : 'Client'}
+            </span>
+          </p>
+        </div>
+
+        <div className="p-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl flex items-center justify-between text-xs">
+          <span className="text-slate-600 dark:text-slate-400 font-bold">Redirection vers votre tableau de bord...</span>
+          <div className="w-4 h-4 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin" />
+        </div>
+
+        <button
+          onClick={() => { window.location.href = targetUrl; }}
+          className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 transition cursor-pointer"
+        >
+          <span>Accéder au tableau de bord maintenant</span>
+          <ArrowRight className="w-4 h-4" />
+        </button>
+      </div>
+    );
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,7 +118,7 @@ function LoginForm() {
     if (res.success) {
       const targetUrl = (redirectTo && redirectTo.startsWith('/'))
         ? redirectTo
-        : '/account';
+        : (isAdmin ? '/admin' : '/account');
       
       window.location.href = targetUrl;
     } else {
