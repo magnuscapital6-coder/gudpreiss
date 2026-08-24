@@ -207,7 +207,8 @@ export async function POST(request: NextRequest) {
       },
       { status: 401 },
     );
-  } catch {
+  } catch (err: unknown) {
+    console.error('[AUTH_LOGIN_ERROR]', err);
     return NextResponse.json(
       { error: 'Serverfehler bei der Anmeldung.' },
       { status: 500 },

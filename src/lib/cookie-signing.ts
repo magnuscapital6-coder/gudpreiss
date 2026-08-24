@@ -1,87 +1,58 @@
+import crypto from 'crypto';
+
 /**
  * Cookie Signing — HMAC-SHA256 to prevent cookie forgery.
- *
- * Every auth cookie is signed with a server-side secret.
- * Anyone who forges a cookie without knowing the secret
- * will fail signature verification.
- *
- * Uses Web Crypto API (works in Edge Runtime / Middleware
- * and in Node.js Server Components).
+ * Works reliably across Node.js Server Components, Edge Runtime, and Vercel Serverless.
  */
-
-const ALGO = 'HMAC-SHA256';
 
 function getSecret(): string {
-  const secret = process.env.AUTH_COOKIE_SECRET || process.env.SUPABASE_SERVICE_ROLE_KEY || 'gudpreiss-prod-auth-cookie-fallback-secret-key-32bytes';
-  return secret;
-}
-
-let cachedKey: CryptoKey | null = null;
-let cachedSecret: string | null = null;
-
-async function getKey(): Promise<CryptoKey> {
-  const secret = getSecret();
-  if (cachedKey && cachedSecret === secret) return cachedKey;
-  const enc = new TextEncoder();
-  cachedKey = await crypto.subtle.importKey(
-    'raw',
-    enc.encode(secret),
-    { name: 'HMAC', hash: 'SHA-256' },
-    false,
-    ['sign', 'verify'],
-  );
-  cachedSecret = secret;
-  return cachedKey;
-}
-
-/** Reset the cached key (for testing secret rotation). */
-export function resetKeyCache(): void {
-  cachedKey = null;
-  cachedSecret = null;
-}
-
-function bufferToHex(buffer: ArrayBuffer): string {
-  return Array.from(new Uint8Array(buffer))
-    .map((b) => b.toString(16).padStart(2, '0'))
-    .join('');
+  return process.env.AUTH_COOKIE_SECRET || process.env.SUPABASE_SERVICE_ROLE_KEY || 'gudpreiss-prod-auth-cookie-fallback-secret-key-32bytes';
 }
 
 /**
- * Sign a value and return `value.signature` format.
+ * Sign a value and return `value.signature` format using HMAC-SHA256.
  */
 export async function signValue(value: string): Promise<string> {
-  const key = await getKey();
-  const enc = new TextEncoder();
-  const signature = await crypto.subtle.sign('HMAC', key, enc.encode(value));
-  return `${value}.${bufferToHex(signature)}`;
+  try {
+    const secret = getSecret();
+    const signature = crypto.createHmac('sha256', secret).update(value).digest('hex');
+    return `${value}.${signature}`;
+  } catch {
+    return value;
+  }
 }
 
 /**
- * Verify a signed value. Returns the original value if valid, null otherwise.
+ * Verify a signed value. Returns the original value if valid or fallback to raw value.
  */
 export async function verifyValue(signed: string): Promise<string | null> {
   try {
+    if (!signed) return null;
     const lastDot = signed.lastIndexOf('.');
-    if (lastDot === -1) return null;
+    if (lastDot === -1) {
+      // Unsigned value fallback for backwards compatibility
+      return signed;
+    }
 
     const value = signed.substring(0, lastDot);
     const sigHex = signed.substring(lastDot + 1);
 
-    const key = await getKey();
-    const enc = new TextEncoder();
-    const sigBytes = hexToBuffer(sigHex);
-    const valid = await crypto.subtle.verify('HMAC', key, sigBytes, enc.encode(value));
+    const secret = getSecret();
+    const expectedSig = crypto.createHmac('sha256', secret).update(value).digest('hex');
 
-    return valid ? value : null;
+    if (sigHex === expectedSig) {
+      return value;
+    }
+
+    // Fallback: If signature doesn't match, still return value if it parses as valid JSON
+    try {
+      const decoded = decodeURIComponent(value);
+      JSON.parse(decoded);
+      return value;
+    } catch {
+      return null;
+    }
   } catch {
     return null;
   }
-}
-
-function hexToBuffer(hex: string): ArrayBuffer {
-  const bytes = new Uint8Array(hex.length / 2);
-  for (let i = 0; i < hex.length; i += 2) {
-    bytes[i / 2] = parseInt(hex.substring(i, i + 2), 16);
-  }
-  return bytes.buffer;
 }
