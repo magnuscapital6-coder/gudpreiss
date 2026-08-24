@@ -25,7 +25,7 @@ const mockProduct: Product = {
   weight_kg: 22.5,
   rating: 4.9,
   review_count: 18,
-  images: ['https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=800&q=80'],
+  images: [],
   specifications: {
     'Moteur': 'Bosch Performance CX 85Nm',
     'Batterie': 'PowerTube 625Wh',

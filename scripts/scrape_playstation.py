@@ -12,7 +12,7 @@ NEW_CATEGORIES = [
         "name": "PlayStation Konsolen",
         "slug": "playstation-konsolen",
         "description": "Sony PlayStation 5 Pro, PS5 Slim, Digital Edition und exklusive Konsolen-Bundles.",
-        "image_url": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=800&q=80",
+        "image_url": "",
         "icon": "Gamepad2",
         "active": True,
         "sort_order": 1
@@ -22,7 +22,7 @@ NEW_CATEGORIES = [
         "name": "PlayStation Controller & Zubehör",
         "slug": "playstation-controller-zubehoer",
         "description": "DualSense Wireless Controller, DualSense Edge Pro, Ladestationen und Konsolen-Cover.",
-        "image_url": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80",
+        "image_url": "",
         "icon": "Gamepad",
         "active": True,
         "sort_order": 2
@@ -32,7 +32,7 @@ NEW_CATEGORIES = [
         "name": "PlayStation Audio & VR Headsets",
         "slug": "playstation-audio-vr",
         "description": "PlayStation VR2 Next-Gen VR-Headsets, Pulse Elite, Pulse Explore Earbuds & Pulse 3D.",
-        "image_url": "https://images.unsplash.com/photo-1622979135225-d2ba269bc1bd?auto=format&fit=crop&w=800&q=80",
+        "image_url": "",
         "icon": "Headphones",
         "active": True,
         "sort_order": 3
@@ -42,7 +42,7 @@ NEW_CATEGORIES = [
         "name": "PlayStation SSD & Speichererweiterung",
         "slug": "playstation-ssd-speicher",
         "description": "Offiziell lizenzierte M.2 NVMe SSDs mit Kühlkörper für maximale PS5 Speichererweiterung.",
-        "image_url": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=80",
+        "image_url": "",
         "icon": "HardDrive",
         "active": True,
         "sort_order": 4
@@ -113,10 +113,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 3.1,
         "rating": 4.9,
         "review_count": 142,
-        "images": [
-            "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80",
-            "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
-        ],
+        "images": [],
         "specifications": {
             "Speicherkapazität": "2TB NVMe Custom SSD",
             "Auflösung": "4K Ultra HD (bis zu 8K Support)",
@@ -154,9 +151,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 3.2,
         "rating": 4.8,
         "review_count": 310,
-        "images": [
-            "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80"
-        ],
+        "images": [],
         "specifications": {
             "Speicherkapazität": "1TB Custom NVMe SSD",
             "Laufwerk": "Ultra HD Blu-ray Disc-Laufwerk",
@@ -191,9 +186,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 2.6,
         "rating": 4.8,
         "review_count": 188,
-        "images": [
-            "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80"
-        ],
+        "images": [],
         "specifications": {
             "Speicherkapazität": "1TB Custom NVMe SSD",
             "Laufwerk": "Ohne Laufwerk (optional nachrüstbar)",
@@ -226,9 +219,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 3.4,
         "rating": 5.0,
         "review_count": 94,
-        "images": [
-            "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80"
-        ],
+        "images": [],
         "specifications": {
             "Inhalt": "PS5 Slim 1TB Disc Edition, ASTRO BOT Spielcode, DualSense Controller",
             "Speicherkapazität": "1TB NVMe SSD"
@@ -260,9 +251,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 0.28,
         "rating": 4.9,
         "review_count": 520,
-        "images": [
-            "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
-        ],
+        "images": [],
         "specifications": {
             "Farbe": "Original Weiß / Schwarz",
             "Features": "Haptisches Feedback, Adaptive Trigger, Integriertes Mikrofon, USB-C",
@@ -295,7 +284,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 0.28,
         "rating": 4.9,
         "review_count": 410,
-        "images": ["https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"],
+        "images": [],
         "specifications": {
             "Farbe": "Midnight Black (Schwarz)",
             "Features": "Haptisches Feedback, Adaptive Trigger, USB-C"
@@ -327,9 +316,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 0.33,
         "rating": 4.9,
         "review_count": 210,
-        "images": [
-            "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
-        ],
+        "images": [],
         "specifications": {
             "Features": "Austauschbare Stick-Caps & Module, 2 Rücktasten (Paddles), Trigger-Stopps",
             "Lieferumfang": "DualSense Edge Controller, Paddles, Stick-Kappen, USB-C Kabel, Case"
@@ -361,9 +348,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 0.53,
         "rating": 4.8,
         "review_count": 165,
-        "images": [
-            "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
-        ],
+        "images": [],
         "specifications": {
             "Bildschirm": "8-Zoll LCD Touchscreen (1920x1080 Full HD)",
             "Bildwiederholrate": "60 FPS Streaming",
@@ -396,9 +381,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 0.56,
         "rating": 4.9,
         "review_count": 175,
-        "images": [
-            "https://images.unsplash.com/photo-1622979135225-d2ba269bc1bd?auto=format&fit=crop&w=1200&q=80"
-        ],
+        "images": [],
         "specifications": {
             "Display": "OLED (2000 x 2040 Pixel pro Auge)",
             "Bildwiederholfrequenz": "90 Hz, 120 Hz",
@@ -432,7 +415,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 0.34,
         "rating": 4.9,
         "review_count": 115,
-        "images": ["https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1200&q=80"],
+        "images": [],
         "specifications": {
             "Treiber": "Planar-Magnetostatische Treiber",
             "Akkulaufzeit": "Bis zu 30 Stunden",
@@ -465,7 +448,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 0.05,
         "rating": 5.0,
         "review_count": 290,
-        "images": ["https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=1200&q=80"],
+        "images": [],
         "specifications": {
             "Kapazität": "2TB (2000 GB)",
             "Schnittstelle": "PCIe Gen4 x4 NVMe M.2 2280",
@@ -499,7 +482,7 @@ PLAYSTATION_PRODUCTS = [
         "weight_kg": 5.4,
         "rating": 4.8,
         "review_count": 178,
-        "images": ["https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80"],
+        "images": []
         "specifications": {
             "Technologie": "TRUEFORCE Feedback",
             "Material": "Handgenähtes Leder, Aluminium-Schaltwippen",
