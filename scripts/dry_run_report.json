@@ -1,0 +1,17 @@
+{
+  "execution_id": "run-1787570732986",
+  "mode": "EXECUTE",
+  "total_detected": 353,
+  "total_imported": 310,
+  "total_rejected": 0,
+  "total_needs_review": 43,
+  "total_images_processed": 353,
+  "fallback_levels_used": {
+    "level_1_official": 233,
+    "level_2_structured_data": 56,
+    "level_3_variant_match": 16,
+    "level_4_multisource_fallback": 6
+  },
+  "average_confidence_score": 98.4,
+  "timestamp": "2026-08-24T11:25:32.986Z"
+}
