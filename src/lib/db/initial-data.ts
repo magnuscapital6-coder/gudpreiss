@@ -652,7 +652,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 312,
     "images": [
-      "https://m.media-amazon.com/images/I/5103Oi95V3L._SL1500_.jpg"
+      "/images/products/amz-sony-playstation-5-pro-2tb-digital-edition.jpg"
     ],
     "compare_at_price": 849.99,
     "stock": 25,
@@ -678,7 +678,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 540,
     "images": [
-      "https://m.media-amazon.com/images/I/5103Oi95V3L._SL1500_.jpg"
+      "/images/products/amz-sony-playstation-5-slim-disc-edition-1tb.jpg"
     ],
     "compare_at_price": 599.99,
     "stock": 40,
@@ -704,7 +704,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 890,
     "images": [
-      "https://m.media-amazon.com/images/I/61tA1RjZ65L._SL1500_.jpg"
+      "/images/products/amz-sony-dualsense-wireless-controller-midnight-black.jpg"
     ],
     "compare_at_price": 74.99,
     "stock": 85,
@@ -730,7 +730,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 98,
     "images": [
-      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
+      "/images/products/amz-cube-reaction-hybrid-pro-750-allroad-2026.jpg"
     ],
     "compare_at_price": 3499,
     "stock": 12,
@@ -756,7 +756,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 64,
     "images": [
-      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
+      "/images/products/amz-cube-stereo-hybrid-140-hpc-race-750-carbon.jpg"
     ],
     "compare_at_price": 4699,
     "stock": 8,
@@ -782,7 +782,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 210,
     "images": [
-      "https://m.media-amazon.com/images/I/71TPda7cwUL._SL1500_.jpg"
+      "/images/products/amz-apple-macbook-air-15-m3-16gb-512gb-mitternacht.jpg"
     ],
     "compare_at_price": 1759,
     "stock": 30,
@@ -808,7 +808,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1420,
     "images": [
-      "https://m.media-amazon.com/images/I/61+btA28tEL._SL1500_.jpg"
+      "/images/products/amz-sony-wh-1000xm5-wireless-noise-cancelling-schwarz.jpg"
     ],
     "compare_at_price": 419,
     "stock": 50,
@@ -834,7 +834,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 380,
     "images": [
-      "https://m.media-amazon.com/images/I/51rpbVmi7eL._SL1500_.jpg"
+      "/images/products/amz-bose-quietcomfort-ultra-headphones-schwarz.jpg"
     ],
     "compare_at_price": 449.95,
     "stock": 25,
@@ -860,7 +860,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 2400,
     "images": [
-      "https://m.media-amazon.com/images/I/61SUj2aKoEL._SL1500_.jpg"
+      "/images/products/amz-apple-airpods-pro-2-gen-usb-c.jpg"
     ],
     "compare_at_price": 279,
     "stock": 75,
@@ -886,7 +886,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 670,
     "images": [
-      "https://m.media-amazon.com/images/I/71Wk36R6QGL._SL1500_.jpg"
+      "/images/products/amz-samsung-galaxy-s24-ultra-5g-512gb-titanium-gray.jpg"
     ],
     "compare_at_price": 1449,
     "stock": 20,
@@ -912,7 +912,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 1820,
     "images": [
-      "https://m.media-amazon.com/images/I/81sig8nN1E-L._SL1500_.jpg"
+      "/images/products/amz-apple-iphone-15-pro-max-256gb-titan-natur.jpg"
     ],
     "compare_at_price": 1449,
     "stock": 18,
@@ -938,7 +938,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 450,
     "images": [
-      "https://m.media-amazon.com/images/I/91z5KuonSrL._SL1500_.jpg"
+      "/images/products/amz-apple-watch-ultra-2-gps-cellular-49mm-titan.jpg"
     ],
     "compare_at_price": 949,
     "stock": 15,
@@ -964,7 +964,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 512,
     "images": [
-      "https://m.media-amazon.com/images/I/718yGStyJDL._SL1500_.jpg"
+      "/images/products/amz-garmin-fenix-7x-pro-sapphire-solar-gps.jpg"
     ],
     "compare_at_price": 969.99,
     "stock": 22,
@@ -990,7 +990,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 290,
     "images": [
-      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
+      "/images/products/amz-garmin-edge-1040-solar-fahrradcomputer-navi.jpg"
     ],
     "compare_at_price": 749.99,
     "stock": 30,
@@ -1016,7 +1016,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 42,
     "images": [
-      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
+      "/images/products/amz-haibike-allmtn-3-fully-e-mountainbike-750wh.jpg"
     ],
     "compare_at_price": 5399,
     "stock": 6,
@@ -1042,7 +1042,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 28,
     "images": [
-      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
+      "/images/products/amz-scott-lumen-eride-910-carbon-lightweight-e-bike.jpg"
     ],
     "compare_at_price": 6999,
     "stock": 4,
@@ -1068,7 +1068,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 55,
     "images": [
-      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
+      "/images/products/amz-conway-xyron-s-27-fully-e-mountainbike-bosch-750wh.jpg"
     ],
     "compare_at_price": 4399,
     "stock": 9,
@@ -1094,7 +1094,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 88,
     "images": [
-      "https://m.media-amazon.com/images/I/71u-sE5uOqL._SL1500_.jpg"
+      "/images/products/amz-asus-rog-zephyrus-g16-gaming-laptop-rtx-4080.jpg"
     ],
     "compare_at_price": 3199,
     "stock": 10,
@@ -1120,7 +1120,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 74,
     "images": [
-      "https://m.media-amazon.com/images/I/71c8Q7VfP-L._SL1500_.jpg"
+      "/images/products/amz-lenovo-legion-pro-7i-gaming-laptop-rtx-4090.jpg"
     ],
     "compare_at_price": 3899,
     "stock": 7,
@@ -1146,7 +1146,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 3200,
     "images": [
-      "https://m.media-amazon.com/images/I/61-PblYntsL._SL1500_.jpg"
+      "/images/products/amz-nintendo-switch-oled-modell-white-edition.jpg"
     ],
     "compare_at_price": 369.99,
     "stock": 60,
@@ -1172,7 +1172,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/5103Oi95V3L._SL1500_.jpg"
+      "/images/products/amz-steam-deck-oled-1tb-nvme-ssd-handheld.jpg"
     ],
     "compare_at_price": 719,
     "stock": 25,
@@ -1198,7 +1198,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 310,
     "images": [
-      "https://m.media-amazon.com/images/I/61tA1RjZ65L._SL1500_.jpg"
+      "/images/products/amz-asus-rog-ally-x-gaming-handheld-console-1tb.jpg"
     ],
     "compare_at_price": 949,
     "stock": 15,
@@ -1224,7 +1224,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 940,
     "images": [
-      "https://m.media-amazon.com/images/I/81w3n+S5SdL._SL1500_.jpg"
+      "/images/products/amz-lg-oled-evo-c3-65-zoll-4k-smart-tv.jpg"
     ],
     "compare_at_price": 2499,
     "stock": 12,
@@ -1250,7 +1250,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 420,
     "images": [
-      "https://m.media-amazon.com/images/I/61N+B4Z-m0L._SL1500_.jpg"
+      "/images/products/amz-sonos-era-300-smart-speaker-spatial-audio.jpg"
     ],
     "compare_at_price": 499,
     "stock": 35,
@@ -1276,7 +1276,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1150,
     "images": [
-      "https://m.media-amazon.com/images/I/61+eQ-5nCGL._SL1500_.jpg"
+      "/images/products/amz-sonos-beam-gen-2-kompakte-smart-soundbar.jpg"
     ],
     "compare_at_price": 549,
     "stock": 28,
@@ -1302,7 +1302,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1680,
     "images": [
-      "https://m.media-amazon.com/images/I/51r4x9U2KOL._SL1500_.jpg"
+      "/images/products/amz-dyson-v15-detect-extra-kabelloser-akkusauger.jpg"
     ],
     "compare_at_price": 829,
     "stock": 20,
@@ -1328,7 +1328,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 730,
     "images": [
-      "https://m.media-amazon.com/images/I/71W2b-yZ4-L._SL1500_.jpg"
+      "/images/products/amz-irobot-roomba-combo-j7-saug-wischroboter.jpg"
     ],
     "compare_at_price": 999,
     "stock": 14,
@@ -1354,7 +1354,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 14200,
     "images": [
-      "https://m.media-amazon.com/images/I/61-v8jA90VL._SL1500_.jpg"
+      "/images/products/amz-delonghi-magnifica-s-eam-2200-kaffeevollautomat.jpg"
     ],
     "compare_at_price": 399,
     "stock": 45,
@@ -1380,7 +1380,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 8900,
     "images": [
-      "https://m.media-amazon.com/images/I/71J4vGz1N-L._SL1500_.jpg"
+      "/images/products/amz-ninja-foodi-max-dualzone-heissluftfritteuse-9-5l.jpg"
     ],
     "compare_at_price": 249.99,
     "stock": 55,
@@ -1406,7 +1406,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 620,
     "images": [
-      "https://m.media-amazon.com/images/I/61kMvFpM+2L._SL1500_.jpg"
+      "/images/products/amz-dji-mini-4-pro-fly-more-combo-dji-rc-2.jpg"
     ],
     "compare_at_price": 1199,
     "stock": 18,
@@ -1432,7 +1432,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1250,
     "images": [
-      "https://m.media-amazon.com/images/I/61t7qA1HULL._SL1500_.jpg"
+      "/images/products/amz-gopro-hero12-black-action-kamera.jpg"
     ],
     "compare_at_price": 449.99,
     "stock": 30,
@@ -1458,7 +1458,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 410,
     "images": [
-      "https://m.media-amazon.com/images/I/61A8vL9G-BL._SL1500_.jpg"
+      "/images/products/amz-insta360-x4-8k-360-grad-actioncam.jpg"
     ],
     "compare_at_price": 559.99,
     "stock": 22,
@@ -1484,7 +1484,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 185,
     "images": [
-      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
+      "/images/products/amz-wahoo-kickr-v6-smart-trainer-hometrainer.jpg"
     ],
     "compare_at_price": 1399.99,
     "stock": 11,
@@ -1510,7 +1510,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 4500,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/amz-anker-737-powerbank-24000mah-140w.jpg"
     ],
     "compare_at_price": 149.99,
     "stock": 90,
@@ -1536,7 +1536,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 3200,
     "images": [
-      "https://m.media-amazon.com/images/I/81fH-s7TzCL._SL1500_.jpg"
+      "/images/products/amz-samsung-t7-shield-2tb-portable-ssd.jpg"
     ],
     "compare_at_price": 199.99,
     "stock": 65,
@@ -1562,7 +1562,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 5600,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/amz-logitech-mx-master-3s-wireless-maus-graphit.jpg"
     ],
     "compare_at_price": 129,
     "stock": 80,
@@ -1588,7 +1588,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 820,
     "images": [
-      "https://m.media-amazon.com/images/I/61+btA28tEL._SL1500_.jpg"
+      "/images/products/amz-steelseries-arctis-nova-pro-wireless-headset.jpg"
     ],
     "compare_at_price": 379.99,
     "stock": 20,
@@ -1614,7 +1614,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 1980,
     "images": [
-      "https://m.media-amazon.com/images/I/81+jNVOUsJL._SL1500_.jpg"
+      "/images/products/amz-apple-airpods-max-space-gray.jpg"
     ],
     "compare_at_price": 579,
     "stock": 15,
@@ -1640,7 +1640,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1100,
     "images": [
-      "https://m.media-amazon.com/images/I/71n047S2B7L._SL1500_.jpg"
+      "/images/products/amz-sennheiser-momentum-4-wireless-schwarz.jpg"
     ],
     "compare_at_price": 369.9,
     "stock": 30,
@@ -1666,7 +1666,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 780,
     "images": [
-      "https://m.media-amazon.com/images/I/61LpC9kE1pL._SL1500_.jpg"
+      "/images/products/amz-samsung-galaxy-watch6-classic-47mm-lte.jpg"
     ],
     "compare_at_price": 449,
     "stock": 25,
@@ -1692,7 +1692,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 950,
     "images": [
-      "https://m.media-amazon.com/images/I/716b68j0s3L._SL1500_.jpg"
+      "/images/products/amz-google-pixel-8-pro-256gb-bay-blue.jpg"
     ],
     "compare_at_price": 1159,
     "stock": 20,
@@ -1718,7 +1718,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 140,
     "images": [
-      "https://m.media-amazon.com/images/I/61bX2AoGjSL._SL1500_.jpg"
+      "/images/products/amz-apple-macbook-pro-16-m3-max-36gb-1tb-space-schwarz.jpg"
     ],
     "compare_at_price": 4249,
     "stock": 8,
@@ -1744,7 +1744,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 92,
     "images": [
-      "https://m.media-amazon.com/images/I/71b2gL55YmL._SL1500_.jpg"
+      "/images/products/amz-dell-xps-16-laptop-intel-core-ultra-9-rtx-4070.jpg"
     ],
     "compare_at_price": 2999,
     "stock": 12,
@@ -1770,7 +1770,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 480,
     "images": [
-      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
+      "/images/products/amz-playstation-vr2-horizon-call-of-the-mountain-bundle.jpg"
     ],
     "compare_at_price": 649.99,
     "stock": 22,
@@ -1796,7 +1796,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 670,
     "images": [
-      "https://m.media-amazon.com/images/I/61b7L4oG52L._SL1500_.jpg"
+      "/images/products/amz-sony-dualsense-edge-wireless-controller-ps5-pro.jpg"
     ],
     "compare_at_price": 239.99,
     "stock": 35,
@@ -1822,7 +1822,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 510,
     "images": [
-      "https://m.media-amazon.com/images/I/91rR4sN-uXL._SL1500_.jpg"
+      "/images/products/amz-samsung-neo-qled-65-qn90c-4k-tv.jpg"
     ],
     "compare_at_price": 2299,
     "stock": 14,
@@ -1848,7 +1848,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 4800,
     "images": [
-      "https://m.media-amazon.com/images/I/61I21jZ6S3L._SL1500_.jpg"
+      "/images/products/amz-vorwerk-thermomix-tm6-kuechenmaschine-komplett-set.jpg"
     ],
     "compare_at_price": 1499,
     "stock": 10,
@@ -1874,7 +1874,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 320,
     "images": [
-      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
+      "/images/products/amz-tacx-neo-2t-smart-trainer-garmin.jpg"
     ],
     "compare_at_price": 1299.99,
     "stock": 15,
@@ -1900,7 +1900,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 640,
     "images": [
-      "https://m.media-amazon.com/images/I/51r4x9U2KOL._SL1500_.jpg"
+      "/images/products/amz-philips-baristina-kaffeemaschine-schwarz.jpg"
     ],
     "compare_at_price": 149.99,
     "stock": 50,
@@ -1926,7 +1926,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 980,
     "images": [
-      "https://m.media-amazon.com/images/I/51rpbVmi7eL._SL1500_.jpg"
+      "/images/products/amz-logitech-g-pro-x-2-lightspeed-wireless-headset.jpg"
     ],
     "compare_at_price": 269,
     "stock": 40,
@@ -1965,7 +1965,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 142,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/sony-playstation-5-pro-2tb-ssd.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "2TB NVMe Custom SSD",
@@ -2005,7 +2005,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 310,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/sony-playstation-5-slim-disc-edition-1tb.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -2042,7 +2042,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 188,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/sony-playstation-5-slim-digital-edition-1tb.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -2077,7 +2077,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 94,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/sony-playstation-5-slim-astro-bot-bundle.jpg"
     ],
     "specifications": {
       "Inhalt": "PS5 Slim 1TB Disc Edition, ASTRO BOT Spielcode, DualSense Controller",
@@ -2111,7 +2111,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 520,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/sony-dualsense-wireless-controller-white.jpg"
     ],
     "specifications": {
       "Farbe": "Original Weiß / Schwarz",
@@ -2146,7 +2146,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 410,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/sony-dualsense-wireless-controller-midnight-black.jpg"
     ],
     "specifications": {
       "Farbe": "Midnight Black (Schwarz)",
@@ -2180,7 +2180,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 210,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/sony-dualsense-edge-pro-wireless-controller.jpg"
     ],
     "specifications": {
       "Features": "Austauschbare Stick-Caps & Module, 2 Rücktasten (Paddles), Trigger-Stopps",
@@ -2214,7 +2214,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 165,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/playstation-portal-remote-player-ps5.jpg"
     ],
     "specifications": {
       "Bildschirm": "8-Zoll LCD Touchscreen (1920x1080 Full HD)",
@@ -2249,7 +2249,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 175,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/sony-playstation-vr2-headset.jpg"
     ],
     "specifications": {
       "Display": "OLED (2000 x 2040 Pixel pro Auge)",
@@ -2285,7 +2285,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 115,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/sony-pulse-elite-wireless-headset-ps5.jpg"
     ],
     "specifications": {
       "Treiber": "Planar-Magnetostatische Treiber",
@@ -2320,7 +2320,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 290,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/wd-black-sn850x-2tb-nvme-ssd-heatsink-ps5.jpg"
     ],
     "specifications": {
       "Kapazität": "2TB (2000 GB)",
@@ -2356,7 +2356,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 178,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/logitech-g923-trueforce-racing-wheel-ps5.jpg"
     ],
     "specifications": {
       "Technologie": "TRUEFORCE Feedback",
@@ -2391,7 +2391,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/scott-lumen-905-cumulus-white-carbon-black-2025-e-bike-fully-mountainbike-4233588086006.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "360Wh",
@@ -2432,7 +2432,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/scott-lumen-920-carbon-black-2025-e-bike-fully-mountainbike-4234253020006.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "360Wh",
@@ -2473,7 +2473,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/scott-passage-20-flake-grey-2025-e-bike-trekkingrad-herren-4234517950010.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -2513,7 +2513,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/scott-passage-20-slope-aventurine-green-2025-e-bike-trekkingrad-damen-4234528128006.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -2553,7 +2553,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/scott-passage-30-highland-green-2025-e-bike-trekkingrad-herren-4234538113008.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -2593,7 +2593,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/conway-ryvon-st-4.0-full-suspension-carbon-matt-black-2025-e-bike-fully-mountainbike-02830066.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -2633,7 +2633,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/conway-xyron-suv-4.0-750wh-black-2025-e-bike-fully-mountainbike-02810124.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -2675,7 +2675,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/conway-xyron-s-5.0-carbon-750wh-desert-matt-plum-matt-2025-e-bike-fully-mountainbike-02810151.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -2716,7 +2716,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/conway-cairon-suv-fs-4.0-625wh-desert-matt-2025-e-bike-fully-mountainbike-tiefeinsteiger-02810374.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -2759,7 +2759,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/conway-cairon-suv-fs-4.0-625wh-graphit-grey-matt-2025-e-bike-fully-mountainbike-tiefeinsteiger-02810378.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -2802,7 +2802,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/conway-xyron-suv-4.0-750wh-reseda-green-matt-2025-e-bike-fully-mountainbike-02810393.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -2844,7 +2844,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/conway-xyron-s-5.0-carbon-750wh-black-bronze-2025-e-bike-fully-mountainbike-02810416.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -2885,7 +2885,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/conway-ryvon-lt-4.0-400wh-carbon-silver-2025-e-bike-fully-mountainbike-02830075.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -2925,7 +2925,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/haibike-hybe-9-grey-red-blk-matt-gloss-2024-e-bike-fully-mountainbike-45912340.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -2966,7 +2966,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/haibike-lyke-cf-11-carbon-sand-lime-gloss-2024-e-bike-fully-mountainbike-45804340.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "430Wh",
@@ -3007,7 +3007,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/kalkhoff-entice-7.b-advance-abs-moonstonegrey-matt-2024-e-bike-hardtail-mountainbike-663523750.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -3049,7 +3049,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/kalkhoff-entice-7.b-advance-abs-urbangreen-matt-2024-e-bike-hardtail-mountainbike-663523760.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -3091,7 +3091,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/winora-yakun-x10e-darkred-2024-e-bike-trekkingrad-herren-44300350.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -3131,7 +3131,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/haibike-nduro-6-matte-urban-grey-black-2025-e-bike-fully-mountainbike-45700450.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "720Wh",
@@ -3171,7 +3171,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-pro-800-night-n-chrome-2026-e-bike-fully-mountainbike-101110.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3212,7 +3212,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-pro-800-stonegrey-n-black-2026-e-bike-fully-mountainbike-101130.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3253,7 +3253,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-race-800-slabgrey-n-chrome-2026-e-bike-fully-mountainbike-101200.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3294,7 +3294,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-race-800-electricblue-n-white-2026-e-bike-fully-mountainbike-101210.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3335,7 +3335,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-race-800-shiftblush-n-black-2026-e-bike-fully-mountainbike-101220.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3376,7 +3376,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-race-800-fe-slabgrey-n-chrome-2026-e-bike-fully-mountainbike-101230.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3418,7 +3418,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-slx-800-indigoblue-n-blue-2026-e-bike-fully-mountainbike-101300-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3459,7 +3459,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-slx-800-greige-n-switch-2026-e-bike-fully-mountainbike-101320.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3500,7 +3500,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-slx-800-fe-indigoblue-n-blue-2026-e-bike-fully-mountainbike-101330.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3542,7 +3542,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-slt-800-prizmblack-n-black-2026-e-bike-fully-mountainbike-101400.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3583,7 +3583,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-pro-800-shiftblush-n-raisin-2026-e-bike-fully-mountainbike-102150.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3624,7 +3624,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-pro-800-fe-vulcan-n-orange-2026-e-bike-fully-mountainbike-102170-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3666,7 +3666,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-ex-800-blackline-2026-e-bike-fully-mountainbike-102200.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3707,7 +3707,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-ex-800-electricblue-n-blue-2026-e-bike-fully-mountainbike-102210.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3748,7 +3748,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-ex-800-iceblue-n-prism-2026-e-bike-fully-mountainbike-102220-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3789,7 +3789,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-exc-800-irongrey-n-chrome-2026-e-bike-fully-mountainbike-102300.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3830,7 +3830,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-exc-800-desertstone-n-driedherbs-2026-e-bike-fully-mountainbike-102310.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3871,7 +3871,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-exc-800-blueiris-n-black-2026-e-bike-fully-mountainbike-102320-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3912,7 +3912,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-exc-800-fe-irongrey-n-chrome-2026-e-bike-fully-mountainbike-102330.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3954,7 +3954,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-race-800-blackline-2026-e-bike-fully-mountainbike-102350-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3995,7 +3995,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-slx-800-slabgrey-n-orange-2026-e-bike-fully-mountainbike-102500.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4036,7 +4036,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-slx-evo-800-slategrey-n-black-2026-e-bike-fully-mountainbike-102600.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4077,7 +4077,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-tm-800-reedgreen-n-matrix-2026-e-bike-fully-mountainbike-102700.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4118,7 +4118,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-at-800-carbon-n-gold-2026-e-bike-fully-mountainbike-102800.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4159,7 +4159,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-at-800-actionteam-2026-e-bike-fully-mountainbike-102810.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4200,7 +4200,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one77-hpc-race-800-irongrey-n-black-2026-e-bike-fully-mountainbike-103100.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4241,7 +4241,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one77-hpc-race-800-willowgreen-n-black-2026-e-bike-fully-mountainbike-103110.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4282,7 +4282,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one77-hpc-race-800-swimmingpool-n-black-2026-e-bike-fully-mountainbike-103120-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4323,7 +4323,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one77-hpc-tm-800-reedgreen-n-matrix-2026-e-bike-fully-mountainbike-103400.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4364,7 +4364,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 142,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/sony-playstation-5-pro-2tb-ssd.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "2TB NVMe Custom SSD",
@@ -4404,7 +4404,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 310,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/sony-playstation-5-slim-disc-edition-1tb.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -4441,7 +4441,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 188,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/sony-playstation-5-slim-digital-edition-1tb.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -4476,7 +4476,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 94,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/sony-playstation-5-slim-astro-bot-bundle.jpg"
     ],
     "specifications": {
       "Inhalt": "PS5 Slim 1TB Disc Edition, ASTRO BOT Spielcode, DualSense Controller",
@@ -4510,7 +4510,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 520,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/sony-dualsense-wireless-controller-white.jpg"
     ],
     "specifications": {
       "Farbe": "Original Weiß / Schwarz",
@@ -4545,7 +4545,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 410,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/sony-dualsense-wireless-controller-midnight-black.jpg"
     ],
     "specifications": {
       "Farbe": "Midnight Black (Schwarz)",
@@ -4579,7 +4579,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 210,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/sony-dualsense-edge-pro-wireless-controller.jpg"
     ],
     "specifications": {
       "Features": "Austauschbare Stick-Caps & Module, 2 Rücktasten (Paddles), Trigger-Stopps",
@@ -4613,7 +4613,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 165,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/playstation-portal-remote-player-ps5.jpg"
     ],
     "specifications": {
       "Bildschirm": "8-Zoll LCD Touchscreen (1920x1080 Full HD)",
@@ -4648,7 +4648,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 175,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/sony-playstation-vr2-headset.jpg"
     ],
     "specifications": {
       "Display": "OLED (2000 x 2040 Pixel pro Auge)",
@@ -4684,7 +4684,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 115,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/sony-pulse-elite-wireless-headset-ps5.jpg"
     ],
     "specifications": {
       "Treiber": "Planar-Magnetostatische Treiber",
@@ -4719,7 +4719,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 290,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/wd-black-sn850x-2tb-nvme-ssd-heatsink-ps5.jpg"
     ],
     "specifications": {
       "Kapazität": "2TB (2000 GB)",
@@ -4755,7 +4755,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 178,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/logitech-g923-trueforce-racing-wheel-ps5.jpg"
     ],
     "specifications": {
       "Technologie": "TRUEFORCE Feedback",
@@ -4790,7 +4790,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/scott-lumen-905-cumulus-white-carbon-black-2025-e-bike-fully-mountainbike-4233588086006.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "360Wh",
@@ -4831,7 +4831,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/scott-lumen-920-carbon-black-2025-e-bike-fully-mountainbike-4234253020006.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "360Wh",
@@ -4872,7 +4872,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/scott-passage-20-flake-grey-2025-e-bike-trekkingrad-herren-4234517950006.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -4912,7 +4912,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/scott-passage-20-slope-aventurine-green-2025-e-bike-trekkingrad-damen-4234528128006.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -4952,7 +4952,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/scott-passage-30-highland-green-2025-e-bike-trekkingrad-herren-4234538113006.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -4992,7 +4992,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/conway-ryvon-st-4.0-full-suspension-carbon-matt-black-2025-e-bike-fully-mountainbike-02830068.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -5032,7 +5032,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/conway-xyron-suv-4.0-750wh-black-2025-e-bike-fully-mountainbike-02810124.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5074,7 +5074,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/conway-xyron-s-5.0-carbon-750wh-desert-matt-plum-matt-2025-e-bike-fully-mountainbike-02810152.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5115,7 +5115,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/conway-cairon-suv-fs-4.0-625wh-desert-matt-2025-e-bike-fully-mountainbike-tiefeinsteiger-02810374.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -5158,7 +5158,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/conway-cairon-suv-fs-4.0-625wh-graphit-grey-matt-2025-e-bike-fully-mountainbike-tiefeinsteiger-02810378.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -5201,7 +5201,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/conway-xyron-suv-4.0-750wh-reseda-green-matt-2025-e-bike-fully-mountainbike-02810393.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5243,7 +5243,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/conway-xyron-s-5.0-carbon-750wh-black-bronze-2025-e-bike-fully-mountainbike-02810416.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5284,7 +5284,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/conway-ryvon-lt-4.0-400wh-carbon-silver-2025-e-bike-fully-mountainbike-02830075.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -5324,7 +5324,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/haibike-hybe-9-grey-red-blk-matt-gloss-2024-e-bike-fully-mountainbike-45912340.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5365,7 +5365,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/haibike-lyke-cf-11-carbon-sand-lime-gloss-2024-e-bike-fully-mountainbike-45804350.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "430Wh",
@@ -5406,7 +5406,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/kalkhoff-entice-7.b-advance-abs-moonstonegrey-matt-2024-e-bike-hardtail-mountainbike-663523750.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5448,7 +5448,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/kalkhoff-entice-7.b-advance-abs-urbangreen-matt-2024-e-bike-hardtail-mountainbike-663523760.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5490,7 +5490,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/winora-yakun-x10e-darkred-2024-e-bike-trekkingrad-herren-44300330.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -5530,7 +5530,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/haibike-nduro-6-matte-urban-grey-black-2025-e-bike-fully-mountainbike-45700430.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "720Wh",
@@ -5570,7 +5570,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-pro-800-night-n-chrome-2026-e-bike-fully-mountainbike-101110.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5611,7 +5611,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-pro-800-stonegrey-n-black-2026-e-bike-fully-mountainbike-101130-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5652,7 +5652,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-race-800-slabgrey-n-chrome-2026-e-bike-fully-mountainbike-101200.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5693,7 +5693,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-race-800-electricblue-n-white-2026-e-bike-fully-mountainbike-101210-2.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5734,7 +5734,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-race-800-shiftblush-n-black-2026-e-bike-fully-mountainbike-101220-2.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5775,7 +5775,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-race-800-fe-slabgrey-n-chrome-2026-e-bike-fully-mountainbike-101230.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5817,7 +5817,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-slx-800-indigoblue-n-blue-2026-e-bike-fully-mountainbike-101300-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5858,7 +5858,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-slx-800-greige-n-switch-2026-e-bike-fully-mountainbike-101320.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5899,7 +5899,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-slx-800-fe-indigoblue-n-blue-2026-e-bike-fully-mountainbike-101330.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5941,7 +5941,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one22-slt-800-prizmblack-n-black-2026-e-bike-fully-mountainbike-101400.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5982,7 +5982,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-pro-800-shiftblush-n-raisin-2026-e-bike-fully-mountainbike-102150.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6023,7 +6023,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-pro-800-fe-vulcan-n-orange-2026-e-bike-fully-mountainbike-102170.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6065,7 +6065,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-ex-800-blackline-2026-e-bike-fully-mountainbike-102200-2.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6106,7 +6106,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-ex-800-electricblue-n-blue-2026-e-bike-fully-mountainbike-102210.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6147,7 +6147,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-ex-800-iceblue-n-prism-2026-e-bike-fully-mountainbike-102220-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6188,7 +6188,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-exc-800-irongrey-n-chrome-2026-e-bike-fully-mountainbike-102300.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6229,7 +6229,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-exc-800-desertstone-n-driedherbs-2026-e-bike-fully-mountainbike-102310.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6270,7 +6270,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-exc-800-blueiris-n-black-2026-e-bike-fully-mountainbike-102320.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6311,7 +6311,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-exc-800-fe-irongrey-n-chrome-2026-e-bike-fully-mountainbike-102330.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6353,7 +6353,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-race-800-blackline-2026-e-bike-fully-mountainbike-102350.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6394,7 +6394,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-slx-800-slabgrey-n-orange-2026-e-bike-fully-mountainbike-102500.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6435,7 +6435,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-slx-evo-800-slategrey-n-black-2026-e-bike-fully-mountainbike-102600.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6476,7 +6476,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-tm-800-reedgreen-n-matrix-2026-e-bike-fully-mountainbike-102700-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6517,7 +6517,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-at-800-carbon-n-gold-2026-e-bike-fully-mountainbike-102800.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6558,7 +6558,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one44-hpc-at-800-actionteam-2026-e-bike-fully-mountainbike-102810.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6599,7 +6599,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one77-hpc-race-800-irongrey-n-black-2026-e-bike-fully-mountainbike-103100.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6640,7 +6640,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one77-hpc-race-800-willowgreen-n-black-2026-e-bike-fully-mountainbike-103110-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6681,7 +6681,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one77-hpc-race-800-swimmingpool-n-black-2026-e-bike-fully-mountainbike-103120.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6722,7 +6722,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
+      "/images/products/cube-stereo-hybrid-one77-hpc-tm-800-reedgreen-n-matrix-2026-e-bike-fully-mountainbike-103400-1.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
