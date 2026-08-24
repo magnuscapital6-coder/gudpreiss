@@ -28,10 +28,9 @@ async function isAdminSession(request: NextRequest): Promise<boolean> {
 
   try {
     const verified = await verifyValue(authCookie);
-    const rawStr = verified || authCookie;
-    const cleanStr = rawStr.includes('.') ? rawStr.substring(0, rawStr.lastIndexOf('.')) : rawStr;
-    const profile = JSON.parse(decodeURIComponent(cleanStr));
-    return profile?.role === 'admin' || profile?.role === 'manager' || profile?.email?.includes('admin');
+    if (!verified) return false;
+    const profile = JSON.parse(decodeURIComponent(verified));
+    return profile?.role === 'admin' || profile?.role === 'manager';
   } catch {
     return false;
   }
@@ -49,7 +48,7 @@ async function hasSession(request: NextRequest): Promise<boolean> {
 
   try {
     const verified = await verifyValue(authCookie);
-    return !!(verified || authCookie);
+    return !!verified;
   } catch {
     return false;
   }

@@ -12,7 +12,24 @@
 const ALGO = 'HMAC-SHA256';
 
 function getSecret(): string {
-  return process.env.AUTH_COOKIE_SECRET || 'gudpreiss-dev-secret-change-in-production';
+  const secret = process.env.AUTH_COOKIE_SECRET;
+  if (!secret) {
+    // In production, refuse to run with no secret
+    if (process.env.NODE_ENV === 'production') {
+      throw new Error(
+        'AUTH_COOKIE_SECRET is not set. ' +
+        'Generate one with: openssl rand -hex 32',
+      );
+    }
+    // In development, use a per-instance random secret (never hardcoded)
+    console.warn(
+      '[SECURITY] AUTH_COOKIE_SECRET not set. ' +
+      'Using ephemeral dev secret — auth cookies will NOT survive restarts.',
+    );
+    // Generate a random secret for this server instance
+    return crypto.randomUUID();
+  }
+  return secret;
 }
 
 let cachedKey: CryptoKey | null = null;

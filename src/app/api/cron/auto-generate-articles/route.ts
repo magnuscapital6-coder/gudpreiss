@@ -16,8 +16,14 @@ export async function GET(req: NextRequest) {
     const secretParam = searchParams.get('secret');
     const expectedSecret = process.env.CRON_SECRET;
 
-    // Optional secret check if CRON_SECRET is configured
-    if (expectedSecret && secretParam !== expectedSecret) {
+    // Required secret check — reject if CRON_SECRET is not set or doesn't match
+    if (!expectedSecret) {
+      return NextResponse.json(
+        { error: 'Server misconfiguration: CRON_SECRET is not set' },
+        { status: 500 },
+      );
+    }
+    if (secretParam !== expectedSecret) {
       return NextResponse.json({ error: 'Unauthorized: Invalid CRON_SECRET token' }, { status: 401 });
     }
 
@@ -48,6 +54,13 @@ export async function GET(req: NextRequest) {
  */
 export async function POST(req: NextRequest) {
   try {
+    // Require admin session for POST
+    const { getServerSession } = await import('@/lib/supabase/server');
+    const session = await getServerSession();
+    if (!session.isAdmin) {
+      return NextResponse.json({ error: 'Admin access required' }, { status: 403 });
+    }
+
     const body = await req.json().catch(() => ({}));
     const action = body.action || 'run';
 

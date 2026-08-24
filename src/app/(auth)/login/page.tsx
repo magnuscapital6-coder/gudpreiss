@@ -60,7 +60,7 @@ function LoginForm() {
     if (res.success) {
       const targetUrl = (redirectTo && redirectTo.startsWith('/'))
         ? redirectTo
-        : (email.toLowerCase().includes('admin') ? '/admin' : '/account');
+        : '/account';
       
       window.location.href = targetUrl;
     } else {

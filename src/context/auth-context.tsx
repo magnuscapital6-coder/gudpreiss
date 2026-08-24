@@ -18,45 +18,12 @@ interface AuthContextType {
   logout: () => Promise<void>;
 }
 
-// Cookie helpers for middleware-readable auth state
-const AUTH_COOKIE = 'gudpreiss_auth_user';
-const COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
-
-/**
- * Sign cookie value with HMAC-SHA256 client-side.
- * Uses the same Web Crypto API as the server.
- * The signature prevents cookie forgery.
- */
-async function signValue(value: string): Promise<string> {
-  const secret = 'gudpreiss-dev-secret-change-in-production';
-  const enc = new TextEncoder();
-  const key = await crypto.subtle.importKey(
-    'raw',
-    enc.encode(secret),
-    { name: 'HMAC', hash: 'SHA-256' },
-    false,
-    ['sign'],
-  );
-  const sig = await crypto.subtle.sign('HMAC', key, enc.encode(value));
-  const hex = Array.from(new Uint8Array(sig))
-    .map((b) => b.toString(16).padStart(2, '0'))
-    .join('');
-  return `${value}.${hex}`;
-}
-
-async function setAuthCookie(profile: UserProfile) {
-  try {
-    const jsonValue = JSON.stringify(profile);
-    const encoded = encodeURIComponent(jsonValue);
-    const signed = await signValue(encoded);
-    document.cookie = `${AUTH_COOKIE}=${signed}; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`;
-  } catch {
-    // Non-blocking
-  }
-}
-
+// Cookie helpers: the server sets the httpOnly auth cookie on login.
+// Client-side cookie management is NOT needed for middleware auth.
+// User state is managed via localStorage for the UI layer only.
 function removeAuthCookie() {
-  document.cookie = `${AUTH_COOKIE}=; path=/; max-age=0; SameSite=Lax`;
+  // The httpOnly cookie is cleared by the server-side logout endpoint.
+  // We cannot clear it from JS, but it expires via max-age anyway.
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -129,7 +96,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           };
           setUser(profile);
           localStorage.setItem('gudpreiss_auth_user', JSON.stringify(profile));
-          await setAuthCookie(profile);
           setIsLoading(false);
           return { success: true };
         }
@@ -174,7 +140,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       };
       setUser(newUser);
       localStorage.setItem('gudpreiss_auth_user', JSON.stringify(newUser));
-      await setAuthCookie(newUser);
       setIsLoading(false);
       return { success: true };
     } catch (err: unknown) {

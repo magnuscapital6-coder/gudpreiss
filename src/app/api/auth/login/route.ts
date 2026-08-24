@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, resetRateLimit } from '@/lib/rate-limit';
 import { loginSchema } from '@/lib/validation';
+import crypto from 'crypto';
 
 /**
  * POST /api/auth/login
@@ -109,47 +110,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // ── Admin Login Check (Any email containing admin) ──────────────────────────
+    // ── Account Lookup — NO password bypass ──────────────────────────
     let userObj: { id: string; email: string; full_name: string; role: string } | null = null;
 
-    if (cleanEmail.includes('admin') || cleanEmail.startsWith('admin')) {
+    const demoAccounts = getDemoAccounts();
+    const account = demoAccounts[cleanEmail];
+
+    if (account && password === account.password) {
       resetRateLimit(ipKey);
       resetRateLimit(emailKey);
-      const userId = `usr-admin-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
+      const userId = `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
       userObj = {
         id: userId,
         email: cleanEmail,
-        full_name: 'GudPreiss Admin',
-        role: 'admin',
+        full_name: account.name,
+        role: account.role,
       };
-    } else {
-      const demoAccounts = getDemoAccounts();
-      const account = demoAccounts[cleanEmail];
-
-      if (account && password === account.password) {
-        resetRateLimit(ipKey);
-        resetRateLimit(emailKey);
-        const userId = `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
-        userObj = {
-          id: userId,
-          email: cleanEmail,
-          full_name: account.name,
-          role: account.role,
-        };
-      } else if (password && password.length >= 1) {
-        resetRateLimit(ipKey);
-        resetRateLimit(emailKey);
-        const namePart = cleanEmail.split('@')[0];
-        const capitalizedName = namePart.charAt(0).toUpperCase() + namePart.slice(1);
-        const userId = `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
-        userObj = {
-          id: userId,
-          email: cleanEmail,
-          full_name: capitalizedName,
-          role: 'customer',
-        };
-      }
     }
+    // No fallback: unknown email/password combinations are rejected.
 
     if (userObj) {
       const response = NextResponse.json({
@@ -175,13 +153,19 @@ export async function POST(request: NextRequest) {
       response.cookies.set('gudpreiss_auth_user', encodeURIComponent(profileJson), {
         path: '/',
         maxAge,
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
       });
 
       if (userObj.role === 'admin') {
-        response.cookies.set('sb-access-token', 'admin-session-token-valid-for-gudpreiss-admin-access-mode', {
+        // Generate a unique session token per login (not hardcoded)
+        const sessionToken = crypto.randomBytes(32).toString('hex');
+        response.cookies.set('sb-access-token', sessionToken, {
           path: '/',
           maxAge,
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
           sameSite: 'lax',
         });
       }

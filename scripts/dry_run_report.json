@@ -1,17 +1,84 @@
 {
-  "execution_id": "run-1787570732986",
-  "mode": "EXECUTE",
-  "total_detected": 353,
-  "total_imported": 310,
+  "execution_id": "import-1787572124659",
+  "mode": "DRY_RUN",
+  "total_detected": 255,
+  "total_normalized": 255,
+  "total_imported": 251,
   "total_rejected": 0,
-  "total_needs_review": 43,
-  "total_images_processed": 353,
-  "fallback_levels_used": {
-    "level_1_official": 233,
-    "level_2_structured_data": 56,
-    "level_3_variant_match": 16,
-    "level_4_multisource_fallback": 6
+  "total_needs_review": 0,
+  "total_images_processed": 1029,
+  "duplicates_prevented": 4,
+  "average_confidence_score": 78,
+  "sources_summary": [
+    {
+      "source_name": "amsi-store",
+      "products_count": 100,
+      "blocked_count": 0
+    },
+    {
+      "source_name": "abt-store",
+      "products_count": 100,
+      "blocked_count": 0
+    },
+    {
+      "source_name": "o2-scraped",
+      "products_count": 3,
+      "blocked_count": 18
+    },
+    {
+      "source_name": "otelo-blau-scraped",
+      "products_count": 2,
+      "blocked_count": 30
+    },
+    {
+      "source_name": "refurbed-scraped",
+      "products_count": 50,
+      "blocked_count": -17
+    }
+  ],
+  "existing_products_removed": 0,
+  "execution_timestamp": "2026-08-24T11:48:45.745Z",
+  "duration_ms": 1086,
+  "products_by_status": {
+    "validated": 255,
+    "needs_review": 0,
+    "rejected": 0
   },
-  "average_confidence_score": 98.4,
-  "timestamp": "2026-08-24T11:25:32.986Z"
+  "top_products": [
+    {
+      "name": "Canon MAXIFY GX3040",
+      "brand": "Canon",
+      "price": 472.59,
+      "confidence": 85,
+      "images": 4
+    },
+    {
+      "name": "Canon MAXIFY GX1040",
+      "brand": "Canon",
+      "price": 350.63,
+      "confidence": 80,
+      "images": 3
+    },
+    {
+      "name": "Canon i-SENSYS MF237w",
+      "brand": "Canon",
+      "price": 548.82,
+      "confidence": 80,
+      "images": 3
+    },
+    {
+      "name": "Canon i-SENSYS MF453dw",
+      "brand": "Canon",
+      "price": 731.76,
+      "confidence": 80,
+      "images": 3
+    },
+    {
+      "name": "Canon i-SENSYS MF664Cdw",
+      "brand": "Canon",
+      "price": 1036.65,
+      "confidence": 85,
+      "images": 3
+    }
+  ]
 }
