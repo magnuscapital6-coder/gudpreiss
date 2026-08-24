@@ -2,6 +2,9 @@ import { INITIAL_PRODUCTS, INITIAL_CATEGORIES, INITIAL_BRANDS, INITIAL_BANNERS, 
 import { Product, Category, Brand, Banner, Review, Coupon, BlogPost, Order, StoreSettings, LegalPage } from '@/types';
 import { createClient } from '@supabase/supabase-js';
 
+// Valid SVG placeholder for missing images (properly encoded data URI)
+const SVG_PLACEHOLDER = 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22600%22%20viewBox%3D%220%200%20600%20600%22%20fill%3D%22none%22%3E%3Crect%20width%3D%22600%22%20height%3D%22600%22%20fill%3D%22%23020617%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22200%22%20width%3D%22200%22%20height%3D%22200%22%20rx%3D%2220%22%20fill%3D%22%231e293b%22%20stroke%3D%22%2310b981%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22300%22%20r%3D%2250%22%20stroke%3D%22%2334d399%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22440%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22bold%22%20fill%3D%22%2394a3b8%22%20text-anchor%3D%22middle%22%3EGudPreiss%20Premium%3C%2Ftext%3E%3C%2Fsvg%3E';
+
 // Initialize Supabase Client if environment variables are provided
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
@@ -126,7 +129,7 @@ Um das volle Potenzial der **[PS5 Pro](/shop/playstation-5-pro-konsole)** auszus
 ## Fazit: Für wen lohnt sich der Kauf?
 
 Die PS5 Pro richtet sich an anspruchsvolle Spieler, die keine Kompromisse bei Bildrate und Grafikqualität eingehen wollen. Bestellen Sie Ihre Konsole jetzt bei GudPreiss mit garantiert schnellem Versand!`,
-    cover_image: 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22600%22%20viewBox%3D%220%200%20600%20600%22%20fill%3D%22none%22%3E%3Crect%20width%3D%22600%22%20height%3D%22600%22%20fill%3D%22%23020617%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22200%22%20width%3D%22200%22%20height%3D%22200%22%20rx%3D%2220%22%20fill%3D%22%231e293b%22%20stroke%3D%22%2310b981%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22300%22%20r%3D%2250%22%20stroke%3D%22%2334d399%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22440%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22bold%22%20fill%3D%22%2394a3b8%22%20text-anchor%3D%22middle%22%3EGudPreiss%20Premium%3C%2Ftext%3E%3C%2Fsvg%3E"http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none"><rect width="600" height="600" fill="%23020617"/><rect x="200" y="200" width="200" height="200" rx="20" fill="%231e293b" stroke="%2310b981" stroke-width="4"/><circle cx="300" cy="300" r="50" stroke="%2334d399" stroke-width="6"/><text x="300" y="440" font-family="sans-serif" font-size="22" font-weight="bold" fill="%2394a3b8" text-anchor="middle">GudPreiss Premium</text></svg>',
+    cover_image: SVG_PLACEHOLDER,
     author_name: 'GudPreiss Redaktion',
     category: 'Gaming',
     tags: ['PS5 Pro', 'PlayStation', 'DualSense Edge', 'Testbericht'],
@@ -152,8 +155,21 @@ async function triggerRevalidation(paths: string[]) {
         revalidatePath(p);
       }
     }
-  } catch {
-    // Non-blocking cache revalidation attempt
+  } catch (err) {
+    // Non-blocking cache revalidation attempt — log for debugging
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('[DB] Revalidation failed:', err);
+    }
+  }
+}
+
+/**
+ * Log Supabase errors in development, silently ignore in production.
+ * This helps debugging while keeping the fallback behavior.
+ */
+function logSupabaseError(operation: string, err: unknown) {
+  if (process.env.NODE_ENV === 'development') {
+    console.warn(`[DB] Supabase ${operation} failed, using memory fallback:`, err);
   }
 }
 
@@ -346,7 +362,7 @@ export async function createBlogPost(post: Partial<BlogPost>): Promise<BlogPost>
     slug: post.slug || `post-${Date.now()}`,
     excerpt: post.excerpt || '',
     content: post.content || '',
-    cover_image: post.cover_image || 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22600%22%20viewBox%3D%220%200%20600%20600%22%20fill%3D%22none%22%3E%3Crect%20width%3D%22600%22%20height%3D%22600%22%20fill%3D%22%23020617%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22200%22%20width%3D%22200%22%20height%3D%22200%22%20rx%3D%2220%22%20fill%3D%22%231e293b%22%20stroke%3D%22%2310b981%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22300%22%20r%3D%2250%22%20stroke%3D%22%2334d399%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22440%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22bold%22%20fill%3D%22%2394a3b8%22%20text-anchor%3D%22middle%22%3EGudPreiss%20Premium%3C%2Ftext%3E%3C%2Fsvg%3E"http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none"><rect width="600" height="600" fill="%23020617"/><rect x="200" y="200" width="200" height="200" rx="20" fill="%231e293b" stroke="%2310b981" stroke-width="4"/><circle cx="300" cy="300" r="50" stroke="%2334d399" stroke-width="6"/><text x="300" y="440" font-family="sans-serif" font-size="22" font-weight="bold" fill="%2394a3b8" text-anchor="middle">GudPreiss Premium</text></svg>',
+    cover_image: post.cover_image || SVG_PLACEHOLDER,
     author_name: post.author_name || 'GudPreiss Redaktion',
     category: post.category || 'Technologie',
     tags: post.tags || ['Tech', 'News'],
@@ -377,8 +393,8 @@ export async function createBlogPost(post: Partial<BlogPost>): Promise<BlogPost>
         published_at: newPost.published_at,
         read_time: `${newPost.read_time_minutes} min`,
       }]);
-    } catch {
-      // Non-blocking fallback to memory store
+    } catch (err) {
+      logSupabaseError('blog_posts.insert', err);
     }
   }
 
@@ -531,8 +547,8 @@ export async function getOrders(): Promise<Order[]> {
           }
         }
       }
-    } catch {
-      // Fallback
+    } catch (err) {
+      logSupabaseError('orders.select', err);
     }
   }
   return combined;
@@ -547,8 +563,8 @@ export async function getOrderById(id: string): Promise<Order | null> {
         .or(`id.eq.${id},order_number.eq.${id}`)
         .single();
       if (!error && data) return data as Order;
-    } catch {
-      // Fallback
+    } catch (err) {
+      logSupabaseError('orders.select', err);
     }
   }
   return memoryOrders.find((o) => o.id === id || o.order_number === id) || null;
@@ -565,8 +581,8 @@ export async function getCouponByCode(code: string): Promise<Coupon | null> {
         .eq('active', true)
         .single();
       if (!error && data) return data as Coupon;
-    } catch {
-      // Fallback
+    } catch (err) {
+      logSupabaseError('coupons.select', err);
     }
   }
   return memoryCoupons.find((c) => c.code.toUpperCase() === cleanCode && c.active) || null;
@@ -582,8 +598,8 @@ export async function getStoreSettings(): Promise<StoreSettings> {
       if (!error && data) {
         return { ...memorySettings, ...data };
       }
-    } catch {
-      // Fallback
+    } catch (err) {
+      logSupabaseError('store_settings.select', err);
     }
   }
   return {
@@ -607,8 +623,8 @@ export async function updateStoreSettings(settingsData: Partial<StoreSettings>):
   if (supabase) {
     try {
       await supabase.from('store_settings').upsert([memorySettings]);
-    } catch {
-      // Non-blocking
+    } catch (err) {
+      logSupabaseError('store_settings.upsert', err);
     }
   }
 
@@ -653,7 +669,7 @@ export async function createProduct(productData: Partial<Product>): Promise<Prod
     images:
       productData.images && productData.images.length > 0
         ? productData.images
-        : ['data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22600%22%20viewBox%3D%220%200%20600%20600%22%20fill%3D%22none%22%3E%3Crect%20width%3D%22600%22%20height%3D%22600%22%20fill%3D%22%23020617%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22200%22%20width%3D%22200%22%20height%3D%22200%22%20rx%3D%2220%22%20fill%3D%22%231e293b%22%20stroke%3D%22%2310b981%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22300%22%20r%3D%2250%22%20stroke%3D%22%2334d399%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22440%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22bold%22%20fill%3D%22%2394a3b8%22%20text-anchor%3D%22middle%22%3EGudPreiss%20Premium%3C%2Ftext%3E%3C%2Fsvg%3E"http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none"><rect width="600" height="600" fill="%23020617"/><rect x="200" y="200" width="200" height="200" rx="20" fill="%231e293b" stroke="%2310b981" stroke-width="4"/><circle cx="300" cy="300" r="50" stroke="%2334d399" stroke-width="6"/><text x="300" y="440" font-family="sans-serif" font-size="22" font-weight="bold" fill="%2394a3b8" text-anchor="middle">GudPreiss Premium</text></svg>'],
+        : [SVG_PLACEHOLDER],
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   };
@@ -690,8 +706,8 @@ export async function createProduct(productData: Partial<Product>): Promise<Prod
         .single();
 
       // Error handling: silently fall back to memory store
-    } catch {
-      // Non-blocking
+    } catch (err) {
+      logSupabaseError('products.insert', err);
     }
   }
 
@@ -723,8 +739,8 @@ export async function updateProduct(id: string, productData: Partial<Product>): 
           updated_at: new Date().toISOString(),
         })
         .eq('id', id);
-    } catch {
-      // Non-blocking
+    } catch (err) {
+      logSupabaseError('products.update', err);
     }
   }
 
@@ -739,8 +755,8 @@ export async function deleteProduct(id: string): Promise<boolean> {
   if (supabase) {
     try {
       await supabase.from('products').delete().eq('id', id);
-    } catch {
-      // Non-blocking
+    } catch (err) {
+      logSupabaseError('products.delete', err);
     }
   }
 
@@ -807,8 +823,8 @@ export async function createOrder(orderPayload: Partial<Order>): Promise<Order> 
         .single();
 
       // Error handling: silently fall back to memory store
-    } catch {
-      // Non-blocking
+    } catch (err) {
+      logSupabaseError('orders.insert', err);
     }
   }
 
@@ -838,8 +854,8 @@ export async function updateOrderStatus(orderId: string, status: Order['order_st
         .from('orders')
         .update({ order_status: status })
         .or(`id.eq.${orderId},order_number.eq.${orderId}`);
-    } catch {
-      // Non-blocking
+    } catch (err) {
+      logSupabaseError('orders.update', err);
     }
   }
 
@@ -861,8 +877,8 @@ export async function createCoupon(couponData: Partial<Coupon>): Promise<Coupon>
   if (supabase) {
     try {
       await supabase.from('coupons').insert([newCoupon]);
-    } catch {
-      // Non-blocking
+    } catch (err) {
+      logSupabaseError('coupons.insert', err);
     }
   }
 
@@ -876,7 +892,7 @@ export async function createCategory(categoryData: Partial<Category>): Promise<C
     name: categoryData.name || 'New Category',
     slug: categoryData.slug || categoryData.name?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || `category-${Date.now()}`,
     description: categoryData.description || '',
-    image_url: categoryData.image_url || 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22600%22%20viewBox%3D%220%200%20600%20600%22%20fill%3D%22none%22%3E%3Crect%20width%3D%22600%22%20height%3D%22600%22%20fill%3D%22%23020617%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22200%22%20width%3D%22200%22%20height%3D%22200%22%20rx%3D%2220%22%20fill%3D%22%231e293b%22%20stroke%3D%22%2310b981%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22300%22%20r%3D%2250%22%20stroke%3D%22%2334d399%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22440%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22bold%22%20fill%3D%22%2394a3b8%22%20text-anchor%3D%22middle%22%3EGudPreiss%20Premium%3C%2Ftext%3E%3C%2Fsvg%3E"http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none"><rect width="600" height="600" fill="%23020617"/><rect x="200" y="200" width="200" height="200" rx="20" fill="%231e293b" stroke="%2310b981" stroke-width="4"/><circle cx="300" cy="300" r="50" stroke="%2334d399" stroke-width="6"/><text x="300" y="440" font-family="sans-serif" font-size="22" font-weight="bold" fill="%2394a3b8" text-anchor="middle">GudPreiss Premium</text></svg>',
+    image_url: categoryData.image_url || SVG_PLACEHOLDER,
     sort_order: memoryCategories.length + 1,
     active: true,
     created_at: new Date().toISOString(),
@@ -894,8 +910,8 @@ export async function createCategory(categoryData: Partial<Category>): Promise<C
           image_url: newCat.image_url,
         },
       ]);
-    } catch {
-      // Non-blocking
+    } catch (err) {
+      logSupabaseError('categories.insert', err);
     }
   }
 
@@ -925,8 +941,8 @@ export async function updateCategory(id: string, updates: Partial<Category>): Pr
           image_url: updates.image_url,
         })
         .or(`id.eq.${id},slug.eq.${id}`);
-    } catch {
-      // Non-blocking
+    } catch (err) {
+      logSupabaseError('categories.update', err);
     }
   }
 
@@ -941,8 +957,8 @@ export async function deleteCategory(id: string): Promise<boolean> {
   if (supabase) {
     try {
       await supabase.from('categories').delete().or(`id.eq.${id},slug.eq.${id}`);
-    } catch {
-      // Non-blocking
+    } catch (err) {
+      logSupabaseError('categories.delete', err);
     }
   }
 
@@ -958,8 +974,8 @@ export async function updateReviewStatus(reviewId: string, status: 'approved' | 
   if (supabase) {
     try {
       await supabase.from('reviews').update({ status }).eq('id', reviewId);
-    } catch {
-      // Non-blocking
+    } catch (err) {
+      logSupabaseError('reviews.update', err);
     }
   }
   return true;

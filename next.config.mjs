@@ -17,8 +17,8 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: '4mb',
     },
-    serverComponentsExternalPackages: ['pg'],
   },
+  serverExternalPackages: ['pg'],
   async rewrites() {
     return [
       { source: '/admin/Produkte', destination: '/admin/products' },

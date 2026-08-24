@@ -151,6 +151,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = useCallback(async () => {
     try {
+      // Clear server-side cookies
+      await fetch('/api/auth/logout', { method: 'POST' });
+    } catch {
+      // Ignore
+    }
+    try {
       const supabase = createClient();
       if (supabase && process.env.NEXT_PUBLIC_SUPABASE_URL) {
         await supabase.auth.signOut();
@@ -160,7 +166,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
     setUser(null);
     localStorage.removeItem('gudpreiss_auth_user');
-    removeAuthCookie();
   }, []);
 
   return (

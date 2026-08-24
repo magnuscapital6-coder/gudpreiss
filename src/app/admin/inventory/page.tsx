@@ -87,9 +87,11 @@ export default function AdminInventoryPage() {
                     <td className="py-2 px-3">
                       <div className="w-8 h-8 rounded-md border border-slate-200 dark:border-slate-800 overflow-hidden relative bg-slate-100 dark:bg-slate-950 flex-shrink-0">
                         {p.images?.[0] ? (
-                          <img
+                          <Image
                             src={p.images[0]}
                             alt={p.name}
+                            width={32}
+                            height={32}
                             className="w-full h-full object-cover"
                           />
                         ) : (

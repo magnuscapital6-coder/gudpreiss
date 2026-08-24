@@ -58,6 +58,8 @@ export interface ServerSession {
  * cookies are rejected. This prevents privilege escalation by
  * modifying the cookie's `role` field.
  *
+ * Also checks `sb-access-token` (HMAC-signed session token).
+ *
  * Works in Server Components, Route Handlers, and Server Actions.
  */
 export async function getServerSession(): Promise<ServerSession> {
@@ -71,6 +73,26 @@ export async function getServerSession(): Promise<ServerSession> {
 
   try {
     const cookieStore = cookies();
+
+    // 1. Check signed session token (sb-access-token)
+    const sbToken = cookieStore.get('sb-access-token')?.value;
+    if (sbToken) {
+      const verified = await verifyValue(sbToken);
+      if (verified) {
+        const session = JSON.parse(decodeURIComponent(verified));
+        if (session?.id && session?.email) {
+          return {
+            isAuthenticated: true,
+            isAdmin: session.role === 'admin' || session.role === 'manager',
+            userId: session.id,
+            email: session.email,
+            role: session.role,
+          };
+        }
+      }
+    }
+
+    // 2. Check signed auth cookie (gudpreiss_auth_user)
     const authCookie = cookieStore.get('gudpreiss_auth_user')?.value;
     if (!authCookie) return empty;
 

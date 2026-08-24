@@ -47,9 +47,18 @@ async function isAdminSession(request: NextRequest): Promise<boolean> {
  * Check if the user has any valid session (admin or customer).
  */
 async function hasSession(request: NextRequest): Promise<boolean> {
+  // 1. Signed session token (sb-access-token)
   const sbToken = request.cookies.get('sb-access-token')?.value;
-  if (sbToken && sbToken.length > 5) return true;
+  if (sbToken) {
+    try {
+      const verified = await verifyValue(sbToken);
+      if (verified) return true;
+    } catch {
+      // Invalid signature — reject
+    }
+  }
 
+  // 2. Auth cookie (HMAC-signed)
   const authCookie = request.cookies.get('gudpreiss_auth_user')?.value;
   if (!authCookie) return false;
 

@@ -192,9 +192,11 @@ export default function AdminImageVerificationPage() {
                   <td className="py-3">
                     {item.primary_image ? (
                       <div className="w-12 h-12 rounded-lg border border-slate-200 dark:border-slate-800 overflow-hidden relative bg-slate-100 dark:bg-slate-950">
-                        <img
+                        <Image
                           src={item.primary_image.local_path}
                           alt={item.primary_image.alt_de}
+                          width={48}
+                          height={48}
                           className="w-full h-full object-cover"
                         />
                       </div>

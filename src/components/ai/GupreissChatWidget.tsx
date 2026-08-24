@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { sanitizeMarkdownToHtml } from '@/lib/html-sanitizer';
 
 export function GupreissChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -271,13 +272,11 @@ export function GupreissChatWidget() {
                             : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-tl-none'
                         }`}
                       >
-                        {/* Format Bolding and Newlines */}
+                        {/* Format Bolding and Newlines — sanitized to prevent XSS */}
                         <div
                           className="whitespace-pre-wrap"
                           dangerouslySetInnerHTML={{
-                            __html: msg.content
-                              .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                              .replace(/\*(.*?)\*/g, '<em>$1</em>'),
+                            __html: sanitizeMarkdownToHtml(msg.content),
                           }}
                         />
 
