@@ -9,6 +9,9 @@ function getSecret(): string {
   return process.env.AUTH_COOKIE_SECRET || process.env.SUPABASE_SERVICE_ROLE_KEY || 'gudpreiss-prod-auth-cookie-fallback-secret-key-32bytes';
 }
 
+/** Reset the key cache (no-op helper maintained for test suite compatibility). */
+export function resetKeyCache(): void {}
+
 /**
  * Sign a value and return `value.signature` format using HMAC-SHA256.
  */
