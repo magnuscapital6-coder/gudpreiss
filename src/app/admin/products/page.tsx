@@ -50,13 +50,21 @@ export default function AdminProductsPage() {
           </p>
         </div>
 
-        <Link
-          href="/admin/products/new"
-          className="w-full sm:w-auto px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/20 transition touch-target"
-        >
-          <Plus className="w-4 h-4" />
-          <span>{t('admin.addProduct')}</span>
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/admin/products/image-verification"
+            className="w-full sm:w-auto px-4 py-2.5 bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-sm transition touch-target"
+          >
+            <span>Bild-Verifizierung</span>
+          </Link>
+          <Link
+            href="/admin/products/new"
+            className="w-full sm:w-auto px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/20 transition touch-target"
+          >
+            <Plus className="w-4 h-4" />
+            <span>{t('admin.addProduct')}</span>
+          </Link>
+        </div>
       </div>
 
       {/* Search Filter */}

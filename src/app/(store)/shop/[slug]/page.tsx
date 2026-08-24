@@ -213,9 +213,10 @@ export default function ProductDetailPage() {
               <div className="relative w-full h-80 sm:h-96 md:h-[450px] bg-slate-50/80 dark:bg-slate-950/80 rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800 p-4 group">
                 <Image
                   src={activeMainImage}
-                  alt={product.name}
+                  alt={`${product.name} - Offizielles Produktbild & Hauptansicht`}
                   fill
                   priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain p-4 transition-all duration-300 group-hover:scale-105"
                 />
               </div>
@@ -224,11 +225,13 @@ export default function ProductDetailPage() {
               <div className="flex items-center gap-3 overflow-x-auto no-scrollbar pt-1 pb-1">
                 {galleryImages.map((img, idx) => {
                   const isActive = activeMainImage === img;
+                  const altLabels = ['Hauptansicht', 'Seitenansicht & Profil', 'Rückansicht & Details', 'Zubehör & Lieferumfang'];
+                  const altLabel = altLabels[idx % altLabels.length];
                   return (
                     <button
                       key={idx}
                       onClick={() => setSelectedImage(img)}
-                      aria-label={`View gallery image ${idx + 1}`}
+                      aria-label={`${product.name} ${altLabel}`}
                       className={`relative w-20 h-20 rounded-xl border-2 overflow-hidden bg-slate-50 dark:bg-slate-950 flex-shrink-0 transition-all cursor-pointer p-1.5 ${
                         isActive
                           ? 'border-emerald-600 dark:border-emerald-400 shadow-md ring-2 ring-emerald-500/20 scale-105 bg-white dark:bg-slate-900'
@@ -237,8 +240,10 @@ export default function ProductDetailPage() {
                     >
                       <Image
                         src={img}
-                        alt={`${product.name} thumbnail ${idx + 1}`}
+                        alt={`${product.name} - ${altLabel}`}
                         fill
+                        sizes="80px"
+                        loading="lazy"
                         className="object-contain p-1"
                       />
                     </button>
