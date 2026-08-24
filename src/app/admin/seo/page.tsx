@@ -58,25 +58,24 @@ export default function SeoCommandCenterPage() {
   }
 
   return (
-    <div className="space-y-6 text-white max-w-7xl mx-auto">
+    <div className="space-y-6 text-slate-900 max-w-5xl mx-auto">
       {/* Header Banner */}
-      <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs relative overflow-hidden">
         <div className="space-y-2 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-xs font-bold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold">
             <Globe className="w-3.5 h-3.5" />
             <span>🇩🇪 GOOGLE DEUTSCHLAND SEO ENGINE</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">SEO COMMAND CENTER</h1>
-          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">SEO COMMAND CENTER</h1>
+          <p className="text-xs text-slate-500 max-w-2xl leading-relaxed">
             Zentrale Verwaltung aller SEO-Aktivitäten, Merchant-Feeds, Keyword-Chancen und Schema-Strukturen für GudPreiss.
           </p>
         </div>
 
         {/* Global Score Meter Widget */}
-        <div className="flex items-center gap-4 bg-slate-950 p-4 rounded-2xl border border-slate-800 shrink-0 relative z-10">
-          <div className="relative w-20 h-20 rounded-full border-4 border-slate-800 flex items-center justify-center bg-slate-900 shadow-inner">
-            <span className="text-2xl font-black text-emerald-700 dark:text-emerald-400">{report.globalScore}</span>
-            <span className="text-[10px] text-slate-500 dark:text-slate-400 absolute bottom-1.5">/100</span>
+        <div className="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 shrink-0 relative z-10">
+          <div className="relative w-16 h-16 rounded-full border-4 border-emerald-500 flex items-center justify-center bg-white shadow-xs">
+            <span className="text-xl font-black text-emerald-700">{report.globalScore}</span>
           </div>
           <div>
             <span className="text-xs font-bold text-white block">Globaler SEO-Score</span>

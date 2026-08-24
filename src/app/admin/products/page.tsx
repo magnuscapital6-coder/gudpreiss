@@ -3,14 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Plus, Search, Edit3, Trash2 } from 'lucide-react';
+import { Plus, Search, Edit3, Trash2, Package } from 'lucide-react';
 import { getProducts, deleteProduct } from '@/lib/db/db-provider';
 import { Product } from '@/types';
 import { useTranslation } from '@/context/language-context';
 
 export default function AdminProductsPage() {
   const { t } = useTranslation();
-  const [Produkte, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
@@ -32,130 +32,142 @@ export default function AdminProductsPage() {
     }
   };
 
-  const filteredProducts = Produkte.filter((p) =>
+  const filteredProducts = products.filter((p) =>
     p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     p.sku?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
-    <div className="space-y-6 max-w-6xl">
+    <div className="space-y-6 max-w-5xl mx-auto">
       {/* Top Action Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-            {t('admin.Produkte')}
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            Verwalten Sie den Produktkatalog, Preise und Bestände Ihres Shops ({filteredProducts.length} Produkte).
+          <div className="flex items-center gap-2">
+            <Package className="w-6 h-6 text-emerald-600" />
+            <h1 className="text-xl font-extrabold text-slate-900 tracking-tight">
+              Produktkatalog ({filteredProducts.length} Produkte)
+            </h1>
+          </div>
+          <p className="text-xs text-slate-500 mt-1">
+            Verwalten Sie Produktpreise, Beschreibungen und Bildzuweisungen im Shop.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
           <Link
             href="/admin/products/import-pipeline"
-            className="w-full sm:w-auto px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-sm transition touch-target"
+            className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl border border-slate-200 transition"
           >
             <span>Import Pipeline</span>
           </Link>
           <Link
             href="/admin/products/image-verification"
-            className="w-full sm:w-auto px-4 py-2.5 bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-sm transition touch-target"
+            className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl border border-slate-200 transition"
           >
             <span>Bild-Verifizierung</span>
           </Link>
           <Link
             href="/admin/products/new"
-            className="w-full sm:w-auto px-4 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/20 transition touch-target"
+            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center gap-1.5 shadow-xs transition"
           >
             <Plus className="w-4 h-4" />
-            <span>{t('admin.addProduct')}</span>
+            <span>Neues Produkt</span>
           </Link>
         </div>
       </div>
 
       {/* Search Filter */}
-      <div className="bg-white dark:bg-slate-900 p-3 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
-        <Search className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+      <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-xs flex items-center gap-3">
+        <Search className="w-4 h-4 text-slate-400" />
         <input
           type="text"
           placeholder="Nach Name oder SKU suchen..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full bg-transparent text-xs text-slate-900 dark:text-white outline-none placeholder:text-slate-400"
+          className="w-full bg-transparent text-xs text-slate-900 outline-none placeholder:text-slate-400"
         />
       </div>
 
       {/* Products Data Table Container */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs border-collapse">
-            <thead className="bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-bold border-b border-slate-100 dark:border-slate-800">
+          <table className="w-full text-left text-xs table-fixed min-w-[640px]">
+            <thead className="bg-slate-50 text-slate-500 text-[10px] font-bold uppercase border-b border-slate-200">
               <tr>
-                <th className="py-3 px-4 max-w-[320px]">Produkt</th>
-                <th className="py-3 px-3 w-36">SKU</th>
-                <th className="py-3 px-3 w-28">Preis</th>
-                <th className="py-3 px-3 w-28">Bestand</th>
-                <th className="py-3 px-4 w-24 text-right">Aktionen</th>
+                <th className="py-2.5 px-3 w-56">Produkt</th>
+                <th className="py-2.5 px-3 w-32">SKU</th>
+                <th className="py-2.5 px-3 w-28 text-right">Preis</th>
+                <th className="py-2.5 px-3 w-24 text-center">Bestand</th>
+                <th className="py-2.5 px-3 text-right w-24">Aktionen</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 font-medium">
+            <tbody className="divide-y divide-slate-100 font-medium">
               {isLoading ? (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-slate-500 dark:text-slate-400">Produktkatalog wird geladen...</td>
+                  <td colSpan={5} className="p-8 text-center text-slate-400">Produktkatalog wird geladen...</td>
                 </tr>
               ) : filteredProducts.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-slate-500 dark:text-slate-400">Keine Produkte gefunden.</td>
+                  <td colSpan={5} className="p-8 text-center text-slate-400">Keine Produkte gefunden.</td>
                 </tr>
               ) : (
-                filteredProducts.map((p) => (
-                  <tr key={p.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition">
-                    <td className="py-2.5 px-4 max-w-[320px]">
-                      <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 relative bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden flex-shrink-0 border border-slate-200 dark:border-slate-700">
-                          <Image src={p.images[0]} alt="" fill className="object-contain p-1" />
+                filteredProducts.map((p) => {
+                  const truncatedName = p.name.length > 28 ? p.name.substring(0, 28) + '...' : p.name;
+                  const truncatedSku = p.sku ? (p.sku.length > 18 ? p.sku.substring(0, 18) + '...' : p.sku) : 'N/A';
+
+                  return (
+                    <tr key={p.id} className="hover:bg-slate-50/80 transition">
+                      <td className="py-2 px-3">
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="w-8 h-8 relative bg-slate-100 rounded-lg overflow-hidden flex-shrink-0 border border-slate-200">
+                            {p.images?.[0] ? (
+                              <Image src={p.images[0]} alt="" fill className="object-contain p-0.5" />
+                            ) : (
+                              <div className="w-full h-full flex items-center justify-center text-slate-400 text-[8px]">N/A</div>
+                            )}
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <p className="font-bold text-slate-900 truncate text-xs" title={p.name}>{truncatedName}</p>
+                            <span className="text-[9px] text-slate-400 uppercase truncate block">{p.category_name}</span>
+                          </div>
                         </div>
-                        <div className="min-w-0 flex-1">
-                          <p className="font-bold text-slate-900 dark:text-white truncate text-xs" title={p.name}>{p.name}</p>
-                          <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase">{p.category_name}</span>
+                      </td>
+                      <td className="py-2 px-3 text-slate-500 font-mono text-[11px] truncate" title={p.sku || ''}>
+                        {truncatedSku}
+                      </td>
+                      <td className="py-2 px-3 font-bold text-slate-900 text-right">
+                        {p.price.toLocaleString('de-DE')} €
+                      </td>
+                      <td className="py-2 px-3 text-center">
+                        <span className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-extrabold ${
+                          p.stock > 5
+                            ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                            : 'bg-amber-50 text-amber-700 border border-amber-200'
+                        }`}>
+                          {p.stock} Stk.
+                        </span>
+                      </td>
+                      <td className="py-2 px-3 text-right">
+                        <div className="flex items-center justify-end gap-1">
+                          <Link
+                            href={`/admin/products/${p.id}/edit`}
+                            className="p-1 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-md transition"
+                            title="Bearbeiten"
+                          >
+                            <Edit3 className="w-3.5 h-3.5" />
+                          </Link>
+                          <button
+                            onClick={() => handleDelete(p.id)}
+                            className="p-1 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-md transition"
+                            title="Löschen"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
                         </div>
-                      </div>
-                    </td>
-                    <td className="py-2.5 px-3 text-slate-500 dark:text-slate-400 font-mono text-[11px] w-36 truncate" title={p.sku || ''}>
-                      {p.sku || 'N/A'}
-                    </td>
-                    <td className="py-2.5 px-3 font-bold text-slate-900 dark:text-white whitespace-nowrap w-28">
-                      {p.price.toLocaleString('de-DE')} €
-                    </td>
-                    <td className="py-2.5 px-3 whitespace-nowrap w-28">
-                      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold ${
-                        p.stock > 5
-                          ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400'
-                          : 'bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400'
-                      }`}>
-                        {p.stock} Stk.
-                      </span>
-                    </td>
-                    <td className="py-2.5 px-4 text-right whitespace-nowrap w-24">
-                      <div className="flex items-center justify-end gap-1.5">
-                        <Link
-                          href={`/admin/products/${p.id}/edit`}
-                          className="p-1.5 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 rounded-lg transition"
-                          aria-label="Bearbeiten"
-                        >
-                          <Edit3 className="w-3.5 h-3.5" />
-                        </Link>
-                        <button
-                          onClick={() => handleDelete(p.id)}
-                          className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/40 rounded-lg transition"
-                          aria-label="Löschen"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))
+                      </td>
+                    </tr>
+                  );
+                })
               )}
             </tbody>
           </table>

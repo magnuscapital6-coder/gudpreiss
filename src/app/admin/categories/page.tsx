@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Plus, Search, Edit3, Trash2, X, Image as ImageIcon, Check, CheckSquare, Square } from 'lucide-react';
+import { Plus, Search, Edit3, Trash2, X, FolderTree, Package, CheckCircle2 } from 'lucide-react';
 import { getCategories, createCategory, updateCategory, deleteCategory, getProducts } from '@/lib/db/db-provider';
 import { Category, Product } from '@/types';
 import { useTranslation } from '@/context/language-context';
@@ -10,7 +10,7 @@ import { getValidImageUrl } from '@/lib/image-fallback';
 
 export default function AdminCategoriesPage() {
   const { t } = useTranslation();
-  const [Kategorien, setCategories] = useState<Category[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -40,7 +40,7 @@ export default function AdminCategoriesPage() {
     setIsLoading(false);
   };
 
-  const filteredCategories = Kategorien.filter((c) =>
+  const filteredCategories = categories.filter((c) =>
     c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     c.slug.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -77,7 +77,7 @@ export default function AdminCategoriesPage() {
     setEditingCategory(null);
     setName('');
     setDescription('');
-    setImageUrl('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22600%22%20viewBox%3D%220%200%20600%20600%22%20fill%3D%22none%22%3E%3Crect%20width%3D%22600%22%20height%3D%22600%22%20fill%3D%22%23020617%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22200%22%20width%3D%22200%22%20height%3D%22200%22%20rx%3D%2220%22%20fill%3D%22%231e293b%22%20stroke%3D%22%2310b981%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22300%22%20r%3D%2250%22%20stroke%3D%22%2334d399%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22440%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22bold%22%20fill%3D%22%2394a3b8%22%20text-anchor%3D%22middle%22%3EGudPreiss%20Premium%3C%2Ftext%3E%3C%2Fsvg%3E"http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none"><rect width="600" height="600" fill="%23020617"/><rect x="200" y="200" width="200" height="200" rx="20" fill="%231e293b" stroke="%2310b981" stroke-width="4"/><circle cx="300" cy="300" r="50" stroke="%2334d399" stroke-width="6"/><text x="300" y="440" font-family="sans-serif" font-size="22" font-weight="bold" fill="%2394a3b8" text-anchor="middle">GudPreiss Premium</text></svg>');
+    setImageUrl('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22600%22%20viewBox%3D%220%200%20600%20600%22%20fill%3D%22none%22%3E%3Crect%20width%3D%22600%22%20height%3D%22600%22%20fill%3D%22%23020617%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22200%22%20width%3D%22200%22%20height%3D%22200%22%20rx%3D%2220%22%20fill%3D%22%231e293b%22%20stroke%3D%22%2310b981%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22300%22%20r%3D%2250%22%20stroke%3D%22%2334d399%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22440%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22bold%22%20fill%3D%22%2394a3b8%22%20text-anchor%3D%22middle%22%3EGudPreiss%20Premium%3C%2Ftext%3E%3C%2Fsvg%3E');
     setIsModalOpen(true);
   };
 
@@ -106,7 +106,6 @@ export default function AdminCategoriesPage() {
     const finalImage = imageUrl.trim() || getValidImageUrl(undefined, slug);
 
     if (editingCategory) {
-      // Update existing category
       await updateCategory(editingCategory.id, {
         name: name.trim(),
         slug,
@@ -114,7 +113,6 @@ export default function AdminCategoriesPage() {
         image_url: finalImage,
       });
     } else {
-      // Create new category
       await createCategory({
         name: name.trim(),
         slug,
@@ -132,101 +130,99 @@ export default function AdminCategoriesPage() {
     filteredCategories.length > 0 && selectedCategoryIds.length === filteredCategories.length;
 
   return (
-    <div className="space-y-6 max-w-6xl">
+    <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-            {t('admin.Kategorien')}
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            Verwalten und bearbeiten Sie Kategorien und deren Bilder für die Startseite ({Kategorien.length} Kategorien).
+          <div className="flex items-center gap-2">
+            <FolderTree className="w-6 h-6 text-emerald-600" />
+            <h1 className="text-xl font-extrabold text-slate-900 tracking-tight">
+              Kategorienverwaltung (Categories)
+            </h1>
+          </div>
+          <p className="text-xs text-slate-500 mt-1">
+            Kategorien strukturieren und Bildmedien verwalten ({categories.length} Kategorien).
           </p>
         </div>
 
         <button
           onClick={handleOpenCreateModal}
-          className="w-full sm:w-auto px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/20 transition cursor-pointer touch-target"
+          className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-2 shadow-xs transition"
         >
           <Plus className="w-4 h-4" />
-          <span>{t('admin.addCategory') || 'Kategorie hinzufügen'}</span>
+          <span>Kategorie hinzufügen</span>
         </button>
       </div>
 
       {/* Bulk Action Banner */}
       {selectedCategoryIds.length > 0 && (
-        <div className="p-4 bg-rose-950/90 dark:bg-rose-950 border border-rose-800/80 rounded-2xl text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xl animate-in fade-in duration-200">
-          <div className="flex items-center gap-2.5">
-            <span className="w-7 h-7 rounded-lg bg-rose-800/80 flex items-center justify-center font-black text-xs">
+        <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl text-rose-900 flex items-center justify-between gap-3 shadow-xs">
+          <div className="flex items-center gap-2">
+            <span className="w-6 h-6 rounded-md bg-rose-600 text-white font-black text-xs flex items-center justify-center">
               {selectedCategoryIds.length}
             </span>
-            <span className="text-xs font-bold">
-              {selectedCategoryIds.length === 1
-                ? '1 Kategorie ausgewählt'
-                : `${selectedCategoryIds.length} Kategorien ausgewählt`}
-            </span>
+            <span className="text-xs font-bold">Kategorien ausgewählt</span>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={() => setSelectedCategoryIds([])}
-              className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl transition cursor-pointer"
+              className="px-3 py-1 bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold rounded-lg border border-slate-200"
             >
-              Auswahl aufheben
+              Abbrechen
             </button>
             <button
               onClick={handleBulkDelete}
-              className="px-4 py-1.5 bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold rounded-xl flex items-center gap-1.5 shadow-md transition cursor-pointer"
+              className="px-3 py-1 bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold rounded-lg flex items-center gap-1 shadow-xs"
             >
-              <Trash2 className="w-4 h-4" />
-              <span>Ausgewählte löschen ({selectedCategoryIds.length})</span>
+              <Trash2 className="w-3.5 h-3.5" />
+              Löschen
             </button>
           </div>
         </div>
       )}
 
       {/* Search Input */}
-      <div className="bg-white dark:bg-slate-900 p-3 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
-        <Search className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+      <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-xs flex items-center gap-3">
+        <Search className="w-4 h-4 text-slate-400" />
         <input
           type="text"
           placeholder="Kategorie nach Name oder Slug suchen..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full bg-transparent text-xs text-slate-900 dark:text-white outline-none placeholder:text-slate-400"
+          className="w-full bg-transparent text-xs text-slate-900 outline-none placeholder:text-slate-400"
         />
       </div>
 
-      {/* Categories Table */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden">
+      {/* Zero-Overflow Compact Table */}
+      <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs border-collapse">
-            <thead className="bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-bold border-b border-slate-100 dark:border-slate-800">
+          <table className="w-full text-left text-xs table-fixed min-w-[640px]">
+            <thead className="bg-slate-50 text-slate-500 text-[10px] font-bold uppercase border-b border-slate-200">
               <tr>
-                <th className="py-3 px-4 w-10 text-center">
+                <th className="py-2.5 px-3 w-10 text-center">
                   <input
                     type="checkbox"
                     checked={isAllSelected}
                     onChange={toggleSelectAll}
-                    className="w-4 h-4 rounded-md border-slate-300 dark:border-slate-700 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
-                    title="Alle auswählen / abwählen"
+                    className="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
                   />
                 </th>
-                <th className="py-3 px-4 max-w-[280px]">Kategorie & Bild</th>
-                <th className="py-3 px-3 w-36">Slug</th>
-                <th className="py-3 px-3 w-48">Beschreibung</th>
-                <th className="py-3 px-3 w-28">Produkte</th>
-                <th className="py-3 px-4 w-36 text-right">Aktionen</th>
+                <th className="py-2.5 px-3 w-48">Kategorie</th>
+                <th className="py-2.5 px-3 w-32">Slug</th>
+                <th className="py-2.5 px-3 w-44">Beschreibung</th>
+                <th className="py-2.5 px-3 w-24 text-center">Produkte</th>
+                <th className="py-2.5 px-3 text-right w-36">Aktionen</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 font-medium">
+            <tbody className="divide-y divide-slate-100 font-medium">
               {isLoading ? (
                 <tr>
-                  <td colSpan={6} className="p-8 text-center text-slate-500 dark:text-slate-400">Kategorien werden geladen...</td>
+                  <td colSpan={6} className="p-8 text-center text-slate-400">Kategorien werden geladen...</td>
                 </tr>
               ) : filteredCategories.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="p-8 text-center text-slate-500 dark:text-slate-400">Keine Kategorien gefunden.</td>
+                  <td colSpan={6} className="p-8 text-center text-slate-400">Keine Kategorien gefunden.</td>
                 </tr>
               ) : (
                 filteredCategories.map((cat) => {
@@ -239,64 +235,68 @@ export default function AdminCategoriesPage() {
                       (p.category_id || '').toLowerCase().includes(cat.slug.toLowerCase())
                   ).length;
 
+                  // Truncate strings to prevent any table overflow
+                  const truncatedName = cat.name.length > 22 ? cat.name.substring(0, 22) + '...' : cat.name;
+                  const truncatedSlug = cat.slug.length > 18 ? cat.slug.substring(0, 18) + '...' : cat.slug;
+                  const truncatedDesc = cat.description
+                    ? cat.description.length > 30
+                      ? cat.description.substring(0, 30) + '...'
+                      : cat.description
+                    : '—';
+
                   return (
                     <tr
                       key={cat.id}
-                      className={`transition ${
-                        isSelected
-                          ? 'bg-emerald-50/60 dark:bg-emerald-950/20'
-                          : 'hover:bg-slate-50/80 dark:hover:bg-slate-800/40'
-                      }`}
+                      className={`transition ${isSelected ? 'bg-emerald-50/50' : 'hover:bg-slate-50/80'}`}
                     >
-                      <td className="py-2.5 px-4 text-center">
+                      <td className="py-2 px-3 text-center">
                         <input
                           type="checkbox"
                           checked={isSelected}
                           onChange={() => toggleSelectOne(cat.id)}
-                          className="w-4 h-4 rounded-md border-slate-300 dark:border-slate-700 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                          className="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
                         />
                       </td>
-                      <td className="py-2.5 px-4 max-w-[280px]">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 relative bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200 dark:border-slate-700 shadow-2xs">
+                      <td className="py-2 px-3">
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="w-8 h-8 relative bg-slate-100 rounded-lg overflow-hidden flex-shrink-0 border border-slate-200">
                             <Image src={validImg} alt={cat.name} fill className="object-cover" />
                           </div>
                           <div className="min-w-0 flex-1">
-                            <p className="font-bold text-slate-900 dark:text-white truncate text-xs">{cat.name}</p>
-                            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold block truncate">
-                              Home Card Visual Active
-                            </span>
+                            <p className="font-bold text-slate-900 truncate text-xs" title={cat.name}>
+                              {truncatedName}
+                            </p>
                           </div>
                         </div>
                       </td>
-                      <td className="py-2.5 px-3 text-slate-500 dark:text-slate-400 font-mono text-[11px] w-36 truncate">
-                        {cat.slug}
+                      <td className="py-2 px-3 font-mono text-[11px] text-slate-500 truncate" title={cat.slug}>
+                        {truncatedSlug}
                       </td>
-                      <td className="py-2.5 px-3 text-slate-500 dark:text-slate-400 w-48 truncate" title={cat.description || ''}>
-                        {cat.description || '—'}
+                      <td className="py-2 px-3 text-slate-500 text-xs truncate" title={cat.description || ''}>
+                        {truncatedDesc}
                       </td>
-                      <td className="py-2.5 px-3 whitespace-nowrap w-28">
-                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400">
-                          {prodCount} Produkte
+                      <td className="py-2 px-3 text-center">
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-blue-50 text-blue-700 border border-blue-200">
+                          {prodCount} Stk.
                         </span>
                       </td>
-                      <td className="py-2.5 px-4 text-right whitespace-nowrap w-36">
-                        <div className="flex items-center justify-end gap-2">
+                      <td className="py-2 px-3 text-right">
+                        <div className="flex items-center justify-end gap-1.5">
                           <button
                             onClick={() => handleOpenEditModal(cat)}
-                            className="px-2.5 py-1.5 bg-slate-100 hover:bg-emerald-50 dark:bg-slate-800 dark:hover:bg-emerald-950/50 text-slate-700 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 font-bold text-[11px] rounded-lg border border-slate-200 dark:border-slate-700 flex items-center gap-1 transition cursor-pointer"
-                            title="Éditer la catégorie et son image"
+                            className="px-2 py-1 bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 font-bold text-[11px] rounded-md border border-slate-200 flex items-center gap-1 transition"
+                            title="Kategorie bearbeiten"
                           >
-                            <Edit3 className="w-3.5 h-3.5" />
-                            <span>Éditer</span>
+                            <Edit3 className="w-3 h-3" />
+                            <span>Bearbeiten</span>
                           </button>
                           <button
                             onClick={() => handleDelete(cat.id)}
-                            className="px-2.5 py-1.5 bg-slate-100 hover:bg-red-50 dark:bg-slate-800 dark:hover:bg-red-950/50 text-slate-700 hover:text-red-600 dark:text-slate-300 dark:hover:text-red-400 font-bold text-[11px] rounded-lg border border-slate-200 dark:border-slate-700 flex items-center gap-1 transition cursor-pointer"
-                            title="Supprimer la catégorie"
+                            className="px-2 py-1 bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-600 font-bold text-[11px] rounded-md border border-slate-200 flex items-center gap-1 transition"
+                            title="Kategorie löschen"
                           >
-                            <Trash2 className="w-3.5 h-3.5" />
-                            <span>Supprimer</span>
+                            <Trash2 className="w-3 h-3" />
+                            <span>Löschen</span>
                           </button>
                         </div>
                       </td>
@@ -309,98 +309,77 @@ export default function AdminCategoriesPage() {
         </div>
       </div>
 
-      {/* Create / Edit Category Modal */}
+      {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 overflow-y-auto flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/60 backdrop-blur-xs">
-          <div className="bg-white dark:bg-slate-900 w-full sm:max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 p-6 space-y-5 animate-in slide-in-from-bottom sm:zoom-in-95 duration-200">
-            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-              <h2 className="text-base font-black text-slate-900 dark:text-white">
+        <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
+          <div className="bg-white w-full max-w-lg rounded-2xl shadow-xl border border-slate-200 p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h2 className="text-base font-extrabold text-slate-900">
                 {editingCategory ? 'Kategorie bearbeiten' : 'Neue Kategorie erstellen'}
               </h2>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white rounded-lg cursor-pointer"
+                className="p-1 text-slate-400 hover:text-slate-600 rounded-lg"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Category Name */}
               <div>
-                <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">
-                  Kategorienname *
+                <label className="block text-xs font-bold text-slate-700 mb-1">
+                  Kategoriename *
                 </label>
                 <input
                   type="text"
-                  required
+                  placeholder="z.B. Smart Home & Audio"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="z.B. Laptops & PCs, Smartwatches..."
-                  className="w-full px-4 py-2.5 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white"
-                />
-              </div>
-
-              {/* Category Visual Image URL with Live Preview */}
-              <div>
-                <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">
-                  Kategorien-Bild URL (Wird für Karten auf der Startseite verwendet) *
-                </label>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-14 h-14 relative bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200 dark:border-slate-700 shadow-2xs">
-                    <Image
-                      src={getValidImageUrl(imageUrl, name || 'default')}
-                      alt="Preview"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[11px] font-bold text-slate-700 dark:text-slate-300">Live-Vorschau</p>
-                    <p className="text-[10px] text-slate-400 truncate">Dieses Bild wird in den Startseiten-Karten gerendert</p>
-                  </div>
-                </div>
-
-                <input
-                  type="url"
+                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl outline-none focus:border-emerald-500 text-slate-900"
                   required
-                  value={imageUrl}
-                  onChange={(e) => setImageUrl(e.target.value)}
-                  placeholder="https://gudpreiss.de/placeholder.png"
-                  className="w-full px-4 py-2.5 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white font-mono text-[11px]"
                 />
               </div>
 
-              {/* Description */}
               <div>
-                <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">
+                <label className="block text-xs font-bold text-slate-700 mb-1">
                   Beschreibung
                 </label>
                 <textarea
-                  rows={2}
+                  rows={3}
+                  placeholder="Kurze Beschreibung der Kategorie..."
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  placeholder="Kurze Beschreibung der Kategorie..."
-                  className="w-full px-4 py-2.5 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white"
+                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl outline-none focus:border-emerald-500 text-slate-900"
                 />
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1">
+                  Bild URL / Pfad
+                </label>
+                <input
+                  type="text"
+                  placeholder="/images/categories/smarthome.jpg"
+                  value={imageUrl}
+                  onChange={(e) => setImageUrl(e.target.value)}
+                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl outline-none focus:border-emerald-500 font-mono text-slate-900"
+                />
+              </div>
+
+              <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2.5 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
+                  className="px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl border border-slate-200"
                 >
                   Abbrechen
                 </button>
                 <button
                   type="submit"
                   disabled={isSaving}
-                  className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-emerald-900/20 flex items-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="px-4 py-2 text-xs font-extrabold text-white bg-emerald-600 hover:bg-emerald-500 rounded-xl shadow-xs"
                 >
-                  <Check className="w-4 h-4" />
-                  <span>{isSaving ? 'WIRD GESPEICHERT...' : editingCategory ? 'ÄNDERUNGEN SPEICHERN' : 'KATEGORIE ERSTELLEN'}</span>
+                  {isSaving ? 'Speichern...' : 'Speichern'}
                 </button>
               </div>
             </form>
