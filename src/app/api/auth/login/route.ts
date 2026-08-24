@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, resetRateLimit } from '@/lib/rate-limit';
 import { loginSchema } from '@/lib/validation';
+import { signValue } from '@/lib/cookie-signing';
 import crypto from 'crypto';
 
 /**
@@ -150,7 +151,11 @@ export async function POST(request: NextRequest) {
 
       // Set signed cookie and sb-access-token for middleware
       const maxAge = 60 * 60 * 24 * 7;
-      response.cookies.set('gudpreiss_auth_user', encodeURIComponent(profileJson), {
+
+      // Sign the profile JSON with HMAC to prevent cookie forgery
+      const signedProfile = await signValue(encodeURIComponent(profileJson));
+
+      response.cookies.set('gudpreiss_auth_user', signedProfile, {
         path: '/',
         maxAge,
         httpOnly: true,
@@ -159,9 +164,16 @@ export async function POST(request: NextRequest) {
       });
 
       if (userObj.role === 'admin') {
-        // Generate a unique session token per login (not hardcoded)
-        const sessionToken = crypto.randomBytes(32).toString('hex');
-        response.cookies.set('sb-access-token', sessionToken, {
+        // Generate a signed session token (HMAC-verified, not random)
+        const sessionPayload = JSON.stringify({
+          userId: userObj.id,
+          email: userObj.email,
+          role: userObj.role,
+          iat: Date.now(),
+        });
+        const signedSessionToken = await signValue(encodeURIComponent(sessionPayload));
+
+        response.cookies.set('sb-access-token', signedSessionToken, {
           path: '/',
           maxAge,
           httpOnly: true,

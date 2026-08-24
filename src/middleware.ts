@@ -6,21 +6,28 @@ import { verifyValue } from '@/lib/cookie-signing';
  * Check if the user has a valid admin session.
  *
  * Priority:
- * 1. Supabase session cookie (sb-access-token) — real auth via JWT validation
+ * 1. Supabase session cookie (sb-access-token) — HMAC-signed session token
  * 2. gudpreiss_auth_user cookie — demo / fallback auth (HMAC-signed)
  *
- * Security: The cookie must be HMAC-signed. Unsigned or forged
- * cookies are rejected. The Supabase token presence is only
- * trusted when it looks like a real JWT (not a mock value).
+ * Security: Both cookies MUST be HMAC-signed. Unsigned or forged
+ * cookies are rejected.
  */
 async function isAdminSession(request: NextRequest): Promise<boolean> {
-  // 1. Supabase / Admin session token
+  // 1. Signed session token (sb-access-token)
   const sbToken = request.cookies.get('sb-access-token')?.value;
-  if (sbToken && sbToken.length > 5) {
-    return true;
+  if (sbToken) {
+    try {
+      const verified = await verifyValue(sbToken);
+      if (verified) {
+        const session = JSON.parse(decodeURIComponent(verified));
+        return session?.role === 'admin' || session?.role === 'manager';
+      }
+    } catch {
+      // Invalid signature — reject
+    }
   }
 
-  // 2. Demo / fallback auth cookie
+  // 2. Demo / fallback auth cookie (HMAC-signed)
   const authCookie = request.cookies.get('gudpreiss_auth_user')?.value;
   if (!authCookie) {
     return false;

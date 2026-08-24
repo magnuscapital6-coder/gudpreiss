@@ -143,19 +143,20 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
         {/* Full Width Image Container */}
         <Link href={`/shop/${product.slug}`} className="block relative w-full flex-1 bg-[#F1F5FB]/40 dark:bg-slate-900/40 rounded-[8px] overflow-hidden mb-2">
           <Image
-            src={currentImg}
+            src={product.images?.[0] || currentImg}
             alt={product.name}
             fill
-            onError={() => setCurrentImg(getSvgFallback(product.category_id))}
+            unoptimized
             className={`object-contain p-2 w-full h-full transition-all duration-300 ${
               hasSecondImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'
             }`}
           />
           {hasSecondImage && (
             <Image
-              src={getValidImageUrl(product.images[1], product.category_id || product.category_name)}
+              src={product.images[1]}
               alt={product.name}
               fill
+              unoptimized
               className="object-contain p-2 w-full h-full opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
             />
           )}

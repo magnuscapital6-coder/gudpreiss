@@ -90,6 +90,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
                 src={selectedImage}
                 alt={product.name}
                 fill
+                unoptimized
                 className="object-contain p-4 transition-all duration-300"
               />
             </div>
@@ -97,7 +98,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
             {product.images.length > 1 && (
               <div className="flex gap-2">
                 {product.images.map((img, idx) => {
-                  const imgSrc = getValidImageUrl(img, product.category_id || product.category_name);
+                  const imgSrc = img || getValidImageUrl(img, product.category_id || product.category_name);
                   return (
                     <button
                       key={idx}
@@ -106,7 +107,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
                         selectedImage === imgSrc ? 'border-emerald-700 shadow-sm' : 'border-slate-200 opacity-60 hover:opacity-100'
                       }`}
                     >
-                      <Image src={imgSrc} alt="" fill className="object-contain" />
+                      <Image src={imgSrc} alt="" fill unoptimized className="object-contain" />
                     </button>
                   );
                 })}

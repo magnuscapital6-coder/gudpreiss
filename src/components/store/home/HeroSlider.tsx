@@ -203,7 +203,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
                 className="absolute inset-0 rounded-[28px] bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-300/60 shadow-lg transform rotate-6 translate-x-5 translate-y-3 scale-[0.94] opacity-80 cursor-pointer transition-all duration-500 hover:opacity-100 hover:scale-[0.96] flex items-center justify-center p-6 z-10"
               >
                 <div className="relative w-full h-full">
-                  <Image src={nextProduct?.images?.[0] || ''} alt={nextProduct?.name || ''} fill className="object-contain opacity-70" />
+                  <Image src={nextProduct?.images?.[0] || ''} alt={nextProduct?.name || ''} fill unoptimized className="object-contain opacity-70" />
                 </div>
                 <div className="absolute bottom-3 right-3 bg-emerald-800/90 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
                   <span>SWAP</span>
@@ -236,6 +236,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
                   alt={currentProduct.name}
                   fill
                   priority
+                  unoptimized
                   sizes="(max-width: 768px) 100vw, 320px"
                   className="object-contain p-2 w-full h-full mix-blend-multiply group-hover/card:scale-108 transition-transform duration-500 ease-out"
                 />
