@@ -652,8 +652,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 312,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/5103Oi95V3L._SL1500_.jpg"
     ],
     "compare_at_price": 849.99,
     "stock": 25,
@@ -679,7 +678,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 540,
     "images": [
-      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/5103Oi95V3L._SL1500_.jpg"
     ],
     "compare_at_price": 599.99,
     "stock": 40,
@@ -705,7 +704,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 890,
     "images": [
-      "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61tA1RjZ65L._SL1500_.jpg"
     ],
     "compare_at_price": 74.99,
     "stock": 85,
@@ -731,7 +730,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 98,
     "images": [
-      "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 3499,
     "stock": 12,
@@ -757,7 +756,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 64,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 4699,
     "stock": 8,
@@ -783,7 +782,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 210,
     "images": [
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71TPda7cwUL._SL1500_.jpg"
     ],
     "compare_at_price": 1759,
     "stock": 30,
@@ -809,7 +808,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1420,
     "images": [
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61+btA28tEL._SL1500_.jpg"
     ],
     "compare_at_price": 419,
     "stock": 50,
@@ -835,7 +834,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 380,
     "images": [
-      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/51rpbVmi7eL._SL1500_.jpg"
     ],
     "compare_at_price": 449.95,
     "stock": 25,
@@ -861,7 +860,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 2400,
     "images": [
-      "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61SUj2aKoEL._SL1500_.jpg"
     ],
     "compare_at_price": 279,
     "stock": 75,
@@ -887,7 +886,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 670,
     "images": [
-      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71Wk36R6QGL._SL1500_.jpg"
     ],
     "compare_at_price": 1449,
     "stock": 20,
@@ -913,7 +912,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 1820,
     "images": [
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/81sig8nN1E-L._SL1500_.jpg"
     ],
     "compare_at_price": 1449,
     "stock": 18,
@@ -939,7 +938,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 450,
     "images": [
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/91z5KuonSrL._SL1500_.jpg"
     ],
     "compare_at_price": 949,
     "stock": 15,
@@ -965,7 +964,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 512,
     "images": [
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/718yGStyJDL._SL1500_.jpg"
     ],
     "compare_at_price": 969.99,
     "stock": 22,
@@ -991,7 +990,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 290,
     "images": [
-      "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 749.99,
     "stock": 30,
@@ -1017,7 +1016,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 42,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 5399,
     "stock": 6,
@@ -1043,7 +1042,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 28,
     "images": [
-      "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 6999,
     "stock": 4,
@@ -1069,7 +1068,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 55,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 4399,
     "stock": 9,
@@ -1095,7 +1094,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 88,
     "images": [
-      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71u-sE5uOqL._SL1500_.jpg"
     ],
     "compare_at_price": 3199,
     "stock": 10,
@@ -1121,7 +1120,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 74,
     "images": [
-      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71c8Q7VfP-L._SL1500_.jpg"
     ],
     "compare_at_price": 3899,
     "stock": 7,
@@ -1147,7 +1146,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 3200,
     "images": [
-      "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61-PblYntsL._SL1500_.jpg"
     ],
     "compare_at_price": 369.99,
     "stock": 60,
@@ -1173,7 +1172,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 850,
     "images": [
-      "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/5103Oi95V3L._SL1500_.jpg"
     ],
     "compare_at_price": 719,
     "stock": 25,
@@ -1199,7 +1198,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 310,
     "images": [
-      "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61tA1RjZ65L._SL1500_.jpg"
     ],
     "compare_at_price": 949,
     "stock": 15,
@@ -1225,7 +1224,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 940,
     "images": [
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/81w3n+S5SdL._SL1500_.jpg"
     ],
     "compare_at_price": 2499,
     "stock": 12,
@@ -1251,7 +1250,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 420,
     "images": [
-      "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61N+B4Z-m0L._SL1500_.jpg"
     ],
     "compare_at_price": 499,
     "stock": 35,
@@ -1277,7 +1276,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1150,
     "images": [
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61+eQ-5nCGL._SL1500_.jpg"
     ],
     "compare_at_price": 549,
     "stock": 28,
@@ -1303,7 +1302,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1680,
     "images": [
-      "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/51r4x9U2KOL._SL1500_.jpg"
     ],
     "compare_at_price": 829,
     "stock": 20,
@@ -1329,7 +1328,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 730,
     "images": [
-      "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71W2b-yZ4-L._SL1500_.jpg"
     ],
     "compare_at_price": 999,
     "stock": 14,
@@ -1355,7 +1354,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 14200,
     "images": [
-      "https://images.unsplash.com/photo-1517668808822-9eaa03afd2af?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61-v8jA90VL._SL1500_.jpg"
     ],
     "compare_at_price": 399,
     "stock": 45,
@@ -1381,7 +1380,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 8900,
     "images": [
-      "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71J4vGz1N-L._SL1500_.jpg"
     ],
     "compare_at_price": 249.99,
     "stock": 55,
@@ -1407,7 +1406,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 620,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61kMvFpM+2L._SL1500_.jpg"
     ],
     "compare_at_price": 1199,
     "stock": 18,
@@ -1433,7 +1432,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1250,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61t7qA1HULL._SL1500_.jpg"
     ],
     "compare_at_price": 449.99,
     "stock": 30,
@@ -1459,7 +1458,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 410,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61A8vL9G-BL._SL1500_.jpg"
     ],
     "compare_at_price": 559.99,
     "stock": 22,
@@ -1485,7 +1484,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 185,
     "images": [
-      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 1399.99,
     "stock": 11,
@@ -1511,7 +1510,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 4500,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "compare_at_price": 149.99,
     "stock": 90,
@@ -1537,7 +1536,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 3200,
     "images": [
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/81fH-s7TzCL._SL1500_.jpg"
     ],
     "compare_at_price": 199.99,
     "stock": 65,
@@ -1589,7 +1588,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 820,
     "images": [
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61+btA28tEL._SL1500_.jpg"
     ],
     "compare_at_price": 379.99,
     "stock": 20,
@@ -1615,7 +1614,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 1980,
     "images": [
-      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/81+jNVOUsJL._SL1500_.jpg"
     ],
     "compare_at_price": 579,
     "stock": 15,
@@ -1641,7 +1640,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 1100,
     "images": [
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71n047S2B7L._SL1500_.jpg"
     ],
     "compare_at_price": 369.9,
     "stock": 30,
@@ -1667,7 +1666,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 780,
     "images": [
-      "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61LpC9kE1pL._SL1500_.jpg"
     ],
     "compare_at_price": 449,
     "stock": 25,
@@ -1693,7 +1692,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 950,
     "images": [
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/716b68j0s3L._SL1500_.jpg"
     ],
     "compare_at_price": 1159,
     "stock": 20,
@@ -1719,7 +1718,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 140,
     "images": [
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61bX2AoGjSL._SL1500_.jpg"
     ],
     "compare_at_price": 4249,
     "stock": 8,
@@ -1745,7 +1744,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 92,
     "images": [
-      "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71b2gL55YmL._SL1500_.jpg"
     ],
     "compare_at_price": 2999,
     "stock": 12,
@@ -1771,7 +1770,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 480,
     "images": [
-      "https://images.unsplash.com/photo-1622979135225-d2ba269bc1bd?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 649.99,
     "stock": 22,
@@ -1797,7 +1796,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 670,
     "images": [
-      "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61b7L4oG52L._SL1500_.jpg"
     ],
     "compare_at_price": 239.99,
     "stock": 35,
@@ -1823,7 +1822,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 510,
     "images": [
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/91rR4sN-uXL._SL1500_.jpg"
     ],
     "compare_at_price": 2299,
     "stock": 14,
@@ -1849,7 +1848,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 4800,
     "images": [
-      "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61I21jZ6S3L._SL1500_.jpg"
     ],
     "compare_at_price": 1499,
     "stock": 10,
@@ -1875,7 +1874,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 320,
     "images": [
-      "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/71YvE-9P5SL._SL1500_.jpg"
     ],
     "compare_at_price": 1299.99,
     "stock": 15,
@@ -1901,7 +1900,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.7,
     "review_count": 640,
     "images": [
-      "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/51r4x9U2KOL._SL1500_.jpg"
     ],
     "compare_at_price": 149.99,
     "stock": 50,
@@ -1927,7 +1926,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 980,
     "images": [
-      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/51rpbVmi7eL._SL1500_.jpg"
     ],
     "compare_at_price": 269,
     "stock": 40,
@@ -1966,7 +1965,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 142,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "2TB NVMe Custom SSD",
@@ -2006,7 +2005,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 310,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -2043,7 +2042,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 188,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -2078,7 +2077,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 94,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Inhalt": "PS5 Slim 1TB Disc Edition, ASTRO BOT Spielcode, DualSense Controller",
@@ -2112,7 +2111,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 520,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Farbe": "Original Weiß / Schwarz",
@@ -2147,7 +2146,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 410,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Farbe": "Midnight Black (Schwarz)",
@@ -2181,7 +2180,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 210,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Features": "Austauschbare Stick-Caps & Module, 2 Rücktasten (Paddles), Trigger-Stopps",
@@ -2215,7 +2214,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 165,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Bildschirm": "8-Zoll LCD Touchscreen (1920x1080 Full HD)",
@@ -2250,7 +2249,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 175,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Display": "OLED (2000 x 2040 Pixel pro Auge)",
@@ -2286,7 +2285,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 115,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Treiber": "Planar-Magnetostatische Treiber",
@@ -2321,7 +2320,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 290,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Kapazität": "2TB (2000 GB)",
@@ -2357,7 +2356,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 178,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Technologie": "TRUEFORCE Feedback",
@@ -2392,7 +2391,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/77/73/8f/1735563157/4233588086006-Scott-Lumen-905-cumulus-white-carbon-black-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1735563157"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "360Wh",
@@ -2433,7 +2432,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/4b/a1/25/1735563188/4234253020006-Scott-Lumen-920-carbon-black-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1735563188"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "360Wh",
@@ -2474,7 +2473,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/c9/49/27/1746689294/4234517950006-Scott-Passage-20-flake-grey-2025-E-Bike-Trekkingrad-Herren-0.jpg?ts=1746689294"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -2514,7 +2513,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/58/82/96/1746689295/4234528128006-Scott-Passage-20-Slope-aventurine-green-2025-E-Bike-Trekkingrad-Damen-0.jpg?ts=1746689295"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -2554,7 +2553,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/4c/e9/45/1746689296/4234538113006-Scott-Passage-30-highland-green-2025-E-Bike-Trekkingrad-Herren-0.jpg?ts=1746689296"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -2594,12 +2593,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/ab/21/7e/1746689309/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_01.jpg?ts=1746689309",
-      "https://elektrofahrrad.de/media/e7/6e/ae/1746689310/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_02.jpg?ts=1746689310",
-      "https://elektrofahrrad.de/media/18/c5/b9/1746689311/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_03.jpg?ts=1746689311",
-      "https://elektrofahrrad.de/media/ba/f9/2d/1746689312/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_04.jpg?ts=1746689312",
-      "https://elektrofahrrad.de/media/3b/da/a1/1746689313/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_05.jpg?ts=1746689313",
-      "https://elektrofahrrad.de/media/46/bd/ce/1746689315/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_06.jpg?ts=1746689315"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -2639,7 +2633,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/79/2a/95/1746689320/02810124-Conway-Xyron-SUV-4-0-750Wh-black-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1746689320"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -2681,7 +2675,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/4a/cb/60/1746689329/02810151-Conway-Xyron-S-5-0-Carbon-750Wh-desert-matt-plum-matt-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1746689329"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -2722,7 +2716,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/f6/93/f8/1746689353/02810374-Conway-Cairon-SUV-FS-4-0-625Wh-desert-matt-2025-E-Bike-Hardtail-Mountainbike-Tiefeinsteiger-0.jpg?ts=1746689353"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -2765,7 +2759,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/35/27/9c/1746689354/02810378-Conway-Cairon-SUV-FS-4-0-625Wh-graphit-grey-matt-2025-E-Bike-Hardtail-Mountainbike-Tiefeinsteiger-0.jpg?ts=1746689354"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -2808,7 +2802,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/34/d9/e3/1746689363/02810393-Conway-Xyron-SUV-4-0-750Wh-reseda-green-matt-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1746689363"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -2850,7 +2844,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/45/04/9a/1746689366/02810416-Conway-Xyron-S-5-0-Carbon-750Wh-black-bronze-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1746689366"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -2891,7 +2885,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/8e/ff/c4/1746689433/02830075-Conway-Ryvon-LT-4-0-400Wh-carbon-silver-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1746689433"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -2931,7 +2925,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/e2/99/ab/1751339191/45912330-haibike-hybe-9-grey-red-blk-matt-gloss-2024-01.jpg?ts=1751339191"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -2972,7 +2966,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/78/d9/7c/1751339195/45804330-Haibike-Lyke-CF-11-carbon-sand-lime-gloss-2023-0.jpg?ts=1751339195"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "430Wh",
@@ -3013,7 +3007,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/11/63/3f/1751339246/663523750-Kalkhoff-Entice-7-B-Advance-ABS-moonstonegrey-matt-2023-E-Bike-Hardtail-Mountainbike.jpg?ts=1751339246"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -3055,7 +3049,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/fb/09/8b/1751339249/663523760-Kalkhoff-Entice-7-B-Advance-ABS-urbangreen-matt-2023-E-Bike-Hardtail-Mountainbike-0.jpg?ts=1751339249"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -3097,7 +3091,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d1/4a/e0/1751340073/44300330-Winora-Yakun-X10E-darkred-2023-0.jpg?ts=1751340073"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -3137,7 +3131,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d1/50/f4/1751821837/45700430-Haibike-Nduro-6-Matte-Urban-Grey-Black-2025-E-Bike-Fully-Mountainbike_01.jpg?ts=1751821837"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "720Wh",
@@ -3177,12 +3171,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/8e/b8/f3/1756804333/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804333",
-      "https://elektrofahrrad.de/media/0a/0c/1c/1756804334/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804334",
-      "https://elektrofahrrad.de/media/b3/f5/97/1756804335/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804335",
-      "https://elektrofahrrad.de/media/dd/e3/46/1756804335/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804335",
-      "https://elektrofahrrad.de/media/72/9b/9b/1756804336/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804336",
-      "https://elektrofahrrad.de/media/92/f7/82/1756804337/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804337"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3223,13 +3212,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/6b/ea/37/1756804349/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804349",
-      "https://elektrofahrrad.de/media/83/f6/f6/1756804350/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804350",
-      "https://elektrofahrrad.de/media/34/2a/54/1756804350/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804350",
-      "https://elektrofahrrad.de/media/af/7f/23/1756804351/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804351",
-      "https://elektrofahrrad.de/media/aa/fc/10/1756804352/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804352",
-      "https://elektrofahrrad.de/media/b6/bb/c3/1756804353/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804353",
-      "https://elektrofahrrad.de/media/63/63/cd/1756804354/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804354"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3270,12 +3253,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d4/75/5d/1756804387/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804387",
-      "https://elektrofahrrad.de/media/8a/0c/e4/1756804388/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804388",
-      "https://elektrofahrrad.de/media/26/c2/36/1756804389/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804389",
-      "https://elektrofahrrad.de/media/b8/84/b7/1756804389/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804389",
-      "https://elektrofahrrad.de/media/d6/8e/59/1756804390/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804390",
-      "https://elektrofahrrad.de/media/43/4b/63/1756804391/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804391"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3316,14 +3294,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/26/1b/0c/1756804394/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804394",
-      "https://elektrofahrrad.de/media/a0/62/85/1756804395/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804395",
-      "https://elektrofahrrad.de/media/ab/a4/1f/1756804396/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804396",
-      "https://elektrofahrrad.de/media/85/ce/18/1756804397/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804397",
-      "https://elektrofahrrad.de/media/47/cd/14/1756804398/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804398",
-      "https://elektrofahrrad.de/media/5d/ed/8d/1756804398/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804398",
-      "https://elektrofahrrad.de/media/f0/37/fd/1756804399/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804399",
-      "https://elektrofahrrad.de/media/b0/77/f4/1756804400/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-07.jpg?ts=1756804400"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3364,12 +3335,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/6b/62/f3/1756804403/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804403",
-      "https://elektrofahrrad.de/media/a8/ac/eb/1756804404/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804404",
-      "https://elektrofahrrad.de/media/39/b9/b9/1756804405/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804405",
-      "https://elektrofahrrad.de/media/c7/b5/50/1756804406/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804406",
-      "https://elektrofahrrad.de/media/0f/19/36/1756804407/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804407",
-      "https://elektrofahrrad.de/media/c1/9d/29/1756804408/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804408"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3410,12 +3376,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/9f/95/1f/1756804411/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804411",
-      "https://elektrofahrrad.de/media/d6/ee/95/1756804412/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804412",
-      "https://elektrofahrrad.de/media/da/88/b2/1756804412/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804412",
-      "https://elektrofahrrad.de/media/ec/33/7c/1756804413/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804413",
-      "https://elektrofahrrad.de/media/4f/0c/3d/1756804414/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804414",
-      "https://elektrofahrrad.de/media/7d/c7/27/1756804415/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804415"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3457,12 +3418,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/80/74/2d/1756804418/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804418",
-      "https://elektrofahrrad.de/media/2a/a6/f7/1756804419/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804419",
-      "https://elektrofahrrad.de/media/62/ea/95/1756804420/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804420",
-      "https://elektrofahrrad.de/media/91/da/75/1756804421/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804421",
-      "https://elektrofahrrad.de/media/38/26/f7/1756804421/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804421",
-      "https://elektrofahrrad.de/media/32/f8/16/1756804422/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804422"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3503,12 +3459,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/6b/b0/14/1756804433/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804433",
-      "https://elektrofahrrad.de/media/a4/b3/94/1756804434/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804434",
-      "https://elektrofahrrad.de/media/0b/39/5e/1756804434/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804434",
-      "https://elektrofahrrad.de/media/29/bc/54/1756804435/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804435",
-      "https://elektrofahrrad.de/media/8d/9e/7a/1756804436/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804436",
-      "https://elektrofahrrad.de/media/4d/ac/ff/1756804437/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804437"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3549,13 +3500,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/15/45/b2/1756804440/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804440",
-      "https://elektrofahrrad.de/media/5b/1b/33/1756804441/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804441",
-      "https://elektrofahrrad.de/media/14/c1/11/1756804442/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804442",
-      "https://elektrofahrrad.de/media/g0/0b/11/1756804443/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804443",
-      "https://elektrofahrrad.de/media/14/47/d7/1756804443/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804443",
-      "https://elektrofahrrad.de/media/b9/da/81/1756804444/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804444",
-      "https://elektrofahrrad.de/media/09/05/ee/1756804445/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804445"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3597,13 +3542,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d1/f7/84/1756804448/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804448",
-      "https://elektrofahrrad.de/media/28/cb/d8/1756804449/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804449",
-      "https://elektrofahrrad.de/media/90/09/54/1756804450/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804450",
-      "https://elektrofahrrad.de/media/6f/6a/4d/1756804451/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804451",
-      "https://elektrofahrrad.de/media/f6/8c/0f/1756804452/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804452",
-      "https://elektrofahrrad.de/media/cf/fa/06/1756804452/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804452",
-      "https://elektrofahrrad.de/media/fb/62/85/1756804453/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804453"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3644,13 +3583,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/40/ab/c1/1756804471/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804471",
-      "https://elektrofahrrad.de/media/e3/11/d6/1756804472/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804472",
-      "https://elektrofahrrad.de/media/26/92/97/1756804473/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804473",
-      "https://elektrofahrrad.de/media/ca/f6/64/1756804474/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804474",
-      "https://elektrofahrrad.de/media/20/3a/20/1756804475/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804475",
-      "https://elektrofahrrad.de/media/f0/3a/65/1756804475/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804475",
-      "https://elektrofahrrad.de/media/19/88/5d/1756804476/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804476"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3691,13 +3624,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/8c/9d/c8/1756804488/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804488",
-      "https://elektrofahrrad.de/media/bb/71/52/1756804489/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804489",
-      "https://elektrofahrrad.de/media/fd/94/e7/1756804490/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804490",
-      "https://elektrofahrrad.de/media/1e/f3/cb/1756804490/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804490",
-      "https://elektrofahrrad.de/media/1d/fa/db/1756804491/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804491",
-      "https://elektrofahrrad.de/media/8b/e6/ee/1756804492/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804492",
-      "https://elektrofahrrad.de/media/69/d3/9e/1756804493/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804493"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3739,12 +3666,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/e2/78/12/1756804496/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804496",
-      "https://elektrofahrrad.de/media/31/d9/13/1756804497/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804497",
-      "https://elektrofahrrad.de/media/c2/81/c4/1756804498/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804498",
-      "https://elektrofahrrad.de/media/e0/7d/e4/1756804499/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804499",
-      "https://elektrofahrrad.de/media/40/c5/e1/1756804500/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804500",
-      "https://elektrofahrrad.de/media/8f/7d/bf/1756804501/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804501"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3785,13 +3707,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/af/a9/b0/1756804504/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804504",
-      "https://elektrofahrrad.de/media/dc/f9/38/1756804505/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804505",
-      "https://elektrofahrrad.de/media/b1/1d/c0/1756804505/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804505",
-      "https://elektrofahrrad.de/media/dc/81/fc/1756804506/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804506",
-      "https://elektrofahrrad.de/media/63/90/f4/1756804507/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804507",
-      "https://elektrofahrrad.de/media/15/bf/16/1756804508/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804508",
-      "https://elektrofahrrad.de/media/d6/34/f4/1756804509/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804509"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3832,12 +3748,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/e8/e5/82/1756804512/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804512",
-      "https://elektrofahrrad.de/media/e1/4f/bc/1756804513/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804513",
-      "https://elektrofahrrad.de/media/78/4c/ba/1756804514/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804514",
-      "https://elektrofahrrad.de/media/e5/80/0e/1756804514/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804514",
-      "https://elektrofahrrad.de/media/c2/d2/2d/1756804515/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804515",
-      "https://elektrofahrrad.de/media/da/1d/4c/1756804516/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804516"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3878,12 +3789,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/c7/a1/d0/1756804519/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804519",
-      "https://elektrofahrrad.de/media/8a/13/3d/1756804520/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804520",
-      "https://elektrofahrrad.de/media/b5/c4/20/1756804521/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804521",
-      "https://elektrofahrrad.de/media/d5/6f/7d/1756804522/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804522",
-      "https://elektrofahrrad.de/media/26/02/01/1756804523/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804523",
-      "https://elektrofahrrad.de/media/d9/57/1e/1756804524/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804524"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3924,12 +3830,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/64/24/b9/1756804527/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804527",
-      "https://elektrofahrrad.de/media/f1/41/70/1756804528/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804528",
-      "https://elektrofahrrad.de/media/32/63/66/1756804528/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804528",
-      "https://elektrofahrrad.de/media/20/bb/b5/1756804529/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804529",
-      "https://elektrofahrrad.de/media/84/6a/ba/1756804530/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804530",
-      "https://elektrofahrrad.de/media/f6/58/33/1756804531/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804531"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -3970,12 +3871,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/86/88/a8/1756804534/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804534",
-      "https://elektrofahrrad.de/media/fc/26/18/1756804535/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804535",
-      "https://elektrofahrrad.de/media/f3/11/75/1756804536/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804536",
-      "https://elektrofahrrad.de/media/02/74/e0/1756804537/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804537",
-      "https://elektrofahrrad.de/media/07/5c/f3/1756804538/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804538",
-      "https://elektrofahrrad.de/media/4a/ea/4b/1756804538/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804538"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4016,12 +3912,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/52/54/39/1756804542/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804542",
-      "https://elektrofahrrad.de/media/a5/82/dc/1756804543/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804543",
-      "https://elektrofahrrad.de/media/d2/a7/f4/1756804543/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804543",
-      "https://elektrofahrrad.de/media/45/35/c1/1756804544/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804544",
-      "https://elektrofahrrad.de/media/32/28/13/1756804545/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804545",
-      "https://elektrofahrrad.de/media/1a/6d/dc/1756804546/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804546"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4063,12 +3954,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/b1/fe/60/1756804549/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804549",
-      "https://elektrofahrrad.de/media/0b/55/10/1756804550/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804550",
-      "https://elektrofahrrad.de/media/de/76/ec/1756804551/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804551",
-      "https://elektrofahrrad.de/media/01/7d/af/1756804552/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804552",
-      "https://elektrofahrrad.de/media/7a/b9/dc/1756804553/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804553",
-      "https://elektrofahrrad.de/media/b7/83/6d/1756804554/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804554"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4109,13 +3995,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/54/df/ec/1756804573/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804573",
-      "https://elektrofahrrad.de/media/be/2e/45/1756804573/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804573",
-      "https://elektrofahrrad.de/media/1f/21/44/1756804574/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804574",
-      "https://elektrofahrrad.de/media/35/2d/64/1756804575/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804575",
-      "https://elektrofahrrad.de/media/31/49/40/1756804576/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804576",
-      "https://elektrofahrrad.de/media/94/a5/aa/1756804577/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804577",
-      "https://elektrofahrrad.de/media/66/76/ae/1756804578/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804578"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4156,14 +4036,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/30/2c/66/1756804597/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804597",
-      "https://elektrofahrrad.de/media/f8/5a/1a/1756804598/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804598",
-      "https://elektrofahrrad.de/media/c5/21/c3/1756804599/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804599",
-      "https://elektrofahrrad.de/media/f2/7f/c4/1756804599/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804599",
-      "https://elektrofahrrad.de/media/83/9b/da/1756804600/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804600",
-      "https://elektrofahrrad.de/media/0c/a8/37/1756804601/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804601",
-      "https://elektrofahrrad.de/media/73/35/23/1756804602/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804602",
-      "https://elektrofahrrad.de/media/ce/e4/d4/1756804603/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-07.jpg?ts=1756804603"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4204,14 +4077,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/6d/f6/0b/1756804614/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804614",
-      "https://elektrofahrrad.de/media/25/9f/74/1756804615/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804615",
-      "https://elektrofahrrad.de/media/16/53/53/1756804616/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804616",
-      "https://elektrofahrrad.de/media/b8/ff/69/1756804617/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804617",
-      "https://elektrofahrrad.de/media/95/bc/99/1756804617/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804617",
-      "https://elektrofahrrad.de/media/63/09/da/1756804618/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804618",
-      "https://elektrofahrrad.de/media/d9/9e/e6/1756804619/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804619",
-      "https://elektrofahrrad.de/media/7f/e6/f7/1756804620/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-07.jpg?ts=1756804620"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4252,12 +4118,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/8a/6f/f6/1756804623/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804623",
-      "https://elektrofahrrad.de/media/d4/6a/d9/1756804624/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804624",
-      "https://elektrofahrrad.de/media/6d/03/f6/1756804625/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804625",
-      "https://elektrofahrrad.de/media/ff/9a/e1/1756804626/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804626",
-      "https://elektrofahrrad.de/media/26/fa/72/1756804627/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804627",
-      "https://elektrofahrrad.de/media/91/51/39/1756804627/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804627"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4298,13 +4159,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/a6/80/ca/1756804630/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804630",
-      "https://elektrofahrrad.de/media/81/7d/31/1756804631/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804631",
-      "https://elektrofahrrad.de/media/c3/75/84/1756804632/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804632",
-      "https://elektrofahrrad.de/media/37/6e/25/1756804633/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804633",
-      "https://elektrofahrrad.de/media/8d/c6/b1/1756804634/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804634",
-      "https://elektrofahrrad.de/media/26/97/4c/1756804635/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804635",
-      "https://elektrofahrrad.de/media/a9/5b/67/1756804636/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804636"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4345,12 +4200,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/33/ed/ac/1756804648/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804648",
-      "https://elektrofahrrad.de/media/95/d5/c4/1756804649/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804649",
-      "https://elektrofahrrad.de/media/f7/1d/aa/1756804650/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804650",
-      "https://elektrofahrrad.de/media/fa/2c/26/1756804650/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804650",
-      "https://elektrofahrrad.de/media/9c/21/6f/1756804651/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804651",
-      "https://elektrofahrrad.de/media/bc/18/a1/1756804652/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804652"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4391,13 +4241,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d3/43/98/1756804655/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804655",
-      "https://elektrofahrrad.de/media/89/f8/e4/1756804656/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804656",
-      "https://elektrofahrrad.de/media/b5/4f/32/1756804657/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804657",
-      "https://elektrofahrrad.de/media/41/f1/87/1756804658/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804658",
-      "https://elektrofahrrad.de/media/d3/60/47/1756804659/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804659",
-      "https://elektrofahrrad.de/media/c0/d8/d7/1756804660/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804660",
-      "https://elektrofahrrad.de/media/1d/cc/3e/1756804660/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804660"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4438,12 +4282,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d5/b5/30/1756804664/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804664",
-      "https://elektrofahrrad.de/media/8a/45/92/1756804664/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804664",
-      "https://elektrofahrrad.de/media/f0/4a/83/1756804665/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804665",
-      "https://elektrofahrrad.de/media/7b/38/3e/1756804666/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804666",
-      "https://elektrofahrrad.de/media/eb/91/44/1756804667/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804667",
-      "https://elektrofahrrad.de/media/d6/18/d1/1756804668/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804668"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4484,14 +4323,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/29/d7/cf/1756804695/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804695",
-      "https://elektrofahrrad.de/media/8d/96/e1/1756804696/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804696",
-      "https://elektrofahrrad.de/media/b0/84/fc/1756804697/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804697",
-      "https://elektrofahrrad.de/media/cd/0c/32/1756804698/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804698",
-      "https://elektrofahrrad.de/media/8b/de/b0/1756804698/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804698",
-      "https://elektrofahrrad.de/media/c6/b6/b4/1756804699/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804699",
-      "https://elektrofahrrad.de/media/1f/6a/97/1756804700/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804700",
-      "https://elektrofahrrad.de/media/cd/1e/aa/1756804701/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-07.jpg?ts=1756804701"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -4532,7 +4364,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 142,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "2TB NVMe Custom SSD",
@@ -4572,7 +4404,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 310,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -4609,7 +4441,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 188,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Speicherkapazität": "1TB Custom NVMe SSD",
@@ -4644,7 +4476,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 94,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Inhalt": "PS5 Slim 1TB Disc Edition, ASTRO BOT Spielcode, DualSense Controller",
@@ -4678,7 +4510,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 520,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Farbe": "Original Weiß / Schwarz",
@@ -4713,7 +4545,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 410,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Farbe": "Midnight Black (Schwarz)",
@@ -4747,7 +4579,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 210,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Features": "Austauschbare Stick-Caps & Module, 2 Rücktasten (Paddles), Trigger-Stopps",
@@ -4781,7 +4613,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 165,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Bildschirm": "8-Zoll LCD Touchscreen (1920x1080 Full HD)",
@@ -4816,7 +4648,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 175,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Display": "OLED (2000 x 2040 Pixel pro Auge)",
@@ -4852,7 +4684,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 115,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Treiber": "Planar-Magnetostatische Treiber",
@@ -4887,7 +4719,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 5,
     "review_count": 290,
     "images": [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Kapazität": "2TB (2000 GB)",
@@ -4923,7 +4755,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.8,
     "review_count": 178,
     "images": [
-      "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?auto=format&fit=crop&w=1000&q=80"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Technologie": "TRUEFORCE Feedback",
@@ -4958,7 +4790,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/77/73/8f/1735563157/4233588086006-Scott-Lumen-905-cumulus-white-carbon-black-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1735563157"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "360Wh",
@@ -4999,7 +4831,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/4b/a1/25/1735563188/4234253020006-Scott-Lumen-920-carbon-black-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1735563188"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "360Wh",
@@ -5040,7 +4872,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/c9/49/27/1746689294/4234517950006-Scott-Passage-20-flake-grey-2025-E-Bike-Trekkingrad-Herren-0.jpg?ts=1746689294"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -5080,7 +4912,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/58/82/96/1746689295/4234528128006-Scott-Passage-20-Slope-aventurine-green-2025-E-Bike-Trekkingrad-Damen-0.jpg?ts=1746689295"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -5120,7 +4952,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/4c/e9/45/1746689296/4234538113006-Scott-Passage-30-highland-green-2025-E-Bike-Trekkingrad-Herren-0.jpg?ts=1746689296"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -5160,12 +4992,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/ab/21/7e/1746689309/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_01.jpg?ts=1746689309",
-      "https://elektrofahrrad.de/media/e7/6e/ae/1746689310/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_02.jpg?ts=1746689310",
-      "https://elektrofahrrad.de/media/18/c5/b9/1746689311/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_03.jpg?ts=1746689311",
-      "https://elektrofahrrad.de/media/ba/f9/2d/1746689312/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_04.jpg?ts=1746689312",
-      "https://elektrofahrrad.de/media/3b/da/a1/1746689313/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_05.jpg?ts=1746689313",
-      "https://elektrofahrrad.de/media/46/bd/ce/1746689315/02830066-Conway-Ryvon-ST-4-0-Full-Suspension-carbon-matt-black-2024-E-Bike-Fully-Mountainbike_06.jpg?ts=1746689315"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -5205,7 +5032,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/79/2a/95/1746689320/02810124-Conway-Xyron-SUV-4-0-750Wh-black-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1746689320"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5247,7 +5074,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/4a/cb/60/1746689329/02810151-Conway-Xyron-S-5-0-Carbon-750Wh-desert-matt-plum-matt-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1746689329"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5288,7 +5115,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/f6/93/f8/1746689353/02810374-Conway-Cairon-SUV-FS-4-0-625Wh-desert-matt-2025-E-Bike-Hardtail-Mountainbike-Tiefeinsteiger-0.jpg?ts=1746689353"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -5331,7 +5158,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/35/27/9c/1746689354/02810378-Conway-Cairon-SUV-FS-4-0-625Wh-graphit-grey-matt-2025-E-Bike-Hardtail-Mountainbike-Tiefeinsteiger-0.jpg?ts=1746689354"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -5374,7 +5201,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/34/d9/e3/1746689363/02810393-Conway-Xyron-SUV-4-0-750Wh-reseda-green-matt-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1746689363"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5416,7 +5243,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/45/04/9a/1746689366/02810416-Conway-Xyron-S-5-0-Carbon-750Wh-black-bronze-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1746689366"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5457,7 +5284,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/8e/ff/c4/1746689433/02830075-Conway-Ryvon-LT-4-0-400Wh-carbon-silver-2025-E-Bike-Fully-Mountainbike-0.jpg?ts=1746689433"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "400Wh",
@@ -5497,7 +5324,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/e2/99/ab/1751339191/45912330-haibike-hybe-9-grey-red-blk-matt-gloss-2024-01.jpg?ts=1751339191"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5538,7 +5365,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/78/d9/7c/1751339195/45804330-Haibike-Lyke-CF-11-carbon-sand-lime-gloss-2023-0.jpg?ts=1751339195"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "430Wh",
@@ -5579,7 +5406,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/11/63/3f/1751339246/663523750-Kalkhoff-Entice-7-B-Advance-ABS-moonstonegrey-matt-2023-E-Bike-Hardtail-Mountainbike.jpg?ts=1751339246"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5621,7 +5448,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/fb/09/8b/1751339249/663523760-Kalkhoff-Entice-7-B-Advance-ABS-urbangreen-matt-2023-E-Bike-Hardtail-Mountainbike-0.jpg?ts=1751339249"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "750Wh",
@@ -5663,7 +5490,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d1/4a/e0/1751340073/44300330-Winora-Yakun-X10E-darkred-2023-0.jpg?ts=1751340073"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "625Wh",
@@ -5703,7 +5530,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d1/50/f4/1751821837/45700430-Haibike-Nduro-6-Matte-Urban-Grey-Black-2025-E-Bike-Fully-Mountainbike_01.jpg?ts=1751821837"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "720Wh",
@@ -5743,12 +5570,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/8e/b8/f3/1756804333/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804333",
-      "https://elektrofahrrad.de/media/0a/0c/1c/1756804334/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804334",
-      "https://elektrofahrrad.de/media/b3/f5/97/1756804335/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804335",
-      "https://elektrofahrrad.de/media/dd/e3/46/1756804335/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804335",
-      "https://elektrofahrrad.de/media/72/9b/9b/1756804336/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804336",
-      "https://elektrofahrrad.de/media/92/f7/82/1756804337/101110-Cube-Stereo-Hybrid-ONE22-Pro-800-night-n-chrome-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804337"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5789,13 +5611,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/6b/ea/37/1756804349/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804349",
-      "https://elektrofahrrad.de/media/83/f6/f6/1756804350/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804350",
-      "https://elektrofahrrad.de/media/34/2a/54/1756804350/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804350",
-      "https://elektrofahrrad.de/media/af/7f/23/1756804351/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804351",
-      "https://elektrofahrrad.de/media/aa/fc/10/1756804352/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804352",
-      "https://elektrofahrrad.de/media/b6/bb/c3/1756804353/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804353",
-      "https://elektrofahrrad.de/media/63/63/cd/1756804354/101130-Cube-Stereo-Hybrid-ONE22-Pro-800-stonegrey-n-black-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804354"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5836,12 +5652,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d4/75/5d/1756804387/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804387",
-      "https://elektrofahrrad.de/media/8a/0c/e4/1756804388/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804388",
-      "https://elektrofahrrad.de/media/26/c2/36/1756804389/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804389",
-      "https://elektrofahrrad.de/media/b8/84/b7/1756804389/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804389",
-      "https://elektrofahrrad.de/media/d6/8e/59/1756804390/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804390",
-      "https://elektrofahrrad.de/media/43/4b/63/1756804391/101200-Cube-Stereo-Hybrid-ONE22-Race-800-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804391"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5882,14 +5693,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/26/1b/0c/1756804394/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804394",
-      "https://elektrofahrrad.de/media/a0/62/85/1756804395/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804395",
-      "https://elektrofahrrad.de/media/ab/a4/1f/1756804396/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804396",
-      "https://elektrofahrrad.de/media/85/ce/18/1756804397/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804397",
-      "https://elektrofahrrad.de/media/47/cd/14/1756804398/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804398",
-      "https://elektrofahrrad.de/media/5d/ed/8d/1756804398/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804398",
-      "https://elektrofahrrad.de/media/f0/37/fd/1756804399/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804399",
-      "https://elektrofahrrad.de/media/b0/77/f4/1756804400/101210-Cube-Stereo-Hybrid-ONE22-Race-800-electricblue-n-white-2026-EBike-Fully-Mountainbike-07.jpg?ts=1756804400"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5930,12 +5734,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/6b/62/f3/1756804403/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804403",
-      "https://elektrofahrrad.de/media/a8/ac/eb/1756804404/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804404",
-      "https://elektrofahrrad.de/media/39/b9/b9/1756804405/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804405",
-      "https://elektrofahrrad.de/media/c7/b5/50/1756804406/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804406",
-      "https://elektrofahrrad.de/media/0f/19/36/1756804407/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804407",
-      "https://elektrofahrrad.de/media/c1/9d/29/1756804408/101220-Cube-Stereo-Hybrid-ONE22-Race-800-shiftblush-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804408"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -5976,12 +5775,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/9f/95/1f/1756804411/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804411",
-      "https://elektrofahrrad.de/media/d6/ee/95/1756804412/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804412",
-      "https://elektrofahrrad.de/media/da/88/b2/1756804412/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804412",
-      "https://elektrofahrrad.de/media/ec/33/7c/1756804413/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804413",
-      "https://elektrofahrrad.de/media/4f/0c/3d/1756804414/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804414",
-      "https://elektrofahrrad.de/media/7d/c7/27/1756804415/101230-Cube-Stereo-Hybrid-ONE22-Race-800-FE-slabgrey-n-chrome-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804415"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6023,12 +5817,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/80/74/2d/1756804418/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804418",
-      "https://elektrofahrrad.de/media/2a/a6/f7/1756804419/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804419",
-      "https://elektrofahrrad.de/media/62/ea/95/1756804420/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804420",
-      "https://elektrofahrrad.de/media/91/da/75/1756804421/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804421",
-      "https://elektrofahrrad.de/media/38/26/f7/1756804421/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804421",
-      "https://elektrofahrrad.de/media/32/f8/16/1756804422/101300-Cube-Stereo-Hybrid-ONE22-SLX-800-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804422"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6069,12 +5858,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/6b/b0/14/1756804433/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804433",
-      "https://elektrofahrrad.de/media/a4/b3/94/1756804434/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804434",
-      "https://elektrofahrrad.de/media/0b/39/5e/1756804434/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804434",
-      "https://elektrofahrrad.de/media/29/bc/54/1756804435/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804435",
-      "https://elektrofahrrad.de/media/8d/9e/7a/1756804436/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804436",
-      "https://elektrofahrrad.de/media/4d/ac/ff/1756804437/101320-Cube-Stereo-Hybrid-ONE22-SLX-800-greige-n-switch-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804437"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6115,13 +5899,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/15/45/b2/1756804440/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804440",
-      "https://elektrofahrrad.de/media/5b/1b/33/1756804441/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804441",
-      "https://elektrofahrrad.de/media/14/c1/11/1756804442/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804442",
-      "https://elektrofahrrad.de/media/g0/0b/11/1756804443/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804443",
-      "https://elektrofahrrad.de/media/14/47/d7/1756804443/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804443",
-      "https://elektrofahrrad.de/media/b9/da/81/1756804444/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804444",
-      "https://elektrofahrrad.de/media/09/05/ee/1756804445/101330-Cube-Stereo-Hybrid-ONE22-SLX-800-FE-indigoblue-n-blue-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804445"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6163,13 +5941,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d1/f7/84/1756804448/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804448",
-      "https://elektrofahrrad.de/media/28/cb/d8/1756804449/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804449",
-      "https://elektrofahrrad.de/media/90/09/54/1756804450/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804450",
-      "https://elektrofahrrad.de/media/6f/6a/4d/1756804451/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804451",
-      "https://elektrofahrrad.de/media/f6/8c/0f/1756804452/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804452",
-      "https://elektrofahrrad.de/media/cf/fa/06/1756804452/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804452",
-      "https://elektrofahrrad.de/media/fb/62/85/1756804453/101400-Cube-Stereo-Hybrid-ONE22-SLT-800-prizmblack-n-black-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804453"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6210,13 +5982,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/40/ab/c1/1756804471/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804471",
-      "https://elektrofahrrad.de/media/e3/11/d6/1756804472/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804472",
-      "https://elektrofahrrad.de/media/26/92/97/1756804473/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804473",
-      "https://elektrofahrrad.de/media/ca/f6/64/1756804474/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804474",
-      "https://elektrofahrrad.de/media/20/3a/20/1756804475/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804475",
-      "https://elektrofahrrad.de/media/f0/3a/65/1756804475/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804475",
-      "https://elektrofahrrad.de/media/19/88/5d/1756804476/102150-Cube-Stereo-Hybrid-ONE44-Pro-800-shiftblush-n-raisin-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804476"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6257,13 +6023,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/8c/9d/c8/1756804488/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804488",
-      "https://elektrofahrrad.de/media/bb/71/52/1756804489/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804489",
-      "https://elektrofahrrad.de/media/fd/94/e7/1756804490/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804490",
-      "https://elektrofahrrad.de/media/1e/f3/cb/1756804490/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804490",
-      "https://elektrofahrrad.de/media/1d/fa/db/1756804491/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804491",
-      "https://elektrofahrrad.de/media/8b/e6/ee/1756804492/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804492",
-      "https://elektrofahrrad.de/media/69/d3/9e/1756804493/102170-Cube-Stereo-Hybrid-ONE44-Pro-800-FE-vulcan-n-orange-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804493"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6305,12 +6065,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/e2/78/12/1756804496/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804496",
-      "https://elektrofahrrad.de/media/31/d9/13/1756804497/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804497",
-      "https://elektrofahrrad.de/media/c2/81/c4/1756804498/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804498",
-      "https://elektrofahrrad.de/media/e0/7d/e4/1756804499/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804499",
-      "https://elektrofahrrad.de/media/40/c5/e1/1756804500/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804500",
-      "https://elektrofahrrad.de/media/8f/7d/bf/1756804501/102200-Cube-Stereo-Hybrid-ONE44-EX-800-blackline-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804501"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6351,13 +6106,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/af/a9/b0/1756804504/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804504",
-      "https://elektrofahrrad.de/media/dc/f9/38/1756804505/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804505",
-      "https://elektrofahrrad.de/media/b1/1d/c0/1756804505/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804505",
-      "https://elektrofahrrad.de/media/dc/81/fc/1756804506/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804506",
-      "https://elektrofahrrad.de/media/63/90/f4/1756804507/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804507",
-      "https://elektrofahrrad.de/media/15/bf/16/1756804508/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804508",
-      "https://elektrofahrrad.de/media/d6/34/f4/1756804509/102210-Cube-Stereo-Hybrid-ONE44-EX-800-electricblue-n-blue-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804509"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6398,12 +6147,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/e8/e5/82/1756804512/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804512",
-      "https://elektrofahrrad.de/media/e1/4f/bc/1756804513/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804513",
-      "https://elektrofahrrad.de/media/78/4c/ba/1756804514/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804514",
-      "https://elektrofahrrad.de/media/e5/80/0e/1756804514/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804514",
-      "https://elektrofahrrad.de/media/c2/d2/2d/1756804515/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804515",
-      "https://elektrofahrrad.de/media/da/1d/4c/1756804516/102220-Cube-Stereo-Hybrid-ONE44-EX-800-iceblue-n-prism-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804516"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6444,12 +6188,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/c7/a1/d0/1756804519/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804519",
-      "https://elektrofahrrad.de/media/8a/13/3d/1756804520/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804520",
-      "https://elektrofahrrad.de/media/b5/c4/20/1756804521/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804521",
-      "https://elektrofahrrad.de/media/d5/6f/7d/1756804522/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804522",
-      "https://elektrofahrrad.de/media/26/02/01/1756804523/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804523",
-      "https://elektrofahrrad.de/media/d9/57/1e/1756804524/102300-Cube-Stereo-Hybrid-ONE44-EXC-800-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804524"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6490,12 +6229,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/64/24/b9/1756804527/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804527",
-      "https://elektrofahrrad.de/media/f1/41/70/1756804528/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804528",
-      "https://elektrofahrrad.de/media/32/63/66/1756804528/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804528",
-      "https://elektrofahrrad.de/media/20/bb/b5/1756804529/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804529",
-      "https://elektrofahrrad.de/media/84/6a/ba/1756804530/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804530",
-      "https://elektrofahrrad.de/media/f6/58/33/1756804531/102310-Cube-Stereo-Hybrid-ONE44-EXC-800-desertstone-n-driedherbs-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804531"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6536,12 +6270,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/86/88/a8/1756804534/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804534",
-      "https://elektrofahrrad.de/media/fc/26/18/1756804535/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804535",
-      "https://elektrofahrrad.de/media/f3/11/75/1756804536/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804536",
-      "https://elektrofahrrad.de/media/02/74/e0/1756804537/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804537",
-      "https://elektrofahrrad.de/media/07/5c/f3/1756804538/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804538",
-      "https://elektrofahrrad.de/media/4a/ea/4b/1756804538/102320-Cube-Stereo-Hybrid-ONE44-EXC-800-blueiris-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804538"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6582,12 +6311,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/52/54/39/1756804542/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804542",
-      "https://elektrofahrrad.de/media/a5/82/dc/1756804543/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804543",
-      "https://elektrofahrrad.de/media/d2/a7/f4/1756804543/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804543",
-      "https://elektrofahrrad.de/media/45/35/c1/1756804544/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804544",
-      "https://elektrofahrrad.de/media/32/28/13/1756804545/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804545",
-      "https://elektrofahrrad.de/media/1a/6d/dc/1756804546/102330-Cube-Stereo-Hybrid-ONE44-EXC-800-FE-irongrey-n-chrome-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804546"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6629,12 +6353,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/b1/fe/60/1756804549/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804549",
-      "https://elektrofahrrad.de/media/0b/55/10/1756804550/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804550",
-      "https://elektrofahrrad.de/media/de/76/ec/1756804551/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804551",
-      "https://elektrofahrrad.de/media/01/7d/af/1756804552/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804552",
-      "https://elektrofahrrad.de/media/7a/b9/dc/1756804553/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804553",
-      "https://elektrofahrrad.de/media/b7/83/6d/1756804554/102350-Cube-Stereo-Hybrid-ONE44-HPC-Race-800-blackline-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804554"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6675,13 +6394,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/54/df/ec/1756804573/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804573",
-      "https://elektrofahrrad.de/media/be/2e/45/1756804573/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804573",
-      "https://elektrofahrrad.de/media/1f/21/44/1756804574/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804574",
-      "https://elektrofahrrad.de/media/35/2d/64/1756804575/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804575",
-      "https://elektrofahrrad.de/media/31/49/40/1756804576/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804576",
-      "https://elektrofahrrad.de/media/94/a5/aa/1756804577/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804577",
-      "https://elektrofahrrad.de/media/66/76/ae/1756804578/102500-Cube-Stereo-Hybrid-ONE44-HPC-SLX-800-slabgrey-n-orange-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804578"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6722,14 +6435,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/30/2c/66/1756804597/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804597",
-      "https://elektrofahrrad.de/media/f8/5a/1a/1756804598/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804598",
-      "https://elektrofahrrad.de/media/c5/21/c3/1756804599/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804599",
-      "https://elektrofahrrad.de/media/f2/7f/c4/1756804599/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804599",
-      "https://elektrofahrrad.de/media/83/9b/da/1756804600/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804600",
-      "https://elektrofahrrad.de/media/0c/a8/37/1756804601/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804601",
-      "https://elektrofahrrad.de/media/73/35/23/1756804602/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804602",
-      "https://elektrofahrrad.de/media/ce/e4/d4/1756804603/102600-Cube-Stereo-Hybrid-ONE44-HPC-SLX-Evo-800-slategrey-n-black-2026-EBike-Fully-Mountainbike-07.jpg?ts=1756804603"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6770,14 +6476,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/6d/f6/0b/1756804614/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804614",
-      "https://elektrofahrrad.de/media/25/9f/74/1756804615/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804615",
-      "https://elektrofahrrad.de/media/16/53/53/1756804616/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804616",
-      "https://elektrofahrrad.de/media/b8/ff/69/1756804617/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804617",
-      "https://elektrofahrrad.de/media/95/bc/99/1756804617/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804617",
-      "https://elektrofahrrad.de/media/63/09/da/1756804618/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804618",
-      "https://elektrofahrrad.de/media/d9/9e/e6/1756804619/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804619",
-      "https://elektrofahrrad.de/media/7f/e6/f7/1756804620/102700-Cube-Stereo-Hybrid-ONE44-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-07.jpg?ts=1756804620"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6818,12 +6517,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/8a/6f/f6/1756804623/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804623",
-      "https://elektrofahrrad.de/media/d4/6a/d9/1756804624/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804624",
-      "https://elektrofahrrad.de/media/6d/03/f6/1756804625/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804625",
-      "https://elektrofahrrad.de/media/ff/9a/e1/1756804626/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804626",
-      "https://elektrofahrrad.de/media/26/fa/72/1756804627/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804627",
-      "https://elektrofahrrad.de/media/91/51/39/1756804627/102800-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-carbon-n-gold-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804627"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6864,13 +6558,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/a6/80/ca/1756804630/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804630",
-      "https://elektrofahrrad.de/media/81/7d/31/1756804631/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804631",
-      "https://elektrofahrrad.de/media/c3/75/84/1756804632/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804632",
-      "https://elektrofahrrad.de/media/37/6e/25/1756804633/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804633",
-      "https://elektrofahrrad.de/media/8d/c6/b1/1756804634/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804634",
-      "https://elektrofahrrad.de/media/26/97/4c/1756804635/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804635",
-      "https://elektrofahrrad.de/media/a9/5b/67/1756804636/102810-Cube-Stereo-Hybrid-ONE44-HPC-AT-800-actionteam-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804636"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6911,12 +6599,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/33/ed/ac/1756804648/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804648",
-      "https://elektrofahrrad.de/media/95/d5/c4/1756804649/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804649",
-      "https://elektrofahrrad.de/media/f7/1d/aa/1756804650/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804650",
-      "https://elektrofahrrad.de/media/fa/2c/26/1756804650/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804650",
-      "https://elektrofahrrad.de/media/9c/21/6f/1756804651/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804651",
-      "https://elektrofahrrad.de/media/bc/18/a1/1756804652/103100-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-irongrey-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804652"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -6957,13 +6640,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d3/43/98/1756804655/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804655",
-      "https://elektrofahrrad.de/media/89/f8/e4/1756804656/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804656",
-      "https://elektrofahrrad.de/media/b5/4f/32/1756804657/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804657",
-      "https://elektrofahrrad.de/media/41/f1/87/1756804658/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804658",
-      "https://elektrofahrrad.de/media/d3/60/47/1756804659/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804659",
-      "https://elektrofahrrad.de/media/c0/d8/d7/1756804660/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804660",
-      "https://elektrofahrrad.de/media/1d/cc/3e/1756804660/103110-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-willowgreen-n-black-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804660"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -7004,12 +6681,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/d5/b5/30/1756804664/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804664",
-      "https://elektrofahrrad.de/media/8a/45/92/1756804664/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804664",
-      "https://elektrofahrrad.de/media/f0/4a/83/1756804665/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804665",
-      "https://elektrofahrrad.de/media/7b/38/3e/1756804666/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804666",
-      "https://elektrofahrrad.de/media/eb/91/44/1756804667/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804667",
-      "https://elektrofahrrad.de/media/d6/18/d1/1756804668/103120-Cube-Stereo-Hybrid-ONE77-HPC-Race-800-swimmingpool-n-black-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804668"
+      "https://m.media-amazon.com/images/I/61V1h+u-6KL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
@@ -7050,14 +6722,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "rating": 4.9,
     "review_count": 32,
     "images": [
-      "https://elektrofahrrad.de/media/29/d7/cf/1756804695/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-00.jpg?ts=1756804695",
-      "https://elektrofahrrad.de/media/8d/96/e1/1756804696/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-01.jpg?ts=1756804696",
-      "https://elektrofahrrad.de/media/b0/84/fc/1756804697/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-02.jpg?ts=1756804697",
-      "https://elektrofahrrad.de/media/cd/0c/32/1756804698/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-03.jpg?ts=1756804698",
-      "https://elektrofahrrad.de/media/8b/de/b0/1756804698/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-04.jpg?ts=1756804698",
-      "https://elektrofahrrad.de/media/c6/b6/b4/1756804699/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-05.jpg?ts=1756804699",
-      "https://elektrofahrrad.de/media/1f/6a/97/1756804700/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-06.jpg?ts=1756804700",
-      "https://elektrofahrrad.de/media/cd/1e/aa/1756804701/103400-Cube-Stereo-Hybrid-ONE77-HPC-TM-800-reedgreen-n-matrix-2026-EBike-Fully-Mountainbike-07.jpg?ts=1756804701"
+      "https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg"
     ],
     "specifications": {
       "Akku-Kapazität": "800Wh",
