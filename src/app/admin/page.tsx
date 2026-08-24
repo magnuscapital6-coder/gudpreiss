@@ -77,19 +77,19 @@ export default function AdminDashboardPage() {
   }
 
   return (
-    <div className="space-y-6 text-slate-900 dark:text-white">
+    <div className="space-y-6 text-slate-900">
       {/* Dashboard Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-xl sm:text-2xl font-black tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
               {t('admin.dashboard')}
             </h1>
-            <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-400 text-[10px] font-extrabold uppercase">
+            <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-extrabold uppercase">
               Live-Daten
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 dark:text-slate-400 mt-1">
+          <p className="text-xs sm:text-sm text-slate-500 mt-1">
             Verkaufs-, Bestands- und Kundenstatistiken in Echtzeit.
           </p>
         </div>
@@ -97,7 +97,7 @@ export default function AdminDashboardPage() {
         <div className="flex items-center gap-2">
           <button
             onClick={loadRealDashboardData}
-            className="p-2.5 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 dark:text-slate-300 transition cursor-pointer"
+            className="p-2.5 border border-slate-200 rounded-xl hover:bg-slate-100 text-slate-600 transition cursor-pointer"
             aria-label="Daten aktualisieren"
           >
             <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />

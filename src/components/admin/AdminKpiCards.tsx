@@ -59,19 +59,19 @@ export function AdminKpiCards({ orders, products }: AdminKpiCardsProps) {
         return (
           <div
             key={idx}
-            className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-3 hover:-translate-y-[3px] transition-transform duration-200"
+            className="bg-white p-5 rounded-3xl border border-slate-200 shadow-xs flex flex-col justify-between space-y-3 hover:-translate-y-[3px] transition-transform duration-200"
           >
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400">{kpi.title}</span>
+              <span className="text-xs font-bold text-slate-500">{kpi.title}</span>
               <div className={`p-2 rounded-2xl ${kpi.color}`}>
                 <Icon className="w-4 h-4" />
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-black">
+              <h3 className="text-2xl font-black text-slate-900">
                 {kpi.prefix || ''}{kpi.numeric.toLocaleString('de-DE')}{kpi.suffix || ''}
               </h3>
-              <span className="text-[11px] font-extrabold text-emerald-800 dark:text-emerald-400 flex items-center gap-1 mt-1">
+              <span className="text-[11px] font-extrabold text-emerald-600 flex items-center gap-1 mt-1">
                 <TrendingUp className="w-3 h-3" />
                 {kpi.change}
               </span>
