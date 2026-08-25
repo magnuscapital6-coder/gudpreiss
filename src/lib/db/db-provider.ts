@@ -12,7 +12,7 @@ const isSupabaseConfigured = Boolean(
   supabaseUrl.startsWith('http') &&
   supabaseKey &&
   !supabaseKey.includes('mock') &&
-  supabaseKey.startsWith('eyJ')
+  (supabaseKey.startsWith('eyJ') || supabaseKey.startsWith('sb_'))
 );
 const supabase = isSupabaseConfigured ? createClient(supabaseUrl, supabaseKey) : null;
 

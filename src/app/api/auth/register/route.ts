@@ -20,7 +20,7 @@ function isSupabaseConfigured(): boolean {
   return (
     url.startsWith('http') &&
     key.length > 10 &&
-    key.startsWith('eyJ')
+    (key.startsWith('eyJ') || key.startsWith('sb_'))
   );
 }
 

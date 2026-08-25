@@ -9,7 +9,7 @@ export function createClient() {
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
   // Only create a real client if properly configured
-  if (!supabaseUrl.startsWith('http') || !supabaseKey.startsWith('eyJ')) {
+  if (!supabaseUrl.startsWith('http') || (!supabaseKey.startsWith('eyJ') && !supabaseKey.startsWith('sb_'))) {
     // Return a mock client that won't connect to any real service
     return createServerClient('https://placeholder.supabase.co', 'placeholder-key', {
       cookies: {
@@ -125,7 +125,7 @@ export async function getSupabaseUser() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
   const isConfigured =
-    supabaseUrl.startsWith('http') && supabaseKey.length > 10 && supabaseKey.startsWith('eyJ');
+    supabaseUrl.startsWith('http') && supabaseKey.length > 10 && (supabaseKey.startsWith('eyJ') || supabaseKey.startsWith('sb_'));
 
   if (!isConfigured) return null;
 

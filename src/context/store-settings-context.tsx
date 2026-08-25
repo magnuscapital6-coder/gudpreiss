@@ -26,14 +26,28 @@ export function StoreSettingsProvider({ children }: { children: React.ReactNode 
 
   useEffect(() => {
     async function initSettings() {
-      // 1. Check client localStorage
       let local: Partial<StoreSettings> = {};
       try {
         const saved = localStorage.getItem(SETTINGS_STORAGE_KEY);
         if (saved) local = JSON.parse(saved);
       } catch {}
 
-      // 2. Fetch server/db settings
+      try {
+        const res = await fetch('/api/admin/settings');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success && data.settings) {
+            const merged = { ...DEFAULT_STORE_SETTINGS, ...data.settings, ...local };
+            setSettings(merged);
+            try {
+              localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(merged));
+            } catch {}
+            setIsLoading(false);
+            return;
+          }
+        }
+      } catch {}
+
       try {
         const dbSettings = await getStoreSettings();
         const merged = { ...DEFAULT_STORE_SETTINGS, ...dbSettings, ...local };
@@ -47,7 +61,6 @@ export function StoreSettingsProvider({ children }: { children: React.ReactNode 
 
     initSettings();
 
-    // Listen for custom settings updated events across components/tabs
     const handleCustomEvent = (e: any) => {
       if (e.detail) {
         setSettings((prev) => ({ ...prev, ...e.detail }));
@@ -64,21 +77,23 @@ export function StoreSettingsProvider({ children }: { children: React.ReactNode 
     const updated = { ...settings, ...newSettings };
     setSettings(updated);
 
-    // Save to localStorage for instant client persistence
     try {
       localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(updated));
     } catch {}
 
-    // Dispatch global event for instant re-render across all open components
     window.dispatchEvent(
       new CustomEvent(SETTINGS_UPDATED_EVENT, { detail: newSettings })
     );
 
-    // Persist in DB
     try {
+      await fetch('/api/admin/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newSettings),
+      });
       await updateDBSettings(newSettings);
     } catch (err) {
-      console.error('Error updating DB store settings:', err);
+      console.error('Error updating store settings:', err);
     }
   };
 
