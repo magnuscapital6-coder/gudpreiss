@@ -259,21 +259,39 @@ export default function BrandingSettingsPage() {
               <label className="block text-xs font-bold mb-2">
                 Logo Helles Thema (Light Mode)
               </label>
-              <ImageUploader images={logoUrl} onChange={setLogoUrl} />
+              <ImageUploader
+                images={logoUrl}
+                onChange={setLogoUrl}
+                maxFiles={1}
+                label="Logo Light"
+                showPrimaryBadge={false}
+              />
             </div>
 
             <div>
               <label className="block text-xs font-bold mb-2">
                 Logo Dunkles Thema (Dark Mode)
               </label>
-              <ImageUploader images={logoDarkUrl} onChange={setLogoDarkUrl} />
+              <ImageUploader
+                images={logoDarkUrl}
+                onChange={setLogoDarkUrl}
+                maxFiles={1}
+                label="Logo Dark"
+                showPrimaryBadge={false}
+              />
             </div>
 
             <div>
               <label className="block text-xs font-bold mb-2">
                 Logo Mobile Header
               </label>
-              <ImageUploader images={logoMobileUrl} onChange={setLogoMobileUrl} />
+              <ImageUploader
+                images={logoMobileUrl}
+                onChange={setLogoMobileUrl}
+                maxFiles={1}
+                label="Logo Mobile"
+                showPrimaryBadge={false}
+              />
             </div>
           </div>
         </div>
@@ -292,14 +310,26 @@ export default function BrandingSettingsPage() {
               <label className="block text-xs font-bold mb-2">
                 Favicon Browser-Tab (.ico / .png / .svg)
               </label>
-              <ImageUploader images={faviconUrl} onChange={setFaviconUrl} />
+              <ImageUploader
+                images={faviconUrl}
+                onChange={setFaviconUrl}
+                maxFiles={1}
+                label="Favicon"
+                showPrimaryBadge={false}
+              />
             </div>
 
             <div>
               <label className="block text-xs font-bold mb-2">
                 Apple Touch Icon (iOS Home Screen)
               </label>
-              <ImageUploader images={appleTouchIconUrl} onChange={setAppleTouchIconUrl} />
+              <ImageUploader
+                images={appleTouchIconUrl}
+                onChange={setAppleTouchIconUrl}
+                maxFiles={1}
+                label="Apple Touch Icon"
+                showPrimaryBadge={false}
+              />
             </div>
           </div>
         </div>
