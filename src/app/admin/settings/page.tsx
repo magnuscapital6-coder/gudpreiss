@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Settings, Save, Check, Sparkles } from 'lucide-react';
+import { Settings, Save, Check, Sparkles, Key, Lock, ShieldCheck, UserCheck, AlertCircle, Loader2 } from 'lucide-react';
 import { useStoreSettings } from '@/context/store-settings-context';
 
 export default function AdminSettingsPage() {
@@ -21,6 +21,63 @@ export default function AdminSettingsPage() {
   const [accountHolder, setAccountHolder] = useState(settings.account_holder || '');
   const [vatNumber, setVatNumber] = useState(settings.vat_number || '');
   const [saved, setSaved] = useState(false);
+
+  // Admin Security & Credentials State
+  const [adminEmailInput, setAdminEmailInput] = useState('admin@gudpreiss.de');
+  const [newPasswordInput, setNewPasswordInput] = useState('');
+  const [confirmPasswordInput, setConfirmPasswordInput] = useState('');
+  const [savingCreds, setSavingCreds] = useState(false);
+  const [credsSaved, setCredsSaved] = useState(false);
+  const [credsError, setCredsError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/api/admin/credentials')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.email) {
+          setAdminEmailInput(data.email);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const handleUpdateCreds = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setCredsError(null);
+    setCredsSaved(false);
+
+    if (newPasswordInput && newPasswordInput !== confirmPasswordInput) {
+      setCredsError('Die Passwort-Bestätigung stimmt nicht mit dem neuen Passwort überein.');
+      return;
+    }
+
+    setSavingCreds(true);
+    try {
+      const res = await fetch('/api/admin/credentials', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: adminEmailInput,
+          password: newPasswordInput || undefined,
+          confirmPassword: confirmPasswordInput || undefined,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setCredsSaved(true);
+        setNewPasswordInput('');
+        setConfirmPasswordInput('');
+        setTimeout(() => setCredsSaved(false), 4000);
+      } else {
+        setCredsError(data.error || 'Fehler beim Speichern der Zugangsdaten.');
+      }
+    } catch {
+      setCredsError('Netzwerkfehler beim Aktualisieren der Zugangsdaten.');
+    } finally {
+      setSavingCreds(false);
+    }
+  };
 
   useEffect(() => {
     if (settings) {
