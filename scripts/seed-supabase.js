@@ -53,7 +53,17 @@ async function seedDatabase() {
       );
     }
 
-    console.log('Database seeding complete! All categories, brands, and products are stored in PostgreSQL Supabase.');
+    // 4. Admin User Profile
+    console.log('Seeding admin user profile...');
+    const adminEmail = process.env.DEMO_ADMIN_EMAIL || 'admin@gudpreiss.de';
+    await client.query(
+      `INSERT INTO profiles (id, email, full_name, role, updated_at)
+       VALUES ($1, $2, $3, $4, NOW())
+       ON CONFLICT (id) DO UPDATE SET email = EXCLUDED.email, role = EXCLUDED.role`,
+      ['206835e0-793a-4b6d-a83b-91555feb5031', adminEmail, 'GudPreiss Admin', 'admin']
+    );
+
+    console.log('Database seeding complete! All categories, brands, products, and admin profiles are stored in PostgreSQL Supabase.');
 
   } catch (err) {
     console.error('Seeding error:', err.message || err);

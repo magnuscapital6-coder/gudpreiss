@@ -128,20 +128,54 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoading(true);
     try {
       const cleanEmail = email.trim().toLowerCase();
-      const newUser: UserProfile = {
-        id: `usr-${Date.now()}`,
-        email: cleanEmail,
-        full_name: fullName || cleanEmail.split('@')[0],
-        avatar_url: null,
-        phone: null,
-        role: 'customer',
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      };
-      setUser(newUser);
-      localStorage.setItem('gudpreiss_auth_user', JSON.stringify(newUser));
-      setIsLoading(false);
-      return { success: true };
+
+      try {
+        const res = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: cleanEmail,
+            password: password || '',
+            fullName: fullName || cleanEmail.split('@')[0],
+          }),
+        });
+
+        const data = await res.json();
+
+        if (res.status === 429) {
+          setIsLoading(false);
+          return {
+            success: false,
+            error: data.error || 'Zu viele Registrierungsversuche.',
+          };
+        }
+
+        if (res.ok && data.success && data.user) {
+          const profile: UserProfile = {
+            id: data.user.id,
+            email: data.user.email,
+            full_name: data.user.full_name,
+            avatar_url: null,
+            phone: null,
+            role: data.user.role,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+          };
+          setUser(profile);
+          localStorage.setItem('gudpreiss_auth_user', JSON.stringify(profile));
+          setIsLoading(false);
+          return { success: true };
+        }
+
+        setIsLoading(false);
+        return {
+          success: false,
+          error: data.error || 'Registrierung fehlgeschlagen.',
+        };
+      } catch {
+        setIsLoading(false);
+        return { success: false, error: 'Server nicht erreichbar.' };
+      }
     } catch (err: unknown) {
       setIsLoading(false);
       const message = err instanceof Error ? err.message : 'Fehler bei der Registrierung.';
