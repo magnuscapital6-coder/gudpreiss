@@ -165,14 +165,17 @@ export function ImageUploader({
               key={idx}
               className="relative group bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden h-24 p-2 flex items-center justify-center shadow-sm"
             >
-              <div className="relative w-full h-full flex items-center justify-center">
-                {img.startsWith('data:image') || img.startsWith('http') || img.startsWith('/') ? (
-                  <Image
+              <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                {img ? (
+                  <img
                     src={img}
                     alt={`${label} ${idx + 1}`}
-                    fill
-                    className="object-contain"
-                    unoptimized={img.startsWith('data:')}
+                    className="max-h-full max-w-full object-contain select-none"
+                    onError={(e) => {
+                      // Fallback if image path is broken
+                      (e.target as HTMLImageElement).onerror = null;
+                      (e.target as HTMLImageElement).src = '/icon.svg';
+                    }}
                   />
                 ) : (
                   <span className="text-[10px] font-mono text-slate-500 truncate">{img}</span>

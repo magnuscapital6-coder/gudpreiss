@@ -349,7 +349,15 @@ export default function BrandingSettingsPage() {
               <span className="text-[10px] text-slate-500 font-bold block uppercase">Header Light Mode</span>
               <div className="flex items-center gap-2 h-10">
                 {logoUrl[0] ? (
-                  <Image src={logoUrl[0]} alt="Light Logo" width={140} height={28} className="h-7 w-auto object-contain" />
+                  <img
+                    src={logoUrl[0]}
+                    alt="Light Logo"
+                    className="h-8 max-w-[160px] object-contain"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).onerror = null;
+                      (e.target as HTMLImageElement).src = '/icon.svg';
+                    }}
+                  />
                 ) : (
                   <span className="font-black text-lg text-emerald-800 tracking-tight">{storeName}</span>
                 )}
@@ -361,7 +369,15 @@ export default function BrandingSettingsPage() {
               <span className="text-[10px] text-slate-400 font-bold block uppercase">Header Dark Mode</span>
               <div className="flex items-center gap-2 h-10">
                 {logoDarkUrl[0] || logoUrl[0] ? (
-                  <Image src={logoDarkUrl[0] || logoUrl[0]} alt="Dark Logo" width={140} height={28} className="h-7 w-auto object-contain" />
+                  <img
+                    src={logoDarkUrl[0] || logoUrl[0]}
+                    alt="Dark Logo"
+                    className="h-8 max-w-[160px] object-contain"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).onerror = null;
+                      (e.target as HTMLImageElement).src = '/icon.svg';
+                    }}
+                  />
                 ) : (
                   <span className="font-black text-lg text-emerald-400 tracking-tight">{storeName}</span>
                 )}
