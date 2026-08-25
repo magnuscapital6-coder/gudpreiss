@@ -8,10 +8,15 @@ import { getProducts, getBanners, getCategories } from '@/lib/db/db-provider';
 export const revalidate = 60;
 
 export const metadata = {
-  title: 'Elektronik & Tech-Gadgets günstig online kaufen | GudPreiss Deutschland',
-  description: 'Ihr deutscher Online-Shop für Smartphones, Laptops, Kopfhörer & Smart Home. Kostenloser Versand & 30 Tage Rückgaberecht in Deutschland.',
+  title: 'E-Bikes & PlayStation 5 online kaufen | Gudpreiss Deutschland',
+  description: 'Kaufen Sie Premium E-Bikes (SCOTT, CUBE, Haibike, Conway) & Sony PlayStation 5 Konsolen, DualSense Controller & VR2 günstig online bei Gudpreiss. Kostenloser Versand ab 50 € & 30 Tage Rückgabe in Deutschland.',
   alternates: {
     canonical: 'https://gudpreiss.de',
+    languages: {
+      'de-DE': 'https://gudpreiss.de',
+      'de': 'https://gudpreiss.de',
+      'x-default': 'https://gudpreiss.de',
+    },
   },
 };
 
@@ -63,6 +68,9 @@ export default async function HomePage() {
       <CartDrawer />
 
       <main className="flex-1 mx-auto w-full max-w-[1360px] px-3 sm:px-6 lg:px-8 space-y-4">
+        <h1 className="sr-only">
+          Gudpreiss Deutschland — E-Bikes, PlayStation 5 Konsolen &amp; Premium Elektronik Online Shop
+        </h1>
         {/* All homepage sections loaded dynamically for code-splitting */}
         <HomepageSections products={products} banners={banners} categories={categories} />
       </main>
