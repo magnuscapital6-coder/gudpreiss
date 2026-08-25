@@ -596,7 +596,8 @@ export async function getStoreSettings(): Promise<StoreSettings> {
         300
       );
       if (!error && data) {
-        return { ...memorySettings, ...data };
+        memorySettings = { ...memorySettings, ...data };
+        return memorySettings;
       }
     } catch (err) {
       logSupabaseError('store_settings.select', err);

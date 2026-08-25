@@ -37,7 +37,7 @@ export function StoreSettingsProvider({ children }: { children: React.ReactNode 
         if (res.ok) {
           const data = await res.json();
           if (data.success && data.settings) {
-            const merged = { ...DEFAULT_STORE_SETTINGS, ...data.settings, ...local };
+            const merged = { ...DEFAULT_STORE_SETTINGS, ...local, ...data.settings };
             setSettings(merged);
             try {
               localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(merged));
@@ -50,7 +50,7 @@ export function StoreSettingsProvider({ children }: { children: React.ReactNode 
 
       try {
         const dbSettings = await getStoreSettings();
-        const merged = { ...DEFAULT_STORE_SETTINGS, ...dbSettings, ...local };
+        const merged = { ...DEFAULT_STORE_SETTINGS, ...local, ...dbSettings };
         setSettings(merged);
       } catch {
         setSettings({ ...DEFAULT_STORE_SETTINGS, ...local });
