@@ -886,6 +886,72 @@ export async function createCoupon(couponData: Partial<Coupon>): Promise<Coupon>
   return newCoupon;
 }
 
+export async function getCoupons(): Promise<Coupon[]> {
+  let combined: Coupon[] = [...memoryCoupons];
+  if (supabase) {
+    try {
+      const { data, error } = await supabase.from('coupons').select('*').order('created_at', { ascending: false });
+      if (!error && data && data.length > 0) {
+        const dbCoupons = data as Coupon[];
+        const existingCodes = new Set(combined.map((c) => c.code.toUpperCase()));
+        for (const c of dbCoupons) {
+          if (!existingCodes.has(c.code.toUpperCase())) {
+            combined.unshift(c);
+          }
+        }
+      }
+    } catch (err) {
+      logSupabaseError('coupons.select', err);
+    }
+  }
+
+  // Calculate real usage from real orders in database
+  try {
+    const orders = await getOrders();
+    combined = combined.map((coupon) => {
+      const orderCount = orders.filter(
+        (o) => o.coupon_code && o.coupon_code.toUpperCase() === coupon.code.toUpperCase()
+      ).length;
+      return {
+        ...coupon,
+        times_used: Math.max(coupon.times_used || 0, orderCount),
+      };
+    });
+  } catch (err) {
+    console.error('Failed to calculate coupon usage from orders:', err);
+  }
+
+  return combined;
+}
+
+export async function updateCouponStatus(id: string, active: boolean): Promise<boolean> {
+  const index = memoryCoupons.findIndex((c) => c.id === id || c.code === id);
+  if (index !== -1) {
+    memoryCoupons[index].active = active;
+  }
+  if (supabase) {
+    try {
+      await supabase.from('coupons').update({ active }).or(`id.eq.${id},code.eq.${id}`);
+    } catch (err) {
+      logSupabaseError('coupons.update', err);
+    }
+  }
+  return true;
+}
+
+export async function deleteCoupon(id: string): Promise<boolean> {
+  const initialLen = memoryCoupons.length;
+  memoryCoupons = memoryCoupons.filter((c) => c.id !== id && c.code !== id);
+  if (supabase) {
+    try {
+      await supabase.from('coupons').delete().or(`id.eq.${id},code.eq.${id}`);
+    } catch (err) {
+      logSupabaseError('coupons.delete', err);
+    }
+  }
+  return memoryCoupons.length < initialLen;
+}
+
 export async function createCategory(categoryData: Partial<Category>): Promise<Category> {
   const newCat: Category = {
     id: `cat-${Date.now()}`,
