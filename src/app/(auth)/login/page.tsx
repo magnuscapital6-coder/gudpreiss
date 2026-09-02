@@ -24,20 +24,18 @@ function LoginForm() {
 
   const isLocked = retryAfter > 0;
 
-  // Auto-redirect if user just logged in (only after explicit login, not stale localStorage)
-  // We check that the user arrived via redirect param, meaning they were bounced here by middleware
-  // In that case, the server-side session might be valid, so we redirect once
+  // Auto-redirect AFTER successful login (not on mount)
+  // Track if we just logged in via handleSubmit
+  const [justLoggedIn, setJustLoggedIn] = useState(false);
+
   useEffect(() => {
-    if (!user || !redirectTo) return;
-    const targetUrl = redirectTo.startsWith('/') ? redirectTo : (isAdmin ? '/admin' : '/account');
+    if (!justLoggedIn || !user) return;
+    const targetUrl = (redirectTo && redirectTo.startsWith('/'))
+      ? redirectTo
+      : (isAdmin ? '/admin' : '/account');
 
-    const timer = setTimeout(() => {
-      window.location.href = targetUrl;
-    }, 1200);
-
-    return () => clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [redirectTo]);
+    window.location.href = targetUrl;
+  }, [justLoggedIn, user, isAdmin, redirectTo]);
 
   useEffect(() => {
     if (!isLocked) return;
@@ -55,9 +53,11 @@ function LoginForm() {
   }, [isLocked]);
 
   // ── Render Toast / Redirection Card for Logged-In Users ──
-  // Only show if user just logged in (redirectTo means they were bounced by middleware)
-  if (user && redirectTo) {
-    const targetUrl = redirectTo.startsWith('/') ? redirectTo : (isAdmin ? '/admin' : '/account');
+  // Only show if user just logged in (justLoggedIn flag)
+  if (user && justLoggedIn) {
+    const targetUrl = (redirectTo && redirectTo.startsWith('/'))
+      ? redirectTo
+      : (isAdmin ? '/admin' : '/account');
 
     return (
       <div className="bg-white dark:bg-slate-900 rounded-3xl border border-emerald-500/30 p-8 shadow-2xl space-y-6 text-center animate-in fade-in zoom-in-95 duration-200">
@@ -81,7 +81,7 @@ function LoginForm() {
         </div>
 
         <div className="p-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl flex items-center justify-between text-xs">
-          <span className="text-slate-600 dark:text-slate-400 font-bold">Redirection vers votre tableau de bord...</span>
+          <span className="text-slate-600 dark:text-slate-400 font-bold">Connexion réussie !</span>
           <div className="w-4 h-4 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin" />
         </div>
 
@@ -116,11 +116,7 @@ function LoginForm() {
 
     const res = await login(email, password);
     if (res.success) {
-      const targetUrl = (redirectTo && redirectTo.startsWith('/'))
-        ? redirectTo
-        : (isAdmin ? '/admin' : '/account');
-      
-      window.location.href = targetUrl;
+      setJustLoggedIn(true);
     } else {
       setErrorMsg(res.error || 'Ungültige Anmeldeinformationen.');
       if (res.retryAfter) {
