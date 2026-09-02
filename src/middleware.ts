@@ -5,12 +5,8 @@ import { verifyValue } from '@/lib/cookie-signing';
 /**
  * Check if the user has a valid admin session.
  *
- * Priority:
- * 1. Supabase session cookie (sb-access-token) — HMAC-signed session token
- * 2. gudpreiss_auth_user cookie — demo / fallback auth (HMAC-signed)
- *
- * Security: Both cookies MUST be HMAC-signed. Unsigned or forged
- * cookies are rejected.
+ * Checks both sb-access-token and gudpreiss_auth_user cookies.
+ * Both MUST be HMAC-signed. Unsigned or forged cookies are rejected.
  */
 async function isAdminSession(request: NextRequest): Promise<boolean> {
   // 1. Signed session token (sb-access-token)
@@ -27,7 +23,7 @@ async function isAdminSession(request: NextRequest): Promise<boolean> {
     }
   }
 
-  // 2. Demo / fallback auth cookie (HMAC-signed)
+  // 2. Auth cookie (HMAC-signed)
   const authCookie = request.cookies.get('gudpreiss_auth_user')?.value;
   if (!authCookie) {
     return false;

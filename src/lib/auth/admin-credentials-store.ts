@@ -1,65 +1,72 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+/**
+ * Server-side admin credential management via Supabase.
+ * No fallback — requires Supabase to be configured.
+ */
 
-const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false,
-  },
-});
+function getSupabaseAdmin() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-let inMemoryAdminCredentials = {
-  email: process.env.DEMO_ADMIN_EMAIL || 'admin@gudpreiss.de',
-  password: process.env.DEMO_ADMIN_PASSWORD || 'admin123',
-};
-
-export async function getAdminCredentials() {
-  if (supabaseAdmin) {
-    try {
-      const { data: users } = await supabaseAdmin.auth.admin.listUsers();
-      const adminUser = users?.users?.find(
-        (u) => u.email === inMemoryAdminCredentials.email || u.user_metadata?.role === 'admin'
-      );
-      if (adminUser) {
-        return {
-          id: adminUser.id,
-          email: adminUser.email || inMemoryAdminCredentials.email,
-          password: inMemoryAdminCredentials.password,
-        };
-      }
-    } catch (err) {
-      console.error('Error fetching admin user from Supabase:', err);
-    }
+  if (!supabaseUrl || !supabaseServiceKey) {
+    return null;
   }
 
-  return {
-    id: 'usr-admin-default',
-    email: inMemoryAdminCredentials.email,
-    password: inMemoryAdminCredentials.password,
-  };
+  return createClient(supabaseUrl, supabaseServiceKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  });
+}
+
+export async function getAdminCredentials() {
+  const supabaseAdmin = getSupabaseAdmin();
+  if (!supabaseAdmin) {
+    console.error('[ADMIN_CREDENTIALS] Supabase not configured');
+    return null;
+  }
+
+  try {
+    const { data: users } = await supabaseAdmin.auth.admin.listUsers();
+    const adminUser = users?.users?.find(
+      (u) => u.user_metadata?.role === 'admin' || u.app_metadata?.role === 'admin'
+    );
+
+    if (adminUser) {
+      return {
+        id: adminUser.id,
+        email: adminUser.email || '',
+      };
+    }
+
+    return null;
+  } catch (err) {
+    console.error('[ADMIN_CREDENTIALS] Error fetching admin user:', err);
+    return null;
+  }
 }
 
 export async function updateAdminCredentials(newEmail: string, newPassword?: string) {
-  const cleanEmail = newEmail.trim().toLowerCase();
-  
-  if (newPassword) {
-    inMemoryAdminCredentials.password = newPassword;
+  const supabaseAdmin = getSupabaseAdmin();
+  if (!supabaseAdmin) {
+    return { success: false, error: 'Supabase not configured' };
   }
-  inMemoryAdminCredentials.email = cleanEmail;
+
+  const cleanEmail = newEmail.trim().toLowerCase();
 
   try {
     const { data: existingUsers } = await supabaseAdmin.auth.admin.listUsers();
     let adminUser = existingUsers?.users?.find(
-      (u) => u.email === cleanEmail || u.user_metadata?.role === 'admin'
+      (u) => u.user_metadata?.role === 'admin' || u.app_metadata?.role === 'admin'
     );
 
     let userId: string;
 
     if (adminUser) {
       userId = adminUser.id;
-      const updateData: any = {
+      const updateData: Record<string, unknown> = {
         email: cleanEmail,
         email_confirm: true,
         user_metadata: { full_name: 'GudPreiss Admin', role: 'admin' },
@@ -76,7 +83,8 @@ export async function updateAdminCredentials(newEmail: string, newPassword?: str
         user_metadata: { full_name: 'GudPreiss Admin', role: 'admin' },
       });
       if (createError) {
-        console.error('Supabase admin create error:', createError.message);
+        console.error('[ADMIN_CREDENTIALS] Create error:', createError.message);
+        return { success: false, error: createError.message };
       }
       userId = newUser?.user?.id || `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`;
     }
@@ -96,15 +104,9 @@ export async function updateAdminCredentials(newEmail: string, newPassword?: str
     });
 
     return { success: true, email: cleanEmail, userId };
-  } catch (err: any) {
-    console.error('Error updating admin credentials:', err.message || err);
-    return { success: true, email: cleanEmail, warning: err.message };
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    console.error('[ADMIN_CREDENTIALS] Error:', message);
+    return { success: false, error: message };
   }
-}
-
-export function isCustomAdminPasswordValid(password: string): boolean {
-  if (inMemoryAdminCredentials.password && password === inMemoryAdminCredentials.password) {
-    return true;
-  }
-  return false;
 }

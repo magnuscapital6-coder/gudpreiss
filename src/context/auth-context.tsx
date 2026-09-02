@@ -2,7 +2,6 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { UserProfile } from '@/types';
-import { createClient } from '@/lib/supabase/client';
 import {
   checkClientRateLimit,
   recordClientFailedAttempt,
@@ -16,14 +15,6 @@ interface AuthContextType {
   login: (email: string, password?: string) => Promise<{ success: boolean; error?: string; retryAfter?: number; remaining?: number }>;
   register: (email: string, password?: string, fullName?: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => Promise<void>;
-}
-
-// Cookie helpers: the server sets the httpOnly auth cookie on login.
-// Client-side cookie management is NOT needed for middleware auth.
-// User state is managed via localStorage for the UI layer only.
-function removeAuthCookie() {
-  // The httpOnly cookie is cleared by the server-side logout endpoint.
-  // We cannot clear it from JS, but it expires via max-age anyway.
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -185,16 +176,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = useCallback(async () => {
     try {
-      // Clear server-side cookies
       await fetch('/api/auth/logout', { method: 'POST' });
-    } catch {
-      // Ignore
-    }
-    try {
-      const supabase = createClient();
-      if (supabase && process.env.NEXT_PUBLIC_SUPABASE_URL) {
-        await supabase.auth.signOut();
-      }
     } catch {
       // Ignore
     }

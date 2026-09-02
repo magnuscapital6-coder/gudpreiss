@@ -8,55 +8,8 @@ import { createClient } from '@supabase/supabase-js';
  * POST /api/auth/login
  *
  * Server-side login endpoint with rate limiting.
- *
- * Priority:
- * 1. Supabase Auth — real authentication when configured
- * 2. Demo accounts — fallback when Supabase is not configured
+ * Authentication is handled exclusively by Supabase.
  */
-
-// Check if Supabase is properly configured
-function isSupabaseConfigured(): boolean {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-  return (
-    url.startsWith('http') &&
-    key.length > 10 &&
-    (key.startsWith('eyJ') || key.startsWith('sb_'))
-  );
-}
-
-// Demo accounts (only used when Supabase is NOT configured)
-function getDemoAccounts(): Record<string, { password: string; role: string; name: string }> {
-  const adminEmail = (process.env.DEMO_ADMIN_EMAIL || 'admin@gudpreiss.store').toLowerCase();
-  const adminPassword = process.env.DEMO_ADMIN_PASSWORD || 'admin123';
-  const customerEmail = (process.env.DEMO_CUSTOMER_EMAIL || 'customer@example.com').toLowerCase();
-  const customerPassword = process.env.DEMO_CUSTOMER_PASSWORD || 'kunde123';
-
-  const accounts: Record<string, { password: string; role: string; name: string }> = {};
-
-  const adminAccount = {
-    password: adminPassword,
-    role: 'admin',
-    name: 'GudPreiss Admin',
-  };
-
-  accounts[adminEmail] = adminAccount;
-  accounts['admin@gudpreiss.store'] = adminAccount;
-  accounts['admin@gudpreiss.de'] = adminAccount;
-  accounts['admin@gudpreiss.com'] = adminAccount;
-  accounts['admin@technova.store'] = adminAccount;
-
-  const customerAccount = {
-    password: customerPassword,
-    role: 'customer',
-    name: 'Kunde',
-  };
-  accounts[customerEmail] = customerAccount;
-  accounts['kunde@gudpreiss.de'] = customerAccount;
-  accounts['customer@example.com'] = customerAccount;
-
-  return accounts;
-}
 
 function getClientIp(request: NextRequest): string {
   const forwarded = request.headers.get('x-forwarded-for');
@@ -120,160 +73,103 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // ── SUPABASE AUTH (when configured) ──────────────────────
-    if (isSupabaseConfigured()) {
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-      const supabase = createClient(supabaseUrl, supabaseKey);
+    // ── SUPABASE AUTH ──────────────────────────────────────
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: cleanEmail,
-        password,
-      });
-
-      if (!error && data.user) {
-        resetRateLimit(ipKey);
-        resetRateLimit(emailKey);
-
-        // Determine role from user metadata or email
-        const userRole = data.user.user_metadata?.role ||
-          data.user.app_metadata?.role ||
-          (cleanEmail.includes('admin') ? 'admin' : 'customer');
-
-        const userObj = {
-          id: data.user.id,
-          email: data.user.email || cleanEmail,
-          full_name: data.user.user_metadata?.full_name || data.user.email?.split('@')[0] || 'User',
-          role: userRole,
-        };
-
-        const response = NextResponse.json({
-          success: true,
-          user: userObj,
-          remaining: emailLimit.remaining,
-        });
-
-        // Sign and set cookies
-        const maxAge = 60 * 60 * 24 * 7;
-
-        const profileJson = JSON.stringify({
-          id: userObj.id,
-          email: userObj.email,
-          full_name: userObj.full_name,
-          role: userObj.role,
-          avatar_url: null,
-          phone: null,
-          created_at: new Date().toISOString(),
-          updated_at: new Date().toISOString(),
-        });
-
-        const signedProfile = await signValue(encodeURIComponent(profileJson));
-
-        response.cookies.set('gudpreiss_auth_user', signedProfile, {
-          path: '/',
-          maxAge,
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-          sameSite: 'lax',
-        });
-
-        // Set signed session token for middleware (must be JSON with role)
-        const sessionPayload = JSON.stringify({
-          userId: userObj.id,
-          email: userObj.email,
-          role: userObj.role,
-          iat: Date.now(),
-        });
-        const signedSessionToken = await signValue(encodeURIComponent(sessionPayload));
-        response.cookies.set('sb-access-token', signedSessionToken, {
-          path: '/',
-          maxAge,
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-          sameSite: 'lax',
-        });
-
-        return response;
-      }
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('[AUTH_LOGIN] Supabase not configured');
+      return NextResponse.json(
+        { error: 'Authentifizierung nicht konfiguriert. Bitte kontaktieren Sie den Support.' },
+        { status: 500 },
+      );
     }
 
-    // ── DEMO MODE (when Supabase is NOT configured) ──────────
-    const demoAccounts = getDemoAccounts();
-    const account = demoAccounts[cleanEmail];
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
-    let userObj: { id: string; email: string; full_name: string; role: string } | null = null;
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: cleanEmail,
+      password,
+    });
 
-    const isValidPassword = account && (password === account.password || password === 'password123' || password === 'admin123' || (account.role === 'admin' && password.length >= 6));
-    const isAdminFallback = !account && (cleanEmail.includes('admin') || cleanEmail.includes('manager') || cleanEmail.includes('technova')) && password.length >= 6;
-
-    if ((account && isValidPassword) || isAdminFallback) {
-      resetRateLimit(ipKey);
+    if (error) {
       resetRateLimit(emailKey);
-      userObj = {
-        id: `usr-${cleanEmail.replace(/[^a-z0-9]/g, '-')}`,
-        email: cleanEmail,
-        full_name: account?.name || 'GudPreiss Admin',
-        role: account?.role || 'admin',
-      };
+      return NextResponse.json(
+        { error: 'Ungültige Anmeldeinformationen.' },
+        { status: 401 },
+      );
     }
 
-    if (userObj) {
-      const response = NextResponse.json({
-        success: true,
-        user: userObj,
-        remaining: emailLimit.remaining,
-      });
-
-      const profileJson = JSON.stringify({
-        id: userObj.id,
-        email: userObj.email,
-        full_name: userObj.full_name,
-        role: userObj.role,
-        avatar_url: null,
-        phone: null,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      });
-
-      const maxAge = 60 * 60 * 24 * 7;
-      const signedProfile = await signValue(encodeURIComponent(profileJson));
-
-      response.cookies.set('gudpreiss_auth_user', signedProfile, {
-        path: '/',
-        maxAge,
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
-      });
-
-      if (userObj.role === 'admin') {
-        const sessionPayload = JSON.stringify({
-          userId: userObj.id,
-          email: userObj.email,
-          role: userObj.role,
-          iat: Date.now(),
-        });
-        const signedSessionToken = await signValue(encodeURIComponent(sessionPayload));
-
-        response.cookies.set('sb-access-token', signedSessionToken, {
-          path: '/',
-          maxAge,
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-          sameSite: 'lax',
-        });
-      }
-
-      return response;
+    if (!data.user || !data.session) {
+      resetRateLimit(emailKey);
+      return NextResponse.json(
+        { error: 'Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.' },
+        { status: 401 },
+      );
     }
 
-    return NextResponse.json(
-      {
-        error: 'Ungültige Anmeldeinformationen.',
-        remaining: emailLimit.remaining - 1,
-      },
-      { status: 401 },
-    );
+    resetRateLimit(ipKey);
+    resetRateLimit(emailKey);
+
+    // Determine role from user metadata
+    const userRole = data.user.user_metadata?.role ||
+      data.user.app_metadata?.role ||
+      'customer';
+
+    const userObj = {
+      id: data.user.id,
+      email: data.user.email || cleanEmail,
+      full_name: data.user.user_metadata?.full_name || data.user.email?.split('@')[0] || 'User',
+      role: userRole,
+    };
+
+    const response = NextResponse.json({
+      success: true,
+      user: userObj,
+      remaining: emailLimit.remaining,
+    });
+
+    // Sign and set cookies
+    const maxAge = 60 * 60 * 24 * 7;
+
+    const profileJson = JSON.stringify({
+      id: userObj.id,
+      email: userObj.email,
+      full_name: userObj.full_name,
+      role: userObj.role,
+      avatar_url: null,
+      phone: null,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    });
+
+    const signedProfile = await signValue(encodeURIComponent(profileJson));
+
+    response.cookies.set('gudpreiss_auth_user', signedProfile, {
+      path: '/',
+      maxAge,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+    });
+
+    // Set signed session token for middleware
+    const sessionPayload = JSON.stringify({
+      userId: userObj.id,
+      email: userObj.email,
+      role: userObj.role,
+      iat: Date.now(),
+    });
+    const signedSessionToken = await signValue(encodeURIComponent(sessionPayload));
+    response.cookies.set('sb-access-token', signedSessionToken, {
+      path: '/',
+      maxAge,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+    });
+
+    return response;
   } catch (err: unknown) {
     console.error('[AUTH_LOGIN_ERROR]', err);
     return NextResponse.json(

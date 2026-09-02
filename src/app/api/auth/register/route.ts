@@ -7,22 +7,8 @@ import { createClient } from '@supabase/supabase-js';
 /**
  * POST /api/auth/register
  *
- * Register a new customer account.
- *
- * Priority:
- * 1. Supabase Auth — real registration when configured
- * 2. Demo mode — local-only when Supabase is NOT configured
+ * Register a new customer account via Supabase.
  */
-
-function isSupabaseConfigured(): boolean {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-  return (
-    url.startsWith('http') &&
-    key.length > 10 &&
-    (key.startsWith('eyJ') || key.startsWith('sb_'))
-  );
-}
 
 function getClientIp(request: NextRequest): string {
   const forwarded = request.headers.get('x-forwarded-for');
@@ -69,90 +55,57 @@ export async function POST(request: NextRequest) {
     }
 
     // ── SUPABASE REGISTRATION ──────────────────────────────
-    if (isSupabaseConfigured()) {
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-      const supabase = createClient(supabaseUrl, supabaseKey);
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-      const { data, error } = await supabase.auth.signUp({
-        email: cleanEmail,
-        password,
-        options: {
-          data: {
-            full_name: fullName,
-            role: 'customer',
-          },
-        },
-      });
-
-      if (error) {
-        resetRateLimit(ipKey);
-        // Map Supabase errors to user-friendly messages
-        if (error.message.includes('already registered')) {
-          return NextResponse.json(
-            { error: 'Diese E-Mail-Adresse ist bereits registriert.' },
-            { status: 409 },
-          );
-        }
-        return NextResponse.json(
-          { error: 'Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.' },
-          { status: 500 },
-        );
-      }
-
-      if (data.user) {
-        resetRateLimit(ipKey);
-
-        const userObj = {
-          id: data.user.id,
-          email: data.user.email || cleanEmail,
-          full_name: fullName,
-          role: 'customer',
-        };
-
-        const response = NextResponse.json({
-          success: true,
-          user: userObj,
-          message: data.user.identities?.length === 0
-            ? 'Diese E-Mail-Adresse ist bereits registriert.'
-            : undefined,
-        });
-
-        // If email confirmation is required, don't set cookies yet
-        if (data.session) {
-          const maxAge = 60 * 60 * 24 * 7;
-
-          const profileJson = JSON.stringify({
-            id: userObj.id,
-            email: userObj.email,
-            full_name: userObj.full_name,
-            role: userObj.role,
-            avatar_url: null,
-            phone: null,
-            created_at: new Date().toISOString(),
-            updated_at: new Date().toISOString(),
-          });
-
-          const signedProfile = await signValue(encodeURIComponent(profileJson));
-          response.cookies.set('gudpreiss_auth_user', signedProfile, {
-            path: '/',
-            maxAge,
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
-          });
-        }
-
-        return response;
-      }
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('[AUTH_REGISTER] Supabase not configured');
+      return NextResponse.json(
+        { error: 'Registrierung nicht konfiguriert. Bitte kontaktieren Sie den Support.' },
+        { status: 500 },
+      );
     }
 
-    // ── DEMO MODE ──────────────────────────────────────────
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    const { data, error } = await supabase.auth.signUp({
+      email: cleanEmail,
+      password,
+      options: {
+        data: {
+          full_name: fullName,
+          role: 'customer',
+        },
+      },
+    });
+
+    if (error) {
+      resetRateLimit(ipKey);
+      if (error.message.includes('already registered')) {
+        return NextResponse.json(
+          { error: 'Diese E-Mail-Adresse ist bereits registriert.' },
+          { status: 409 },
+        );
+      }
+      return NextResponse.json(
+        { error: 'Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.' },
+        { status: 500 },
+      );
+    }
+
+    if (!data.user) {
+      resetRateLimit(ipKey);
+      return NextResponse.json(
+        { error: 'Registrierung fehlgeschlagen.' },
+        { status: 500 },
+      );
+    }
+
     resetRateLimit(ipKey);
 
     const userObj = {
-      id: `usr-${Date.now()}`,
-      email: cleanEmail,
+      id: data.user.id,
+      email: data.user.email || cleanEmail,
       full_name: fullName,
       role: 'customer',
     };
@@ -162,26 +115,30 @@ export async function POST(request: NextRequest) {
       user: userObj,
     });
 
-    const maxAge = 60 * 60 * 24 * 7;
-    const profileJson = JSON.stringify({
-      id: userObj.id,
-      email: userObj.email,
-      full_name: userObj.full_name,
-      role: userObj.role,
-      avatar_url: null,
-      phone: null,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    });
+    // If session exists (email confirmation disabled), set cookies
+    if (data.session) {
+      const maxAge = 60 * 60 * 24 * 7;
 
-    const signedProfile = await signValue(encodeURIComponent(profileJson));
-    response.cookies.set('gudpreiss_auth_user', signedProfile, {
-      path: '/',
-      maxAge,
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-    });
+      const profileJson = JSON.stringify({
+        id: userObj.id,
+        email: userObj.email,
+        full_name: userObj.full_name,
+        role: userObj.role,
+        avatar_url: null,
+        phone: null,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      });
+
+      const signedProfile = await signValue(encodeURIComponent(profileJson));
+      response.cookies.set('gudpreiss_auth_user', signedProfile, {
+        path: '/',
+        maxAge,
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+      });
+    }
 
     return response;
   } catch (err: unknown) {

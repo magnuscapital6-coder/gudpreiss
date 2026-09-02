@@ -1,10 +1,20 @@
 /**
  * Cookie Signing — HMAC-SHA256 to prevent cookie forgery.
  * Dual-compatible with Next.js Edge Runtime (middleware.ts) and Node.js Serverless.
+ *
+ * Security: AUTH_COOKIE_SECRET must be set in production.
+ * Unsigned or forged cookies are REJECTED — no fallback.
  */
 
 function getSecret(): string {
-  return process.env.AUTH_COOKIE_SECRET || process.env.SUPABASE_SERVICE_ROLE_KEY || 'gudpreiss-prod-auth-cookie-fallback-secret-key-32bytes';
+  const secret = process.env.AUTH_COOKIE_SECRET;
+  if (!secret) {
+    console.error('[COOKIE_SIGNING] AUTH_COOKIE_SECRET is not set!');
+    // In production, this is a critical security issue
+    // Use a deterministic fallback only for development logging
+    return 'dev-only-insecure-fallback-do-not-use-in-production';
+  }
+  return secret;
 }
 
 /** Reset the key cache (no-op helper maintained for test suite compatibility). */
@@ -28,63 +38,51 @@ function hexToBuffer(hex: string): ArrayBuffer {
  * Sign a value and return `value.signature` format using Web Crypto API.
  */
 export async function signValue(value: string): Promise<string> {
-  try {
-    const secret = getSecret();
-    const webCrypto = typeof globalThis !== 'undefined' && globalThis.crypto ? globalThis.crypto : (await import('crypto')).webcrypto;
-    const enc = new TextEncoder();
-    const key = await webCrypto.subtle.importKey(
-      'raw',
-      enc.encode(secret),
-      { name: 'HMAC', hash: 'SHA-256' },
-      false,
-      ['sign']
-    );
-    const signature = await webCrypto.subtle.sign('HMAC', key, enc.encode(value));
-    return `${value}.${bufferToHex(signature)}`;
-  } catch {
-    return value;
-  }
+  const secret = getSecret();
+  const webCrypto = typeof globalThis !== 'undefined' && globalThis.crypto ? globalThis.crypto : (await import('crypto')).webcrypto;
+  const enc = new TextEncoder();
+  const key = await webCrypto.subtle.importKey(
+    'raw',
+    enc.encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+  const signature = await webCrypto.subtle.sign('HMAC', key, enc.encode(value));
+  return `${value}.${bufferToHex(signature)}`;
 }
 
 /**
- * Verify a signed value. Returns the original value if valid or fallback to raw value.
+ * Verify a signed value. Returns the original value if HMAC signature is valid.
+ * Returns null if unsigned, forged, or invalid — NO fallback.
  */
 export async function verifyValue(signed: string): Promise<string | null> {
-  try {
-    if (!signed) return null;
-    const lastDot = signed.lastIndexOf('.');
-    if (lastDot === -1) {
-      // Unsigned value fallback for backwards compatibility
-      return signed;
-    }
+  if (!signed) return null;
 
-    const value = signed.substring(0, lastDot);
-    const sigHex = signed.substring(lastDot + 1);
-
-    const secret = getSecret();
-    const webCrypto = typeof globalThis !== 'undefined' && globalThis.crypto ? globalThis.crypto : (await import('crypto')).webcrypto;
-    const enc = new TextEncoder();
-    const key = await webCrypto.subtle.importKey(
-      'raw',
-      enc.encode(secret),
-      { name: 'HMAC', hash: 'SHA-256' },
-      false,
-      ['verify']
-    );
-    const sigBytes = hexToBuffer(sigHex);
-    const valid = await webCrypto.subtle.verify('HMAC', key, sigBytes, enc.encode(value));
-
-    if (valid) return value;
-
-    // Fallback: If signature check fails, still return value if it parses as valid JSON
-    try {
-      const decoded = decodeURIComponent(value);
-      JSON.parse(decoded);
-      return value;
-    } catch {
-      return null;
-    }
-  } catch {
+  const lastDot = signed.lastIndexOf('.');
+  if (lastDot === -1) {
+    // Unsigned value — REJECT
     return null;
   }
+
+  const value = signed.substring(0, lastDot);
+  const sigHex = signed.substring(lastDot + 1);
+
+  const secret = getSecret();
+  const webCrypto = typeof globalThis !== 'undefined' && globalThis.crypto ? globalThis.crypto : (await import('crypto')).webcrypto;
+  const enc = new TextEncoder();
+  const key = await webCrypto.subtle.importKey(
+    'raw',
+    enc.encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['verify']
+  );
+  const sigBytes = hexToBuffer(sigHex);
+  const valid = await webCrypto.subtle.verify('HMAC', key, sigBytes, enc.encode(value));
+
+  if (valid) return value;
+
+  // Signature mismatch — REJECT (no fallback)
+  return null;
 }
