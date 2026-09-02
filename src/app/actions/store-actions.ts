@@ -41,10 +41,33 @@ export async function createOrderServerAction(orderPayload: {
 
     const order = await createOrder(orderPayload);
 
-    // Non-blocking dispatch of real email via Resend API
+    // Non-blocking: send emails and create notification
     try {
-      const { sendOrderConfirmationEmail } = await import('@/lib/email/resend-service');
-      sendOrderConfirmationEmail(order).catch(console.error);
+      const { sendOrderConfirmationEmail, sendOrderAdminNotificationEmail } = await import('@/lib/email/resend-service');
+      const { createNotification } = await import('@/lib/notifications/service');
+      const { getStoreSettings } = await import('@/lib/db/db-provider');
+
+      // Get settings for email templates
+      getStoreSettings().then(async (settings) => {
+        // Send confirmation email to customer
+        sendOrderConfirmationEmail(order, settings).catch(console.error);
+
+        // Send notification email to admin
+        sendOrderAdminNotificationEmail(order, settings).catch(console.error);
+
+        // Create in-app notification for admin
+        await createNotification({
+          type: 'order',
+          title: `Neue Bestellung #${order.order_number}`,
+          message: `${order.shipping_address?.full_name || 'Kunde'} hat eine Bestellung über ${order.total_amount.toFixed(2)} € aufgegeben.`,
+          data: {
+            orderId: order.id,
+            orderNumber: order.order_number,
+            customerEmail: order.customer_email,
+            totalAmount: order.total_amount,
+          },
+        });
+      }).catch(console.error);
     } catch {}
 
     return { success: true, order };

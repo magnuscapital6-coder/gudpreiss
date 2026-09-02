@@ -254,6 +254,21 @@ export interface StoreSettings {
   apple_touch_icon_url?: string;
   primary_color?: string;
   secondary_color?: string;
+  // Email templates (editable from admin)
+  email_template_order_customer?: string;
+  email_template_order_admin?: string;
+  email_subject_order_customer?: string;
+  email_subject_order_admin?: string;
+}
+
+export interface Notification {
+  id: string;
+  type: 'order' | 'system' | 'alert';
+  title: string;
+  message: string;
+  read: boolean;
+  data?: Record<string, unknown>;
+  created_at: string;
 }
 
 export interface LegalPage {
