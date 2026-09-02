@@ -177,28 +177,21 @@ export async function POST(request: NextRequest) {
           sameSite: 'lax',
         });
 
-        // Set Supabase access token for middleware
-        if (data.session?.access_token) {
-          const signedToken = await signValue(data.session.access_token);
-          response.cookies.set('sb-access-token', signedToken, {
-            path: '/',
-            maxAge,
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
-          });
-        }
-
-        // Also set refresh token for session persistence
-        if (data.session?.refresh_token) {
-          response.cookies.set('sb-refresh-token', data.session.refresh_token, {
-            path: '/',
-            maxAge: 60 * 60 * 24 * 30, // 30 days
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
-          });
-        }
+        // Set signed session token for middleware (must be JSON with role)
+        const sessionPayload = JSON.stringify({
+          userId: userObj.id,
+          email: userObj.email,
+          role: userObj.role,
+          iat: Date.now(),
+        });
+        const signedSessionToken = await signValue(encodeURIComponent(sessionPayload));
+        response.cookies.set('sb-access-token', signedSessionToken, {
+          path: '/',
+          maxAge,
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: 'lax',
+        });
 
         return response;
       }

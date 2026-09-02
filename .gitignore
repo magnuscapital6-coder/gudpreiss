@@ -36,3 +36,4 @@ tsconfig.tsbuildinfo
 
 # docmap
 docmap.md
+.env*

@@ -24,19 +24,20 @@ function LoginForm() {
 
   const isLocked = retryAfter > 0;
 
-  // Auto-redirect if user is already logged in
+  // Auto-redirect if user just logged in (only after explicit login, not stale localStorage)
+  // We check that the user arrived via redirect param, meaning they were bounced here by middleware
+  // In that case, the server-side session might be valid, so we redirect once
   useEffect(() => {
-    if (!user) return;
-    const targetUrl = (redirectTo && redirectTo.startsWith('/'))
-      ? redirectTo
-      : (isAdmin ? '/admin' : '/account');
+    if (!user || !redirectTo) return;
+    const targetUrl = redirectTo.startsWith('/') ? redirectTo : (isAdmin ? '/admin' : '/account');
 
     const timer = setTimeout(() => {
       window.location.href = targetUrl;
     }, 1200);
 
     return () => clearTimeout(timer);
-  }, [user, isAdmin, redirectTo]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [redirectTo]);
 
   useEffect(() => {
     if (!isLocked) return;
@@ -54,10 +55,9 @@ function LoginForm() {
   }, [isLocked]);
 
   // ── Render Toast / Redirection Card for Logged-In Users ──
-  if (user) {
-    const targetUrl = (redirectTo && redirectTo.startsWith('/'))
-      ? redirectTo
-      : (isAdmin ? '/admin' : '/account');
+  // Only show if user just logged in (redirectTo means they were bounced by middleware)
+  if (user && redirectTo) {
+    const targetUrl = redirectTo.startsWith('/') ? redirectTo : (isAdmin ? '/admin' : '/account');
 
     return (
       <div className="bg-white dark:bg-slate-900 rounded-3xl border border-emerald-500/30 p-8 shadow-2xl space-y-6 text-center animate-in fade-in zoom-in-95 duration-200">
