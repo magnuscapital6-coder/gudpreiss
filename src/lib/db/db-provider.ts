@@ -188,6 +188,93 @@ function withTimeout<T>(promiseLike: PromiseLike<T>, ms = 300): Promise<T> {
   });
 }
 
+// ── Auto-seed Supabase when tables are empty ─────────────────
+let seeded = false;
+
+async function ensureSeeded() {
+  if (seeded || !supabase) return;
+  try {
+    const { count } = await supabase.from('categories').select('*', { count: 'exact', head: true });
+    if (count && count > 0) { seeded = true; return; }
+
+    console.log('[DB] Supabase tables empty — seeding initial data...');
+
+    // Seed categories
+    const catRows = INITIAL_CATEGORIES.map((c) => ({
+      id: c.id,
+      name: c.name,
+      slug: c.slug,
+      description: c.description || '',
+      image_url: c.image_url || SVG_PLACEHOLDER,
+      active: c.active,
+      sort_order: c.sort_order,
+    }));
+    await supabase.from('categories').upsert(catRows, { onConflict: 'id' });
+
+    // Seed products (in batches of 50)
+    for (let i = 0; i < INITIAL_PRODUCTS.length; i += 50) {
+      const batch = INITIAL_PRODUCTS.slice(i, i + 50).map((p) => ({
+        id: p.id,
+        name: p.name,
+        slug: p.slug,
+        description: p.description || '',
+        short_description: p.short_description || '',
+        sku: p.sku || '',
+        gtin: p.gtin || '',
+        mpn: p.mpn || '',
+        google_product_category: p.google_product_category || '',
+        condition: p.condition || 'new',
+        brand_id: p.brand_id,
+        brand_name: p.brand_name || '',
+        category_id: p.category_id,
+        category_name: p.category_name || '',
+        price: p.price,
+        compare_at_price: p.compare_at_price,
+        cost_price: p.cost_price,
+        stock: p.stock,
+        low_stock_threshold: p.low_stock_threshold,
+        status: p.status,
+        featured: p.featured,
+        best_seller: p.best_seller,
+        new_arrival: p.new_arrival,
+        on_sale: p.on_sale,
+        weight_kg: p.weight_kg,
+        images: p.images,
+      }));
+      await supabase.from('products').upsert(batch, { onConflict: 'id' });
+    }
+
+    // Seed store_settings
+    await supabase.from('store_settings').upsert([{
+      id: 'default',
+      store_name: DEFAULT_STORE_SETTINGS.store_name,
+      store_email: DEFAULT_STORE_SETTINGS.contact_email,
+      currency: DEFAULT_STORE_SETTINGS.currency,
+      free_shipping_threshold: DEFAULT_STORE_SETTINGS.free_shipping_threshold,
+      iban: DEFAULT_STORE_SETTINGS.iban,
+      bic: DEFAULT_STORE_SETTINGS.bic,
+      bank_name: DEFAULT_STORE_SETTINGS.bank_name,
+      account_holder: DEFAULT_STORE_SETTINGS.account_holder,
+      vat_number: DEFAULT_STORE_SETTINGS.vat_number,
+    }], { onConflict: 'id' });
+
+    // Seed brands
+    const brandRows = INITIAL_BRANDS.map((b) => ({
+      id: b.id,
+      name: b.name,
+      slug: b.slug,
+      logo_url: b.logo_url || '',
+      description: b.description || '',
+    }));
+    await supabase.from('brands').upsert(brandRows, { onConflict: 'id' });
+
+    seeded = true;
+    console.log('[DB] Supabase seeded successfully');
+  } catch (err) {
+    logSupabaseError('seed', err);
+  }
+}
+
 // -------------------------------------------------------------
 // READ FUNCTIONS (PostgreSQL Supabase + In-Memory Fallback)
 // -------------------------------------------------------------
@@ -205,6 +292,7 @@ export async function getProducts(filters?: {
   sort?: string;
 }): Promise<Product[]> {
   // Memory Fallback (0ms instant response with 100% German translated products)
+  await ensureSeeded();
   let result = [...memoryProducts];
   if (!filters) return result;
 
@@ -295,6 +383,7 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 }
 
 export async function getCategories(): Promise<Category[]> {
+  await ensureSeeded();
   if (supabase) {
     try {
       const { data, error } = await withTimeout(
@@ -611,6 +700,7 @@ export async function getCouponByCode(code: string): Promise<Coupon | null> {
 }
 
 export async function getStoreSettings(): Promise<StoreSettings> {
+  await ensureSeeded();
   if (supabase) {
     try {
       const { data, error } = await withTimeout(
