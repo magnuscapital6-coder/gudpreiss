@@ -244,19 +244,21 @@ async function ensureSeeded() {
       await supabase.from('products').upsert(batch, { onConflict: 'id' });
     }
 
-    // Seed store_settings
-    await supabase.from('store_settings').upsert([{
-      id: 'default',
-      store_name: DEFAULT_STORE_SETTINGS.store_name,
-      store_email: DEFAULT_STORE_SETTINGS.contact_email,
-      currency: DEFAULT_STORE_SETTINGS.currency,
-      free_shipping_threshold: DEFAULT_STORE_SETTINGS.free_shipping_threshold,
-      iban: DEFAULT_STORE_SETTINGS.iban,
-      bic: DEFAULT_STORE_SETTINGS.bic,
-      bank_name: DEFAULT_STORE_SETTINGS.bank_name,
-      account_holder: DEFAULT_STORE_SETTINGS.account_holder,
-      vat_number: DEFAULT_STORE_SETTINGS.vat_number,
-    }], { onConflict: 'id' });
+    // Seed store_settings (key-value table)
+    await supabase.from('settings').upsert([{
+      key: 'store',
+      value_json: {
+        store_name: DEFAULT_STORE_SETTINGS.store_name,
+        contact_email: DEFAULT_STORE_SETTINGS.contact_email,
+        currency: DEFAULT_STORE_SETTINGS.currency,
+        free_shipping_threshold: DEFAULT_STORE_SETTINGS.free_shipping_threshold,
+        iban: DEFAULT_STORE_SETTINGS.iban,
+        bic: DEFAULT_STORE_SETTINGS.bic,
+        bank_name: DEFAULT_STORE_SETTINGS.bank_name,
+        account_holder: DEFAULT_STORE_SETTINGS.account_holder,
+        vat_number: DEFAULT_STORE_SETTINGS.vat_number,
+      },
+    }], { onConflict: 'key' });
 
     // Seed brands
     const brandRows = INITIAL_BRANDS.map((b) => ({
@@ -704,15 +706,15 @@ export async function getStoreSettings(): Promise<StoreSettings> {
   if (supabase) {
     try {
       const { data, error } = await withTimeout(
-        supabase.from('store_settings').select('*').single(),
+        supabase.from('settings').select('value_json').eq('key', 'store').single(),
         2000
       );
-      if (!error && data) {
-        memorySettings = { ...memorySettings, ...data };
+      if (!error && data?.value_json) {
+        memorySettings = { ...memorySettings, ...data.value_json };
         return memorySettings;
       }
     } catch (err) {
-      logSupabaseError('store_settings.select', err);
+      logSupabaseError('settings.select', err);
     }
   }
   return {
@@ -735,23 +737,13 @@ export async function updateStoreSettings(settingsData: Partial<StoreSettings>):
 
   if (supabase) {
     try {
-      // Only upsert columns that exist in the store_settings table
-      const dbData: Record<string, unknown> = {
-        id: 'default',
-        store_name: memorySettings.store_name,
-        store_email: memorySettings.contact_email,
-        currency: memorySettings.currency,
-        free_shipping_threshold: memorySettings.free_shipping_threshold,
-        iban: memorySettings.iban,
-        bic: memorySettings.bic,
-        bank_name: memorySettings.bank_name,
-        account_holder: memorySettings.account_holder,
-        vat_number: memorySettings.vat_number,
+      await supabase.from('settings').upsert([{
+        key: 'store',
+        value_json: memorySettings,
         updated_at: new Date().toISOString(),
-      };
-      await supabase.from('store_settings').upsert([dbData]);
+      }], { onConflict: 'key' });
     } catch (err) {
-      logSupabaseError('store_settings.upsert', err);
+      logSupabaseError('settings.upsert', err);
     }
   }
 
