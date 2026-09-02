@@ -295,6 +295,28 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 }
 
 export async function getCategories(): Promise<Category[]> {
+  if (supabase) {
+    try {
+      const { data, error } = await withTimeout(
+        supabase.from('categories').select('*').order('sort_order', { ascending: true }),
+        2000
+      );
+      if (!error && data && data.length > 0) {
+        memoryCategories = data.map((c: Record<string, unknown>) => ({
+          id: c.id as string,
+          name: c.name as string,
+          slug: c.slug as string,
+          description: (c.description as string) || '',
+          image_url: (c.image_url as string) || SVG_PLACEHOLDER,
+          active: c.active !== false,
+          sort_order: (c.sort_order as number) || 0,
+        }));
+        return [...memoryCategories];
+      }
+    } catch (err) {
+      logSupabaseError('categories.select', err);
+    }
+  }
   return [...memoryCategories];
 }
 
@@ -593,7 +615,7 @@ export async function getStoreSettings(): Promise<StoreSettings> {
     try {
       const { data, error } = await withTimeout(
         supabase.from('store_settings').select('*').single(),
-        300
+        2000
       );
       if (!error && data) {
         memorySettings = { ...memorySettings, ...data };
@@ -623,7 +645,21 @@ export async function updateStoreSettings(settingsData: Partial<StoreSettings>):
 
   if (supabase) {
     try {
-      await supabase.from('store_settings').upsert([memorySettings]);
+      // Only upsert columns that exist in the store_settings table
+      const dbData: Record<string, unknown> = {
+        id: 'default',
+        store_name: memorySettings.store_name,
+        store_email: memorySettings.contact_email,
+        currency: memorySettings.currency,
+        free_shipping_threshold: memorySettings.free_shipping_threshold,
+        iban: memorySettings.iban,
+        bic: memorySettings.bic,
+        bank_name: memorySettings.bank_name,
+        account_holder: memorySettings.account_holder,
+        vat_number: memorySettings.vat_number,
+        updated_at: new Date().toISOString(),
+      };
+      await supabase.from('store_settings').upsert([dbData]);
     } catch (err) {
       logSupabaseError('store_settings.upsert', err);
     }
@@ -1023,7 +1059,11 @@ export async function deleteCategory(id: string): Promise<boolean> {
 
   if (supabase) {
     try {
-      await supabase.from('categories').delete().or(`id.eq.${id},slug.eq.${id}`);
+      // Try deleting by id first, then by slug
+      const { error } = await supabase.from('categories').delete().eq('id', id);
+      if (error) {
+        await supabase.from('categories').delete().eq('slug', id);
+      }
     } catch (err) {
       logSupabaseError('categories.delete', err);
     }
