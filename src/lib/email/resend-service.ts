@@ -28,7 +28,7 @@ export async function sendOrderConfirmationEmail(
 ): Promise<boolean> {
   const resendApiKey = process.env.RESEND_API_KEY;
   if (!resendApiKey || resendApiKey.includes('demo')) {
-    console.log(`[Order Email Simulation] Order confirmation #${order.order_number} created for ${order.customer_email}`);
+    console.warn(`[Email] RESEND_API_KEY manquant ou demo - email non envoye pour #${order.order_number}`);
     return false;
   }
 
@@ -54,15 +54,15 @@ export async function sendOrderConfirmationEmail(
     });
 
     if (res.ok) {
-      console.log(`[Resend Order Email] Confirmation for #${order.order_number} sent to ${order.customer_email}`);
+      console.log(`[Email] Confirmation #${order.order_number} envoyee a ${order.customer_email}`);
       return true;
     } else {
       const err = await res.json();
-      console.warn('[Resend Order Email Error]:', err);
+      console.error(`[Email] Echec confirmation #${order.order_number}:`, err.message || JSON.stringify(err));
       return false;
     }
   } catch (err) {
-    console.error('[Resend Order Email Error]:', err);
+    console.error(`[Email] Erreur reseau confirmation #${order.order_number}:`, err);
     return false;
   }
 }
@@ -76,7 +76,7 @@ export async function sendOrderAdminNotificationEmail(
 ): Promise<boolean> {
   const resendApiKey = process.env.RESEND_API_KEY;
   if (!resendApiKey || resendApiKey.includes('demo')) {
-    console.log(`[Admin Email Simulation] New order #${order.order_number} notification`);
+    console.warn(`[Email] RESEND_API_KEY manquant ou demo - notification admin non envoyee pour #${order.order_number}`);
     return false;
   }
 
@@ -103,15 +103,15 @@ export async function sendOrderAdminNotificationEmail(
     });
 
     if (res.ok) {
-      console.log(`[Resend Admin Email] New order notification for #${order.order_number} sent to ${adminEmail}`);
+      console.log(`[Email] Notification admin #${order.order_number} envoyee a ${adminEmail}`);
       return true;
     } else {
       const err = await res.json();
-      console.warn('[Resend Admin Email Error]:', err);
+      console.error(`[Email] Echec notification admin #${order.order_number}:`, err.message || JSON.stringify(err));
       return false;
     }
   } catch (err) {
-    console.error('[Resend Admin Email Error]:', err);
+    console.error(`[Email] Erreur reseau notification admin #${order.order_number}:`, err);
     return false;
   }
 }

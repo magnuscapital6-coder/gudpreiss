@@ -21,7 +21,7 @@ export async function createOrderServerAction(orderPayload: {
   total_amount: number;
   coupon_code?: string;
   payment_method: string;
-}): Promise<{ success: boolean; order?: Order; error?: string }> {
+}): Promise<{ success: boolean; order?: Order; error?: string; emails?: { customer: boolean; admin: boolean } }> {
   try {
     // Validate session exists (any authenticated user can place Bestellungen)
     const session = await getServerSession();
@@ -42,35 +42,44 @@ export async function createOrderServerAction(orderPayload: {
     const order = await createOrder(orderPayload);
 
     // Non-blocking: send emails and create notification
+    const emailResults = { customer: false, admin: false };
     try {
       const { sendOrderConfirmationEmail, sendOrderAdminNotificationEmail } = await import('@/lib/email/resend-service');
       const { createNotification } = await import('@/lib/notifications/service');
       const { getStoreSettings } = await import('@/lib/db/db-provider');
 
       // Get settings for email templates
-      getStoreSettings().then(async (settings) => {
-        // Send confirmation email to customer
-        sendOrderConfirmationEmail(order, settings).catch(console.error);
+      const settings = await getStoreSettings();
 
-        // Send notification email to admin
-        sendOrderAdminNotificationEmail(order, settings).catch(console.error);
+      // Send confirmation email to customer
+      emailResults.customer = await sendOrderConfirmationEmail(order, settings).catch(err => {
+        console.error('[Order] Echec email client:', err);
+        return false;
+      });
 
-        // Create in-app notification for admin
-        await createNotification({
-          type: 'order',
-          title: `Neue Bestellung #${order.order_number}`,
-          message: `${order.shipping_address?.full_name || 'Kunde'} hat eine Bestellung über ${order.total_amount.toFixed(2)} € aufgegeben.`,
-          data: {
-            orderId: order.id,
-            orderNumber: order.order_number,
-            customerEmail: order.customer_email,
-            totalAmount: order.total_amount,
-          },
-        });
-      }).catch(console.error);
-    } catch {}
+      // Send notification email to admin
+      emailResults.admin = await sendOrderAdminNotificationEmail(order, settings).catch(err => {
+        console.error('[Order] Echec email admin:', err);
+        return false;
+      });
 
-    return { success: true, order };
+      // Create in-app notification for admin
+      await createNotification({
+        type: 'order',
+        title: `Neue Bestellung #${order.order_number}`,
+        message: `${order.shipping_address?.full_name || 'Kunde'} hat eine Bestellung ueber ${order.total_amount.toFixed(2)} EUR aufgegeben.`,
+        data: {
+          orderId: order.id,
+          orderNumber: order.order_number,
+          customerEmail: order.customer_email,
+          totalAmount: order.total_amount,
+        },
+      }).catch(err => console.error('[Order] Echec notification in-app:', err));
+    } catch (err) {
+      console.error('[Order] Erreur envoi emails/notifications:', err);
+    }
+
+    return { success: true, order, emails: emailResults };
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Server error processing order';
     return { success: false, error: message };
