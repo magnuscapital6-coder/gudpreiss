@@ -71,7 +71,12 @@ export async function POST(request: NextRequest) {
     let userEmail = cleanEmail;
 
     if (serviceKey) {
-      const adminClient = createClient(supabaseUrl, serviceKey);
+      const adminClient = createClient(supabaseUrl, serviceKey, {
+        auth: {
+          autoRefreshToken: false,
+          persistSession: false,
+        },
+      });
       const { data: adminData, error: adminError } = await adminClient.auth.admin.createUser({
         email: cleanEmail,
         password,
@@ -83,6 +88,7 @@ export async function POST(request: NextRequest) {
       });
 
       if (adminError) {
+        console.error('[AUTH_REGISTER_ADMIN_ERROR]', adminError);
         resetRateLimit(ipKey);
         if (adminError.message.includes('already registered') || adminError.message.includes('already exists') || adminError.message.includes('unique')) {
           return NextResponse.json(
@@ -91,7 +97,7 @@ export async function POST(request: NextRequest) {
           );
         }
         return NextResponse.json(
-          { error: 'Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.' },
+          { error: adminError.message || 'Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.' },
           { status: 500 },
         );
       }
