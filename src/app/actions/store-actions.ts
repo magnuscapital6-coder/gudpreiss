@@ -1,7 +1,9 @@
 'use server';
 
-import { createOrder, updateOrderStatus, createCoupon, createCategory, updateReviewStatus, getProducts, getCategories, getBanners } from '@/lib/db/db-provider';
+import { createOrder, updateOrderStatus, createCoupon, createCategory, updateReviewStatus, getProducts, getCategories, getBanners, getStoreSettings } from '@/lib/db/db-provider';
 import { getServerSession } from '@/lib/supabase/server';
+import { sendOrderConfirmationEmail, sendOrderAdminNotificationEmail } from '@/lib/email/resend-service';
+import { createNotification } from '@/lib/notifications/service';
 import { Order, Coupon, Category, Product } from '@/types';
 
 /**
@@ -41,27 +43,18 @@ export async function createOrderServerAction(orderPayload: {
 
     const order = await createOrder(orderPayload);
 
-    // Non-blocking: send emails and create notification
+    // Send emails and create notification
     const emailResults = { customer: false, admin: false };
     try {
-      const { sendOrderConfirmationEmail, sendOrderAdminNotificationEmail } = await import('@/lib/email/resend-service');
-      const { createNotification } = await import('@/lib/notifications/service');
-      const { getStoreSettings } = await import('@/lib/db/db-provider');
-
-      // Get settings for email templates
       const settings = await getStoreSettings();
 
       // Send confirmation email to customer
-      emailResults.customer = await sendOrderConfirmationEmail(order, settings).catch(err => {
-        console.error('[Order] Echec email client:', err);
-        return false;
-      });
+      emailResults.customer = await sendOrderConfirmationEmail(order, settings);
+      console.log(`[Order Action] Email client pour #${order.order_number}:`, emailResults.customer ? 'Envoyé' : 'Échec');
 
       // Send notification email to admin
-      emailResults.admin = await sendOrderAdminNotificationEmail(order, settings).catch(err => {
-        console.error('[Order] Echec email admin:', err);
-        return false;
-      });
+      emailResults.admin = await sendOrderAdminNotificationEmail(order, settings);
+      console.log(`[Order Action] Email admin pour #${order.order_number}:`, emailResults.admin ? 'Envoyé' : 'Échec');
 
       // Create in-app notification for admin
       await createNotification({
@@ -74,9 +67,9 @@ export async function createOrderServerAction(orderPayload: {
           customerEmail: order.customer_email,
           totalAmount: order.total_amount,
         },
-      }).catch(err => console.error('[Order] Echec notification in-app:', err));
+      });
     } catch (err) {
-      console.error('[Order] Erreur envoi emails/notifications:', err);
+      console.error('[Order Action] Erreur envoi emails/notifications:', err);
     }
 
     return { success: true, order, emails: emailResults };
