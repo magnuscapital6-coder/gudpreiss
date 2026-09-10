@@ -128,6 +128,7 @@ export async function POST(request: NextRequest) {
       });
 
       if (error) {
+        console.error('[AUTH_REGISTER_SIGNUP_ERROR]', error);
         resetRateLimit(ipKey);
         if (error.message.includes('already registered')) {
           return NextResponse.json(
@@ -136,7 +137,7 @@ export async function POST(request: NextRequest) {
           );
         }
         return NextResponse.json(
-          { error: 'Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.' },
+          { error: error.message || 'Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.' },
           { status: 500 },
         );
       }
