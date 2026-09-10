@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useTranslation } from '@/context/language-context';
 import { useStoreSettings } from '@/context/store-settings-context';
-import { ShieldCheck, Truck, CreditCard } from 'lucide-react';
+import { ShieldCheck, Truck, CreditCard, MapPin, Mail, Building2 } from 'lucide-react';
 
 export function Footer() {
   const { t } = useTranslation();
@@ -24,10 +24,21 @@ export function Footer() {
             <p className="text-text-muted dark:text-slate-400 leading-relaxed max-w-sm">
               Ihr zertifizierter Online-Shop für E-Bikes, PlayStation 5 Konsolen, Gaming-Zubehör und Unterhaltungselektronik zu Bestpreisen.
             </p>
-            <div className="pt-2 text-xs space-y-1 text-slate-600 dark:text-slate-400 font-medium">
-              <p>📍 Friedrichstraße 123, 10117 Berlin, Deutschland</p>
-              <p>📞 +49 15731294173 | ✉️ kontakt@gudpreiss.de</p>
-              <p>🏢 USt-IdNr.: DE 358 921 476 | GudPreiss E-Commerce</p>
+            <div className="pt-2 text-xs space-y-2 text-slate-600 dark:text-slate-400 font-medium">
+              <div className="flex items-center gap-2 justify-center md:justify-start">
+                <MapPin className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                <span>Friedrichstraße 123, 10117 Berlin, Deutschland</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center md:justify-start">
+                <Mail className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                <a href="mailto:kontakt@gudpreiss.de" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition">
+                  kontakt@gudpreiss.de
+                </a>
+              </div>
+              <div className="flex items-center gap-2 justify-center md:justify-start">
+                <Building2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                <span>USt-IdNr.: DE 358 921 476 • GudPreiss E-Commerce</span>
+              </div>
             </div>
           </div>
 
