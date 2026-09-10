@@ -68,10 +68,12 @@ export async function POST(request: NextRequest) {
 
     const supabase = createClient(supabaseUrl, supabaseKey);
 
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de';
     const { data, error } = await supabase.auth.signUp({
       email: cleanEmail,
       password,
       options: {
+        emailRedirectTo: `${siteUrl}/account`,
         data: {
           full_name: fullName,
           role: 'customer',
