@@ -7,6 +7,7 @@ import { useCart } from '@/context/cart-context';
 import { useAuth } from '@/context/auth-context';
 import { useTranslation } from '@/context/language-context';
 import { useStoreSettings } from '@/context/store-settings-context';
+import { DEFAULT_STORE_SETTINGS } from '@/lib/db/initial-data';
 import { useRouter } from 'next/navigation';
 import { createOrderServerAction } from '@/app/actions/store-actions';
 import {
@@ -31,10 +32,10 @@ export default function CheckoutPage() {
   const { settings } = useStoreSettings();
   const router = useRouter();
 
-  const iban = settings.iban || 'FR76 3000 4012 3456 7890 1234 567';
-  const bic = settings.bic || 'BNPAFRPPXXX';
-  const bankName = settings.bank_name || 'BNP Paribas';
-  const accountHolder = settings.account_holder || 'GudPreiss';
+  const iban = settings?.iban || DEFAULT_STORE_SETTINGS.iban || 'DE44 5001 0517 5422 3901 12';
+  const bic = settings?.bic || DEFAULT_STORE_SETTINGS.bic || 'INGDDEFFXXX';
+  const bankName = settings?.bank_name || DEFAULT_STORE_SETTINGS.bank_name || 'ING-DiBa AG';
+  const accountHolder = settings?.account_holder || DEFAULT_STORE_SETTINGS.account_holder || 'GudPreiss E-Commerce Deutschland';
 
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [isSubmitting, setIsSubmitting] = useState(false);

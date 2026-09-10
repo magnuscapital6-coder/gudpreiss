@@ -1,4 +1,5 @@
 import { Order } from '@/types';
+import { DEFAULT_STORE_SETTINGS } from '@/lib/db/initial-data';
 
 /**
  * Default email templates for order notifications.
@@ -93,9 +94,9 @@ export function interpolateTemplate(template: string, order: Order): string {
     item_count: String(order.items.length),
     items_list: itemsList,
     shipping_address: shippingAddr,
-    iban: order.bank_transfer_iban || 'DE89 3704 0044 0532 0130 00',
-    bic: order.bank_transfer_bic || 'DEUTDEDDBER',
-    bank_holder: order.bank_transfer_holder || 'GudPreiss GmbH',
+    iban: order.bank_transfer_iban || DEFAULT_STORE_SETTINGS.iban || 'DE44 5001 0517 5422 3901 12',
+    bic: order.bank_transfer_bic || DEFAULT_STORE_SETTINGS.bic || 'INGDDEFFXXX',
+    bank_holder: order.bank_transfer_holder || DEFAULT_STORE_SETTINGS.account_holder || 'GudPreiss E-Commerce Deutschland',
     support_email: process.env.SUPPORT_EMAIL || 'kontakt@gudpreiss.de',
     store_name: 'GudPreiss',
   };

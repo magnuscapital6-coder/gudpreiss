@@ -6,6 +6,7 @@ import { Footer } from '@/components/store/layout/Footer';
 import { getOrders } from '@/lib/db/db-provider';
 import { Order } from '@/types';
 import { useStoreSettings } from '@/context/store-settings-context';
+import { DEFAULT_STORE_SETTINGS } from '@/lib/db/initial-data';
 import {
   Truck,
   Search,
@@ -292,8 +293,8 @@ function TrackingContent() {
 
                     <div className="pt-2 border-t border-slate-100 dark:border-slate-800 font-mono text-[11px]">
                       <span className="text-[10px] font-bold text-slate-500 uppercase font-sans block">IBAN Empfänger</span>
-                      <p className="font-bold text-emerald-800 dark:text-emerald-700">{settings.iban || 'DE89 3704 0044 0532 0130 00'}</p>
-                      <p className="text-slate-500 dark:text-slate-500 font-sans text-[10px]">{settings.account_holder || 'GudPreiss GmbH'} (Berlin)</p>
+                      <p className="font-bold text-emerald-800 dark:text-emerald-700">{settings?.iban || DEFAULT_STORE_SETTINGS.iban}</p>
+                      <p className="text-slate-500 dark:text-slate-500 font-sans text-[10px]">{settings?.account_holder || DEFAULT_STORE_SETTINGS.account_holder} (Berlin)</p>
                     </div>
                   </div>
                 </div>

@@ -8,18 +8,19 @@ import { CheckCircle2, Building2, ArrowRight, Printer, Copy, AlertCircle } from 
 import Link from 'next/link';
 import { useTranslation } from '@/context/language-context';
 import { useStoreSettings } from '@/context/store-settings-context';
+import { DEFAULT_STORE_SETTINGS } from '@/lib/db/initial-data';
 
 function SuccessContent() {
   const searchParams = useSearchParams();
   const { t } = useTranslation();
-  const orderNumber = searchParams.get('order_number') || 'TN-2026-1001';
+  const orderNumber = searchParams.get('order_number') || 'GP-2026-1001';
   const { settings } = useStoreSettings();
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
-  const iban = settings.iban || 'DE89 3704 0044 0532 0130 00';
-  const bic = settings.bic || 'DEUTDEDDBER';
-  const bankName = settings.bank_name || 'GudPreiss Global Bank AG';
-  const accountHolder = settings.account_holder || 'GudPreiss GmbH';
+  const iban = settings?.iban || DEFAULT_STORE_SETTINGS.iban || 'DE44 5001 0517 5422 3901 12';
+  const bic = settings?.bic || DEFAULT_STORE_SETTINGS.bic || 'INGDDEFFXXX';
+  const bankName = settings?.bank_name || DEFAULT_STORE_SETTINGS.bank_name || 'ING-DiBa AG';
+  const accountHolder = settings?.account_holder || DEFAULT_STORE_SETTINGS.account_holder || 'GudPreiss E-Commerce Deutschland';
 
   const copyToClipboard = (text: string, fieldName: string) => {
     navigator.clipboard.writeText(text);

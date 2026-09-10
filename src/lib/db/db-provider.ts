@@ -901,9 +901,9 @@ export async function createOrder(orderPayload: Partial<Order>): Promise<Order> 
     order_status: 'processing',
     coupon_code: orderPayload.coupon_code,
     tracking_number: `GP-DE-${Math.floor(10000000 + Math.random() * 90000000)}`,
-    bank_transfer_iban: memorySettings.iban || 'FR76 3000 4012 3456 7890 1234 567',
-    bank_transfer_bic: memorySettings.bic || 'BNPAFRPPXXX',
-    bank_transfer_holder: memorySettings.account_holder || 'GudPreiss',
+    bank_transfer_iban: memorySettings.iban || DEFAULT_STORE_SETTINGS.iban,
+    bank_transfer_bic: memorySettings.bic || DEFAULT_STORE_SETTINGS.bic,
+    bank_transfer_holder: memorySettings.account_holder || DEFAULT_STORE_SETTINGS.account_holder,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   };
