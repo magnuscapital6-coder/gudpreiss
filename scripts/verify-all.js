@@ -2,7 +2,7 @@ const { INITIAL_PRODUCTS, DEFAULT_STORE_SETTINGS } = require('../src/lib/db/init
 const { validateCatalog } = require('../src/lib/merchant/validation-engine.ts');
 
 console.log('====================================================');
-console.log('  SASU BOIS SERVICE - MERCHANT CENTER COMPLIANCE AUDIT');
+console.log('  GudPreiss - MERCHANT CENTER COMPLIANCE AUDIT');
 console.log('====================================================');
 
 console.log('\n[1] Store Settings & Business Verification:');

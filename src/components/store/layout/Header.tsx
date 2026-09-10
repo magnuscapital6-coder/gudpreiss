@@ -144,15 +144,15 @@ export function Header() {
             {globalSettings?.logo_url && globalSettings.logo_url !== '/logo.png' ? (
               <Image
                 src={globalSettings.logo_url}
-                alt={globalSettings.store_name || 'Store'}
+                alt={globalSettings.store_name || 'GudPreiss'}
                 width={180}
                 height={36}
                 className="h-8 sm:h-9 max-w-[180px] object-contain"
               />
             ) : (
               <span className="text-[20px] sm:text-[24px] font-black tracking-tight text-slate-900 dark:text-white leading-none">
-                <span className="text-emerald-800 dark:text-emerald-400">SASU BOIS </span>
-                <span>SERVICE</span>
+                <span className="text-emerald-800 dark:text-emerald-400">Gud</span>
+                <span className="text-amber-600 dark:text-amber-400">Preiss</span>
               </span>
             )}
           </Link>
