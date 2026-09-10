@@ -6,6 +6,7 @@ import { useTranslation } from '@/context/language-context';
 import { X, ShoppingBag, Plus, Minus, Trash2, ArrowRight, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { getValidImageUrl } from '@/lib/image-fallback';
 
 export function CartDrawer() {
   const {
@@ -86,7 +87,7 @@ export function CartDrawer() {
               items.map((item) => (
                 <div key={item.id} className="flex gap-4 p-3 bg-slate-50 dark:bg-slate-950/60 rounded-2xl border border-slate-100 dark:border-slate-800 relative group">
                   <div className="w-20 h-20 bg-white dark:bg-slate-900 rounded-xl relative overflow-hidden flex-shrink-0 border border-slate-200/80 dark:border-slate-800">
-                    <Image src={item.product.images[0]} alt={item.product.name} fill className="object-contain p-1.5" />
+                    <Image src={getValidImageUrl(item.product.images?.[0])} alt={item.product.name} fill className="object-contain p-1.5" />
                   </div>
 
                   <div className="flex-1 min-w-0 space-y-1">

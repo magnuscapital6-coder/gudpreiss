@@ -7,7 +7,8 @@ import { useWishlist } from '@/context/wishlist-context';
 import { X, Star, Heart, ShoppingBag, Check, Truck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getValidImageUrl } from '@/lib/image-fallback';
+import { getValidImageUrl, isRealProductImage } from '@/lib/image-fallback';
+import { NEUTRAL_PRODUCT_SVG } from '@/lib/svg-placeholders';
 
 interface QuickViewModalProps {
   product: Product | null;
@@ -18,12 +19,13 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
   const { addItem } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
 
+  const realImages = (product?.images || []).filter(isRealProductImage);
+  const galleryImages = realImages.length > 0 ? realImages : [NEUTRAL_PRODUCT_SVG];
+
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | undefined>(
     product?.variants?.[0]
   );
-  const [selectedImage, setSelectedImage] = useState<string>(
-    getValidImageUrl(product?.images?.[0], product?.category_id || product?.category_name)
-  );
+  const [selectedImage, setSelectedImage] = useState<string>(galleryImages[0]);
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -95,22 +97,19 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
               />
             </div>
 
-            {product.images.length > 1 && (
+            {galleryImages.length > 1 && (
               <div className="flex gap-2">
-                {product.images.map((img, idx) => {
-                  const imgSrc = img || getValidImageUrl(img, product.category_id || product.category_name);
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => setSelectedImage(imgSrc)}
-                      className={`w-14 h-14 rounded-xl border-2 overflow-hidden relative bg-white p-1 ${
-                        selectedImage === imgSrc ? 'border-emerald-700 shadow-sm' : 'border-slate-200 opacity-60 hover:opacity-100'
-                      }`}
-                    >
-                      <Image src={imgSrc} alt="" fill unoptimized className="object-contain" />
-                    </button>
-                  );
-                })}
+                {galleryImages.map((imgSrc, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedImage(imgSrc)}
+                    className={`w-14 h-14 rounded-xl border-2 overflow-hidden relative bg-white p-1 ${
+                      selectedImage === imgSrc ? 'border-emerald-700 shadow-sm' : 'border-slate-200 opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <Image src={imgSrc} alt="" fill unoptimized className="object-contain" />
+                  </button>
+                ))}
               </div>
             )}
           </div>

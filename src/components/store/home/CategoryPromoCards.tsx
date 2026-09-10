@@ -7,6 +7,7 @@ import { ChevronRight } from 'lucide-react';
 import { useTranslation } from '@/context/language-context';
 import { Product } from '@/types';
 import { INITIAL_PRODUCTS } from '@/lib/db/initial-data';
+import { getValidImageUrl } from '@/lib/image-fallback';
 
 interface CategoryPromoCardsProps {
   products?: Product[];
@@ -19,18 +20,17 @@ export function CategoryPromoCards({ products = [] }: CategoryPromoCardsProps) {
 
   // Find real products for each category
   const itProd = allProducts.find((p) =>
-    (p.category_name || '').toLowerCase().includes('zubehör') ||
-    (p.category_name || '').toLowerCase().includes('accessoire') ||
-    (p.name || '').toLowerCase().includes('controller') ||
-    (p.name || '').toLowerCase().includes('maus') ||
-    (p.name || '').toLowerCase().includes('tastatur')
+    (p.category_name || '').toLowerCase().includes('it') ||
+    (p.category_name || '').toLowerCase().includes('tech') ||
+    (p.name || '').toLowerCase().includes('sony') ||
+    (p.name || '').toLowerCase().includes('bose')
   ) || allProducts[0];
 
   const phoneProd = allProducts.find((p) =>
+    (p.category_name || '').toLowerCase().includes('phone') ||
     (p.category_name || '').toLowerCase().includes('smartphone') ||
-    (p.category_name || '').toLowerCase().includes('handy') ||
-    (p.name || '').toLowerCase().includes('iphone') ||
-    (p.name || '').toLowerCase().includes('galaxy')
+    (p.name || '').toLowerCase().includes('galaxy') ||
+    (p.name || '').toLowerCase().includes('iphone')
   ) || allProducts[1] || allProducts[0];
 
   const laptopProd = allProducts.find((p) =>
@@ -44,19 +44,19 @@ export function CategoryPromoCards({ products = [] }: CategoryPromoCardsProps) {
     {
       title: itProd?.name || 'IT & Tech Zubehör',
       price: `${t('home.fromPrice') || 'Ab'} ${itProd?.price || 160} €`,
-      image: itProd?.images?.[0] || '',
+      image: getValidImageUrl(itProd?.images?.[0]),
       link: itProd ? `/shop/${itProd.slug}` : '/shop',
     },
     {
       title: phoneProd?.name || 'Smartphones & Tablets',
       price: `${t('home.fromPrice') || 'Ab'} ${phoneProd?.price || 650} €`,
-      image: phoneProd?.images?.[0] || '',
+      image: getValidImageUrl(phoneProd?.images?.[0]),
       link: phoneProd ? `/shop/${phoneProd.slug}` : '/shop',
     },
     {
       title: laptopProd?.name || 'Laptops & Desktop-PCs',
       price: `${t('home.fromPrice') || 'Ab'} ${laptopProd?.price || 450} €`,
-      image: laptopProd?.images?.[0] || '',
+      image: getValidImageUrl(laptopProd?.images?.[0]),
       link: laptopProd ? `/shop/${laptopProd.slug}` : '/shop',
     },
   ];

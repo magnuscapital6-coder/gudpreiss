@@ -12,7 +12,8 @@ import { useCart } from '@/context/cart-context';
 import { useWishlist } from '@/context/wishlist-context';
 import { useTranslation } from '@/context/language-context';
 import { getProductBySlug, getProducts, getReviewsByProduct } from '@/lib/db/db-provider';
-import { getValidImageUrl } from '@/lib/image-fallback';
+import { getValidImageUrl, isRealProductImage } from '@/lib/image-fallback';
+import { NEUTRAL_PRODUCT_SVG } from '@/lib/svg-placeholders';
 import { Product, ProductVariant, Review } from '@/types';
 import {
   Star,
@@ -58,8 +59,11 @@ export default function ProductDetailPage() {
       }
 
       setProduct(prod);
-      if (prod.images && prod.images.length > 0) {
-        setSelectedImage(getValidImageUrl(prod.images[0], prod.category_id || prod.category_name));
+      const realImgs = (prod.images || []).filter(isRealProductImage);
+      if (realImgs.length > 0) {
+        setSelectedImage(realImgs[0]);
+      } else {
+        setSelectedImage(NEUTRAL_PRODUCT_SVG);
       }
       if (prod.variants && prod.variants.length > 0) {
         setSelectedVariant(prod.variants[0]);
@@ -111,9 +115,9 @@ export default function ProductDetailPage() {
     );
   }
 
-  const rawImages = product.images && product.images.length > 0 ? product.images : [];
-  const galleryImages = rawImages.map((img) => getValidImageUrl(img, product.category_id || product.category_name));
-  const activeMainImage = getValidImageUrl(selectedImage || galleryImages[0], product.category_id || product.category_name);
+  const realImages = (product.images || []).filter(isRealProductImage);
+  const galleryImages = realImages.length > 0 ? realImages : [NEUTRAL_PRODUCT_SVG];
+  const activeMainImage = selectedImage && isRealProductImage(selectedImage) ? selectedImage : galleryImages[0];
   const price = selectedVariant ? selectedVariant.price : product.price;
   const inWishlist = isInWishlist(product.id);
 
@@ -263,34 +267,36 @@ export default function ProductDetailPage() {
               </div>
 
               {/* Thumbnails Gallery Carousel */}
-              <div className="flex items-center gap-3 overflow-x-auto no-scrollbar pt-1 pb-1">
-                {galleryImages.map((img, idx) => {
-                  const isActive = activeMainImage === img;
-                  const altLabels = ['Hauptansicht', 'Seitenansicht & Profil', 'Rückansicht & Details', 'Zubehör & Lieferumfang'];
-                  const altLabel = altLabels[idx % altLabels.length];
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => setSelectedImage(img)}
-                      aria-label={`${product.name} ${altLabel}`}
-                      className={`relative w-20 h-20 rounded-xl border-2 overflow-hidden bg-slate-50 dark:bg-slate-950 flex-shrink-0 transition-all cursor-pointer p-1.5 ${
-                        isActive
-                          ? 'border-emerald-600 dark:border-emerald-400 shadow-md ring-2 ring-emerald-500/20 scale-105 bg-white dark:bg-slate-900'
-                          : 'border-slate-200 dark:border-slate-800 opacity-70 hover:opacity-100'
-                      }`}
-                    >
-                      <Image
-                        src={img}
-                        alt={`${product.name} - ${altLabel}`}
-                        fill
-                        sizes="80px"
-                        loading="lazy"
-                        className="object-contain p-1"
-                      />
-                    </button>
-                  );
-                })}
-              </div>
+              {galleryImages.length > 1 && (
+                <div className="flex items-center gap-3 overflow-x-auto no-scrollbar pt-1 pb-1">
+                  {galleryImages.map((img, idx) => {
+                    const isActive = activeMainImage === img;
+                    const altLabels = ['Hauptansicht', 'Seitenansicht & Profil', 'Rückansicht & Details', 'Zubehör & Lieferumfang'];
+                    const altLabel = altLabels[idx % altLabels.length];
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => setSelectedImage(img)}
+                        aria-label={`${product.name} ${altLabel}`}
+                        className={`relative w-20 h-20 rounded-xl border-2 overflow-hidden bg-slate-50 dark:bg-slate-950 flex-shrink-0 transition-all cursor-pointer p-1.5 ${
+                          isActive
+                            ? 'border-emerald-600 dark:border-emerald-400 shadow-md ring-2 ring-emerald-500/20 scale-105 bg-white dark:bg-slate-900'
+                            : 'border-slate-200 dark:border-slate-800 opacity-70 hover:opacity-100'
+                        }`}
+                      >
+                        <Image
+                          src={img}
+                          alt={`${product.name} - ${altLabel}`}
+                          fill
+                          sizes="80px"
+                          loading="lazy"
+                          className="object-contain p-1"
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             {/* Product Meta Column (6 Cols) */}

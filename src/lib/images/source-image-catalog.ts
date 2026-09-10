@@ -20,11 +20,8 @@ export const EXACT_SOURCE_PRODUCT_CATALOG: SourceProductMapping[] = [
     color: 'Schwarz (Black)',
     model: 'QuietComfort Ultra',
     source: 'Bose Official / Amazon Certified DE',
-    primaryUrl: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1400&q=85',
-    galleryUrls: [
-      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1400&q=85',
-    ],
+    primaryUrl: '',
+    galleryUrls: [],
     altPrimaryDe: 'Bose QuietComfort Ultra Headphones Schwarz - Premium Noise Cancelling Kopfhörer',
     altGalleryDe: [
       'Bose QuietComfort Ultra Kopfhörer Schwarz Seitenansicht',
@@ -39,11 +36,8 @@ export const EXACT_SOURCE_PRODUCT_CATALOG: SourceProductMapping[] = [
     color: 'Schwarz (Black)',
     model: 'WH-1000XM5',
     source: 'Sony Official Store DE',
-    primaryUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1400&q=85',
-    galleryUrls: [
-      'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1400&q=85',
-    ],
+    primaryUrl: '',
+    galleryUrls: [],
     altPrimaryDe: 'Sony WH-1000XM5 Wireless Noise Cancelling Kopfhörer Schwarz - Hauptansicht',
     altGalleryDe: [
       'Sony WH-1000XM5 Kopfhörer Schwarz Seitenprofil',
@@ -58,11 +52,8 @@ export const EXACT_SOURCE_PRODUCT_CATALOG: SourceProductMapping[] = [
     color: 'Titan Natur (Natural Titanium)',
     model: 'Watch Ultra 2 49mm',
     source: 'Apple Store DE / Certified Retail',
-    primaryUrl: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1400&q=85',
-    galleryUrls: [
-      'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=1400&q=85',
-    ],
+    primaryUrl: '',
+    galleryUrls: [],
     altPrimaryDe: 'Apple Watch Ultra 2 GPS + Cellular 49mm Titan Gehäuse - Sportlich-robuste Ansicht',
     altGalleryDe: [
       'Apple Watch Ultra 2 Titan Gehäuseseite mit Digital Crown',
@@ -77,11 +68,8 @@ export const EXACT_SOURCE_PRODUCT_CATALOG: SourceProductMapping[] = [
     color: 'Dunkelsilber (Dark Silver)',
     model: 'OLED65C37LA',
     source: 'LG DE Official',
-    primaryUrl: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=1400&q=85',
-    galleryUrls: [
-      'https://images.unsplash.com/photo-1577979749830-f1d742b96791?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=1400&q=85',
-    ],
+    primaryUrl: '',
+    galleryUrls: [],
     altPrimaryDe: 'LG OLED evo C3 65 Zoll 4K Smart TV - Heimkino Frontansicht',
     altGalleryDe: [
       'LG OLED evo C3 Schlankes Display-Profil',
@@ -96,10 +84,8 @@ export const EXACT_SOURCE_PRODUCT_CATALOG: SourceProductMapping[] = [
     color: 'Gelb / Nickel',
     model: 'V15 Detect Extra',
     source: 'Dyson DE Official',
-    primaryUrl: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1400&q=85',
-    galleryUrls: [
-      'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1400&q=85',
-    ],
+    primaryUrl: '',
+    galleryUrls: [],
     altPrimaryDe: 'Dyson V15 Detect Extra Kabelloser Akkusauger mit Laser-Stauberkennung',
     altGalleryDe: [
       'Dyson V15 Detect Zubehördüsen und Wandhalterung im Lieferumfang'
@@ -113,11 +99,8 @@ export const EXACT_SOURCE_PRODUCT_CATALOG: SourceProductMapping[] = [
     color: 'Weiß / Schwarz (White/Black)',
     model: 'PlayStation 5 Pro 2TB',
     source: 'PlayStation Store DE',
-    primaryUrl: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1400&q=85',
-    galleryUrls: [
-      'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=1400&q=85',
-    ],
+    primaryUrl: '',
+    galleryUrls: [],
     altPrimaryDe: 'Sony PlayStation 5 Pro 2TB Digital Edition Konsole - Frontansicht',
     altGalleryDe: [
       'Sony PlayStation 5 Pro Konsole Vertikalstand',
@@ -132,11 +115,8 @@ export const EXACT_SOURCE_PRODUCT_CATALOG: SourceProductMapping[] = [
     color: 'Mitternacht (Midnight)',
     model: 'MacBook Air 15" M3',
     source: 'Apple Store DE',
-    primaryUrl: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1400&q=85',
-    galleryUrls: [
-      'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=1400&q=85',
-    ],
+    primaryUrl: '',
+    galleryUrls: [],
     altPrimaryDe: 'Apple MacBook Air 15 Zoll M3 Mitternacht - Schlankes Aluminium Design',
     altGalleryDe: [
       'Apple MacBook Air 15 M3 Gehäuseprofil und MagSafe Port',
@@ -151,10 +131,8 @@ export const EXACT_SOURCE_PRODUCT_CATALOG: SourceProductMapping[] = [
     color: 'Titanium Gray',
     model: 'Galaxy S24 Ultra',
     source: 'Samsung DE Official',
-    primaryUrl: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1400&q=85',
-    galleryUrls: [
-      'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1400&q=85',
-    ],
+    primaryUrl: '',
+    galleryUrls: [],
     altPrimaryDe: 'Samsung Galaxy S24 Ultra 5G 512GB Titanium Gray mit S Pen',
     altGalleryDe: [
       'Samsung Galaxy S24 Ultra Quad-Kamerasystem Rückseite'
@@ -168,10 +146,8 @@ export const EXACT_SOURCE_PRODUCT_CATALOG: SourceProductMapping[] = [
     color: 'Midnight Black',
     model: 'DualSense PS5 Controller',
     source: 'PlayStation Store DE',
-    primaryUrl: 'https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=1400&q=85',
-    galleryUrls: [
-      'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1400&q=85',
-    ],
+    primaryUrl: '',
+    galleryUrls: [],
     altPrimaryDe: 'Sony DualSense Wireless Controller PS5 Midnight Black - Ergonomisches Design',
     altGalleryDe: [
       'Sony DualSense Controller Midnight Black mit haptischem Feedback'
@@ -185,10 +161,8 @@ export const EXACT_SOURCE_PRODUCT_CATALOG: SourceProductMapping[] = [
     color: 'Titan Natur (Natural Titanium)',
     model: 'iPhone 15 Pro Max',
     source: 'Apple Store DE',
-    primaryUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1400&q=85',
-    galleryUrls: [
-      'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=1400&q=85',
-    ],
+    primaryUrl: '',
+    galleryUrls: [],
     altPrimaryDe: 'Apple iPhone 15 Pro Max 256GB Titan Natur - 6.7 Zoll Super Retina XDR',
     altGalleryDe: [
       'Apple iPhone 15 Pro Max Dreifach-Kamerasystem mit 5x Tele-Zoom'
@@ -202,11 +176,8 @@ export const EXACT_SOURCE_PRODUCT_CATALOG: SourceProductMapping[] = [
     color: 'Carbon / Grey',
     model: 'Stereo Hybrid 140 HPC Race 750',
     source: 'CUBE Bikes Official DE',
-    primaryUrl: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1400&q=85',
-    galleryUrls: [
-      'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=1400&q=85',
-    ],
+    primaryUrl: '',
+    galleryUrls: [],
     altPrimaryDe: 'CUBE Stereo Hybrid 140 HPC Race 750 Carbon E-Bike Fully Mountainbike',
     altGalleryDe: [
       'CUBE Stereo Hybrid 140 HPC Carbon-Rahmen mit Bosch CX Motor',

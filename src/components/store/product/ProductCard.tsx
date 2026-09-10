@@ -10,8 +10,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { QuickViewModal } from './QuickViewModal';
-import { getValidImageUrl } from '@/lib/image-fallback';
-import { getSvgFallback } from '@/lib/svg-placeholders';
+import { getValidImageUrl, isRealProductImage } from '@/lib/image-fallback';
+import { NEUTRAL_PRODUCT_SVG } from '@/lib/svg-placeholders';
 
 interface ProductCardProps {
   product: Product;
@@ -26,11 +26,13 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
   const [added, setAdded] = useState(false);
 
-  const initialImg = getValidImageUrl(product.images?.[0], product.category_id || product.category_name);
-  const [currentImg, setCurrentImg] = useState(initialImg);
+  const realImages = (product.images || []).filter(isRealProductImage);
+  const primaryImg = realImages.length > 0 ? realImages[0] : NEUTRAL_PRODUCT_SVG;
+  const secondaryImg = realImages.length > 1 ? realImages[1] : null;
+  const hasSecondImage = !!secondaryImg;
 
+  const [currentImg, setCurrentImg] = useState(primaryImg);
   const inWishlist = isInWishlist(product.id);
-  const hasSecondImage = product.images && product.images.length > 1;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -63,7 +65,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
               src={currentImg}
               alt={product.name}
               fill
-              onError={() => setCurrentImg(getSvgFallback(product.category_id))}
+              onError={() => setCurrentImg(NEUTRAL_PRODUCT_SVG)}
               className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
             />
             {product.on_sale && (
@@ -143,7 +145,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
         {/* Full Width Image Container */}
         <Link href={`/shop/${product.slug}`} className="block relative w-full flex-1 bg-[#F1F5FB]/40 dark:bg-slate-900/40 rounded-[8px] overflow-hidden mb-2">
           <Image
-            src={product.images?.[0] || currentImg}
+            src={primaryImg}
             alt={product.name}
             fill
             unoptimized
@@ -151,9 +153,9 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
               hasSecondImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'
             }`}
           />
-          {hasSecondImage && (
+          {hasSecondImage && secondaryImg && (
             <Image
-              src={product.images[1]}
+              src={secondaryImg}
               alt={product.name}
               fill
               unoptimized

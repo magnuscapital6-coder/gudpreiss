@@ -10,6 +10,7 @@ import { Trash2, ArrowRight, ShoppingBag, Tag, ArrowLeft, ShieldCheck } from 'lu
 import Link from 'next/link';
 import Image from 'next/image';
 import { getCouponByCode } from '@/lib/db/db-provider';
+import { getValidImageUrl } from '@/lib/image-fallback';
 
 export default function CartPage() {
   const {
@@ -96,7 +97,7 @@ export default function CartPage() {
             <div className="lg:col-span-8 bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm divide-y divide-slate-100">
               {items.map((item) => {
                 const price = item.variant ? item.variant.price : item.product.price;
-                const image = item.product.images?.[0] || '';
+                const image = getValidImageUrl(item.product.images?.[0]);
 
                 return (
                   <div key={item.id} className="py-6 flex flex-col sm:flex-row gap-4 items-start sm:items-center">

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, ArrowRight, Truck, RotateCcw, ShieldCheck, Headphones } from 'lucide-react';
 import { useTranslation } from '@/context/language-context';
+import { getValidImageUrl } from '@/lib/image-fallback';
 
 interface HeroSliderProps {
   banners?: Banner[];
@@ -84,7 +85,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
   const nextProduct = activePromoItems[(currentIndex + 1) % activePromoItems.length];
   const prevProduct = activePromoItems[(currentIndex - 1 + activePromoItems.length) % activePromoItems.length];
 
-  const productImage = currentProduct?.images?.[0] || '';
+  const productImage = getValidImageUrl(currentProduct?.images?.[0]);
   const discountPercent = currentProduct.compare_at_price && currentProduct.compare_at_price > currentProduct.price
     ? Math.round(((currentProduct.compare_at_price - currentProduct.price) / currentProduct.compare_at_price) * 100)
     : 25;
@@ -191,7 +192,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
                 className="absolute inset-0 rounded-[28px] bg-gradient-to-br from-teal-50 to-emerald-100/80 border border-emerald-200/60 shadow-md transform -rotate-6 -translate-x-5 -translate-y-2 scale-[0.88] opacity-50 cursor-pointer transition-all duration-500 hover:opacity-75 flex items-center justify-center p-6"
               >
                 <div className="relative w-full h-full opacity-60">
-                  <Image src={prevProduct?.images?.[0] || ''} alt={prevProduct?.name || ''} fill className="object-contain" />
+                  <Image src={getValidImageUrl(prevProduct?.images?.[0])} alt={prevProduct?.name || ''} fill className="object-contain" />
                 </div>
               </div>
             )}
@@ -203,7 +204,7 @@ export function HeroSlider({ banners = [], products = [] }: HeroSliderProps) {
                 className="absolute inset-0 rounded-[28px] bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-300/60 shadow-lg transform rotate-6 translate-x-5 translate-y-3 scale-[0.94] opacity-80 cursor-pointer transition-all duration-500 hover:opacity-100 hover:scale-[0.96] flex items-center justify-center p-6 z-10"
               >
                 <div className="relative w-full h-full">
-                  <Image src={nextProduct?.images?.[0] || ''} alt={nextProduct?.name || ''} fill unoptimized className="object-contain opacity-70" />
+                  <Image src={getValidImageUrl(nextProduct?.images?.[0])} alt={nextProduct?.name || ''} fill unoptimized className="object-contain opacity-70" />
                 </div>
                 <div className="absolute bottom-3 right-3 bg-emerald-800/90 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
                   <span>SWAP</span>

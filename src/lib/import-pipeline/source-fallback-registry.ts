@@ -32,11 +32,8 @@ export const MULTI_SOURCE_FALLBACK_CATALOG: MultiSourceFallbackEntry[] = [
         level: 1,
         name: 'Bose Official Germany',
         url: 'https://www.bose.de/de_de/products/headphones/over_ear_headphones/quietcomfort-ultra-headphones.html',
-        primaryImage: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1400&q=85',
-        galleryImages: [
-          'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1400&q=85',
-          'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1400&q=85'
-        ],
+        primaryImage: '',
+        galleryImages: [],
         descriptionDe: 'Die Bose QuietComfort Ultra Headphones bieten weltklasse Immersive Audio, fortschrittlichstes Active Noise Cancelling und erstklassigen Tragekomfort.',
         shortDescriptionDe: 'Bose QuietComfort Ultra Headphones Schwarz mit Immersive Audio und CustomTune.',
         features: ['Immersive Audio', 'CustomTune-Technologie', '24 Stunden Akkulaufzeit', 'Bluetooth 5.3'],
@@ -61,11 +58,8 @@ export const MULTI_SOURCE_FALLBACK_CATALOG: MultiSourceFallbackEntry[] = [
         level: 1,
         name: 'Sony Official Store DE',
         url: 'https://www.sony.de/headphones/products/wh-1000xm5',
-        primaryImage: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1400&q=85',
-        galleryImages: [
-          'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1400&q=85',
-          'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1400&q=85'
-        ],
+        primaryImage: '',
+        galleryImages: [],
         descriptionDe: 'Der Sony WH-1000XM5 definiert ungestörten Hörgenuss neu mit zwei Prozessoren und 8 Mikrofomen für branchenführendes Noise Cancelling.',
         shortDescriptionDe: 'Sony WH-1000XM5 Bluetooth Noise-Cancelling-Kopfhörer Schwarz mit 30 Std. Akku.',
         features: ['Auto NC Optimizer', 'HD-Prozessor QN1', 'Precise Voice Pickup', '30h Akku mit Schnellladung'],
@@ -91,11 +85,8 @@ export const MULTI_SOURCE_FALLBACK_CATALOG: MultiSourceFallbackEntry[] = [
         level: 1,
         name: 'Apple Store Deutschland',
         url: 'https://www.apple.com/de/apple-watch-ultra-2/',
-        primaryImage: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1400&q=85',
-        galleryImages: [
-          'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?auto=format&fit=crop&w=1400&q=85',
-          'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=1400&q=85'
-        ],
+        primaryImage: '',
+        galleryImages: [],
         descriptionDe: 'Die ultimative Sport- und Abenteueruhr. Mit dem S9 SiP, 3.000 Nits hellem Display und präzisem Zwei-Frequenz GPS.',
         shortDescriptionDe: 'Apple Watch Ultra 2 GPS + Cellular 49mm Titan mit S9 SiP und Modular Ultra Display.',
         features: ['Titangehäuse 49mm', 'Display mit 3.000 Nits', 'Doppeltipp-Geste', 'Bis zu 72 Std. Akku'],
@@ -120,11 +111,8 @@ export const MULTI_SOURCE_FALLBACK_CATALOG: MultiSourceFallbackEntry[] = [
         level: 1,
         name: 'LG Deutschland Official',
         url: 'https://www.lg.com/de/tvs/lg-oled65c37la',
-        primaryImage: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=1400&q=85',
-        galleryImages: [
-          'https://images.unsplash.com/photo-1577979749830-f1d742b96791?auto=format&fit=crop&w=1400&q=85',
-          'https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=1400&q=85'
-        ],
+        primaryImage: '',
+        galleryImages: [],
         descriptionDe: 'Erleben Sie brillante OLED evo Performance mit dem α9 Gen6 4K AI-Prozessor und Brightness Booster für maximale Helligkeit.',
         shortDescriptionDe: 'LG OLED evo C3 65 Zoll 4K Smart TV mit Dolby Vision IQ und 120Hz Gaming.',
         features: ['α9 Gen6 4K AI-Prozessor', 'Brightness Booster', '4x HDMI 2.1 120Hz', 'webOS23'],
@@ -148,10 +136,8 @@ export const MULTI_SOURCE_FALLBACK_CATALOG: MultiSourceFallbackEntry[] = [
         level: 1,
         name: 'Dyson Germany Official',
         url: 'https://www.dyson.de/staubsauger/kabellos/v15-detect',
-        primaryImage: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1400&q=85',
-        galleryImages: [
-          'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1400&q=85'
-        ],
+        primaryImage: '',
+        galleryImages: [],
         descriptionDe: 'Kabelloser Akkusauger mit präzisem Lichtstrahl zur Stauberkennung und piezoelektrischem Sensor für automatische Saugkraftanpassung.',
         shortDescriptionDe: 'Dyson V15 Detect Extra Akkustaubsauger mit Laser-Stauberkennung & 240 AW Saugkraft.',
         features: ['Lichtstrahl Stauberkennung', 'Piezo-Sensor', '240 AW Saugkraft', '60 Min. Laufzeit'],
@@ -176,11 +162,8 @@ export const MULTI_SOURCE_FALLBACK_CATALOG: MultiSourceFallbackEntry[] = [
         level: 1,
         name: 'PlayStation Store DE',
         url: 'https://www.playstation.com/de-de/ps5/ps5-pro/',
-        primaryImage: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1400&q=85',
-        galleryImages: [
-          'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1400&q=85',
-          'https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=1400&q=85'
-        ],
+        primaryImage: '',
+        galleryImages: [],
         descriptionDe: 'Die leistungsstärkste PlayStation Konsole aller Zeiten mit PSSR AI-Upscaling, verbessertem Raytracing und 2TB High-Speed SSD.',
         shortDescriptionDe: 'Sony PlayStation 5 Pro Konsole (2TB SSD, PSSR AI-Upscaling, 60fps 4K Gaming).',
         features: ['PlayStation Spectral Super Resolution (PSSR)', 'Erweitertes Raytracing', '2TB SSD', 'Wi-Fi 7'],
@@ -205,11 +188,8 @@ export const MULTI_SOURCE_FALLBACK_CATALOG: MultiSourceFallbackEntry[] = [
         level: 1,
         name: 'CUBE Bikes Official DE',
         url: 'https://www.cube.eu/de-de/cube-stereo-hybrid-140-hpc-race-750-black-n-flashgrey/636153',
-        primaryImage: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1400&q=85',
-        galleryImages: [
-          'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1400&q=85',
-          'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=1400&q=85'
-        ],
+        primaryImage: '',
+        galleryImages: [],
         descriptionDe: 'High-Performance Carbon E-MTB Fully mit Bosch Performance CX Motor (85Nm), Bosch PowerTube 750 Wh Akku und RockShox 140mm Fahrwerk.',
         shortDescriptionDe: 'CUBE Stereo Hybrid 140 HPC Race 750 Carbon E-Bike mit Bosch CX & 750Wh Akku.',
         features: ['C:62 Carbon Hauptrahmen', 'Bosch CX 85Nm', 'PowerTube 750Wh', 'Shimano XT 12-fach'],

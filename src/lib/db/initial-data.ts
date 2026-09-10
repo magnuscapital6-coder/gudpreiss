@@ -6,7 +6,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     name: "Brennholz",
     slug: "brennholz",
     description: "Kaminfertiges Brennholz (Buche & Eiche) extra trocken auf Gestapelter Palette (2 m³).",
-    image_url: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800",
+    image_url: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600' fill='none'><rect width='600' height='600' fill='%23f0fdf4'/><rect x='40' y='40' width='520' height='520' rx='24' fill='%23ffffff' stroke='%23bbf7d0' stroke-width='2'/><path d='M300 180C300 180 360 260 360 330C360 380 333 420 300 420C267 420 240 380 240 330C240 280 280 220 300 180Z' fill='%2316a34a'/><text x='300' y='475' font-family='system-ui, sans-serif' font-size='22' font-weight='700' fill='%23166534' text-anchor='middle'>Brennholz</text></svg>",
     icon: "Flame",
     active: true,
     sort_order: 1
@@ -16,7 +16,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     name: "Holzpellets",
     slug: "holzpellets",
     description: "ENplus A1 zertifizierte Premium Holzpellets in 15 kg Säcken auf 990 kg Palette.",
-    image_url: "https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?w=800",
+    image_url: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600' fill='none'><rect width='600' height='600' fill='%23fefce8'/><rect x='40' y='40' width='520' height='520' rx='24' fill='%23ffffff' stroke='%23fef08a' stroke-width='2'/><circle cx='250' cy='280' r='30' fill='%23ca8a04'/><circle cx='350' cy='280' r='30' fill='%23ca8a04'/><circle cx='300' cy='360' r='30' fill='%23ca8a04'/><text x='300' y='475' font-family='system-ui, sans-serif' font-size='22' font-weight='700' fill='%23854d0e' text-anchor='middle'>Holzpellets</text></svg>",
     icon: "Zap",
     active: true,
     sort_order: 2
@@ -26,7 +26,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     name: "Ster Holz",
     slug: "ster-holz",
     description: "Gestapeltes Stère Holz (Buche & Eiche), 1 Ster und 2 Ster Paletten ofenfertig.",
-    image_url: "https://images.unsplash.com/photo-1520116468816-95b69f847357?w=800",
+    image_url: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600' fill='none'><rect width='600' height='600' fill='%23f0fdf4'/><rect x='40' y='40' width='520' height='520' rx='24' fill='%23ffffff' stroke='%23bbf7d0' stroke-width='2'/><rect x='200' y='220' width='200' height='160' rx='12' fill='%2316a34a'/><text x='300' y='475' font-family='system-ui, sans-serif' font-size='22' font-weight='700' fill='%23166534' text-anchor='middle'>Ster Holz</text></svg>",
     icon: "Package",
     active: true,
     sort_order: 3
@@ -36,7 +36,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     name: "Holzbriketts",
     slug: "holzbriketts",
     description: "Premium RUF Hartholzbriketts für hohe Heizleistung und lange Gluthaltung.",
-    image_url: "https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?w=800",
+    image_url: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600' fill='none'><rect width='600' height='600' fill='%23fff7ed'/><rect x='40' y='40' width='520' height='520' rx='24' fill='%23ffffff' stroke='%23fed7aa' stroke-width='2'/><rect x='210' y='240' width='180' height='120' rx='8' fill='%23ea580c'/><text x='300' y='475' font-family='system-ui, sans-serif' font-size='22' font-weight='700' fill='%239a3412' text-anchor='middle'>Holzbriketts</text></svg>",
     icon: "Flame",
     active: true,
     sort_order: 4
@@ -46,7 +46,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     name: "Anzündholz & Zubehör",
     slug: "anzundholz",
     description: "Ofenfertiges Anzündholz und Anzündhilfen aus reinem Nadelholz.",
-    image_url: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800",
+    image_url: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600' fill='none'><rect width='600' height='600' fill='%23fafaf9'/><rect x='40' y='40' width='520' height='520' rx='24' fill='%23ffffff' stroke='%23e7e5e4' stroke-width='2'/><path d='M230 360L370 240M250 240L350 360' stroke='%2378716c' stroke-width='16' stroke-linecap='round'/><text x='300' y='475' font-family='system-ui, sans-serif' font-size='22' font-weight='700' fill='%2344403c' text-anchor='middle'>Anzündholz</text></svg>",
     icon: "Sparkles",
     active: true,
     sort_order: 5
@@ -742,10 +742,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     weight_kg: 1000,
     rating: 4.9,
     review_count: 18,
-    images: [
-      "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800",
-      "https://images.unsplash.com/photo-1520116468816-95b69f847357?w=800"
-    ],
+    images: [],
     product_type: "Brennholz",
     dimensions: "25 cm",
     wood_type: "Buche",
@@ -788,10 +785,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     weight_kg: 1000,
     rating: 4.8,
     review_count: 12,
-    images: [
-      "https://images.unsplash.com/photo-1520116468816-95b69f847357?w=800",
-      "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800"
-    ],
+    images: [],
     product_type: "Brennholz",
     dimensions: "30 cm",
     wood_type: "Buche",
@@ -833,9 +827,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     weight_kg: 1050,
     rating: 4.9,
     review_count: 8,
-    images: [
-      "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800"
-    ],
+    images: [],
     product_type: "Brennholz",
     dimensions: "33 cm",
     wood_type: "Eiche",
@@ -876,9 +868,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     weight_kg: 1000,
     rating: 4.7,
     review_count: 5,
-    images: [
-      "https://images.unsplash.com/photo-1520116468816-95b69f847357?w=800"
-    ],
+    images: [],
     product_type: "Brennholz",
     dimensions: "50 cm",
     wood_type: "Hartholz Mix",
@@ -919,9 +909,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     weight_kg: 990,
     rating: 5.0,
     review_count: 24,
-    images: [
-      "https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?w=800"
-    ],
+    images: [],
     product_type: "Holzpellets",
     dimensions: "6 mm Durchmesser",
     wood_type: "Nadelholz",
@@ -962,9 +950,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     weight_kg: 500,
     rating: 4.8,
     review_count: 6,
-    images: [
-      "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800"
-    ],
+    images: [],
     product_type: "Ster Holz",
     dimensions: "30 cm",
     wood_type: "Buche",
@@ -1005,9 +991,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     weight_kg: 1000,
     rating: 4.9,
     review_count: 9,
-    images: [
-      "https://images.unsplash.com/photo-1520116468816-95b69f847357?w=800"
-    ],
+    images: [],
     product_type: "Ster Holz",
     dimensions: "33 cm",
     wood_type: "Eiche",
@@ -1048,9 +1032,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     weight_kg: 960,
     rating: 4.9,
     review_count: 14,
-    images: [
-      "https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?w=800"
-    ],
+    images: [],
     product_type: "Holzbriketts",
     wood_type: "Hartholz (Eiche & Buche)",
     packaging: "Palette 96 Pakete (10 kg)",
@@ -1088,9 +1070,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     weight_kg: 5,
     rating: 4.8,
     review_count: 31,
-    images: [
-      "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800"
-    ],
+    images: [],
     product_type: "Anzündholz",
     wood_type: "Nadelholz",
     packaging: "Netzsack 5 kg",
