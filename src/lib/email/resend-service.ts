@@ -33,7 +33,7 @@ export async function sendOrderConfirmationEmail(
   }
 
   try {
-    const fromAddress = process.env.EMAIL_FROM || 'GudPreiss <bestaetigung@gudpreiss.de>';
+    const fromAddress = process.env.EMAIL_FROM || 'GudPreiss <kontakt@gudpreiss.de>';
     const { customerTemplate, customerSubject } = getTemplates(settings);
 
     const subject = interpolateTemplate(customerSubject, order);
@@ -81,7 +81,7 @@ export async function sendOrderAdminNotificationEmail(
   }
 
   try {
-    const fromAddress = process.env.EMAIL_FROM || 'GudPreiss <bestaetigung@gudpreiss.de>';
+    const fromAddress = process.env.EMAIL_FROM || 'GudPreiss <kontakt@gudpreiss.de>';
     const adminEmail = settings?.contact_email || process.env.SUPPORT_EMAIL || 'kontakt@gudpreiss.de';
     const { adminTemplate, adminSubject } = getTemplates(settings);
 

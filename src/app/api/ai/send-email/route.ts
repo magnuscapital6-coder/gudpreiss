@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            from: process.env.EMAIL_FROM || 'GudPreiss <bestaetigung@gudpreiss.de>',
+            from: process.env.EMAIL_FROM || 'GudPreiss <kontakt@gudpreiss.de>',
             to: [recipientEmail],
             reply_to: clientEmail && clientEmail.includes('@') ? clientEmail : undefined,
             subject: emailSubject,
