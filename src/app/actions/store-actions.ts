@@ -1,10 +1,22 @@
 'use server';
 
-import { createOrder, updateOrderStatus, createCoupon, createCategory, updateReviewStatus, getProducts, getCategories, getBanners, getStoreSettings } from '@/lib/db/db-provider';
+import { createOrder, updateOrderStatus, createCoupon, createCategory, updateReviewStatus, getProducts, getCategories, getBanners, getStoreSettings, getOrderById } from '@/lib/db/db-provider';
 import { getServerSession } from '@/lib/supabase/server';
 import { sendOrderConfirmationEmail, sendOrderAdminNotificationEmail } from '@/lib/email/resend-service';
 import { createNotification } from '@/lib/notifications/service';
 import { Order, Coupon, Category, Product } from '@/types';
+
+/**
+ * Server Action: Get Order Details by order number or id
+ */
+export async function getOrderDetailsServerAction(orderNumber: string): Promise<{ success: boolean; order?: Order | null }> {
+  try {
+    const order = await getOrderById(orderNumber);
+    return { success: true, order };
+  } catch (err) {
+    return { success: false, order: null };
+  }
+}
 
 /**
  * Server Action: Submit Order 100% Server-Side
