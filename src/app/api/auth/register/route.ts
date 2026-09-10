@@ -115,30 +115,44 @@ export async function POST(request: NextRequest) {
       user: userObj,
     });
 
-    // If session exists (email confirmation disabled), set cookies
-    if (data.session) {
-      const maxAge = 60 * 60 * 24 * 7;
+    // Set signed auth cookies for user session and server actions
+    const maxAge = 60 * 60 * 24 * 7;
 
-      const profileJson = JSON.stringify({
-        id: userObj.id,
-        email: userObj.email,
-        full_name: userObj.full_name,
-        role: userObj.role,
-        avatar_url: null,
-        phone: null,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      });
+    const profileJson = JSON.stringify({
+      id: userObj.id,
+      email: userObj.email,
+      full_name: userObj.full_name,
+      role: userObj.role,
+      avatar_url: null,
+      phone: null,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    });
 
-      const signedProfile = await signValue(encodeURIComponent(profileJson));
-      response.cookies.set('gudpreiss_auth_user', signedProfile, {
-        path: '/',
-        maxAge,
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
-      });
-    }
+    const signedProfile = await signValue(encodeURIComponent(profileJson));
+    response.cookies.set('gudpreiss_auth_user', signedProfile, {
+      path: '/',
+      maxAge,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+    });
+
+    // Set signed session token for middleware & getServerSession
+    const sessionPayload = JSON.stringify({
+      userId: userObj.id,
+      email: userObj.email,
+      role: userObj.role,
+      iat: Date.now(),
+    });
+    const signedSessionToken = await signValue(encodeURIComponent(sessionPayload));
+    response.cookies.set('sb-access-token', signedSessionToken, {
+      path: '/',
+      maxAge,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+    });
 
     return response;
   } catch (err: unknown) {

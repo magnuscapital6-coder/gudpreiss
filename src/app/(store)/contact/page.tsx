@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Header } from '@/components/store/layout/Header';
 import { Footer } from '@/components/store/layout/Footer';
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Clock, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Clock, ShieldCheck, Building2 } from 'lucide-react';
 
 export default function ContactPage() {
   const [name, setName] = useState('');
@@ -29,7 +29,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           clientName: name,
           clientEmail: email,
-          subject: subject || 'Kontaktanfrage über GudPreiss.de',
+          subject: subject || 'Kontaktanfrage über sasuboisservice.com',
           summary: `Kontaktanfrage von ${name} (${email}) — Betreff: ${subject || 'Allgemeine Anfrage'}`,
           initialRequest: message,
           conversationHistory: [],
@@ -59,13 +59,13 @@ export default function ContactPage() {
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 rounded-full text-xs font-extrabold uppercase tracking-wider mb-3">
             <Clock className="w-3.5 h-3.5" />
-            <span>24/7 DEUTSCHER KUNDENSERVICE</span>
+            <span>SCHNELLER KUNDENSERVICE &amp; SPEDITIONSRESERVIERUNG</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Kontaktieren Sie GudPreiss
+            Kontaktieren Sie SASU BOIS SERVICE
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-xl mx-auto leading-relaxed">
-            Haben Sie Fragen zu E-Bikes, PlayStation 5 Konsolen, Versand oder Ihrer Bestellung? Unser Kundendienst hilft Ihnen 24/7.
+            Haben Sie Fragen zu Brennholz, Holzpellets (ENplus A1), Stère Holz, Palettenversand oder Ihrer Bestellung? Unser Kundendienst berät Sie gerne.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div>
                 <h2 className="text-xl font-bold text-white tracking-tight">Kontaktdaten</h2>
-                <p className="text-xs text-slate-400 mt-1">GudPreiss Zentrale Deutschland</p>
+                <p className="text-xs text-slate-400 mt-1">SASU BOIS SERVICE Kundenservice</p>
               </div>
 
               <div className="space-y-5 text-xs text-slate-300">
@@ -86,8 +86,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="block font-bold text-white text-xs">Firmensitz &amp; Adresse</span>
-                    <span className="text-slate-300 text-xs block mt-0.5 font-medium">Prenzlauer Allee 116</span>
-                    <span className="text-slate-400 text-[11px] block">04332 Leipzig, Freistaat Sachsen, Deutschland</span>
+                    <span className="text-slate-300 text-xs block mt-0.5 font-medium">29 Rue Auguste Marliot</span>
+                    <span className="text-slate-400 text-[11px] block">59540 Caudry, Frankreich</span>
                   </div>
                 </div>
 
@@ -98,8 +98,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="block font-bold text-white text-xs">E-Mail-Adresse</span>
-                    <a href="mailto:kontakt@gudpreiss.de" className="text-emerald-400 font-bold text-xs hover:underline block mt-0.5">
-                      kontakt@gudpreiss.de
+                    <a href="mailto:contact@sasuboisservice.com" className="text-emerald-400 font-bold text-xs hover:underline block mt-0.5">
+                      contact@sasuboisservice.com
                     </a>
                   </div>
                 </div>
@@ -110,9 +110,21 @@ export default function ContactPage() {
                     <Phone className="w-4.5 h-4.5 text-emerald-400" />
                   </div>
                   <div>
-                    <span className="block font-bold text-white text-xs">Telefon-Hotline</span>
-                    <span className="text-slate-300 text-xs block mt-0.5 font-medium">+49 (0) 341 98765432</span>
-                    <span className="text-slate-400 text-[11px] block">Mo - Sa: 08:00 - 20:00 Uhr</span>
+                    <span className="block font-bold text-white text-xs">Telefon Kundenservice</span>
+                    <span className="text-slate-300 text-xs block mt-0.5 font-medium">+49 15731294173</span>
+                    <span className="text-slate-400 text-[11px] block">Mo - Sa: 08:00 - 19:00 Uhr</span>
+                  </div>
+                </div>
+
+                {/* Company Reg */}
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 text-emerald-400">
+                    <Building2 className="w-4.5 h-4.5 text-emerald-400" />
+                  </div>
+                  <div>
+                    <span className="block font-bold text-white text-xs">Registerdaten</span>
+                    <span className="text-slate-300 text-xs block mt-0.5 font-medium">SIREN: 893 259 865</span>
+                    <span className="text-slate-400 text-[11px] block">SIRET: 893 259 865 00018 | TVA: FR 48 893 259 865</span>
                   </div>
                 </div>
               </div>
@@ -121,9 +133,9 @@ export default function ContactPage() {
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-[11px] text-slate-400 space-y-1 mt-4">
               <div className="flex items-center gap-2 text-emerald-400 font-bold">
                 <ShieldCheck className="w-4 h-4" />
-                <span>Schnelle Antwortgarantie</span>
+                <span>Kostenlose Speditionslieferung ab 500 €</span>
               </div>
-              <p>Alle Anfragen werden in der Regel innerhalb von 2 Stunden beantwortet.</p>
+              <p>Alle Palettenlieferungen werden mit Hebebühne und Hubwagen direkt geliefert.</p>
             </div>
           </div>
 
@@ -136,7 +148,7 @@ export default function ContactPage() {
                 </div>
                 <h2 className="text-xl font-bold text-slate-900 dark:text-white">Nachricht erfolgreich gesendet!</h2>
                 <p className="text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
-                  Vielen Dank, <strong className="text-slate-900 dark:text-white">{name}</strong>. Ihre Nachricht wurde an <span className="text-emerald-600 dark:text-emerald-400 font-semibold">kontakt@gudpreiss.de</span> gesendet. Unser Support-Team meldet sich in Kürze.
+                  Vielen Dank, <strong className="text-slate-900 dark:text-white">{name}</strong>. Ihre Nachricht wurde an <span className="text-emerald-600 dark:text-emerald-400 font-semibold">contact@sasuboisservice.com</span> gesendet. Unser Kundendienst antwortet Ihnen in Kürze.
                 </p>
                 <button
                   type="button"
@@ -187,7 +199,7 @@ export default function ContactPage() {
                     required
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    placeholder="Frage zu Bestellung oder Produkt..."
+                    placeholder="Frage zu Brennholz, Holzpellets oder Lieferung..."
                     className="w-full px-4 py-2.5 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl outline-none focus:border-emerald-500 text-slate-900 dark:text-white"
                   />
                 </div>
@@ -199,7 +211,7 @@ export default function ContactPage() {
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Wie können wir Ihnen helfen?"
+                    placeholder="Wie können wir Ihnen weiterhelfen?"
                     className="w-full px-4 py-2.5 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl outline-none focus:border-emerald-500 text-slate-900 dark:text-white"
                   />
                 </div>

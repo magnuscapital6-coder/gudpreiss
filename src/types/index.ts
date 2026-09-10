@@ -88,6 +88,15 @@ export interface Product {
   images: string[];
   specifications?: Record<string, any>;
   variants?: ProductVariant[];
+  product_type?: string;
+  dimensions?: string;
+  wood_type?: string;
+  volume?: string;
+  moisture_content?: string;
+  packaging?: string;
+  shipping_country?: string;
+  merchant_status?: 'READY_FOR_MERCHANT' | 'BLOCKED_MERCHANT';
+  merchant_issues?: string[];
   seo_title?: string;
   seo_description?: string;
   created_at: string;

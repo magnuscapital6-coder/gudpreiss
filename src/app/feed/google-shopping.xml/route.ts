@@ -12,6 +12,6 @@ export async function GET() {
       },
     });
   } catch (err: any) {
-    return NextResponse.json({ error: err.message || 'Error generating Google Merchant Feed' }, { status: 500 });
+    return NextResponse.json({ error: err.message || 'Error generating Google Shopping Feed' }, { status: 500 });
   }
 }

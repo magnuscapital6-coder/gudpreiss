@@ -538,26 +538,22 @@ export const memoryLegalPages: Record<string, LegalPage> = {
   impressum: {
     slug: 'impressum',
     title: 'Impressum',
-    subtitle: 'Offizielle Angaben gemäß § 5 TMG zum Betreiber der Plattform GudPreiss Deutschland.',
-    content: `## Angaben gemäß § 5 TMG
-GudPreiss GmbH
-Prenzlauer Allee 116
-04332 Leipzig
-Freistaat Sachsen, Deutschland
+    subtitle: 'Offizielle Angaben gemäß § 5 TMG / RDC zum Betreiber der Plattform SASU BOIS SERVICE.',
+    content: `## Angaben gemäß § 5 TMG & Code de commerce
+SASU BOIS SERVICE
+29 Rue Auguste Marliot
+59540 Caudry, Frankreich
 
 ### Kontakt & Kundenservice
-Telefon: +49 (0) 341 98765432
-E-Mail: kontakt@gudpreiss.de
+Telefon: +49 15731294173
+E-Mail: contact@sasuboisservice.com
+Website: https://sasuboisservice.com
 
-### Vertreten durch
-Geschäftsführer: Klaus Weber
-
-### Registereintrag
-Registergericht: Amtsgericht Leipzig
-Registernummer: HRB 38912 L
-
-### Umsatzsteuer-ID
-Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE 349 812 705
+### Handelsregister & Unternehmensdaten
+Rechtsform: SASU (Société par Actions Simplifiée Unipersonnelle)
+SIREN: 893 259 865
+SIRET: 893 259 865 00018
+Umsatzsteuer-Identifikationsnummer (TVA Intracommunautaire): FR 48 893 259 865
 
 ### Verbraucherstreitbeilegung
 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/
@@ -567,40 +563,41 @@ Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
   privacy: {
     slug: 'privacy',
     title: 'Datenschutzerklärung',
-    subtitle: 'Transparente Informationen über die Erhebung und Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO.',
+    subtitle: 'Transparente Informationen über die Erhebung und Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO / RGPD.',
     content: `## 1. Datenschutz auf einen Blick
-Der Schutz Ihrer persönlichen Daten ist für die GudPreiss GmbH von höchster Priorität. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+Der Schutz Ihrer persönlichen Daten ist für die SASU BOIS SERVICE von höchster Priorität. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
 
 ## 2. Verantwortliche Stelle
-GudPreiss GmbH
-Friedrichstraße 12, 10117 Berlin
-E-Mail: datenschutz@gudpreiss-store.de
+SASU BOIS SERVICE
+29 Rue Auguste Marliot, 59540 Caudry, Frankreich
+E-Mail: contact@sasuboisservice.com
+Telefon: +49 15731294173
 
 ## 3. Datenerfassung bei Bestellungen & Vorkasse
 Bei der Abwicklung einer Bestellung erheben wir Vorname, Nachname, Lieferadresse, Rechnungsadresse, E-Mail-Adresse und Telefonnummer.
 Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
 
 ## 4. Ihre Rechte gemäß DSGVO (Art. 15-21)
-Sie haben jederzeit das Recht auf kostenlose Auskunft über Ihre gespeicherten personenbezogenen Daten sowie ein Recht auf Berichtigung, Sperrung oder Löschung. Wenden Sie sich hierzu jederzeit an datenschutz@gudpreiss-store.de.`,
+Sie haben jederzeit das Recht auf kostenlose Auskunft über Ihre gespeicherten personenbezogenen Daten sowie ein Recht auf Berichtigung, Sperrung oder Löschung. Wenden Sie sich hierzu jederzeit an contact@sasuboisservice.com.`,
     last_updated: new Date().toISOString(),
   },
   terms: {
     slug: 'terms',
     title: 'AGB & Nutzungsbedingungen',
-    subtitle: 'Allgemeine Geschäftsbedingungen für Verkäufe über den GudPreiss Online-Shop.',
+    subtitle: 'Allgemeine Geschäftsbedingungen für Verkäufe über den SASU BOIS SERVICE Online-Shop.',
     content: `## § 1 Geltungsbereich & Anbieter
-Diese Allgemeinen Geschäftsbedingungen gelten für alle Bestellungen, die Verbraucher über den Online-Shop der GudPreiss GmbH tätigen.
+Diese Allgemeinen Geschäftsbedingungen gelten für alle Bestellungen über den Online-Shop von SASU BOIS SERVICE (SIREN 893 259 865, SIRET 893 259 865 00018, TVA FR48893259865).
 
-## § 2 Vertragsschluss
-Die Darstellung der Produkte im Online-Shop stellt kein rechtlich bindendes Angebot, sondern einen unverbindlichen Online-Katalog dar.
+## § 2 Vertragsschluss & Produkte
+Die Darstellung der Brennholz- und Pelletprodukte im Online-Shop stellt ein unverbindliches Angebot dar. Der Kaufvertrag kommt durch das Absenden der Bestellung und der Überweisung des Rechnungsbetrages zustande.
 
-## § 3 Preise, Versandkosten & Zahlungsarten
-Die angegebenen Preise enthalten die gesetzliche deutsche Mehrwertsteuer (19% MwSt.).
-Zahlungsart Vorkasse (Banküberweisung SEPA): Der Rechnungsbetrag ist innerhalb von 7 Tagen zu überweisen.
-Der Versand erfolgt kostenlos per DHL Express / UPS innerhalb Deutschlands.
+## § 3 Preise, Versandkosten & Lieferbedingungen
+Alle angegebenen Preise enthalten die gesetzliche Mehrwertsteuer (19% MwSt. / TVA).
+Lieferung kostenlos ab 500 € Bestellwert (unter 500 € fällt eine Versandkostenpauschale von 49 € an).
+Der Versand erfolgt per Spedition auf gestapelter Palette für Deutschland (DE) und Frankreich (FR).
 
 ## § 4 Eigentumsvorbehalt
-Die Ware bleibt bis zur vollständigen Bezahlung Eigentum der GudPreiss GmbH.`,
+Die Gelieferte Ware bleibt bis zur vollständigen Bezahlung Eigentum der SASU BOIS SERVICE.`,
     last_updated: new Date().toISOString(),
   },
   'return-policy': {
@@ -608,12 +605,15 @@ Die Ware bleibt bis zur vollständigen Bezahlung Eigentum der GudPreiss GmbH.`,
     title: 'Widerrufsbelehrung & Rückgabe',
     subtitle: 'Informationen zum gesetzlichen 14-Tage Widerrufsrecht für Verbraucher.',
     content: `## Widerrufsrecht
-Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie die Waren in Besitz genommen haben.
+Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter die Ware in Besitz genommen haben.
 
-Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (GudPreiss GmbH, Friedrichstraße 12, 10117 Berlin, E-Mail: widerruf@gudpreiss-store.de) informieren.
+Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (SASU BOIS SERVICE, 29 Rue Auguste Marliot, 59540 Caudry, Frankreich, E-Mail: contact@sasuboisservice.com, Telefon: +49 15731294173) mittels einer eindeutigen Erklärung über Ihren Entschluss informieren.
+
+## Folgen des Widerrufs
+Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf bei uns eingegangen ist.
 
 ## Muster-Widerrufsformular
-An: GudPreiss GmbH, Friedrichstraße 12, 10117 Berlin (widerruf@gudpreiss-store.de)
+An: SASU BOIS SERVICE, 29 Rue Auguste Marliot, 59540 Caudry, Frankreich (E-Mail: contact@sasuboisservice.com)
 Hiermit widerrufe(n) ich/wir den von mir/uns abgeschlossenen Vertrag über den Kauf der folgenden Waren:
 Bestellnummer: ________________
 Bestellt am / Erhalten am: ________________
@@ -884,12 +884,12 @@ export async function deleteProduct(id: string): Promise<boolean> {
 }
 
 export async function createOrder(orderPayload: Partial<Order>): Promise<Order> {
-  const orderNumber = `TN-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+  const orderNumber = `SBS-2026-${Math.floor(1000 + Math.random() * 9000)}`;
   const newOrder: Order = {
     id: `ord-${Date.now()}`,
     order_number: orderNumber,
-    customer_email: orderPayload.customer_email || 'customer@example.com',
-    customer_phone: orderPayload.customer_phone || '+49 30 1234567',
+    customer_email: orderPayload.customer_email || 'contact@sasuboisservice.com',
+    customer_phone: orderPayload.customer_phone || '+49 15731294173',
     shipping_address: orderPayload.shipping_address!,
     billing_address: orderPayload.billing_address || orderPayload.shipping_address!,
     items: orderPayload.items || [],
@@ -902,10 +902,10 @@ export async function createOrder(orderPayload: Partial<Order>): Promise<Order> 
     payment_status: 'paid',
     order_status: 'processing',
     coupon_code: orderPayload.coupon_code,
-    tracking_number: `TN-DE-${Math.floor(10000000 + Math.random() * 90000000)}`,
-    bank_transfer_iban: memorySettings.iban || 'DE89 3704 0044 0532 0130 00',
-    bank_transfer_bic: memorySettings.bic || 'DEUTDEDDBER',
-    bank_transfer_holder: memorySettings.account_holder || 'GudPreiss GmbH',
+    tracking_number: `SBS-DE-${Math.floor(10000000 + Math.random() * 90000000)}`,
+    bank_transfer_iban: memorySettings.iban || 'FR76 3000 4012 3456 7890 1234 567',
+    bank_transfer_bic: memorySettings.bic || 'BNPAFRPPXXX',
+    bank_transfer_holder: memorySettings.account_holder || 'SASU BOIS SERVICE',
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   };

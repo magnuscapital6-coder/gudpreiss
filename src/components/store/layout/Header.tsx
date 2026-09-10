@@ -150,11 +150,9 @@ export function Header() {
                 className="h-8 sm:h-9 max-w-[180px] object-contain"
               />
             ) : (
-              <span className="text-[22px] sm:text-[26px] font-black tracking-tight text-slate-900 dark:text-white leading-none">
-                <span className="text-emerald-800 dark:text-emerald-700">
-                  {globalSettings?.store_name ? globalSettings.store_name.slice(0, Math.ceil(globalSettings.store_name.length / 2)) : 'Tech'}
-                </span>
-                {globalSettings?.store_name ? globalSettings.store_name.slice(Math.ceil(globalSettings.store_name.length / 2)) : 'nova'}
+              <span className="text-[20px] sm:text-[24px] font-black tracking-tight text-slate-900 dark:text-white leading-none">
+                <span className="text-emerald-800 dark:text-emerald-400">SASU BOIS </span>
+                <span>SERVICE</span>
               </span>
             )}
           </Link>

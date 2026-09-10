@@ -2,14 +2,17 @@ import { MetadataRoute } from 'next';
 import { getProducts, getCategories } from '@/lib/db/db-provider';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sasuboisservice.com';
 
   const [products, categories] = await Promise.all([
     getProducts(),
     getCategories(),
   ]);
 
-  // Static core routes
+  const activeProducts = products.filter((p) => p.status === 'active');
+  const activeCategories = categories.filter((c) => c.active);
+
+  // Static core & legal routes
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/`,
@@ -27,7 +30,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/about`,
@@ -35,10 +38,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/impressum`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/return-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
   ];
 
   // Category routes
-  const categoryRoutes: MetadataRoute.Sitemap = categories.map((cat) => ({
+  const categoryRoutes: MetadataRoute.Sitemap = activeCategories.map((cat) => ({
     url: `${baseUrl}/shop?category=${cat.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
@@ -46,7 +73,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Product routes
-  const productRoutes: MetadataRoute.Sitemap = products.map((prod) => ({
+  const productRoutes: MetadataRoute.Sitemap = activeProducts.map((prod) => ({
     url: `${baseUrl}/shop/${prod.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',

@@ -142,7 +142,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }
 
   const { settings } = useStoreSettings();
-  const shipping = subtotal > settings.free_shipping_threshold || (appliedCoupon && appliedCoupon.discount_type === 'free_shipping') ? 0 : (items.length > 0 ? settings.default_shipping_fee : 0);
+  const shipping = subtotal >= settings.free_shipping_threshold || (appliedCoupon && appliedCoupon.discount_type === 'free_shipping') ? 0 : (items.length > 0 ? settings.default_shipping_fee : 0);
   const taxableAmount = Math.max(0, subtotal - discount);
   const tax = taxableAmount * settings.tax_rate;
   const total = Math.max(0, taxableAmount + shipping + tax);

@@ -17,23 +17,24 @@ const inter = Inter({
   weight: ['400', '500', '600', '700'],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sasuboisservice.com';
+
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de'),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: 'E-Bikes & PlayStation 5 online kaufen | Gudpreiss Deutschland',
-    template: '%s | Gudpreiss Deutschland',
+    default: 'Brennholz, Holzpellets ENplus A1 & Ster Holz kaufen | SASU BOIS SERVICE',
+    template: '%s | SASU BOIS SERVICE',
   },
-  description: 'Kaufen Sie Premium E-Bikes (SCOTT, CUBE, Haibike, Conway) & Sony PlayStation 5 Konsolen, DualSense Controller & VR2 günstig online bei Gudpreiss. Kostenloser Versand ab 50 € & 30 Tage Rückgabe in Deutschland.',
+  description: 'Kaufen Sie erstklassiges Brennholz (Buche & Eiche 25 cm, 30 cm, 33 cm, 50 cm), zertifizierte Holzpellets ENplus A1 & Stère Holz auf Palette bei SASU BOIS SERVICE. Kostenloser Speditionsversand ab 500 €.',
   keywords: [
-    'e-bikes online kaufen deutschland',
-    'elektrofahrrad kaufen',
-    'cube e-bike angebote',
-    'scott lumen eride',
-    'playstation 5 pro kaufen',
-    'ps5 konsole günstig',
-    'dualsense controller sonderangebot',
-    'gudpreiss store',
-    'gudpreiss deutschland',
+    'brennholz kaufen 25 cm',
+    'brennholz palette 2 m3',
+    'holzpellets enplus a1 kaufen',
+    'ster holz buche eiche',
+    'holzbriketts ruf hartholz',
+    'anzündholz nadelholz',
+    'sasu bois service',
+    'brennholz lieferung deutschland',
   ],
   icons: {
     icon: [
@@ -44,24 +45,25 @@ export const metadata = {
   },
   manifest: '/site.webmanifest',
   alternates: {
-    canonical: 'https://gudpreiss.de',
+    canonical: siteUrl,
     languages: {
-      'de-DE': 'https://gudpreiss.de',
-      'de': 'https://gudpreiss.de',
-      'x-default': 'https://gudpreiss.de',
+      'de-DE': siteUrl,
+      'de': siteUrl,
+      'fr-FR': siteUrl,
+      'x-default': siteUrl,
     },
   },
   openGraph: {
-    title: 'Gudpreiss — E-Bikes & PlayStation 5 Store Deutschland',
-    description: 'Beste Angebote für Elektrofahrräder von CUBE, SCOTT, Haibike sowie originale Sony PlayStation 5 Konsolen mit verifizierter Garantie.',
-    url: 'https://gudpreiss.de',
-    siteName: 'Gudpreiss',
+    title: 'SASU BOIS SERVICE — Brennholz & Holzpellets Spezialist',
+    description: 'Hochwertiges Kaminholz, gestapelte Paletten (2 m³) und zertifizierte Holzpellets ENplus A1 mit kostenloser Speditionslieferung ab 500 €.',
+    url: siteUrl,
+    siteName: 'SASU BOIS SERVICE',
     images: [
       {
-        url: 'https://gudpreiss.de/opengraph-image',
+        url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: 'Gudpreiss Store Deutschland — E-Bikes & PlayStation 5',
+        alt: 'SASU BOIS SERVICE — Brennholz, Pellets & Ster Holz',
         type: 'image/png',
       },
     ],
@@ -70,9 +72,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gudpreiss — E-Bikes & PlayStation 5 Store Deutschland',
-    description: 'Beste Angebote für Elektrofahrräder und Sony PlayStation 5 Konsolen mit schnellem Versand.',
-    images: ['https://gudpreiss.de/opengraph-image'],
+    title: 'SASU BOIS SERVICE — Brennholz & Holzpellets Online-Shop',
+    description: 'Kaminfertiges Brennholz, Holzbriketts RUF & Holzpellets ENplus A1 mit schnelle Speditionslieferung.',
+    images: [`${siteUrl}/opengraph-image`],
   },
   robots: {
     index: true,
@@ -88,47 +90,46 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Enhanced JSON-LD Organization, OnlineStore & WebSite Schema
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'OnlineStore',
-        '@id': 'https://gudpreiss.de/#store',
-        name: 'Gudpreiss Deutschland',
-        url: 'https://gudpreiss.de',
-        logo: 'https://gudpreiss.de/icon.svg',
-        image: 'https://gudpreiss.de/icon.svg',
-        description: 'Offizieller E-Commerce Händler für Premium E-Bikes (CUBE, SCOTT, Haibike) und Sony PlayStation 5 Hardware in Deutschland.',
-        priceRange: '€€€',
+        '@id': `${siteUrl}/#store`,
+        name: 'SASU BOIS SERVICE',
+        url: siteUrl,
+        logo: `${siteUrl}/icon.svg`,
+        image: `${siteUrl}/icon.svg`,
+        description: 'Spezialisierter Online-Händler für Brennholz, Holzpellets ENplus A1, Stère Holz und Holzbriketts RUF.',
+        priceRange: '€€',
         currenciesAccepted: 'EUR',
-        paymentAccepted: 'Klarna, PayPal, Credit Card, Apple Pay, Google Pay, SEPA Direct Debit',
+        paymentAccepted: 'BankTransfer SEPA Vorkasse',
         address: {
           '@type': 'PostalAddress',
-          addressCountry: 'DE',
-          addressLocality: 'Berlin',
-          postalCode: '10115',
-          streetAddress: 'Gudpreiss Straße 42',
+          addressCountry: 'FR',
+          addressLocality: 'Caudry',
+          postalCode: '59540',
+          streetAddress: '29 Rue Auguste Marliot',
         },
         contactPoint: {
           '@type': 'ContactPoint',
-          telephone: '+49-30-12345678',
+          telephone: '+49-15731294173',
           contactType: 'customer service',
-          email: 'kontakt@gudpreiss.de',
-          availableLanguage: ['German', 'English'],
+          email: 'contact@sasuboisservice.com',
+          availableLanguage: ['German', 'French'],
         },
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://gudpreiss.de/#website',
-        url: 'https://gudpreiss.de',
-        name: 'Gudpreiss Deutschland',
+        '@id': `${siteUrl}/#website`,
+        url: siteUrl,
+        name: 'SASU BOIS SERVICE',
         publisher: {
-          '@id': 'https://gudpreiss.de/#store',
+          '@id': `${siteUrl}/#store`,
         },
         potentialAction: {
           '@type': 'SearchAction',
-          target: 'https://gudpreiss.de/shop?search={search_term_string}',
+          target: `${siteUrl}/shop?search={search_term_string}`,
           'query-input': 'required name=search_term_string',
         },
       },

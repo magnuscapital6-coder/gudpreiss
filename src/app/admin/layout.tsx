@@ -23,12 +23,14 @@ import {
   Globe,
   UserCheck,
   User,
+  ShieldCheck,
 } from 'lucide-react';
 import { useAuth } from '@/context/auth-context';
 import { useTranslation } from '@/context/language-context';
 
 const navItems = [
   { href: '/admin', labelKey: 'admin.dashboard', icon: LayoutDashboard },
+  { href: '/admin/google-merchant', labelKey: 'Google Merchant', icon: ShieldCheck },
   { href: '/admin/ai', labelKey: 'GudPreiss Berater', icon: UserCheck },
   { href: '/admin/seo', labelKey: 'admin.seo', icon: Globe },
   { href: '/admin/products', labelKey: 'admin.products', icon: Package },
