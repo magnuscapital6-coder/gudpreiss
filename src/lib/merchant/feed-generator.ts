@@ -2,14 +2,14 @@ import { getProducts } from '@/lib/db/db-provider';
 import { getGoogleCategoryForProduct } from './taxonomy';
 
 export async function generateGoogleMerchantFeed(): Promise<string> {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sasuboisservice.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de';
   const products = await getProducts();
   const activeProducts = products.filter((p) => p.status !== 'draft' && p.status !== 'archived');
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
   <channel>
-    <title>SASU BOIS SERVICE Google Shopping Feed</title>
+    <title>GudPreiss Google Shopping Feed</title>
     <link>${siteUrl}</link>
     <description>Offizieller Google Merchant Center Produkte-Feed für Brennholz und Holzpellets</description>
 `;
@@ -42,7 +42,7 @@ export async function generateGoogleMerchantFeed(): Promise<string> {
     const googleCategory = (p.google_product_category || getGoogleCategoryForProduct(p.category_name, p.name))
       .replace(/&/g, '&amp;');
 
-    const brand = (p.brand_name || 'SASU BOIS SERVICE')
+    const brand = (p.brand_name || 'GudPreiss')
       .replace(/&/g, '&amp;');
 
     // Shipping cost calculation: Free shipping >= 500 EUR, else 49.00 EUR

@@ -10,7 +10,7 @@ export function Footer() {
   const { t } = useTranslation();
   const { settings } = useStoreSettings();
 
-  const storeName = settings?.store_name || 'SASU BOIS SERVICE';
+  const storeName = settings?.store_name || 'GudPreiss';
 
   return (
     <footer className="bg-white dark:bg-slate-950 border-t border-border-soft dark:border-slate-800 text-text-secondary dark:text-slate-400 text-xs pt-8 sm:pt-12 pb-8 transition-colors duration-300">
@@ -19,14 +19,14 @@ export function Footer() {
           {/* Brand Info */}
           <div className="md:col-span-2 space-y-3 flex flex-col items-center md:items-start">
             <span className="text-[22px] sm:text-[24px] font-black tracking-tight text-slate-900 dark:text-white">
-              <span className="text-emerald-800 dark:text-emerald-400">SASU BOIS </span>SERVICE
+              <span className="text-emerald-800 dark:text-emerald-400">Gud</span>Preiss
             </span>
             <p className="text-text-muted dark:text-slate-400 leading-relaxed max-w-sm">
               Ihr zertifizierter Spezialist für Qualitäts-Brennholz, Holzpellets (ENplus A1) und Stère Holz. Kostenlose Lieferung ab 500 € Bestellwert.
             </p>
             <div className="pt-2 text-xs space-y-1 text-slate-600 dark:text-slate-400 font-medium">
               <p>📍 29 Rue Auguste Marliot, 59540 Caudry, Frankreich</p>
-              <p>📞 +49 15731294173 | ✉️ contact@sasuboisservice.com</p>
+              <p>📞 +49 15731294173 | ✉️ kontakt@gudpreiss.de</p>
               <p>🏢 SIREN: 893 259 865 | SIRET: 893 259 865 00018 | TVA: FR 48 893 259 865</p>
             </div>
           </div>
@@ -72,7 +72,7 @@ export function Footer() {
         </div>
 
         <div className="pt-6 flex flex-col sm:flex-row justify-between items-center text-text-muted gap-4 text-center sm:text-left text-xs">
-          <p>© {new Date().getFullYear()} SASU BOIS SERVICE. Alle Rechte vorbehalten.</p>
+          <p>© {new Date().getFullYear()} GudPreiss. Alle Rechte vorbehalten.</p>
           <div className="flex items-center gap-4 text-slate-700 dark:text-slate-300 font-semibold">
             <span className="flex items-center gap-1"><CreditCard className="w-4 h-4 text-emerald-600" /> SEPA Vorkasse / Banküberweisung</span>
             <span className="flex items-center gap-1"><Truck className="w-4 h-4 text-emerald-600" /> Gratis Versand ab 500 €</span>

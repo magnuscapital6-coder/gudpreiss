@@ -17,15 +17,15 @@ const inter = Inter({
   weight: ['400', '500', '600', '700'],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sasuboisservice.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de';
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Brennholz, Holzpellets ENplus A1 & Ster Holz kaufen | SASU BOIS SERVICE',
-    template: '%s | SASU BOIS SERVICE',
+    default: 'Brennholz, Holzpellets ENplus A1 & Ster Holz kaufen | GudPreiss',
+    template: '%s | GudPreiss',
   },
-  description: 'Kaufen Sie erstklassiges Brennholz (Buche & Eiche 25 cm, 30 cm, 33 cm, 50 cm), zertifizierte Holzpellets ENplus A1 & Stère Holz auf Palette bei SASU BOIS SERVICE. Kostenloser Speditionsversand ab 500 €.',
+  description: 'Kaufen Sie erstklassiges Brennholz (Buche & Eiche 25 cm, 30 cm, 33 cm, 50 cm), zertifizierte Holzpellets ENplus A1 & Stère Holz auf Palette bei GudPreiss. Kostenloser Speditionsversand ab 500 €.',
   keywords: [
     'brennholz kaufen 25 cm',
     'brennholz palette 2 m3',
@@ -33,7 +33,7 @@ export const metadata = {
     'ster holz buche eiche',
     'holzbriketts ruf hartholz',
     'anzündholz nadelholz',
-    'sasu bois service',
+    'gudpreiss',
     'brennholz lieferung deutschland',
   ],
   icons: {
@@ -54,16 +54,16 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: 'SASU BOIS SERVICE — Brennholz & Holzpellets Spezialist',
+    title: 'GudPreiss — Brennholz & Holzpellets Spezialist',
     description: 'Hochwertiges Kaminholz, gestapelte Paletten (2 m³) und zertifizierte Holzpellets ENplus A1 mit kostenloser Speditionslieferung ab 500 €.',
     url: siteUrl,
-    siteName: 'SASU BOIS SERVICE',
+    siteName: 'GudPreiss',
     images: [
       {
         url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: 'SASU BOIS SERVICE — Brennholz, Pellets & Ster Holz',
+        alt: 'GudPreiss — Brennholz, Pellets & Ster Holz',
         type: 'image/png',
       },
     ],
@@ -72,7 +72,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SASU BOIS SERVICE — Brennholz & Holzpellets Online-Shop',
+    title: 'GudPreiss — Brennholz & Holzpellets Online-Shop',
     description: 'Kaminfertiges Brennholz, Holzbriketts RUF & Holzpellets ENplus A1 mit schnelle Speditionslieferung.',
     images: [`${siteUrl}/opengraph-image`],
   },
@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {
         '@type': 'OnlineStore',
         '@id': `${siteUrl}/#store`,
-        name: 'SASU BOIS SERVICE',
+        name: 'GudPreiss',
         url: siteUrl,
         logo: `${siteUrl}/icon.svg`,
         image: `${siteUrl}/icon.svg`,
@@ -115,7 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           '@type': 'ContactPoint',
           telephone: '+49-15731294173',
           contactType: 'customer service',
-          email: 'contact@sasuboisservice.com',
+          email: 'kontakt@gudpreiss.de',
           availableLanguage: ['German', 'French'],
         },
       },
@@ -123,7 +123,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         '@type': 'WebSite',
         '@id': `${siteUrl}/#website`,
         url: siteUrl,
-        name: 'SASU BOIS SERVICE',
+        name: 'GudPreiss',
         publisher: {
           '@id': `${siteUrl}/#store`,
         },

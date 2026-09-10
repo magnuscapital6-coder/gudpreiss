@@ -81,7 +81,7 @@ export function MerchantFeedPreview({ xmlContent, onClose }: MerchantFeedPreview
 
         {/* Footer info */}
         <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-between text-xs text-slate-500">
-          <span>Généré dynamiquement depuis la base de données de SASU BOIS SERVICE</span>
+          <span>Généré dynamiquement depuis la base de données de GudPreiss</span>
           <a
             href="/feed/google-shopping.xml"
             target="_blank"

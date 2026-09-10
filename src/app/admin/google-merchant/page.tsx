@@ -32,7 +32,7 @@ export default function AdminGoogleMerchantPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [copiedFeedUrl, setCopiedFeedUrl] = useState<string | null>(null);
 
-  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://sasuboisservice.com';
+  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://gudpreiss.de';
   const primaryFeedUrl = `${siteUrl}/feed/google-shopping.xml`;
   const secondaryFeedUrl = `${siteUrl}/google-merchant-feed.xml`;
 
@@ -306,7 +306,7 @@ export default function AdminGoogleMerchantPage() {
                         </div>
                         <div>
                           <p className="font-bold text-slate-900 dark:text-white line-clamp-1">{p.name}</p>
-                          <p className="text-[10px] text-slate-500">{p.brand_name || 'SASU BOIS SERVICE'}</p>
+                          <p className="text-[10px] text-slate-500">{p.brand_name || 'GudPreiss'}</p>
                         </div>
                       </div>
                     </td>

@@ -34,7 +34,7 @@ export default function CheckoutPage() {
   const iban = settings.iban || 'FR76 3000 4012 3456 7890 1234 567';
   const bic = settings.bic || 'BNPAFRPPXXX';
   const bankName = settings.bank_name || 'BNP Paribas';
-  const accountHolder = settings.account_holder || 'SASU BOIS SERVICE';
+  const accountHolder = settings.account_holder || 'GudPreiss';
 
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [isSubmitting, setIsSubmitting] = useState(false);

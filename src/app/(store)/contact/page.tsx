@@ -29,7 +29,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           clientName: name,
           clientEmail: email,
-          subject: subject || 'Kontaktanfrage über sasuboisservice.com',
+          subject: subject || 'Kontaktanfrage über gudpreiss.de',
           summary: `Kontaktanfrage von ${name} (${email}) — Betreff: ${subject || 'Allgemeine Anfrage'}`,
           initialRequest: message,
           conversationHistory: [],
@@ -62,7 +62,7 @@ export default function ContactPage() {
             <span>SCHNELLER KUNDENSERVICE &amp; SPEDITIONSRESERVIERUNG</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Kontaktieren Sie SASU BOIS SERVICE
+            Kontaktieren Sie GudPreiss
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-xl mx-auto leading-relaxed">
             Haben Sie Fragen zu Brennholz, Holzpellets (ENplus A1), Stère Holz, Palettenversand oder Ihrer Bestellung? Unser Kundendienst berät Sie gerne.
@@ -75,7 +75,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div>
                 <h2 className="text-xl font-bold text-white tracking-tight">Kontaktdaten</h2>
-                <p className="text-xs text-slate-400 mt-1">SASU BOIS SERVICE Kundenservice</p>
+                <p className="text-xs text-slate-400 mt-1">GudPreiss Kundenservice</p>
               </div>
 
               <div className="space-y-5 text-xs text-slate-300">
@@ -98,8 +98,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="block font-bold text-white text-xs">E-Mail-Adresse</span>
-                    <a href="mailto:contact@sasuboisservice.com" className="text-emerald-400 font-bold text-xs hover:underline block mt-0.5">
-                      contact@sasuboisservice.com
+                    <a href="mailto:kontakt@gudpreiss.de" className="text-emerald-400 font-bold text-xs hover:underline block mt-0.5">
+                      kontakt@gudpreiss.de
                     </a>
                   </div>
                 </div>
@@ -148,7 +148,7 @@ export default function ContactPage() {
                 </div>
                 <h2 className="text-xl font-bold text-slate-900 dark:text-white">Nachricht erfolgreich gesendet!</h2>
                 <p className="text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
-                  Vielen Dank, <strong className="text-slate-900 dark:text-white">{name}</strong>. Ihre Nachricht wurde an <span className="text-emerald-600 dark:text-emerald-400 font-semibold">contact@sasuboisservice.com</span> gesendet. Unser Kundendienst antwortet Ihnen in Kürze.
+                  Vielen Dank, <strong className="text-slate-900 dark:text-white">{name}</strong>. Ihre Nachricht wurde an <span className="text-emerald-600 dark:text-emerald-400 font-semibold">kontakt@gudpreiss.de</span> gesendet. Unser Kundendienst antwortet Ihnen in Kürze.
                 </p>
                 <button
                   type="button"
