@@ -66,48 +66,92 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const supabase = createClient(supabaseUrl, supabaseKey);
+    const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    let userId = '';
+    let userEmail = cleanEmail;
 
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de';
-    const { data, error } = await supabase.auth.signUp({
-      email: cleanEmail,
-      password,
-      options: {
-        emailRedirectTo: `${siteUrl}/account`,
-        data: {
+    if (serviceKey) {
+      const adminClient = createClient(supabaseUrl, serviceKey);
+      const { data: adminData, error: adminError } = await adminClient.auth.admin.createUser({
+        email: cleanEmail,
+        password,
+        email_confirm: true,
+        user_metadata: {
           full_name: fullName,
           role: 'customer',
         },
-      },
-    });
+      });
 
-    if (error) {
-      resetRateLimit(ipKey);
-      if (error.message.includes('already registered')) {
+      if (adminError) {
+        resetRateLimit(ipKey);
+        if (adminError.message.includes('already registered') || adminError.message.includes('already exists') || adminError.message.includes('unique')) {
+          return NextResponse.json(
+            { error: 'Diese E-Mail-Adresse ist bereits registriert.' },
+            { status: 409 },
+          );
+        }
         return NextResponse.json(
-          { error: 'Diese E-Mail-Adresse ist bereits registriert.' },
-          { status: 409 },
+          { error: 'Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.' },
+          { status: 500 },
         );
       }
-      return NextResponse.json(
-        { error: 'Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.' },
-        { status: 500 },
-      );
-    }
 
-    if (!data.user) {
-      resetRateLimit(ipKey);
-      return NextResponse.json(
-        { error: 'Registrierung fehlgeschlagen.' },
-        { status: 500 },
-      );
+      if (!adminData.user) {
+        resetRateLimit(ipKey);
+        return NextResponse.json(
+          { error: 'Registrierung fehlgeschlagen.' },
+          { status: 500 },
+        );
+      }
+
+      userId = adminData.user.id;
+      userEmail = adminData.user.email || cleanEmail;
+    } else {
+      const supabase = createClient(supabaseUrl, supabaseKey);
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de';
+      const { data, error } = await supabase.auth.signUp({
+        email: cleanEmail,
+        password,
+        options: {
+          emailRedirectTo: `${siteUrl}/account`,
+          data: {
+            full_name: fullName,
+            role: 'customer',
+          },
+        },
+      });
+
+      if (error) {
+        resetRateLimit(ipKey);
+        if (error.message.includes('already registered')) {
+          return NextResponse.json(
+            { error: 'Diese E-Mail-Adresse ist bereits registriert.' },
+            { status: 409 },
+          );
+        }
+        return NextResponse.json(
+          { error: 'Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.' },
+          { status: 500 },
+        );
+      }
+
+      if (!data.user) {
+        resetRateLimit(ipKey);
+        return NextResponse.json(
+          { error: 'Registrierung fehlgeschlagen.' },
+          { status: 500 },
+        );
+      }
+
+      userId = data.user.id;
+      userEmail = data.user.email || cleanEmail;
     }
 
     resetRateLimit(ipKey);
 
     const userObj = {
-      id: data.user.id,
-      email: data.user.email || cleanEmail,
+      id: userId,
+      email: userEmail,
       full_name: fullName,
       role: 'customer',
     };
