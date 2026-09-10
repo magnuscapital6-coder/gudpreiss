@@ -59,13 +59,13 @@ export default function ContactPage() {
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 rounded-full text-xs font-extrabold uppercase tracking-wider mb-3">
             <Clock className="w-3.5 h-3.5" />
-            <span>SCHNELLER KUNDENSERVICE &amp; SPEDITIONSRESERVIERUNG</span>
+            <span>SCHNELLER KUNDENSERVICE &amp; PERSÖNLICHE BERATUNG</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Kontaktieren Sie GudPreiss
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-xl mx-auto leading-relaxed">
-            Haben Sie Fragen zu Brennholz, Holzpellets (ENplus A1), Stère Holz, Palettenversand oder Ihrer Bestellung? Unser Kundendienst berät Sie gerne.
+            Haben Sie Fragen zu unseren E-Bikes, PlayStation 5 Konsolen, Gaming-Zubehör oder Ihrer Bestellung? Unser Kundendienst berät Sie gerne.
           </p>
         </div>
 
@@ -86,8 +86,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="block font-bold text-white text-xs">Firmensitz &amp; Adresse</span>
-                    <span className="text-slate-300 text-xs block mt-0.5 font-medium">29 Rue Auguste Marliot</span>
-                    <span className="text-slate-400 text-[11px] block">59540 Caudry, Frankreich</span>
+                    <span className="text-slate-300 text-xs block mt-0.5 font-medium">Friedrichstraße 123</span>
+                    <span className="text-slate-400 text-[11px] block">10117 Berlin, Deutschland</span>
                   </div>
                 </div>
 
@@ -122,9 +122,9 @@ export default function ContactPage() {
                     <Building2 className="w-4.5 h-4.5 text-emerald-400" />
                   </div>
                   <div>
-                    <span className="block font-bold text-white text-xs">Registerdaten</span>
-                    <span className="text-slate-300 text-xs block mt-0.5 font-medium">SIREN: 893 259 865</span>
-                    <span className="text-slate-400 text-[11px] block">SIRET: 893 259 865 00018 | TVA: FR 48 893 259 865</span>
+                    <span className="block font-bold text-white text-xs">Unternehmensangaben</span>
+                    <span className="text-slate-300 text-xs block mt-0.5 font-medium">GudPreiss E-Commerce</span>
+                    <span className="text-slate-400 text-[11px] block">USt-IdNr.: DE 358 921 476</span>
                   </div>
                 </div>
               </div>
@@ -133,9 +133,9 @@ export default function ContactPage() {
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-[11px] text-slate-400 space-y-1 mt-4">
               <div className="flex items-center gap-2 text-emerald-400 font-bold">
                 <ShieldCheck className="w-4 h-4" />
-                <span>Kostenlose Speditionslieferung ab 500 €</span>
+                <span>Kostenlose Lieferung ab 500 €</span>
               </div>
-              <p>Alle Palettenlieferungen werden mit Hebebühne und Hubwagen direkt geliefert.</p>
+              <p>Schneller und versicherter Versand direkt zu Ihnen nach Hause.</p>
             </div>
           </div>
 
@@ -199,7 +199,7 @@ export default function ContactPage() {
                     required
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    placeholder="Frage zu Brennholz, Holzpellets oder Lieferung..."
+                    placeholder="Frage zu E-Bikes, PlayStation 5 oder Bestellung..."
                     className="w-full px-4 py-2.5 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl outline-none focus:border-emerald-500 text-slate-900 dark:text-white"
                   />
                 </div>

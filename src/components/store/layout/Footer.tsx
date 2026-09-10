@@ -22,26 +22,26 @@ export function Footer() {
               <span className="text-emerald-800 dark:text-emerald-400">Gud</span>Preiss
             </span>
             <p className="text-text-muted dark:text-slate-400 leading-relaxed max-w-sm">
-              Ihr zertifizierter Spezialist für Qualitäts-Brennholz, Holzpellets (ENplus A1) und Stère Holz. Kostenlose Lieferung ab 500 € Bestellwert.
+              Ihr zertifizierter Online-Shop für E-Bikes, PlayStation 5 Konsolen, Gaming-Zubehör und Unterhaltungselektronik zu Bestpreisen.
             </p>
             <div className="pt-2 text-xs space-y-1 text-slate-600 dark:text-slate-400 font-medium">
-              <p>📍 29 Rue Auguste Marliot, 59540 Caudry, Frankreich</p>
+              <p>📍 Friedrichstraße 123, 10117 Berlin, Deutschland</p>
               <p>📞 +49 15731294173 | ✉️ kontakt@gudpreiss.de</p>
-              <p>🏢 SIREN: 893 259 865 | SIRET: 893 259 865 00018 | TVA: FR 48 893 259 865</p>
+              <p>🏢 USt-IdNr.: DE 358 921 476 | GudPreiss E-Commerce</p>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3">
             <h4 className="font-bold text-text-primary dark:text-slate-100 text-sm uppercase tracking-wider">
-              Produkte &amp; Holz
+              Kategorien &amp; Produkte
             </h4>
             <ul className="space-y-2">
-              <li><Link href="/shop?category=brennholz" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition">Brennholz</Link></li>
-              <li><Link href="/shop?category=holzpellets" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition">Holzpellets ENplus A1</Link></li>
-              <li><Link href="/shop?category=ster-holz" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition">Ster Holz</Link></li>
-              <li><Link href="/shop?category=holzbriketts" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition">Holzbriketts RUF</Link></li>
-              <li><Link href="/shop?category=anzundholz" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition">Anzündholz</Link></li>
+              <li><Link href="/shop?category=e-bikes" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition">E-Bikes &amp; Elektrofahrräder</Link></li>
+              <li><Link href="/shop?category=playstation-konsolen" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition">PlayStation Konsolen</Link></li>
+              <li><Link href="/shop?category=playstation-controller-zubehoer" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition">Controller &amp; Zubehör</Link></li>
+              <li><Link href="/shop?category=playstation-audio-vr" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition">Audio &amp; VR Headsets</Link></li>
+              <li><Link href="/shop?category=playstation-ssd-speicher" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition">SSD &amp; Speichererweiterung</Link></li>
             </ul>
           </div>
 

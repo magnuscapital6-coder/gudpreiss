@@ -16,7 +16,7 @@ export function validateProduct(product: Product): ValidationResult {
   }
 
   // 2. SKU check
-  if (!product.sku || product.sku.trim() === '' || product.sku === 'Holz' || product.sku === 'AMSI-10332') {
+  if (!product.sku || product.sku.trim() === '') {
     issues.push('Invalid or generic SKU code');
   }
 
@@ -32,18 +32,6 @@ export function validateProduct(product: Product): ValidationResult {
     issues.push('Description missing or too short (< 20 chars)');
   }
 
-  // 5. Dimension & Title Consistency Check
-  const title25 = product.name.includes('25 cm');
-  const title30 = product.name.includes('30 cm');
-  const title33 = product.name.includes('33 cm');
-  const title50 = product.name.includes('50 cm');
-
-  if (title25 && product.description.includes('30 cm') && !product.description.includes('25 cm')) {
-    issues.push('Dimension mismatch: Title specifies 25 cm but description indicates 30 cm');
-  }
-  if (title30 && product.description.includes('25 cm') && !product.description.includes('30 cm')) {
-    issues.push('Dimension mismatch: Title specifies 30 cm but description indicates 25 cm');
-  }
 
   // 6. Price check
   if (typeof product.price !== 'number' || isNaN(product.price) || product.price <= 0) {

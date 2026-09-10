@@ -11,7 +11,7 @@ export async function generateGoogleMerchantFeed(): Promise<string> {
   <channel>
     <title>GudPreiss Google Shopping Feed</title>
     <link>${siteUrl}</link>
-    <description>Offizieller Google Merchant Center Produkte-Feed für Brennholz und Holzpellets</description>
+    <description>Offizieller Google Merchant Center Produkte-Feed für GudPreiss Deutschland</description>
 `;
 
   for (const p of activeProducts) {
@@ -93,12 +93,7 @@ export async function generateGoogleMerchantFeed(): Promise<string> {
     // Shipping info for Germany (DE)
     xml += `      <g:shipping>
         <g:country>DE</g:country>
-        <g:service>Spedition Palette</g:service>
-        <g:price>${shippingPrice}</g:price>
-      </g:shipping>
-      <g:shipping>
-        <g:country>FR</g:country>
-        <g:service>Livraison Palette</g:service>
+        <g:service>Standardversand</g:service>
         <g:price>${shippingPrice}</g:price>
       </g:shipping>
     </item>

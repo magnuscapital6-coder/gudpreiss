@@ -22,19 +22,19 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de';
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Brennholz, Holzpellets ENplus A1 & Ster Holz kaufen | GudPreiss',
+    default: 'GudPreiss — E-Bikes, PlayStation 5 & Elektronik Online-Shop',
     template: '%s | GudPreiss',
   },
-  description: 'Kaufen Sie erstklassiges Brennholz (Buche & Eiche 25 cm, 30 cm, 33 cm, 50 cm), zertifizierte Holzpellets ENplus A1 & Stère Holz auf Palette bei GudPreiss. Kostenloser Speditionsversand ab 500 €.',
+  description: 'Kaufen Sie hochwertige E-Bikes, PlayStation 5 Konsolen, Audio, Smartphones & Technik-Highlights bei GudPreiss. Kostenloser Speditions- & Paketversand ab 500 € in Deutschland.',
   keywords: [
-    'brennholz kaufen 25 cm',
-    'brennholz palette 2 m3',
-    'holzpellets enplus a1 kaufen',
-    'ster holz buche eiche',
-    'holzbriketts ruf hartholz',
-    'anzündholz nadelholz',
+    'e-bikes online kaufen',
+    'playstation 5 pro deutschland',
+    'dualsense controller ps5',
+    'elektronik online shop deutschland',
     'gudpreiss',
-    'brennholz lieferung deutschland',
+    'smartphones und gadgets',
+    'kopfhörer noise cancelling',
+    'technik angebote'
   ],
   icons: {
     icon: [
@@ -54,8 +54,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: 'GudPreiss — Brennholz & Holzpellets Spezialist',
-    description: 'Hochwertiges Kaminholz, gestapelte Paletten (2 m³) und zertifizierte Holzpellets ENplus A1 mit kostenloser Speditionslieferung ab 500 €.',
+    title: 'GudPreiss — E-Bikes, PlayStation 5 & Elektronik Online-Shop',
+    description: 'Hochwertige E-Bikes, PlayStation 5 Konsolen, Zubehör & modernste Elektronik online bestellen bei GudPreiss mit schnellem Versand.',
     url: siteUrl,
     siteName: 'GudPreiss',
     images: [
@@ -63,7 +63,7 @@ export const metadata = {
         url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: 'GudPreiss — Brennholz, Pellets & Ster Holz',
+        alt: 'GudPreiss — E-Bikes & PlayStation 5 Store Deutschland',
         type: 'image/png',
       },
     ],
@@ -72,8 +72,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GudPreiss — Brennholz & Holzpellets Online-Shop',
-    description: 'Kaminfertiges Brennholz, Holzbriketts RUF & Holzpellets ENplus A1 mit schnelle Speditionslieferung.',
+    title: 'GudPreiss — E-Bikes, PlayStation 5 & Elektronik Online-Shop',
+    description: 'Hochwertige E-Bikes, PlayStation 5 Konsolen, Zubehör & modernste Elektronik online bestellen bei GudPreiss mit schnellem Versand.',
     images: [`${siteUrl}/opengraph-image`],
   },
   robots: {
@@ -100,23 +100,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         url: siteUrl,
         logo: `${siteUrl}/icon.svg`,
         image: `${siteUrl}/icon.svg`,
-        description: 'Spezialisierter Online-Händler für Brennholz, Holzpellets ENplus A1, Stère Holz und Holzbriketts RUF.',
+        description: 'Spezialisierter Online-Händler für E-Bikes, PlayStation 5 Konsolen, IT & Unterhaltungselektronik in Deutschland.',
         priceRange: '€€',
         currenciesAccepted: 'EUR',
         paymentAccepted: 'BankTransfer SEPA Vorkasse',
         address: {
           '@type': 'PostalAddress',
-          addressCountry: 'FR',
-          addressLocality: 'Caudry',
-          postalCode: '59540',
-          streetAddress: '29 Rue Auguste Marliot',
+          addressCountry: 'DE',
+          addressLocality: 'Berlin',
+          postalCode: '10117',
+          streetAddress: 'Friedrichstraße 123',
         },
         contactPoint: {
           '@type': 'ContactPoint',
           telephone: '+49-15731294173',
           contactType: 'customer service',
           email: 'kontakt@gudpreiss.de',
-          availableLanguage: ['German', 'French'],
+          availableLanguage: ['German'],
         },
       },
       {

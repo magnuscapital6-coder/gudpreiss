@@ -540,20 +540,18 @@ export const memoryLegalPages: Record<string, LegalPage> = {
     title: 'Impressum',
     subtitle: 'Offizielle Angaben gemäß § 5 TMG zum Betreiber der Plattform GudPreiss.',
     content: `## Angaben gemäß § 5 TMG
-GudPreiss
-29 Rue Auguste Marliot
-59540 Caudry, Frankreich
+GudPreiss E-Commerce Deutschland
+Friedrichstraße 123
+10117 Berlin, Deutschland
 
 ### Kontakt & Kundenservice
 Telefon: +49 15731294173
 E-Mail: kontakt@gudpreiss.de
 Website: https://gudpreiss.de
 
-### Handelsregister & Unternehmensdaten
-Rechtsform: SASU
-SIREN: 893 259 865
-SIRET: 893 259 865 00018
-Umsatzsteuer-Identifikationsnummer (TVA Intracommunautaire): FR 48 893 259 865
+### Umsatzsteuer-ID & Registrierung
+Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE 358 921 476
+Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: GudPreiss Redaktion, Berlin
 
 ### Verbraucherstreitbeilegung
 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/
@@ -563,13 +561,13 @@ Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
   privacy: {
     slug: 'privacy',
     title: 'Datenschutzerklärung',
-    subtitle: 'Transparente Informationen über die Erhebung und Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO / RGPD.',
+    subtitle: 'Transparente Informationen über die Erhebung und Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO.',
     content: `## 1. Datenschutz auf einen Blick
 Der Schutz Ihrer persönlichen Daten ist für GudPreiss von höchster Priorität. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
 
 ## 2. Verantwortliche Stelle
-GudPreiss
-29 Rue Auguste Marliot, 59540 Caudry, Frankreich
+GudPreiss E-Commerce Deutschland
+Friedrichstraße 123, 10117 Berlin, Deutschland
 E-Mail: kontakt@gudpreiss.de
 Telefon: +49 15731294173
 
@@ -586,18 +584,18 @@ Sie haben jederzeit das Recht auf kostenlose Auskunft über Ihre gespeicherten p
     title: 'AGB & Nutzungsbedingungen',
     subtitle: 'Allgemeine Geschäftsbedingungen für Verkäufe über den GudPreiss Online-Shop.',
     content: `## § 1 Geltungsbereich & Anbieter
-Diese Allgemeinen Geschäftsbedingungen gelten für alle Bestellungen über den Online-Shop von GudPreiss (SIREN 893 259 865, SIRET 893 259 865 00018, TVA FR48893259865).
+Diese Allgemeinen Geschäftsbedingungen gelten für alle Bestellungen über den Online-Shop von GudPreiss (USt-IdNr.: DE 358 921 476).
 
 ## § 2 Vertragsschluss & Produkte
-Die Darstellung der Brennholz- und Pelletprodukte im Online-Shop stellt ein unverbindliches Angebot dar. Der Kaufvertrag kommt durch das Absenden der Bestellung und der Überweisung des Rechnungsbetrages zustande.
+Die Darstellung der Produkte im Online-Shop stellt ein unverbindliches Angebot dar. Der Kaufvertrag kommt durch das Absenden der Bestellung und der Überweisung des Rechnungsbetrages zustande.
 
 ## § 3 Preise, Versandkosten & Lieferbedingungen
-Alle angegebenen Preise enthalten die gesetzliche Mehrwertsteuer (19% MwSt. / TVA).
+Alle angegebenen Preise enthalten die gesetzliche deutsche Mehrwertsteuer (19% MwSt.).
 Lieferung kostenlos ab 500 € Bestellwert (unter 500 € fällt eine Versandkostenpauschale von 49 € an).
-Der Versand erfolgt per Spedition auf gestapelter Palette für Deutschland (DE) und Frankreich (FR).
+Der Versand erfolgt per versichertem Paket- oder Speditionsversand innerhalb Deutschlands und der EU.
 
 ## § 4 Eigentumsvorbehalt
-Die Gelieferte Ware bleibt bis zur vollständigen Bezahlung Eigentum von GudPreiss.`,
+Die gelieferte Ware bleibt bis zur vollständigen Bezahlung Eigentum von GudPreiss.`,
     last_updated: new Date().toISOString(),
   },
   'return-policy': {
@@ -607,13 +605,13 @@ Die Gelieferte Ware bleibt bis zur vollständigen Bezahlung Eigentum von GudPrei
     content: `## Widerrufsrecht
 Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter die Ware in Besitz genommen haben.
 
-Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (GudPreiss, 29 Rue Auguste Marliot, 59540 Caudry, Frankreich, E-Mail: kontakt@gudpreiss.de, Telefon: +49 15731294173) mittels einer eindeutigen Erklärung über Ihren Entschluss informieren.
+Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (GudPreiss, Friedrichstraße 123, 10117 Berlin, Deutschland, E-Mail: kontakt@gudpreiss.de, Telefon: +49 15731294173) mittels einer eindeutigen Erklärung über Ihren Entschluss informieren.
 
 ## Folgen des Widerrufs
 Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf bei uns eingegangen ist.
 
 ## Muster-Widerrufsformular
-An: GudPreiss, 29 Rue Auguste Marliot, 59540 Caudry, Frankreich (E-Mail: kontakt@gudpreiss.de)
+An: GudPreiss, Friedrichstraße 123, 10117 Berlin, Deutschland (E-Mail: kontakt@gudpreiss.de)
 Hiermit widerrufe(n) ich/wir den von mir/uns abgeschlossenen Vertrag über den Kauf der folgenden Waren:
 Bestellnummer: ________________
 Bestellt am / Erhalten am: ________________

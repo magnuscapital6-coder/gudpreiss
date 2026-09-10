@@ -151,7 +151,7 @@ export default function AdminGoogleMerchantPage() {
             <span className="text-3xl font-black">{stats.total}</span>
             <p className="text-xs text-slate-500 font-medium mt-1">Produits actifs en catalogue</p>
           </div>
-          <span className="text-[11px] text-emerald-600 font-bold">100% Produits de bois &amp; pellets</span>
+          <span className="text-[11px] text-emerald-600 font-bold">100% Produits GudPreiss</span>
         </div>
 
         {/* Ready Count */}
