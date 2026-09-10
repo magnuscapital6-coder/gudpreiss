@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
 
       userId = adminData.user.id;
       userEmail = adminData.user.email || cleanEmail;
-    } else {
+    } else if (supabaseKey) {
       const supabase = createClient(supabaseUrl, supabaseKey);
       const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gudpreiss.de';
       const { data, error } = await supabase.auth.signUp({
