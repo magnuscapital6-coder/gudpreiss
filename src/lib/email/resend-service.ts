@@ -81,10 +81,21 @@ export async function sendOrderAdminNotificationEmail(
   }
 
   try {
-    const fromAddress = process.env.EMAIL_FROM || 'GudPreiss <kontakt@gudpreiss.de>';
-    const adminEmail = settings?.contact_email || process.env.SUPPORT_EMAIL || 'kontakt@gudpreiss.de';
-    const { adminTemplate, adminSubject } = getTemplates(settings);
+    // Use bestellungen@gudpreiss.de to prevent anti-spoofing drop when delivering to kontakt@gudpreiss.de
+    const fromAddress = 'GudPreiss System <bestellungen@gudpreiss.de>';
+    
+    // Collect all admin notification emails (deduplicated)
+    const primaryAdmin = settings?.contact_email || 'kontakt@gudpreiss.de';
+    const fallbackAdmins = [
+      primaryAdmin,
+      'kontakt@gudpreiss.de',
+      process.env.SUPPORT_EMAIL,
+      process.env.ADMIN_NOTIFICATION_EMAIL,
+    ].filter((e): e is string => Boolean(e && e.includes('@')));
 
+    const adminRecipients = Array.from(new Set(fallbackAdmins));
+
+    const { adminTemplate, adminSubject } = getTemplates(settings);
     const subject = interpolateTemplate(adminSubject, order);
     const html = interpolateTemplate(adminTemplate, order);
 
@@ -96,14 +107,15 @@ export async function sendOrderAdminNotificationEmail(
       },
       body: JSON.stringify({
         from: fromAddress,
-        to: [adminEmail],
+        to: adminRecipients,
+        reply_to: order.customer_email || undefined,
         subject,
         html,
       }),
     });
 
     if (res.ok) {
-      console.log(`[Email] Notification admin #${order.order_number} envoyee a ${adminEmail}`);
+      console.log(`[Email] Notification admin #${order.order_number} envoyee avec succes a:`, adminRecipients.join(', '));
       return true;
     } else {
       const err = await res.json();
