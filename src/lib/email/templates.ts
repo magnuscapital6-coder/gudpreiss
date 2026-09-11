@@ -69,10 +69,10 @@ export const DEFAULT_ADMIN_SUBJECT = 'Neue Bestellung #{{order_number}} — GudP
  */
 export function interpolateTemplate(template: string, order: Order): string {
   const customerName = order.shipping_address?.full_name || 'Kunde';
-  const itemsList = order.items
+  const itemsList = (order.items || [])
     .map(
-      (item) =>
-        `<li><strong>${item.product_name}</strong> (${item.quantity}x) — ${(item.unit_price * item.quantity).toFixed(2)} €</li>`
+      (item: any) =>
+        `<li><strong>${item.product_name || item.name || 'Produkt'}</strong> (${item.quantity || 1}x) — ${(((item.unit_price ?? item.price ?? 0)) * (item.quantity || 1)).toFixed(2)} €</li>`
     )
     .join('');
 
@@ -81,17 +81,17 @@ export function interpolateTemplate(template: string, order: Order): string {
     : 'Nicht angegeben';
 
   const variables: Record<string, string> = {
-    order_number: order.order_number,
+    order_number: order.order_number || '',
     customer_name: customerName,
-    customer_email: order.customer_email,
+    customer_email: order.customer_email || '',
     customer_phone: order.customer_phone || 'Nicht angegeben',
-    total_amount: order.total_amount.toFixed(2),
-    subtotal: order.subtotal.toFixed(2),
-    discount_amount: (order.discount_amount || 0).toFixed(2),
-    shipping_fee: (order.shipping_fee || 0).toFixed(2),
-    tax_amount: (order.tax_amount || 0).toFixed(2),
-    payment_method: order.payment_method === 'bank_transfer' ? 'Banküberweisung' : order.payment_method,
-    item_count: String(order.items.length),
+    total_amount: Number(order.total_amount || 0).toFixed(2),
+    subtotal: Number(order.subtotal || 0).toFixed(2),
+    discount_amount: Number(order.discount_amount || 0).toFixed(2),
+    shipping_fee: Number(order.shipping_fee || 0).toFixed(2),
+    tax_amount: Number(order.tax_amount || 0).toFixed(2),
+    payment_method: order.payment_method === 'bank_transfer' ? 'Banküberweisung' : (order.payment_method || 'Vorkasse'),
+    item_count: String(order.items?.length || 0),
     items_list: itemsList,
     shipping_address: shippingAddr,
     iban: order.bank_transfer_iban || DEFAULT_STORE_SETTINGS.iban || 'DE44 5001 0517 5422 3901 12',
@@ -99,6 +99,7 @@ export function interpolateTemplate(template: string, order: Order): string {
     bank_holder: order.bank_transfer_holder || DEFAULT_STORE_SETTINGS.account_holder || 'GudPreiss E-Commerce Deutschland',
     support_email: process.env.SUPPORT_EMAIL || 'kontakt@gudpreiss.de',
     store_name: 'GudPreiss',
+    year: '2026',
   };
 
   let result = template;

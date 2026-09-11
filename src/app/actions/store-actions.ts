@@ -50,15 +50,13 @@ export async function createOrderServerAction(orderPayload: {
   payment_method: string;
 }): Promise<{ success: boolean; order?: Order; error?: string; emails?: { customer: boolean; admin: boolean } }> {
   try {
-    // Validate session exists (any authenticated user can place Bestellungen)
-    const session = await getServerSession();
-    if (!session.isAuthenticated) {
-      return { success: false, error: 'Anmeldung erforderlich, um eine Bestellung aufzugeben.' };
+    // Validate required fields
+    if (!orderPayload.customer_email || !orderPayload.customer_email.includes('@')) {
+      return { success: false, error: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' };
     }
 
-    // Validate required fields
-    if (!orderPayload.customer_email || !orderPayload.shipping_address || !orderPayload.items?.length) {
-      return { success: false, error: 'Pflichtfelder fehlen (E-Mail, Lieferadresse, Artikel).' };
+    if (!orderPayload.shipping_address || !orderPayload.items?.length) {
+      return { success: false, error: 'Pflichtfelder fehlen (Lieferadresse, Artikel).' };
     }
 
     // Validate total_amount is positive
@@ -66,7 +64,21 @@ export async function createOrderServerAction(orderPayload: {
       return { success: false, error: 'Ungültiger Bestellbetrag.' };
     }
 
-    const order = await createOrder(orderPayload);
+    // Attach user ID if session exists
+    let userId: string | undefined = undefined;
+    try {
+      const session = await getServerSession();
+      if (session.isAuthenticated && session.userId) {
+        userId = session.userId;
+      }
+    } catch {
+      // Non-blocking session check
+    }
+
+    const order = await createOrder({
+      ...orderPayload,
+      user_id: userId,
+    });
 
     // Send emails and create notification
     const emailResults = { customer: false, admin: false };
