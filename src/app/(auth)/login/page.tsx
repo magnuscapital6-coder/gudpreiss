@@ -7,7 +7,18 @@ import { useAuth } from '@/context/auth-context';
 import { useToast } from '@/context/toast-context';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowRight, AlertCircle, ShieldAlert, ShieldCheck } from 'lucide-react';
+import {
+  ArrowRight,
+  AlertCircle,
+  ShieldAlert,
+  ShieldCheck,
+  KeyRound,
+  Mail,
+  CheckCircle2,
+  Lock,
+  Eye,
+  EyeOff,
+} from 'lucide-react';
 import { loginSchema } from '@/lib/validation';
 
 function LoginForm() {
@@ -19,10 +30,18 @@ function LoginForm() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [fieldErrors, setFieldErrors] = useState<{ email?: string; password?: string }>({});
   const [retryAfter, setRetryAfter] = useState(0);
   const [remainingAttempts, setRemainingAttempts] = useState<number | null>(null);
+
+  // Forgot password state
+  const [isForgotMode, setIsForgotMode] = useState(false);
+  const [forgotEmail, setForgotEmail] = useState('');
+  const [isForgotLoading, setIsForgotLoading] = useState(false);
+  const [forgotSuccessMsg, setForgotSuccessMsg] = useState('');
+  const [forgotErrorMsg, setForgotErrorMsg] = useState('');
 
   const isLocked = retryAfter > 0;
 
@@ -134,12 +153,153 @@ function LoginForm() {
     }
   };
 
+  const handleForgotSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setForgotErrorMsg('');
+    setForgotSuccessMsg('');
+
+    if (!forgotEmail || !forgotEmail.includes('@')) {
+      const err = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+      setForgotErrorMsg(err);
+      toast.warning(err, 'E-Mail erforderlich');
+      return;
+    }
+
+    setIsForgotLoading(true);
+
+    try {
+      const res = await fetch('/api/auth/forgot-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: forgotEmail }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setForgotSuccessMsg(data.message);
+        toast.success(
+          'Anweisungen zum Zurücksetzen wurden an Ihre E-Mail-Adresse gesendet!',
+          'E-Mail gesendet ✉️'
+        );
+      } else {
+        const err = data.error || 'Fehler beim Senden der Anfrage.';
+        setForgotErrorMsg(err);
+        toast.error(err, 'Fehler');
+      }
+    } catch {
+      const err = 'Ein unerwarteter Netzwerkfehler ist aufgetreten.';
+      setForgotErrorMsg(err);
+      toast.error(err, 'Netzwerkfehler');
+    } finally {
+      setIsForgotLoading(false);
+    }
+  };
+
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
     return m > 0 ? `${m}m ${s}s` : `${s}s`;
   };
 
+  // ── Forgot Password View ──
+  if (isForgotMode) {
+    return (
+      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-8 shadow-xl space-y-6 animate-in fade-in zoom-in-95 duration-200">
+        <div className="text-center">
+          <div className="w-12 h-12 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 rounded-2xl flex items-center justify-center mx-auto mb-3 border border-emerald-200 dark:border-emerald-800">
+            <KeyRound className="w-6 h-6" />
+          </div>
+          <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+            Passwort vergessen?
+          </h1>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+            Geben Sie Ihre Admin- oder Kunden-E-Mail ein. Wir senden Ihnen einen sicheren Link und Bestätigungscode zum Ändern Ihres Passworts.
+          </p>
+        </div>
+
+        {forgotErrorMsg && (
+          <div className="p-3 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 rounded-xl text-xs text-red-600 dark:text-red-300 flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+            <span>{forgotErrorMsg}</span>
+          </div>
+        )}
+
+        {forgotSuccessMsg ? (
+          <div className="space-y-4">
+            <div className="p-4 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl text-xs text-emerald-800 dark:text-emerald-300 flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 flex-shrink-0 text-emerald-600 mt-0.5" />
+              <div>
+                <p className="font-bold">E-Mail wurde gesendet</p>
+                <p className="mt-1 leading-relaxed">{forgotSuccessMsg}</p>
+                <p className="mt-2 text-[11px] opacity-80">
+                  Überprüfen Sie auch Ihren Spam-Ordner. Der Link ist 30 Minuten gültig.
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                setIsForgotMode(false);
+                setForgotSuccessMsg('');
+              }}
+              className="w-full py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-extrabold text-xs rounded-xl transition cursor-pointer"
+            >
+              Zurück zur Anmeldung
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleForgotSubmit} className="space-y-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">
+                E-Mail-Adresse *
+              </label>
+              <div className="relative">
+                <input
+                  type="email"
+                  required
+                  placeholder="admin@gudpreiss.de / kontakt@..."
+                  value={forgotEmail}
+                  onChange={(e) => setForgotEmail(e.target.value)}
+                  className="w-full px-4 py-3 pl-10 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white"
+                />
+                <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={isForgotLoading}
+              className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isForgotLoading ? (
+                <span>LINK WIRD GESENDET...</span>
+              ) : (
+                <>
+                  <span>RESET-LINK SENDEN</span>
+                  <ArrowRight className="w-4 h-4" />
+                </>
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setIsForgotMode(false);
+                setForgotErrorMsg('');
+              }}
+              className="w-full py-2.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-xs font-bold transition cursor-pointer"
+            >
+              Abbrechen und zurück zum Login
+            </button>
+          </form>
+        )}
+      </div>
+    );
+  }
+
+  // ── Standard Login View ──
   return (
     <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-8 shadow-xl space-y-6">
       <div className="text-center">
@@ -188,15 +348,36 @@ function LoginForm() {
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">Passwort *</label>
-          <input
-            type="password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            disabled={isLocked}
-            className="w-full px-4 py-3 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
-          />
+          <div className="flex items-center justify-between mb-1">
+            <label className="block text-xs font-bold text-slate-800 dark:text-slate-200">Passwort *</label>
+            <button
+              type="button"
+              onClick={() => {
+                setIsForgotMode(true);
+                setForgotEmail(email);
+              }}
+              className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline cursor-pointer"
+            >
+              Passwort vergessen?
+            </button>
+          </div>
+          <div className="relative">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={isLocked}
+              className="w-full px-4 py-3 pr-10 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+            >
+              {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+            </button>
+          </div>
           {fieldErrors.password && <p className="text-[11px] text-red-500 mt-1">{fieldErrors.password}</p>}
         </div>
 

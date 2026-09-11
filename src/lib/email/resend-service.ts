@@ -127,3 +127,158 @@ export async function sendOrderAdminNotificationEmail(
     return false;
   }
 }
+
+/**
+ * Send password reset email to Admin (or user).
+ */
+export async function sendPasswordResetEmail({
+  to,
+  resetUrl,
+  code,
+  userName = 'Administrator',
+}: {
+  to: string;
+  resetUrl: string;
+  code: string;
+  userName?: string;
+}): Promise<boolean> {
+  const resendApiKey = process.env.RESEND_API_KEY;
+  if (!resendApiKey || resendApiKey.includes('demo')) {
+    console.warn(`[Email] RESEND_API_KEY manquant ou demo - reset password non envoye a ${to}`);
+    return false;
+  }
+
+  try {
+    const fromAddress = 'GudPreiss Sicherheit <sicherheit@gudpreiss.de>';
+    const subject = `GudPreiss — Passwort zurücksetzen (Sicherheitscode: ${code})`;
+
+    const html = `
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passwort zurücksetzen</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0b1120; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #e2e8f0;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #0b1120; padding: 40px 15px;">
+    <tr>
+      <td align="center">
+        <table width="100%" max-width="580" border="0" cellspacing="0" cellpadding="0" style="max-width: 580px; background-color: #1e293b; border-radius: 20px; border: 1px solid #334155; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
+          
+          <!-- Header Branding -->
+          <tr>
+            <td style="padding: 35px 40px 25px 40px; text-align: center; border-bottom: 1px solid #334155; background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);">
+              <div style="display: inline-block; padding: 8px 16px; background-color: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 100px; margin-bottom: 15px;">
+                <span style="color: #10b981; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;">SICHERHEITSZENTRALE</span>
+              </div>
+              <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 900; letter-spacing: -0.5px;">Gud<span style="color: #10b981;">Preiss</span></h1>
+              <p style="margin: 5px 0 0 0; color: #94a3b8; font-size: 13px;">E-Commerce Deutschland • Berlin</p>
+            </td>
+          </tr>
+
+          <!-- Main Content -->
+          <tr>
+            <td style="padding: 35px 40px;">
+              <h2 style="margin: 0 0 15px 0; color: #f8fafc; font-size: 20px; font-weight: 800;">Passwort zurücksetzen</h2>
+              <p style="margin: 0 0 20px 0; color: #cbd5e1; font-size: 14px; line-height: 1.6;">
+                Hallo <strong>${userName}</strong>,<br>
+                wir haben eine Anfrage erhalten, das Passwort für Ihr GudPreiss-Konto (<strong>${to}</strong>) zurückzusetzen.
+              </p>
+
+              <!-- Action Button -->
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 25px 0;">
+                <tr>
+                  <td align="center">
+                    <a href="${resetUrl}" target="_blank" style="display: inline-block; padding: 16px 36px; background-color: #10b981; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 800; border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4); text-transform: uppercase; letter-spacing: 0.5px;">
+                      Passwort jetzt ändern
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- 6-digit Code Alternative -->
+              <div style="background-color: #0f172a; border: 1px solid #334155; border-radius: 14px; padding: 20px; text-align: center; margin: 30px 0 20px 0;">
+                <p style="margin: 0 0 8px 0; color: #94a3b8; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                  Oder Einmal-Sicherheitscode eingeben
+                </p>
+                <div style="color: #34d399; font-size: 32px; font-weight: 900; letter-spacing: 8px; font-family: monospace;">
+                  ${code}
+                </div>
+              </div>
+
+              <!-- Security Notice -->
+              <p style="margin: 20px 0 0 0; color: #64748b; font-size: 12px; line-height: 1.5;">
+                ⏱ <strong>Gültigkeitsdauer:</strong> Dieser Link und der Sicherheitscode sind <strong>30 Minuten</strong> gültig.<br>
+                🛡 <strong>Sicherheitshinweis:</strong> Falls Sie diese Anfrage nicht gestellt haben, ignorieren Sie diese E-Mail. Ihr Passwort bleibt unverändert.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding: 25px 40px; background-color: #0f172a; border-top: 1px solid #334155; text-align: center;">
+              <p style="margin: 0; color: #64748b; font-size: 11px; line-height: 1.5;">
+                <strong>GudPreiss E-Commerce Deutschland</strong><br>
+                Friedrichstraße 123, 10117 Berlin, Deutschland<br>
+                Kundenservice & Sicherheit: <a href="mailto:kontakt@gudpreiss.de" style="color: #10b981; text-decoration: none;">kontakt@gudpreiss.de</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+    `;
+
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${resendApiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: fromAddress,
+        to: [to],
+        subject,
+        html,
+      }),
+    });
+
+    if (res.ok) {
+      console.log(`[Email] Password reset email envoye avec succes a: ${to}`);
+      return true;
+    } else {
+      // Fallback try with default verified sender if custom alias has restriction
+      const fallbackFrom = 'GudPreiss <kontakt@gudpreiss.de>';
+      const fallbackRes = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${resendApiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: fallbackFrom,
+          to: [to],
+          subject,
+          html,
+        }),
+      });
+
+      if (fallbackRes.ok) {
+        console.log(`[Email] Password reset email envoye via fallback kontakt@gudpreiss.de a: ${to}`);
+        return true;
+      }
+
+      const err = await res.json();
+      console.error(`[Email] Echec envoi reset password a ${to}:`, err);
+      return false;
+    }
+  } catch (err) {
+    console.error(`[Email] Erreur reseau envoi reset password a ${to}:`, err);
+    return false;
+  }
+}
