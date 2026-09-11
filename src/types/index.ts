@@ -268,6 +268,17 @@ export interface StoreSettings {
   email_template_order_admin?: string;
   email_subject_order_customer?: string;
   email_subject_order_admin?: string;
+  // SMTP & Mailer credentials (editable directly from admin dashboard)
+  smtp_host?: string;
+  smtp_port?: number;
+  smtp_user?: string;
+  smtp_password?: string;
+  smtp_encryption?: string;
+  smtp_secure?: boolean;
+  mail_from?: string;
+  mail_from_name?: string;
+  resend_api_key?: string;
+  admin_notification_email?: string;
 }
 
 export interface Notification {

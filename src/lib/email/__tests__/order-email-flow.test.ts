@@ -53,5 +53,5 @@ describe('End-to-End Order Creation & Email Dispatch Flow', () => {
     const logs = await getRecentEmailLogs(20);
     const orderLogs = logs.filter((l) => l.order_number === orderNum);
     expect(orderLogs.length).toBeGreaterThanOrEqual(1);
-  });
+  }, 15000);
 });

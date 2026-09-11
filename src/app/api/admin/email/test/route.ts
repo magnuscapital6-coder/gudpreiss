@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from '@/lib/supabase/server';
 import { testEmailConfiguration, getMailerConfig } from '@/lib/email/mailer-service';
+import { getStoreSettings } from '@/lib/db/db-provider';
 
 export async function GET() {
   const session = await getServerSession();
@@ -8,7 +9,9 @@ export async function GET() {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const config = getMailerConfig();
+  const settings = await getStoreSettings();
+  const config = getMailerConfig(settings);
+
   return NextResponse.json({
     success: true,
     config: {
@@ -25,7 +28,7 @@ export async function GET() {
         from: config.resend.from,
       },
       adminEmails: config.adminEmails,
-      activeTransport: config.smtp.isConfigured ? 'SMTP-Server' : config.resend.isConfigured ? 'Resend API' : 'Keiner',
+      activeTransport: config.smtp.isConfigured ? 'SMTP-Server' : config.resend.isConfigured ? 'Resend API' : 'Keiner (Nicht konfiguriert)',
     },
   });
 }
@@ -47,7 +50,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const result = await testEmailConfiguration(email.trim());
+    const settings = await getStoreSettings();
+    const result = await testEmailConfiguration(email.trim(), settings);
 
     if (result.success) {
       return NextResponse.json({

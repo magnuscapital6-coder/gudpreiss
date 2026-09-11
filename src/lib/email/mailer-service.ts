@@ -52,25 +52,27 @@ export interface MailerConfig {
  * Retrieve current email configuration from environment and settings.
  */
 export function getMailerConfig(settings?: StoreSettings | null): MailerConfig {
-  const smtpHost = cleanEnv(process.env.SMTP_HOST);
-  const smtpPortStr = cleanEnv(process.env.SMTP_PORT);
+  const smtpHost = cleanEnv(settings?.smtp_host) || cleanEnv(process.env.SMTP_HOST);
+  const smtpPortStr = String(settings?.smtp_port || '') || cleanEnv(process.env.SMTP_PORT);
   const smtpPort = parseInt(smtpPortStr, 10) || 587;
-  const smtpUser = cleanEnv(process.env.SMTP_USER);
-  const smtpPass = cleanEnv(process.env.SMTP_PASSWORD);
-  const smtpEncryption = cleanEnv(process.env.SMTP_ENCRYPTION).toLowerCase();
+  const smtpUser = cleanEnv(settings?.smtp_user) || cleanEnv(process.env.SMTP_USER);
+  const smtpPass = cleanEnv(settings?.smtp_password) || cleanEnv(process.env.SMTP_PASSWORD);
+  const smtpEncryption = (cleanEnv(settings?.smtp_encryption) || cleanEnv(process.env.SMTP_ENCRYPTION)).toLowerCase();
   const smtpSecure =
-    smtpEncryption === 'ssl' ||
-    smtpEncryption === 'tls' ||
-    smtpPort === 465 ||
-    cleanEnv(process.env.SMTP_SECURE) === 'true';
+    settings?.smtp_secure ?? (
+      smtpEncryption === 'ssl' ||
+      smtpEncryption === 'tls' ||
+      smtpPort === 465 ||
+      cleanEnv(process.env.SMTP_SECURE) === 'true'
+    );
 
-  const mailFromName = cleanEnv(process.env.MAIL_FROM_NAME) || 'GudPreiss';
-  const mailFromEmail = cleanEnv(process.env.MAIL_FROM) || cleanEnv(process.env.EMAIL_FROM) || 'kontakt@gudpreiss.de';
+  const mailFromName = cleanEnv(settings?.mail_from_name) || cleanEnv(process.env.MAIL_FROM_NAME) || 'GudPreiss';
+  const mailFromEmail = cleanEnv(settings?.mail_from) || cleanEnv(process.env.MAIL_FROM) || cleanEnv(process.env.EMAIL_FROM) || 'kontakt@gudpreiss.de';
   const smtpFrom = mailFromEmail.includes('<') ? mailFromEmail : `${mailFromName} <${mailFromEmail}>`;
 
   const isSmtpConfigured = Boolean(smtpHost && smtpUser && smtpPass);
 
-  const resendApiKey = cleanEnv(process.env.RESEND_API_KEY);
+  const resendApiKey = cleanEnv(settings?.resend_api_key) || cleanEnv(process.env.RESEND_API_KEY);
   const isResendConfigured = Boolean(resendApiKey && !resendApiKey.includes('demo') && resendApiKey.startsWith('re_'));
   const resendFrom = mailFromEmail.includes('<') ? mailFromEmail : `GudPreiss <kontakt@gudpreiss.de>`;
 
@@ -79,8 +81,10 @@ export function getMailerConfig(settings?: StoreSettings | null): MailerConfig {
   const envSupport = cleanEnv(process.env.SUPPORT_EMAIL);
   const envAdminNotif = cleanEnv(process.env.ADMIN_NOTIFICATION_EMAIL);
   const settingsEmail = settings?.contact_email ? cleanEnv(settings.contact_email) : '';
+  const settingsAdminNotif = settings?.admin_notification_email ? cleanEnv(settings.admin_notification_email) : '';
 
   const rawAdmins = [
+    settingsAdminNotif,
     envAdmin,
     settingsEmail,
     envSupport,
@@ -442,7 +446,10 @@ export async function sendPasswordResetEmail({
 /**
  * Diagnostic utility: send a live test email to verify SMTP / API configuration.
  */
-export async function testEmailConfiguration(testRecipient: string): Promise<{
+export async function testEmailConfiguration(
+  testRecipient: string,
+  settings?: StoreSettings | null
+): Promise<{
   success: boolean;
   transport: 'smtp' | 'resend' | 'none';
   message: string;
@@ -456,7 +463,7 @@ export async function testEmailConfiguration(testRecipient: string): Promise<{
     adminRecipients: string[];
   };
 }> {
-  const config = getMailerConfig();
+  const config = getMailerConfig(settings);
 
   const configSnapshot = {
     smtpConfigured: config.smtp.isConfigured,

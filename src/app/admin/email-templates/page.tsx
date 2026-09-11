@@ -14,6 +14,12 @@ import {
   Server,
   Loader2,
   ShieldCheck,
+  Key,
+  Lock,
+  EyeOff,
+  Sliders,
+  Settings2,
+  Info,
 } from 'lucide-react';
 
 interface EmailTemplates {
@@ -23,24 +29,26 @@ interface EmailTemplates {
   admin_subject: string;
 }
 
-interface MailerConfigDiagnostic {
-  smtp: {
-    isConfigured: boolean;
-    host: string;
-    port: number;
-    user: string;
-    from: string;
-    secure: boolean;
-  };
-  resend: {
-    isConfigured: boolean;
-    from: string;
-  };
-  adminEmails: string[];
-  activeTransport: string;
+interface SmtpConfigState {
+  smtp_host: string;
+  smtp_port: number;
+  smtp_user: string;
+  smtp_password: string;
+  smtp_encryption: string;
+  smtp_secure: boolean;
+  mail_from: string;
+  mail_from_name: string;
+  resend_api_key: string;
+  admin_notification_email: string;
+  isSmtpConfigured?: boolean;
+  isResendConfigured?: boolean;
+  activeTransport?: string;
+  adminEmails?: string[];
 }
 
 export default function AdminEmailTemplatesPage() {
+  const [activeTab, setActiveTab] = useState<'config' | 'customer' | 'admin'>('config');
+
   const [templates, setTemplates] = useState<EmailTemplates>({
     customer_template: '',
     admin_template: '',
@@ -48,11 +56,26 @@ export default function AdminEmailTemplatesPage() {
     admin_subject: '',
   });
   const [defaults, setDefaults] = useState<EmailTemplates | null>(null);
+
+  // SMTP & Mailer Credentials State
+  const [config, setConfig] = useState<SmtpConfigState>({
+    smtp_host: '',
+    smtp_port: 587,
+    smtp_user: '',
+    smtp_password: '',
+    smtp_encryption: 'tls',
+    smtp_secure: false,
+    mail_from: 'kontakt@gudpreiss.de',
+    mail_from_name: 'GudPreiss',
+    resend_api_key: '',
+    admin_notification_email: 'admin@gudpreiss.store',
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
-  const [activeTab, setActiveTab] = useState<'customer' | 'admin'>('customer');
-  const [previewHtml, setPreviewHtml] = useState<string | null>(null);
+  const [savingConfig, setSavingConfig] = useState(false);
+  const [savingTemplates, setSavingTemplates] = useState(false);
+  const [savedMessage, setSavedMessage] = useState<string | null>(null);
 
   // Email Test State
   const [testEmailRecipient, setTestEmailRecipient] = useState('');
@@ -64,52 +87,132 @@ export default function AdminEmailTemplatesPage() {
     errorDetails?: string;
   } | null>(null);
 
-  // Diagnostic State
-  const [diagnostic, setDiagnostic] = useState<MailerConfigDiagnostic | null>(null);
+  const [previewHtml, setPreviewHtml] = useState<string | null>(null);
 
-  useEffect(() => {
-    // Fetch templates
+  // Load configuration and templates
+  const loadData = () => {
     fetch('/api/admin/email-templates')
       .then((res) => res.json())
       .then((data) => {
-        setTemplates(data.templates);
-        setDefaults(data.defaults);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-
-    // Fetch diagnostic config
-    fetch('/api/admin/email/test')
-      .then((res) => res.json())
-      .then((data) => {
+        if (data.templates) setTemplates(data.templates);
+        if (data.defaults) setDefaults(data.defaults);
         if (data.config) {
-          setDiagnostic(data.config);
-          if (data.config.adminEmails && data.config.adminEmails[0]) {
+          setConfig((prev) => ({
+            ...prev,
+            ...data.config,
+          }));
+          if (data.config.admin_notification_email) {
+            setTestEmailRecipient(data.config.admin_notification_email);
+          } else if (data.config.adminEmails && data.config.adminEmails[0]) {
             setTestEmailRecipient(data.config.adminEmails[0]);
           }
         }
+        setLoading(false);
       })
-      .catch(() => {});
+      .catch(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    loadData();
   }, []);
 
-  const handleSave = async () => {
-    setSaving(true);
+  // Quick preset helper
+  const applyPreset = (preset: 'hostinger' | 'ionos' | 'gmail' | 'ovh' | 'custom') => {
+    if (preset === 'hostinger') {
+      setConfig((c) => ({
+        ...c,
+        smtp_host: 'smtp.hostinger.com',
+        smtp_port: 465,
+        smtp_encryption: 'ssl',
+        smtp_secure: true,
+      }));
+    } else if (preset === 'ionos') {
+      setConfig((c) => ({
+        ...c,
+        smtp_host: 'smtp.ionos.de',
+        smtp_port: 587,
+        smtp_encryption: 'tls',
+        smtp_secure: false,
+      }));
+    } else if (preset === 'gmail') {
+      setConfig((c) => ({
+        ...c,
+        smtp_host: 'smtp.gmail.com',
+        smtp_port: 587,
+        smtp_encryption: 'tls',
+        smtp_secure: false,
+      }));
+    } else if (preset === 'ovh') {
+      setConfig((c) => ({
+        ...c,
+        smtp_host: 'ssl0.ovh.net',
+        smtp_port: 465,
+        smtp_encryption: 'ssl',
+        smtp_secure: true,
+      }));
+    }
+  };
+
+  // Save SMTP / Mailer Configuration
+  const handleSaveConfig = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSavingConfig(true);
+    setSavedMessage(null);
+
     try {
-      await fetch('/api/admin/email-templates', {
+      const res = await fetch('/api/admin/email-templates', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          smtp_host: config.smtp_host,
+          smtp_port: config.smtp_port,
+          smtp_user: config.smtp_user,
+          smtp_password: config.smtp_password,
+          smtp_encryption: config.smtp_encryption,
+          smtp_secure: config.smtp_secure,
+          mail_from: config.mail_from,
+          mail_from_name: config.mail_from_name,
+          resend_api_key: config.resend_api_key,
+          admin_notification_email: config.admin_notification_email,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSavedMessage('E-Mail-Serverkonfiguration erfolgreich gespeichert!');
+        loadData();
+        setTimeout(() => setSavedMessage(null), 4000);
+      }
+    } catch {
+      // Error
+    } finally {
+      setSavingConfig(false);
+    }
+  };
+
+  // Save Templates
+  const handleSaveTemplates = async () => {
+    setSavingTemplates(true);
+    setSavedMessage(null);
+    try {
+      const res = await fetch('/api/admin/email-templates', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(templates),
       });
-      setSaved(true);
-      setTimeout(() => setSaved(false), 3000);
+
+      if (res.ok) {
+        setSavedMessage('E-Mail-Vorlagen erfolgreich aktualisiert!');
+        setTimeout(() => setSavedMessage(null), 3000);
+      }
     } catch {
       // Error
     } finally {
-      setSaving(false);
+      setSavingTemplates(false);
     }
   };
 
-  const handleReset = () => {
+  const handleResetTemplate = () => {
     if (!defaults) return;
     if (activeTab === 'customer') {
       setTemplates((t) => ({
@@ -117,7 +220,7 @@ export default function AdminEmailTemplatesPage() {
         customer_template: defaults.customer_template,
         customer_subject: defaults.customer_subject,
       }));
-    } else {
+    } else if (activeTab === 'admin') {
       setTemplates((t) => ({
         ...t,
         admin_template: defaults.admin_template,
@@ -126,6 +229,7 @@ export default function AdminEmailTemplatesPage() {
     }
   };
 
+  // Test Email Dispatch
   const handleSendTestEmail = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!testEmailRecipient || !testEmailRecipient.includes('@')) {
@@ -211,9 +315,9 @@ export default function AdminEmailTemplatesPage() {
     bic: 'INGDDEFFXXX',
     bank_name: 'ING-DiBa AG',
     bank_holder: 'GudPreiss E-Commerce Deutschland',
-    support_email: 'kontakt@gudpreiss.de',
+    support_email: config.mail_from || 'kontakt@gudpreiss.de',
     admin_order_url: 'https://gudpreiss.de/admin/orders?search=GP-2026-8942',
-    store_name: 'GudPreiss',
+    store_name: config.mail_from_name || 'GudPreiss',
     year: '2026',
   };
 
@@ -235,26 +339,27 @@ export default function AdminEmailTemplatesPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      {/* HEADER */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black flex items-center gap-2">
             <Mail className="w-6 h-6 text-emerald-600" />
-            E-Mail-Vorlagen &amp; Systemkonfiguration
+            E-Mail-Zentrale &amp; Server-Konfiguration
           </h1>
           <p className="text-xs text-slate-500 mt-1">
-            Verwalten Sie Bestellbestätigungen, Benachrichtigungen und testen Sie den Live-Versand (SMTP / API).
+            Konfigurieren Sie SMTP-Zugangsdaten, API-Schlüssel, Absender und Vorlagen direkt in der Plattform.
           </p>
         </div>
-        {saved && (
+        {savedMessage && (
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 text-xs font-bold border border-emerald-500/20 animate-fade-in">
             <Check className="w-3.5 h-3.5" />
-            Gespeichert!
+            {savedMessage}
           </div>
         )}
       </div>
 
-      {/* SYSTEM DIAGNOSTIC & TEST SEND SECTION */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm space-y-5">
+      {/* SYSTEM STATUS & LIVE TEST CARD */}
+      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
@@ -262,28 +367,35 @@ export default function AdminEmailTemplatesPage() {
             </div>
             <div>
               <h2 className="text-sm font-black text-slate-900 dark:text-white">
-                E-Mail-Server Status &amp; Live-Test
+                Live-Status des E-Mail-Systems
               </h2>
               <p className="text-xs text-slate-500">
-                Aktiver Transport: <strong className="text-emerald-600">{diagnostic?.activeTransport || 'Wird ermittelt...'}</strong>
+                Aktiver Transport:{' '}
+                <strong className={config.isSmtpConfigured || config.isResendConfigured ? 'text-emerald-600' : 'text-amber-500'}>
+                  {config.activeTransport || (config.isSmtpConfigured ? 'SMTP-Server' : config.isResendConfigured ? 'Resend API' : 'Nicht konfiguriert')}
+                </strong>
               </p>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <span className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase border ${
-              diagnostic?.smtp.isConfigured
-                ? 'bg-emerald-500/10 text-emerald-600 border-emerald-500/30'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-500 border-slate-300 dark:border-slate-700'
-            }`}>
-              SMTP: {diagnostic?.smtp.isConfigured ? 'Aktiv' : 'Nicht konfiguriert'}
+            <span
+              className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase border ${
+                config.isSmtpConfigured
+                  ? 'bg-emerald-500/10 text-emerald-600 border-emerald-500/30'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-500 border-slate-300 dark:border-slate-700'
+              }`}
+            >
+              SMTP: {config.isSmtpConfigured ? 'Aktiv' : 'Nicht konfiguriert'}
             </span>
-            <span className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase border ${
-              diagnostic?.resend.isConfigured
-                ? 'bg-blue-500/10 text-blue-600 border-blue-500/30'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-500 border-slate-300 dark:border-slate-700'
-            }`}>
-              Resend API: {diagnostic?.resend.isConfigured ? 'Aktiv' : 'Inaktiv'}
+            <span
+              className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase border ${
+                config.isResendConfigured
+                  ? 'bg-blue-500/10 text-blue-600 border-blue-500/30'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-500 border-slate-300 dark:border-slate-700'
+              }`}
+            >
+              Resend API: {config.isResendConfigured ? 'Aktiv' : 'Inaktiv'}
             </span>
           </div>
         </div>
@@ -296,7 +408,7 @@ export default function AdminEmailTemplatesPage() {
                 type="email"
                 value={testEmailRecipient}
                 onChange={(e) => setTestEmailRecipient(e.target.value)}
-                placeholder="Empfänger für Test-E-Mail eingeben (z.B. admin@gudpreiss.store)"
+                placeholder="Empfänger für Test-E-Mail eingeben (z.B. Ihre persönliche E-Mail-Adresse)"
                 className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-white outline-none focus:border-emerald-500"
                 required
               />
@@ -304,7 +416,7 @@ export default function AdminEmailTemplatesPage() {
             <button
               type="submit"
               disabled={testLoading}
-              className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-emerald-900/20 transition cursor-pointer disabled:opacity-50"
+              className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs rounded-xl flex items-center justify-center gap-2 shadow-md shadow-emerald-900/20 transition cursor-pointer disabled:opacity-50 shrink-0"
             >
               {testLoading ? (
                 <>
@@ -349,18 +461,22 @@ export default function AdminEmailTemplatesPage() {
               </div>
             </div>
           )}
-
-          {diagnostic?.adminEmails && diagnostic.adminEmails.length > 0 && (
-            <div className="text-[11px] text-slate-500 flex items-center gap-1.5 pt-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              Empfänger für Admin-Bestellbenachrichtigungen: <strong>{diagnostic.adminEmails.join(', ')}</strong>
-            </div>
-          )}
         </form>
       </div>
 
-      {/* TAB SELECTOR */}
-      <div className="flex gap-2">
+      {/* NAVIGATION TABS */}
+      <div className="flex flex-wrap gap-2">
+        <button
+          onClick={() => setActiveTab('config')}
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-black text-xs transition cursor-pointer ${
+            activeTab === 'config'
+              ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-900/30'
+              : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900'
+          }`}
+        >
+          <Settings2 className="w-4 h-4" />
+          ⚙️ SMTP &amp; Server-Zugangsdaten
+        </button>
         <button
           onClick={() => setActiveTab('customer')}
           className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-black text-xs transition cursor-pointer ${
@@ -385,69 +501,322 @@ export default function AdminEmailTemplatesPage() {
         </button>
       </div>
 
-      {/* TEMPLATE EDITOR */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm space-y-4">
-        <div>
-          <label className="block text-xs font-bold mb-1">E-Mail-Betreffzeile</label>
-          <input
-            type="text"
-            value={activeTab === 'customer' ? templates.customer_subject : templates.admin_subject}
-            onChange={(e) =>
-              setTemplates((t) => ({
-                ...t,
-                [activeTab === 'customer' ? 'customer_subject' : 'admin_subject']: e.target.value,
-              }))
-            }
-            className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-900 dark:text-white outline-none focus:border-emerald-500"
-          />
-        </div>
+      {/* TAB 1: SMTP & MAILER CREDENTIALS CONFIGURATION */}
+      {activeTab === 'config' && (
+        <form onSubmit={handleSaveConfig} className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div>
+              <h3 className="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+                <Sliders className="w-4 h-4 text-emerald-600" />
+                SMTP-Server Einstellungen &amp; API-Schlüssel
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Geben Sie Ihre E-Mail-Zugangsdaten ein. Diese werden direkt in der Datenbank gespeichert und sofort für alle Bestellungen verwendet.
+              </p>
+            </div>
 
-        <div>
-          <label className="block text-xs font-bold mb-1">HTML-Template</label>
-          <textarea
-            value={activeTab === 'customer' ? templates.customer_template : templates.admin_template}
-            onChange={(e) =>
-              setTemplates((t) => ({
-                ...t,
-                [activeTab === 'customer' ? 'customer_template' : 'admin_template']: e.target.value,
-              }))
-            }
-            rows={18}
-            className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-mono text-slate-900 dark:text-white outline-none focus:border-emerald-500 resize-y"
-          />
-        </div>
+            {/* Quick Provider Presets */}
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-[10px] font-bold text-slate-400 uppercase mr-1">Schnellvorlage:</span>
+              <button
+                type="button"
+                onClick={() => applyPreset('hostinger')}
+                className="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 hover:text-emerald-600 border border-slate-200 dark:border-slate-700 transition"
+              >
+                Hostinger
+              </button>
+              <button
+                type="button"
+                onClick={() => applyPreset('ionos')}
+                className="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 hover:text-emerald-600 border border-slate-200 dark:border-slate-700 transition"
+              >
+                IONOS
+              </button>
+              <button
+                type="button"
+                onClick={() => applyPreset('gmail')}
+                className="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 hover:text-emerald-600 border border-slate-200 dark:border-slate-700 transition"
+              >
+                Gmail
+              </button>
+              <button
+                type="button"
+                onClick={() => applyPreset('ovh')}
+                className="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 hover:text-emerald-600 border border-slate-200 dark:border-slate-700 transition"
+              >
+                OVH
+              </button>
+            </div>
+          </div>
 
-        <div className="flex flex-wrap gap-2 pt-2">
-          <button
-            onClick={handleSave}
-            disabled={saving}
-            className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center gap-2 shadow-lg shadow-emerald-900/30 transition cursor-pointer disabled:opacity-50"
-          >
-            {saving ? (
-              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-            ) : (
-              <Save className="w-4 h-4" />
-            )}
-            VORLAGE SPEICHERN
-          </button>
-          <button
-            onClick={handleReset}
-            className="px-4 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl flex items-center gap-2 transition cursor-pointer"
-          >
-            <RotateCcw className="w-4 h-4" />
-            Auf Standard zurücksetzen
-          </button>
-          <button
-            onClick={() => renderPreview(activeTab === 'customer' ? templates.customer_template : templates.admin_template)}
-            className="px-4 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl flex items-center gap-2 transition cursor-pointer"
-          >
-            <Eye className="w-4 h-4" />
-            Responsive Vorschau
-          </button>
-        </div>
-      </div>
+          {/* SECTION A: SMTP CREDENTIALS */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-black text-emerald-600 uppercase tracking-wider flex items-center gap-2">
+              <Server className="w-3.5 h-3.5" />
+              1. SMTP Server (Standard / Eigener Mailserver)
+            </h4>
 
-      {/* Preview Modal */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="sm:col-span-2">
+                <label className="block text-xs font-bold mb-1">
+                  SMTP Host (Serveradresse) <span className="text-emerald-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={config.smtp_host}
+                  onChange={(e) => setConfig((c) => ({ ...c, smtp_host: e.target.value }))}
+                  placeholder="z.B. smtp.hostinger.com, smtp.ionos.de, mail.gudpreiss.de"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-900 dark:text-white outline-none focus:border-emerald-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold mb-1">
+                  Port <span className="text-emerald-600">*</span>
+                </label>
+                <input
+                  type="number"
+                  value={config.smtp_port}
+                  onChange={(e) => setConfig((c) => ({ ...c, smtp_port: parseInt(e.target.value, 10) || 587 }))}
+                  placeholder="587 oder 465"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-900 dark:text-white outline-none focus:border-emerald-500"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold mb-1">
+                  SMTP Benutzername / E-Mail <span className="text-emerald-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={config.smtp_user}
+                  onChange={(e) => setConfig((c) => ({ ...c, smtp_user: e.target.value }))}
+                  placeholder="kontakt@gudpreiss.de"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-900 dark:text-white outline-none focus:border-emerald-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold mb-1">
+                  SMTP Passwort <span className="text-emerald-600">*</span>
+                </label>
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={config.smtp_password}
+                    onChange={(e) => setConfig((c) => ({ ...c, smtp_password: e.target.value }))}
+                    placeholder="Ihr sicheres SMTP-Passwort"
+                    className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-900 dark:text-white outline-none focus:border-emerald-500 pr-10"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  >
+                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold mb-1">Verschlüsselung (Sicherheit)</label>
+                <select
+                  value={config.smtp_encryption}
+                  onChange={(e) => {
+                    const enc = e.target.value;
+                    setConfig((c) => ({
+                      ...c,
+                      smtp_encryption: enc,
+                      smtp_secure: enc === 'ssl' || c.smtp_port === 465,
+                    }));
+                  }}
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-white outline-none focus:border-emerald-500"
+                >
+                  <option value="tls">TLS / STARTTLS (Port 587 - Empfohlen)</option>
+                  <option value="ssl">SSL (Port 465)</option>
+                  <option value="none">Keine Verschlüsselung (Port 25)</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold mb-1">Sichere Verbindung erzwingen (SSL)</label>
+                <div className="flex items-center gap-3 pt-2">
+                  <label className="inline-flex items-center gap-2 text-xs font-semibold cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={config.smtp_secure}
+                      onChange={(e) => setConfig((c) => ({ ...c, smtp_secure: e.target.checked }))}
+                      className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+                    />
+                    <span>SSL aktiv (Standard für Port 465)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* SECTION B: SENDER & ADMIN NOTIFICATIONS */}
+          <div className="space-y-4 border-t border-slate-100 dark:border-slate-800 pt-5">
+            <h4 className="text-xs font-black text-emerald-600 uppercase tracking-wider flex items-center gap-2">
+              <Mail className="w-3.5 h-3.5" />
+              2. Absender-Informationen &amp; Admin-Empfänger
+            </h4>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold mb-1">Absender-Name (From Name)</label>
+                <input
+                  type="text"
+                  value={config.mail_from_name}
+                  onChange={(e) => setConfig((c) => ({ ...c, mail_from_name: e.target.value }))}
+                  placeholder="GudPreiss Deutschland"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-white outline-none focus:border-emerald-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold mb-1">Absender-E-Mail (From Email)</label>
+                <input
+                  type="email"
+                  value={config.mail_from}
+                  onChange={(e) => setConfig((c) => ({ ...c, mail_from: e.target.value }))}
+                  placeholder="kontakt@gudpreiss.de"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-white outline-none focus:border-emerald-500"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold mb-1">
+                Admin-Benachrichtigungs-E-Mail (Empfänger für neue Bestellungen) <span className="text-emerald-600">*</span>
+              </label>
+              <input
+                type="email"
+                value={config.admin_notification_email}
+                onChange={(e) => setConfig((c) => ({ ...c, admin_notification_email: e.target.value }))}
+                placeholder="admin@gudpreiss.store"
+                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-white outline-none focus:border-emerald-500"
+                required
+              />
+              <p className="text-[11px] text-slate-500 mt-1">
+                An diese Adresse wird sofort eine E-Mail gesendet, sobald ein Kunde eine neue Bestellung abschließt.
+              </p>
+            </div>
+          </div>
+
+          {/* SECTION C: RESEND API KEY (ALTERNATIVE) */}
+          <div className="space-y-3 border-t border-slate-100 dark:border-slate-800 pt-5">
+            <h4 className="text-xs font-black text-blue-600 uppercase tracking-wider flex items-center gap-2">
+              <Key className="w-3.5 h-3.5" />
+              3. Resend API-Schlüssel (Alternative / Fallback-Dienst)
+            </h4>
+            <div>
+              <label className="block text-xs font-bold mb-1">Resend API Key</label>
+              <input
+                type="password"
+                value={config.resend_api_key}
+                onChange={(e) => setConfig((c) => ({ ...c, resend_api_key: e.target.value }))}
+                placeholder="re_..."
+                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-900 dark:text-white outline-none focus:border-emerald-500"
+              />
+              <p className="text-[11px] text-slate-500 mt-1">
+                Wird verwendet, wenn kein SMTP konfiguriert ist oder als Ausfallsicherung dient.
+              </p>
+            </div>
+          </div>
+
+          {/* SUBMIT BUTTON */}
+          <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+            <button
+              type="submit"
+              disabled={savingConfig}
+              className="px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs rounded-xl flex items-center gap-2 shadow-lg shadow-emerald-900/30 transition cursor-pointer disabled:opacity-50"
+            >
+              {savingConfig ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  SPEICHERE EINSTELLUNGEN...
+                </>
+              ) : (
+                <>
+                  <Save className="w-4 h-4" />
+                  E-MAIL-SERVERKONFIGURATION SPEICHERN
+                </>
+              )}
+            </button>
+          </div>
+        </form>
+      )}
+
+      {/* TAB 2 & 3: TEMPLATES EDITORS */}
+      {(activeTab === 'customer' || activeTab === 'admin') && (
+        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+          <div>
+            <label className="block text-xs font-bold mb-1">E-Mail-Betreffzeile</label>
+            <input
+              type="text"
+              value={activeTab === 'customer' ? templates.customer_subject : templates.admin_subject}
+              onChange={(e) =>
+                setTemplates((t) => ({
+                  ...t,
+                  [activeTab === 'customer' ? 'customer_subject' : 'admin_subject']: e.target.value,
+                }))
+              }
+              className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-900 dark:text-white outline-none focus:border-emerald-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold mb-1">HTML-Template</label>
+            <textarea
+              value={activeTab === 'customer' ? templates.customer_template : templates.admin_template}
+              onChange={(e) =>
+                setTemplates((t) => ({
+                  ...t,
+                  [activeTab === 'customer' ? 'customer_template' : 'admin_template']: e.target.value,
+                }))
+              }
+              rows={18}
+              className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-mono text-slate-900 dark:text-white outline-none focus:border-emerald-500 resize-y"
+            />
+          </div>
+
+          <div className="flex flex-wrap gap-2 pt-2">
+            <button
+              onClick={handleSaveTemplates}
+              disabled={savingTemplates}
+              className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center gap-2 shadow-lg shadow-emerald-900/30 transition cursor-pointer disabled:opacity-50"
+            >
+              {savingTemplates ? (
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <Save className="w-4 h-4" />
+              )}
+              VORLAGE SPEICHERN
+            </button>
+            <button
+              onClick={handleResetTemplate}
+              className="px-4 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl flex items-center gap-2 transition cursor-pointer"
+            >
+              <RotateCcw className="w-4 h-4" />
+              Auf Standard zurücksetzen
+            </button>
+            <button
+              onClick={() => renderPreview(activeTab === 'customer' ? templates.customer_template : templates.admin_template)}
+              className="px-4 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl flex items-center gap-2 transition cursor-pointer"
+            >
+              <Eye className="w-4 h-4" />
+              Responsive Vorschau
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* PREVIEW MODAL */}
       {previewHtml && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" onClick={() => setPreviewHtml(null)}>
           <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col shadow-2xl" onClick={(e) => e.stopPropagation()}>
