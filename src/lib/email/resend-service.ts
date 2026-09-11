@@ -23,7 +23,10 @@ function getTemplates(settings?: StoreSettings | null) {
  * Return a guaranteed verified sender address for GudPreiss.
  */
 function getVerifiedSender(alias: string = 'kontakt'): string {
-  const envFrom = process.env.EMAIL_FROM;
+  let envFrom = (process.env.EMAIL_FROM || '').trim();
+  if (envFrom.startsWith('"') && envFrom.endsWith('"')) envFrom = envFrom.slice(1, -1).trim();
+  if (envFrom.startsWith("'") && envFrom.endsWith("'")) envFrom = envFrom.slice(1, -1).trim();
+
   if (envFrom && envFrom.includes('@gudpreiss.de')) {
     return envFrom;
   }
@@ -58,7 +61,8 @@ export async function sendOrderConfirmationEmail(
       },
       body: JSON.stringify({
         from: fromAddress,
-        to: [order.customer_email],
+        to: [order.customer_email.trim()],
+        reply_to: 'kontakt@gudpreiss.de',
         subject,
         html,
       }),

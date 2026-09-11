@@ -229,11 +229,19 @@ export default function CheckoutPage() {
   const handlePlaceOrder = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // If user is not authenticated, open the integrated Auth Modal
-    if (!user) {
-      saveDraftToStorage();
-      toast.info('Bitte erstellen Sie ein Kundenkonto oder melden Sie sich an, um die Bestellung abzuschließen.', 'Konto erforderlich');
-      setShowAuthModal(true);
+    if (!email || !email.includes('@')) {
+      toast.warning('Bitte geben Sie eine gültige E-Mail-Adresse an.', 'E-Mail erforderlich');
+      setStep(1);
+      return;
+    }
+    if (!fullName) {
+      toast.warning('Bitte geben Sie Ihren vollständigen Namen an.', 'Name erforderlich');
+      setStep(2);
+      return;
+    }
+    if (!addressLine1 || !city || !postalCode) {
+      toast.warning('Bitte füllen Sie Ihre Lieferadresse vollständig aus.', 'Adresse erforderlich');
+      setStep(2);
       return;
     }
 
