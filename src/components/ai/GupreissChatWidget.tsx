@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { ChatMessage, RecommendedProductRef } from '@/types/ai';
 import { getStoredSignals } from '@/lib/ai/behavior-tracker';
 import {
@@ -23,6 +24,7 @@ import Image from 'next/image';
 import { sanitizeMarkdownToHtml } from '@/lib/html-sanitizer';
 
 export function GupreissChatWidget() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [inputMessage, setInputMessage] = useState('');
@@ -143,23 +145,28 @@ export function GupreissChatWidget() {
     handleSendMessage(q);
   };
 
+  // Never render customer chat widget in admin pages
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <>
-      {/* Proactive Intervention Bubble (Non-Intrusive) */}
+      {/* Proactive Intervention Bubble (Desktop only, compact) */}
       {!isOpen && proactivePrompt && (
-        <div className="fixed bottom-20 right-5 z-50 max-w-[320px] bg-slate-900 text-white p-3.5 rounded-2xl shadow-2xl border border-emerald-500/40 animate-in fade-in slide-in-from-bottom-3 duration-300">
+        <div className="hidden sm:block fixed bottom-22 right-5 z-50 max-w-[280px] bg-slate-900 text-white p-3.5 rounded-2xl shadow-2xl border border-emerald-500/40 animate-in fade-in slide-in-from-bottom-3 duration-300">
           <div className="flex items-start justify-between gap-2">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">
-                <UserCheck className="w-3.5 h-3.5 text-slate-950" />
+                <Headphones className="w-3.5 h-3.5 text-slate-950" />
               </div>
               <span className="text-[11px] font-black text-emerald-400 uppercase tracking-wider">
-                Gupreiss Kaufberater
+                Gupreiss Berater
               </span>
             </div>
             <button
               onClick={() => setProactivePrompt(null)}
-              className="text-slate-400 hover:text-white p-0.5"
+              className="text-slate-400 hover:text-white p-0.5 cursor-pointer"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -175,33 +182,25 @@ export function GupreissChatWidget() {
             className="mt-2.5 w-full py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl shadow-md transition flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <span>Jetzt beraten lassen</span>
-            <UserCheck className="w-3.5 h-3.5 text-emerald-200" />
           </button>
         </div>
       )}
 
-      {/* Floating Trigger Button with User Avatar */}
+      {/* Floating Trigger Button: Compact Round FAB in bottom right */}
       {!isOpen && (
         <button
           onClick={() => {
             setIsOpen(true);
             setIsMinimized(false);
           }}
-          aria-label="Gupreiss Berater öffnen"
-          className="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-extrabold px-4 py-3.5 rounded-full shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105 active:scale-95 group border border-emerald-400/30"
+          aria-label="Kundenservice & Berater öffnen"
+          title="Kundenservice & Berater"
+          className="fixed bottom-5 right-5 z-50 w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-emerald-600 via-teal-600 to-emerald-500 hover:from-emerald-500 hover:to-teal-400 text-white shadow-2xl hover:shadow-emerald-500/50 flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 group border-2 border-white/30 cursor-pointer"
         >
-          <div className="relative">
-            <div className="w-8 h-8 rounded-full bg-slate-950/40 flex items-center justify-center border border-white/20">
-              <User className="w-4.5 h-4.5 text-emerald-300" />
-            </div>
+          <div className="relative flex items-center justify-center">
+            <Headphones className="w-6 h-6 text-white group-hover:rotate-12 transition-transform duration-300" />
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 border-2 border-slate-900 rounded-full animate-ping" />
-            <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 border-2 border-slate-900 rounded-full" />
-          </div>
-          <div className="flex flex-col items-start text-left">
-            <span className="text-[10px] uppercase tracking-wider text-emerald-200 font-bold leading-none">
-              Kundenservice &amp; Berater
-            </span>
-            <span className="text-[14px] font-black tracking-tight leading-tight">Gupreiss</span>
+            <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-300 border-2 border-slate-900 rounded-full" />
           </div>
         </button>
       )}

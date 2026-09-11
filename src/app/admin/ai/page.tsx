@@ -30,7 +30,7 @@ import {
 } from '@/lib/ai/knowledge-base';
 
 export default function AdminAIPage() {
-  const [activeTab, setActiveTab] = useState<'settings' | 'knowledge' | 'tickets' | 'analytics'>('settings');
+  const [activeTab, setActiveTab] = useState<'tickets' | 'settings' | 'knowledge' | 'analytics'>('tickets');
 
   // Config State
   const [config, setConfig] = useState<GupreissConfig>(DEFAULT_GUPREISS_CONFIG);
@@ -94,13 +94,13 @@ export default function AdminAIPage() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-black tracking-tight">Gupreiss Assistant &amp; Berater</h1>
+              <h1 className="text-2xl font-black tracking-tight">Kunden-Nachrichten &amp; KI-Berater</h1>
               <span className="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 text-xs font-extrabold rounded-full border border-emerald-500/30">
                 v2.4 Production
               </span>
             </div>
             <p className="text-xs text-slate-400 mt-1">
-              Verwaltung, Wissensbasis, E-Mail-Übertragung an <strong>kontakt@gudpreiss.de</strong> und Analytics.
+              Übersicht aller eingegangenen Kundenanfragen und Konfiguration des Kundenservice.
             </p>
           </div>
         </div>
@@ -126,6 +126,18 @@ export default function AdminAIPage() {
       {/* Navigation Tabs */}
       <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3 overflow-x-auto no-scrollbar">
         <button
+          onClick={() => setActiveTab('tickets')}
+          className={`px-4 py-2 rounded-xl text-xs font-extrabold transition flex items-center gap-2 cursor-pointer ${
+            activeTab === 'tickets'
+              ? 'bg-slate-900 text-white dark:bg-emerald-600 shadow-md'
+              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+          }`}
+        >
+          <Mail className="w-4 h-4" />
+          <span>Kunden-Nachrichten ({tickets.length})</span>
+        </button>
+
+        <button
           onClick={() => setActiveTab('settings')}
           className={`px-4 py-2 rounded-xl text-xs font-extrabold transition flex items-center gap-2 cursor-pointer ${
             activeTab === 'settings'
@@ -147,21 +159,6 @@ export default function AdminAIPage() {
         >
           <BookOpen className="w-4 h-4" />
           <span>Wissensdatenbank ({knowledgeList.length})</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('tickets')}
-          className={`px-4 py-2 rounded-xl text-xs font-extrabold transition flex items-center gap-2 cursor-pointer relative ${
-            activeTab === 'tickets'
-              ? 'bg-slate-900 text-white dark:bg-emerald-600 shadow-md'
-              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-          }`}
-        >
-          <Mail className="w-4 h-4" />
-          <span>Kundenservice Tickets ({tickets.length})</span>
-          {tickets.length > 0 && (
-            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-ping absolute top-1 right-1" />
-          )}
         </button>
 
         <button
@@ -342,13 +339,27 @@ export default function AdminAIPage() {
         </div>
       )}
 
-      {/* Tab 3: Tickets Handoff */}
+      {/* Tab 3: Tickets Handoff / Customer Messages */}
       {activeTab === 'tickets' && (
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm space-y-4">
-          <h3 className="text-sm font-black">Übermittelte Kundenservice-Tickets (an kontakt@gudpreiss.de)</h3>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+            <div>
+              <h3 className="text-base font-black text-slate-900 dark:text-white">Eingegangene Kunden-Nachrichten ({tickets.length})</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                Nachrichten und Support-Anfragen von Kunden aus dem Chat-Berater und Kontaktformular.
+              </p>
+            </div>
+            <div className="text-xs font-bold text-slate-500">
+              Support-E-Mail: <span className="text-emerald-600 font-mono">kontakt@gudpreiss.de</span>
+            </div>
+          </div>
 
           {tickets.length === 0 ? (
-            <p className="text-xs text-slate-500 py-6 text-center">Bisher wurden keine Tickets übermittelt.</p>
+            <div className="p-12 text-center space-y-2">
+              <Mail className="w-10 h-10 text-slate-300 dark:text-slate-700 mx-auto" />
+              <p className="text-xs font-bold text-slate-500">Bisher wurden keine Kundennachrichten übermittelt.</p>
+              <p className="text-[11px] text-slate-400">Sobald ein Kunde eine Anfrage stellt, erscheint sie direkt hier im Dashboard.</p>
+            </div>
           ) : (
             <div className="space-y-4">
               {tickets.map((t) => (
@@ -356,11 +367,11 @@ export default function AdminAIPage() {
                   key={t.id}
                   className="p-5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-3"
                 >
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono font-black text-xs text-emerald-600">{t.id}</span>
-                      <span className="px-2.5 py-0.5 bg-amber-500/10 text-amber-600 border border-amber-500/30 text-[10px] font-bold rounded-full uppercase">
-                        {t.status}
+                      <span className="font-mono font-black text-xs text-emerald-600 dark:text-emerald-400">{t.id}</span>
+                      <span className="px-2.5 py-0.5 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 text-[10px] font-extrabold rounded-full uppercase">
+                        {t.status || 'Eingegangen'}
                       </span>
                     </div>
                     <span className="text-[11px] text-slate-400 font-medium">
@@ -369,18 +380,33 @@ export default function AdminAIPage() {
                   </div>
 
                   <div>
-                    <h4 className="text-xs font-black text-slate-900 dark:text-slate-100">{t.subject}</h4>
-                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">{t.summary}</p>
+                    <h4 className="text-sm font-black text-slate-900 dark:text-slate-100">{t.subject}</h4>
+                    {t.summary && (
+                      <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 font-medium">{t.summary}</p>
+                    )}
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-2 border-t border-slate-200 dark:border-slate-800">
-                    <div>
-                      <span className="text-slate-400 font-bold">Kunde:</span> {t.clientName || 'N/A'} (
-                      {t.clientEmail || 'kontakt@gudpreiss.de'})
+                  {t.initialRequest && (
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-700 dark:text-slate-300">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Nachricht des Kunden:</span>
+                      <p className="whitespace-pre-wrap leading-relaxed">{t.initialRequest}</p>
                     </div>
-                    <div>
-                      <span className="text-slate-400 font-bold">Aktion erforderlich:</span> {t.actionNeeded}
+                  )}
+
+                  <div className="flex flex-wrap items-center justify-between gap-3 text-xs pt-3 border-t border-slate-200 dark:border-slate-800">
+                    <div className="space-y-0.5">
+                      <div className="text-slate-700 dark:text-slate-300 font-bold">
+                        {t.clientName || 'Kunde'} • <span className="text-slate-500 font-normal">{t.clientEmail || 'kontakt@gudpreiss.de'}</span>
+                      </div>
                     </div>
+
+                    <a
+                      href={`mailto:${t.clientEmail}?subject=Re: ${encodeURIComponent(t.subject || 'Ihre Anfrage bei GudPreiss')}`}
+                      className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl shadow-xs transition flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <Mail className="w-3.5 h-3.5" />
+                      <span>Per E-Mail antworten</span>
+                    </a>
                   </div>
                 </div>
               ))}
