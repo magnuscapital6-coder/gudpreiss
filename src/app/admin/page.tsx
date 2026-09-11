@@ -47,11 +47,25 @@ export default function AdminDashboardPage() {
   async function loadRealDashboardData() {
     setIsLoading(true);
     try {
-      const fetchedOrders = await getOrders();
+      let fetchedOrders: Order[] = [];
+      try {
+        const { getAdminOrdersServerAction } = await import('@/app/actions/store-actions');
+        const res = await getAdminOrdersServerAction();
+        if (res.success && res.orders) {
+          fetchedOrders = res.orders;
+        } else {
+          fetchedOrders = await getOrders();
+        }
+      } catch {
+        fetchedOrders = await getOrders();
+      }
+
       let localOrders: Order[] = [];
       try {
-        const saved = localStorage.getItem('gudpreiss_orders');
-        if (saved) localOrders = JSON.parse(saved);
+        const saved1 = localStorage.getItem('gudpreiss_Bestellungen');
+        const saved2 = localStorage.getItem('gudpreiss_orders');
+        if (saved1) localOrders = [...localOrders, ...JSON.parse(saved1)];
+        if (saved2) localOrders = [...localOrders, ...JSON.parse(saved2)];
       } catch {
         // ignore
       }

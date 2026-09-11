@@ -645,23 +645,52 @@ export async function updateLegalPage(slug: string, data: Partial<LegalPage>): P
 }
 
 export async function getOrders(): Promise<Order[]> {
-  let combined: Order[] = [...memoryOrders];
+  let dbOrders: Order[] = [];
   if (supabase) {
     try {
       const { data, error } = await supabase.from('orders').select('*').order('created_at', { ascending: false });
       if (!error && data && data.length > 0) {
-        const dbOrders = data as Order[];
-        const existingIds = new Set(combined.map((o) => o.id || o.order_number));
-        for (const o of dbOrders) {
-          if (!existingIds.has(o.id) && !existingIds.has(o.order_number)) {
-            combined.push(o);
-          }
-        }
+        dbOrders = (data as any[]).map((o) => ({
+          ...o,
+          shipping_address: o.shipping_address || o.shipping_address_json || {},
+          billing_address: o.billing_address || o.billing_address_json || o.shipping_address || o.shipping_address_json || {},
+          shipping_fee: Number(o.shipping_fee ?? o.shipping_cost ?? 0),
+          total_amount: Number(o.total_amount ?? 0),
+          subtotal: Number(o.subtotal ?? 0),
+          discount_amount: Number(o.discount_amount ?? 0),
+          tax_amount: Number(o.tax_amount ?? 0),
+          items: Array.isArray(o.items) ? o.items : [],
+        })) as Order[];
       }
     } catch (err) {
       logSupabaseError('orders.select', err);
     }
   }
+
+  // Combine DB orders (prioritized first) with any in-memory orders
+  const seenIds = new Set<string>();
+  const combined: Order[] = [];
+
+  for (const o of dbOrders) {
+    const key = o.id || o.order_number;
+    if (key && !seenIds.has(key)) {
+      seenIds.add(key);
+      if (o.order_number) seenIds.add(o.order_number);
+      if (o.id) seenIds.add(o.id);
+      combined.push(o);
+    }
+  }
+
+  for (const o of memoryOrders) {
+    const key = o.id || o.order_number;
+    if (key && !seenIds.has(key)) {
+      seenIds.add(key);
+      if (o.order_number) seenIds.add(o.order_number);
+      if (o.id) seenIds.add(o.id);
+      combined.push(o);
+    }
+  }
+
   return combined;
 }
 
@@ -673,7 +702,19 @@ export async function getOrderById(id: string): Promise<Order | null> {
         .select('*')
         .or(`id.eq.${id},order_number.eq.${id}`)
         .single();
-      if (!error && data) return data as Order;
+      if (!error && data) {
+        return {
+          ...data,
+          shipping_address: data.shipping_address || data.shipping_address_json || {},
+          billing_address: data.billing_address || data.billing_address_json || data.shipping_address || {},
+          total_amount: Number(data.total_amount ?? 0),
+          subtotal: Number(data.subtotal ?? 0),
+          discount_amount: Number(data.discount_amount ?? 0),
+          tax_amount: Number(data.tax_amount ?? 0),
+          shipping_fee: Number(data.shipping_fee ?? data.shipping_cost ?? 0),
+          items: Array.isArray(data.items) ? data.items : [],
+        } as Order;
+      }
     } catch (err) {
       logSupabaseError('orders.select', err);
     }
@@ -883,24 +924,43 @@ export async function deleteProduct(id: string): Promise<boolean> {
 
 export async function createOrder(orderPayload: Partial<Order>): Promise<Order> {
   const orderNumber = `GP-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+  const orderId =
+    typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+      ? crypto.randomUUID()
+      : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+          const r = (Math.random() * 16) | 0,
+            v = c === 'x' ? r : (r & 0x3) | 0x8;
+          return v.toString(16);
+        });
+
+  const shippingAddr = orderPayload.shipping_address || {
+    full_name: 'Klaus Weber',
+    address_line1: 'Friedrichstraße 123',
+    city: 'Berlin',
+    postal_code: '10117',
+    country: 'DE',
+    phone: orderPayload.customer_phone || '+49 15731294173',
+  };
+  const billingAddr = orderPayload.billing_address || shippingAddr;
+
   const newOrder: Order = {
-    id: `ord-${Date.now()}`,
+    id: orderId,
     order_number: orderNumber,
     customer_email: orderPayload.customer_email || 'kontakt@gudpreiss.de',
-    customer_phone: orderPayload.customer_phone || '+49 15731294173',
-    shipping_address: orderPayload.shipping_address!,
-    billing_address: orderPayload.billing_address || orderPayload.shipping_address!,
+    customer_phone: orderPayload.customer_phone || shippingAddr.phone || '+49 15731294173',
+    shipping_address: shippingAddr,
+    billing_address: billingAddr,
     items: orderPayload.items || [],
-    subtotal: orderPayload.subtotal || 0,
-    discount_amount: orderPayload.discount_amount || 0,
-    tax_amount: orderPayload.tax_amount || 0,
-    shipping_fee: orderPayload.shipping_fee || 0,
-    total_amount: orderPayload.total_amount || 0,
+    subtotal: Number(orderPayload.subtotal || 0),
+    discount_amount: Number(orderPayload.discount_amount || 0),
+    tax_amount: Number(orderPayload.tax_amount || 0),
+    shipping_fee: Number(orderPayload.shipping_fee ?? (orderPayload as any).shipping_cost ?? 0),
+    total_amount: Number(orderPayload.total_amount || 0),
     payment_method: orderPayload.payment_method || 'bank_transfer',
-    payment_status: 'paid',
-    order_status: 'processing',
+    payment_status: orderPayload.payment_status || 'paid',
+    order_status: orderPayload.order_status || 'processing',
     coupon_code: orderPayload.coupon_code,
-    tracking_number: `GP-DE-${Math.floor(10000000 + Math.random() * 90000000)}`,
+    tracking_number: orderPayload.tracking_number || `GP-DE-${Math.floor(10000000 + Math.random() * 90000000)}`,
     bank_transfer_iban: memorySettings.iban || DEFAULT_STORE_SETTINGS.iban,
     bank_transfer_bic: memorySettings.bic || DEFAULT_STORE_SETTINGS.bic,
     bank_transfer_holder: memorySettings.account_holder || DEFAULT_STORE_SETTINGS.account_holder,
@@ -916,21 +976,25 @@ export async function createOrder(orderPayload: Partial<Order>): Promise<Order> 
           {
             id: newOrder.id,
             order_number: newOrder.order_number,
-            customer_name: newOrder.shipping_address.full_name || 'Klaus Weber',
+            customer_name: newOrder.shipping_address?.full_name || 'Kunde',
             customer_email: newOrder.customer_email,
             customer_phone: newOrder.customer_phone,
+            shipping_address_json: newOrder.shipping_address,
             shipping_address: newOrder.shipping_address,
+            billing_address_json: newOrder.billing_address,
             billing_address: newOrder.billing_address,
             items: newOrder.items,
             subtotal: newOrder.subtotal,
             discount_amount: newOrder.discount_amount,
             shipping_cost: newOrder.shipping_fee,
+            shipping_fee: newOrder.shipping_fee,
             tax_amount: newOrder.tax_amount,
             total_amount: newOrder.total_amount,
             payment_method: newOrder.payment_method,
             payment_status: newOrder.payment_status,
             order_status: newOrder.order_status,
             coupon_code: newOrder.coupon_code,
+            tracking_number: newOrder.tracking_number,
             bank_transfer_iban: newOrder.bank_transfer_iban,
             bank_transfer_bic: newOrder.bank_transfer_bic,
             bank_transfer_holder: newOrder.bank_transfer_holder,
@@ -939,7 +1003,9 @@ export async function createOrder(orderPayload: Partial<Order>): Promise<Order> 
         .select()
         .single();
 
-      // Error handling: silently fall back to memory store
+      if (error) {
+        logSupabaseError('orders.insert', error);
+      }
     } catch (err) {
       logSupabaseError('orders.insert', err);
     }
@@ -949,34 +1015,53 @@ export async function createOrder(orderPayload: Partial<Order>): Promise<Order> 
 
   // Decrement inventory stock
   newOrder.items.forEach((item) => {
-    const prod = memoryProducts.find((p) => p.id === item.product_id);
+    const prod = memoryProducts.find((p) => p.id === (item as any).product_id);
     if (prod) {
       prod.stock = Math.max(0, prod.stock - item.quantity);
     }
   });
 
+  await triggerRevalidation(['/admin/orders', '/admin', '/account/orders', '/']);
   return newOrder;
 }
 
 export async function updateOrderStatus(orderId: string, status: Order['order_status']): Promise<Order | null> {
-  const order = memoryOrders.find((o) => o.id === orderId || o.order_number === orderId);
-  if (order) {
-    order.order_status = status;
-    order.updated_at = new Date().toISOString();
+  let updatedOrder: Order | null = null;
+  const memOrder = memoryOrders.find((o) => o.id === orderId || o.order_number === orderId);
+  if (memOrder) {
+    memOrder.order_status = status;
+    memOrder.updated_at = new Date().toISOString();
+    updatedOrder = memOrder;
   }
 
   if (supabase) {
     try {
-      await supabase
+      const { data, error } = await supabase
         .from('orders')
-        .update({ order_status: status })
-        .or(`id.eq.${orderId},order_number.eq.${orderId}`);
+        .update({ order_status: status, updated_at: new Date().toISOString() })
+        .or(`id.eq.${orderId},order_number.eq.${orderId}`)
+        .select()
+        .single();
+      if (!error && data) {
+        updatedOrder = {
+          ...data,
+          shipping_address: data.shipping_address || data.shipping_address_json || {},
+          billing_address: data.billing_address || data.billing_address_json || data.shipping_address || {},
+          total_amount: Number(data.total_amount ?? 0),
+          subtotal: Number(data.subtotal ?? 0),
+          discount_amount: Number(data.discount_amount ?? 0),
+          tax_amount: Number(data.tax_amount ?? 0),
+          shipping_fee: Number(data.shipping_fee ?? data.shipping_cost ?? 0),
+          items: Array.isArray(data.items) ? data.items : [],
+        } as Order;
+      }
     } catch (err) {
       logSupabaseError('orders.update', err);
     }
   }
 
-  return order || null;
+  await triggerRevalidation(['/admin/orders', '/admin', '/account/orders']);
+  return updatedOrder;
 }
 
 export async function createCoupon(couponData: Partial<Coupon>): Promise<Coupon> {

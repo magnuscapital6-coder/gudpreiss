@@ -1,10 +1,23 @@
 'use server';
 
-import { createOrder, updateOrderStatus, createCoupon, createCategory, updateReviewStatus, getProducts, getCategories, getBanners, getStoreSettings, getOrderById } from '@/lib/db/db-provider';
+import { createOrder, updateOrderStatus, createCoupon, createCategory, updateReviewStatus, getProducts, getCategories, getBanners, getStoreSettings, getOrderById, getOrders } from '@/lib/db/db-provider';
 import { getServerSession } from '@/lib/supabase/server';
 import { sendOrderConfirmationEmail, sendOrderAdminNotificationEmail } from '@/lib/email/resend-service';
 import { createNotification } from '@/lib/notifications/service';
 import { Order, Coupon, Category, Product } from '@/types';
+
+/**
+ * Server Action: Fetch all orders for Admin Dashboard
+ */
+export async function getAdminOrdersServerAction(): Promise<{ success: boolean; orders: Order[] }> {
+  try {
+    const orders = await getOrders();
+    return { success: true, orders };
+  } catch (err) {
+    console.error('[Admin Orders Action] Error fetching orders:', err);
+    return { success: false, orders: [] };
+  }
+}
 
 /**
  * Server Action: Get Order Details by order number or id
