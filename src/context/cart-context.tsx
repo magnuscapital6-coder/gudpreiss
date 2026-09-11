@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Product, ProductVariant, CartItem, Coupon } from '@/types';
 import { useStoreSettings } from '@/context/store-settings-context';
+import { useToast } from '@/context/toast-context';
 
 interface CartContextType {
   items: CartItem[];
@@ -31,6 +32,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [appliedCoupon, setAppliedCoupon] = useState<Coupon | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const toast = useToast();
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -90,6 +92,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         ];
       }
     });
+    toast.success(`"${product.name}" wurde zum Warenkorb hinzugefügt.`, 'Warenkorb', 3000);
     setIsCartOpen(true);
   };
 
@@ -118,10 +121,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const applyCoupon = (coupon: Coupon) => {
     setAppliedCoupon(coupon);
+    toast.success(`Gutschein "${coupon.code}" erfolgreich angewendet!`, 'Rabatt aktiviert');
   };
 
   const removeCoupon = () => {
     setAppliedCoupon(null);
+    toast.info('Gutscheincode entfernt.', 'Warenkorb');
   };
 
   const subtotal = items.reduce((acc, item) => {

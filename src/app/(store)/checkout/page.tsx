@@ -5,6 +5,7 @@ import { Header } from '@/components/store/layout/Header';
 import { Footer } from '@/components/store/layout/Footer';
 import { useCart } from '@/context/cart-context';
 import { useAuth } from '@/context/auth-context';
+import { useToast } from '@/context/toast-context';
 import { useTranslation } from '@/context/language-context';
 import { useStoreSettings } from '@/context/store-settings-context';
 import { DEFAULT_STORE_SETTINGS } from '@/lib/db/initial-data';
@@ -28,6 +29,7 @@ import Image from 'next/image';
 export default function CheckoutPage() {
   const { items, subtotal, discount, shipping, tax, total, clearCart, appliedCoupon } = useCart();
   const { user, register, login } = useAuth();
+  const toast = useToast();
   const { t } = useTranslation();
   const { settings } = useStoreSettings();
   const router = useRouter();
@@ -120,6 +122,7 @@ export default function CheckoutPage() {
   const copyToClipboard = (text: string, fieldName: string) => {
     navigator.clipboard.writeText(text);
     setCopiedField(fieldName);
+    toast.info('In die Zwischenablage kopiert.', 'Kopiert', 2000);
     setTimeout(() => setCopiedField(null), 2000);
   };
 
@@ -202,16 +205,18 @@ export default function CheckoutPage() {
           sessionStorage.removeItem('gudpreiss_pending_checkout');
         } catch {}
 
+        toast.success(`Ihre Bestellung #${res.order.order_number} wurde erfolgreich erstellt!`, 'Bestellung aufgegeben');
         clearCart();
         router.push(`/checkout/success?order_number=${res.order.order_number}`);
         return { success: true, order: res.order };
       } else {
+        toast.error(res.error || 'Fehler bei der Bestellerstellung.', 'Fehler');
         setShowAuthModal(true);
         return { success: false, error: res.error };
       }
     } catch (err) {
       console.error('Failed to create order', err);
-      alert('Fehler bei der Bestellerstellung.');
+      toast.error('Fehler bei der Bestellerstellung. Bitte versuchen Sie es erneut.', 'Fehler');
       return { success: false, error: 'Fehler' };
     } finally {
       setIsSubmitting(false);
@@ -227,6 +232,7 @@ export default function CheckoutPage() {
     // If user is not authenticated, open the integrated Auth Modal
     if (!user) {
       saveDraftToStorage();
+      toast.info('Bitte erstellen Sie ein Kundenkonto oder melden Sie sich an, um die Bestellung abzuschließen.', 'Konto erforderlich');
       setShowAuthModal(true);
       return;
     }
@@ -242,11 +248,15 @@ export default function CheckoutPage() {
     setAuthError('');
 
     if (!authEmail.includes('@')) {
-      setAuthError('Veuillez saisir une adresse email valide.');
+      const err = 'Veuillez saisir une adresse email valide.';
+      setAuthError(err);
+      toast.warning(err, 'Email invalide');
       return;
     }
     if (!authPassword || authPassword.length < 6) {
-      setAuthError('Le mot de passe doit contenir au moins 6 caractères.');
+      const err = 'Le mot de passe doit contenir au moins 6 caractères.';
+      setAuthError(err);
+      toast.warning(err, 'Mot de passe trop court');
       return;
     }
 
@@ -259,7 +269,9 @@ export default function CheckoutPage() {
       );
 
       if (regRes.success) {
-        // Registration successful! Now immediately execute order submission
+        // Registration successful notification!
+        toast.success('Ihr Kundenkonto wurde erfolgreich erstellt! Ihre Bestellung wird verarbeitet...', 'Konto erstellt 🎉');
+
         if (authFullName) setFullName(authFullName);
         if (authEmail) setEmail(authEmail);
 
@@ -283,10 +295,14 @@ export default function CheckoutPage() {
           setAuthError(orderRes.error || 'Erreur lors de la validation de la commande.');
         }
       } else {
-        setAuthError(regRes.error || "Échec de l'inscription. Veuillez réessayer.");
+        const err = regRes.error || "Échec de l'inscription. Veuillez réessayer.";
+        setAuthError(err);
+        toast.error(err, 'Inscription échouée');
       }
     } catch {
-      setAuthError('Une erreur inattendue est survenue.');
+      const err = 'Une erreur inattendue est survenue.';
+      setAuthError(err);
+      toast.error(err, 'Erreur');
     } finally {
       setAuthSubmitting(false);
     }
@@ -300,11 +316,15 @@ export default function CheckoutPage() {
     setAuthError('');
 
     if (!authEmail.includes('@')) {
-      setAuthError('Veuillez saisir une adresse email valide.');
+      const err = 'Veuillez saisir une adresse email valide.';
+      setAuthError(err);
+      toast.warning(err, 'Email invalide');
       return;
     }
     if (!authPassword) {
-      setAuthError('Veuillez saisir votre mot de passe.');
+      const err = 'Veuillez saisir votre mot de passe.';
+      setAuthError(err);
+      toast.warning(err, 'Mot de passe requis');
       return;
     }
 
@@ -313,6 +333,7 @@ export default function CheckoutPage() {
       const loginRes = await login(authEmail, authPassword);
 
       if (loginRes.success) {
+        toast.success('Erfolgreich angemeldet. Ihre Bestellung wird verarbeitet...', 'Willkommen zurück');
         if (authEmail) setEmail(authEmail);
 
         const orderRes = await executeOrderSubmission({
@@ -335,10 +356,14 @@ export default function CheckoutPage() {
           setAuthError(orderRes.error || 'Erreur lors de la validation de la commande.');
         }
       } else {
-        setAuthError(loginRes.error || 'Identifiants invalides.');
+        const err = loginRes.error || 'Identifiants invalides.';
+        setAuthError(err);
+        toast.error(err, 'Connexion échouée');
       }
     } catch {
-      setAuthError('Une erreur inattendue est survenue.');
+      const err = 'Une erreur inattendue est survenue.';
+      setAuthError(err);
+      toast.error(err, 'Erreur');
     } finally {
       setAuthSubmitting(false);
     }
@@ -432,7 +457,7 @@ export default function CheckoutPage() {
                     type="button"
                     onClick={() => {
                       if (!email || !phone) {
-                        alert('Veuillez remplir votre email et votre numéro de téléphone.');
+                        toast.warning('Veuillez remplir votre email et votre numéro de téléphone.', 'Coordonnées requises');
                         return;
                       }
                       setStep(2);
@@ -519,7 +544,7 @@ export default function CheckoutPage() {
                       type="button"
                       onClick={() => {
                         if (!fullName || !addressLine1 || !city || !postalCode) {
-                          alert('Veuillez remplir tous les champs obligatoires de livraison.');
+                          toast.warning('Veuillez remplir tous les champs obligatoires de livraison.', 'Adresse incomplète');
                           return;
                         }
                         setStep(3);

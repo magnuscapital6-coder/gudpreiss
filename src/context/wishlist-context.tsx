@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Product } from '@/types';
+import { useToast } from '@/context/toast-context';
 
 interface WishlistContextType {
   wishlist: Product[];
@@ -15,6 +16,7 @@ const WishlistContext = createContext<WishlistContextType | undefined>(undefined
 export function WishlistProvider({ children }: { children: React.ReactNode }) {
   const [wishlist, setWishlist] = useState<Product[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const toast = useToast();
 
   useEffect(() => {
     try {
@@ -39,8 +41,10 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
     setWishlist(prev => {
       const exists = prev.some(item => item.id === product.id);
       if (exists) {
+        toast.info(`"${product.name}" aus Wunschliste entfernt.`, 'Wunschliste', 2500);
         return prev.filter(item => item.id !== product.id);
       } else {
+        toast.success(`"${product.name}" zur Wunschliste hinzugefügt.`, 'Wunschliste', 2500);
         return [...prev, product];
       }
     });

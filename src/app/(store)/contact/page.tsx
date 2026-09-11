@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Header } from '@/components/store/layout/Header';
 import { Footer } from '@/components/store/layout/Footer';
+import { useToast } from '@/context/toast-context';
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Clock, ShieldCheck, Building2 } from 'lucide-react';
 
 export default function ContactPage() {
@@ -14,6 +15,7 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const toast = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,12 +41,17 @@ export default function ContactPage() {
       const data = await res.json();
       if (res.ok && data.success) {
         setSent(true);
+        toast.success('Ihre Nachricht wurde erfolgreich gesendet!', 'Nachricht übermittelt');
       } else {
-        setErrorMessage(data.error || 'Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.');
+        const err = data.error || 'Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.';
+        setErrorMessage(err);
+        toast.error(err, 'Übertragung fehlgeschlagen');
       }
     } catch (err) {
       console.error('Contact Form Submission Error:', err);
-      setErrorMessage('Ein unerwarteter Netzwerkfehler ist aufgetreten.');
+      const errorText = 'Ein unerwarteter Netzwerkfehler ist aufgetreten.';
+      setErrorMessage(errorText);
+      toast.error(errorText, 'Fehler');
     } finally {
       setIsSubmitting(false);
     }

@@ -7,6 +7,8 @@ import { AuthProvider } from '@/context/auth-context';
 import { LanguageProvider } from '@/context/language-context';
 import { ThemeProvider } from '@/context/theme-context';
 import { StoreSettingsProvider } from '@/context/store-settings-context';
+import { ToastProvider } from '@/context/toast-context';
+import { ToastContainer } from '@/components/ui/ToastContainer';
 import { GupreissChatWidget } from '@/components/ai/GupreissChatWidget';
 import { CookieConsentBanner } from '@/components/store/privacy/CookieConsentBanner';
 
@@ -156,21 +158,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={`${inter.className} font-sans antialiased text-slate-900 bg-background transition-colors duration-300`}>
-        <StoreSettingsProvider>
-          <ThemeProvider>
-            <LanguageProvider>
-              <AuthProvider>
-                <WishlistProvider>
-                  <CartProvider>
-                    {children}
-                    <GupreissChatWidget />
-                    <CookieConsentBanner />
-                  </CartProvider>
-                </WishlistProvider>
-              </AuthProvider>
-            </LanguageProvider>
-          </ThemeProvider>
-        </StoreSettingsProvider>
+        <ToastProvider>
+          <StoreSettingsProvider>
+            <ThemeProvider>
+              <LanguageProvider>
+                <AuthProvider>
+                  <WishlistProvider>
+                    <CartProvider>
+                      {children}
+                      <ToastContainer />
+                      <GupreissChatWidget />
+                      <CookieConsentBanner />
+                    </CartProvider>
+                  </WishlistProvider>
+                </AuthProvider>
+              </LanguageProvider>
+            </ThemeProvider>
+          </StoreSettingsProvider>
+        </ToastProvider>
       </body>
     </html>
   );

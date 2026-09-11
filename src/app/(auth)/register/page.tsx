@@ -4,6 +4,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { Header } from '@/components/store/layout/Header';
 import { Footer } from '@/components/store/layout/Footer';
 import { useAuth } from '@/context/auth-context';
+import { useToast } from '@/context/toast-context';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowRight, AlertCircle, ShieldCheck } from 'lucide-react';
@@ -11,6 +12,7 @@ import { registerSchema } from '@/lib/validation';
 
 function RegisterForm() {
   const { user, isAdmin, register } = useAuth();
+  const toast = useToast();
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams?.get('redirect');
@@ -51,6 +53,7 @@ function RegisterForm() {
         if (field === 'password') errors.password = issue.message;
       });
       setFieldErrors(errors);
+      toast.warning('Bitte überprüfen Sie die rot markierten Felder.', 'Angaben unvollständig');
       return;
     }
 
@@ -58,15 +61,22 @@ function RegisterForm() {
     try {
       const res = await register(email, password, fullName);
       if (res.success) {
+        toast.success('Ihr Kundenkonto wurde erfolgreich erstellt! Sie werden weitergeleitet...', 'Willkommen bei GudPreiss 🎉');
         const targetUrl = (redirectTo && redirectTo.startsWith('/'))
           ? redirectTo
           : (isAdmin ? '/admin' : '/account');
-        window.location.href = targetUrl;
+        setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 800);
       } else {
-        setErrorMsg(res.error || 'Fehler bei der Registrierung.');
+        const msg = res.error || 'Fehler bei der Registrierung.';
+        setErrorMsg(msg);
+        toast.error(msg, 'Registrierung fehlgeschlagen');
       }
     } catch {
-      setErrorMsg('Ein unerwarteter Fehler ist aufgetreten.');
+      const msg = 'Ein unerwarteter Fehler ist aufgetreten.';
+      setErrorMsg(msg);
+      toast.error(msg, 'Fehler');
     } finally {
       setIsLoading(false);
     }

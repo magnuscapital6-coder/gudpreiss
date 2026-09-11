@@ -4,6 +4,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { Header } from '@/components/store/layout/Header';
 import { Footer } from '@/components/store/layout/Footer';
 import { useAuth } from '@/context/auth-context';
+import { useToast } from '@/context/toast-context';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowRight, AlertCircle, ShieldAlert, ShieldCheck } from 'lucide-react';
@@ -11,6 +12,7 @@ import { loginSchema } from '@/lib/validation';
 
 function LoginForm() {
   const { user, isAdmin, login, isLoading } = useAuth();
+  const toast = useToast();
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get('redirect');
@@ -111,14 +113,18 @@ function LoginForm() {
         if (field === 'password') errors.password = issue.message;
       });
       setFieldErrors(errors);
+      toast.warning('Bitte überprüfen Sie die rot markierten Felder.', 'Angaben unvollständig');
       return;
     }
 
     const res = await login(email, password);
     if (res.success) {
+      toast.success('Erfolgreich angemeldet. Willkommen zurück!', 'Anmeldung erfolgreich');
       setJustLoggedIn(true);
     } else {
-      setErrorMsg(res.error || 'Ungültige Anmeldeinformationen.');
+      const msg = res.error || 'Ungültige Anmeldeinformationen.';
+      setErrorMsg(msg);
+      toast.error(msg, 'Anmeldung fehlgeschlagen');
       if (res.retryAfter) {
         setRetryAfter(res.retryAfter);
       }
