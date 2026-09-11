@@ -13,13 +13,9 @@ import {
   AlertCircle,
   Server,
   Loader2,
-  ShieldCheck,
-  Key,
-  Lock,
   EyeOff,
   Sliders,
   Settings2,
-  Info,
 } from 'lucide-react';
 
 interface EmailTemplates {
@@ -76,6 +72,7 @@ export default function AdminEmailTemplatesPage() {
   const [savingConfig, setSavingConfig] = useState(false);
   const [savingTemplates, setSavingTemplates] = useState(false);
   const [savedMessage, setSavedMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // Email Test State
   const [testEmailRecipient, setTestEmailRecipient] = useState('');
@@ -92,7 +89,10 @@ export default function AdminEmailTemplatesPage() {
   // Load configuration and templates
   const loadData = () => {
     fetch('/api/admin/email-templates')
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then((data) => {
         if (data.templates) setTemplates(data.templates);
         if (data.defaults) setDefaults(data.defaults);
@@ -109,7 +109,10 @@ export default function AdminEmailTemplatesPage() {
         }
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((err) => {
+        console.error('Error loading email data:', err);
+        setLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -117,7 +120,7 @@ export default function AdminEmailTemplatesPage() {
   }, []);
 
   // Quick preset helper
-  const applyPreset = (preset: 'hostinger' | 'ionos' | 'gmail' | 'ovh' | 'custom') => {
+  const applyPreset = (preset: 'hostinger' | 'ionos' | 'gmail' | 'ovh') => {
     if (preset === 'hostinger') {
       setConfig((c) => ({
         ...c,
@@ -158,33 +161,41 @@ export default function AdminEmailTemplatesPage() {
     e.preventDefault();
     setSavingConfig(true);
     setSavedMessage(null);
+    setErrorMessage(null);
 
     try {
       const res = await fetch('/api/admin/email-templates', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          smtp_host: config.smtp_host,
-          smtp_port: config.smtp_port,
-          smtp_user: config.smtp_user,
-          smtp_password: config.smtp_password,
-          smtp_encryption: config.smtp_encryption,
-          smtp_secure: config.smtp_secure,
-          mail_from: config.mail_from,
-          mail_from_name: config.mail_from_name,
-          resend_api_key: config.resend_api_key,
-          admin_notification_email: config.admin_notification_email,
+          smtp_host: config.smtp_host || '',
+          smtp_port: config.smtp_port || 587,
+          smtp_user: config.smtp_user || '',
+          smtp_password: config.smtp_password || '',
+          smtp_encryption: config.smtp_encryption || 'tls',
+          smtp_secure: config.smtp_secure || false,
+          mail_from: config.mail_from || '',
+          mail_from_name: config.mail_from_name || '',
+          resend_api_key: config.resend_api_key || '',
+          admin_notification_email: config.admin_notification_email || '',
         }),
       });
 
       const data = await res.json();
       if (res.ok && data.success) {
         setSavedMessage('E-Mail-Serverkonfiguration erfolgreich gespeichert!');
-        loadData();
+        if (data.config) {
+          setConfig((prev) => ({
+            ...prev,
+            ...data.config,
+          }));
+        }
         setTimeout(() => setSavedMessage(null), 4000);
+      } else {
+        setErrorMessage(data.error || 'Fehler beim Speichern der Konfiguration.');
       }
-    } catch {
-      // Error
+    } catch (err: any) {
+      setErrorMessage(err?.message || 'Netzwerkfehler beim Speichern.');
     } finally {
       setSavingConfig(false);
     }
@@ -194,6 +205,7 @@ export default function AdminEmailTemplatesPage() {
   const handleSaveTemplates = async () => {
     setSavingTemplates(true);
     setSavedMessage(null);
+    setErrorMessage(null);
     try {
       const res = await fetch('/api/admin/email-templates', {
         method: 'PUT',
@@ -201,12 +213,15 @@ export default function AdminEmailTemplatesPage() {
         body: JSON.stringify(templates),
       });
 
-      if (res.ok) {
+      const data = await res.json();
+      if (res.ok && data.success) {
         setSavedMessage('E-Mail-Vorlagen erfolgreich aktualisiert!');
         setTimeout(() => setSavedMessage(null), 3000);
+      } else {
+        setErrorMessage(data.error || 'Fehler beim Speichern der Vorlagen.');
       }
-    } catch {
-      // Error
+    } catch (err: any) {
+      setErrorMessage(err?.message || 'Netzwerkfehler beim Speichern der Vorlagen.');
     } finally {
       setSavingTemplates(false);
     }
@@ -322,7 +337,7 @@ export default function AdminEmailTemplatesPage() {
   };
 
   const renderPreview = (template: string) => {
-    let html = template;
+    let html = template || '';
     for (const [key, value] of Object.entries(sampleOrder)) {
       html = html.replace(new RegExp(`\\{\\{${key}\\}\\}`, 'g'), value);
     }
@@ -354,6 +369,12 @@ export default function AdminEmailTemplatesPage() {
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 text-xs font-bold border border-emerald-500/20 animate-fade-in">
             <Check className="w-3.5 h-3.5" />
             {savedMessage}
+          </div>
+        )}
+        {errorMessage && (
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-500/10 text-red-800 dark:text-red-400 text-xs font-bold border border-red-500/20 animate-fade-in">
+            <AlertCircle className="w-3.5 h-3.5" />
+            {errorMessage}
           </div>
         )}
       </div>
@@ -711,7 +732,7 @@ export default function AdminEmailTemplatesPage() {
           {/* SECTION C: RESEND API KEY (ALTERNATIVE) */}
           <div className="space-y-3 border-t border-slate-100 dark:border-slate-800 pt-5">
             <h4 className="text-xs font-black text-blue-600 uppercase tracking-wider flex items-center gap-2">
-              <Key className="w-3.5 h-3.5" />
+              <Mail className="w-3.5 h-3.5" />
               3. Resend API-Schlüssel (Alternative / Fallback-Dienst)
             </h4>
             <div>
