@@ -2,7 +2,7 @@
 
 import { createOrder, updateOrderStatus, createCoupon, createCategory, updateReviewStatus, getProducts, getCategories, getBanners, getStoreSettings, getOrderById, getOrders } from '@/lib/db/db-provider';
 import { getServerSession } from '@/lib/supabase/server';
-import { sendOrderConfirmationEmail, sendOrderAdminNotificationEmail } from '@/lib/email/resend-service';
+import { sendOrderConfirmationEmail, sendOrderAdminNotificationEmail } from '@/lib/email/mailer-service';
 import { createNotification } from '@/lib/notifications/service';
 import { Order, Coupon, Category, Product } from '@/types';
 

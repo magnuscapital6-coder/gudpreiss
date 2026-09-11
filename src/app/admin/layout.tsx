@@ -24,6 +24,7 @@ import {
   UserCheck,
   User,
   ShieldCheck,
+  Mail,
 } from 'lucide-react';
 import { useAuth } from '@/context/auth-context';
 import { useTranslation } from '@/context/language-context';
@@ -40,6 +41,7 @@ const navItems = [
   { href: '/admin/marketing', labelKey: 'admin.marketing', icon: Tag },
   { href: '/admin/reviews', labelKey: 'admin.reviews', icon: Star },
   { href: '/admin/customers', labelKey: 'admin.customers', icon: Users },
+  { href: '/admin/email-templates', labelKey: 'E-Mail & Testen', icon: Mail },
   { href: '/admin/media', labelKey: 'admin.media', icon: ImageIcon },
   { href: '/admin/settings', labelKey: 'admin.settings', icon: Settings },
 ];
