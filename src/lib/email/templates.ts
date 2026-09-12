@@ -1,4 +1,4 @@
-import { Order } from '@/types';
+import { Order, StoreSettings } from '@/types';
 import { DEFAULT_STORE_SETTINGS } from '@/lib/db/initial-data';
 
 /**
@@ -307,7 +307,12 @@ export const DEFAULT_ADMIN_SUBJECT = '🚨 Neue Bestellung eingegangen: #{{order
 /**
  * Interpolate email templates with full order data and formatting.
  */
-export function interpolateTemplate(template: string, order: Order, appUrl?: string): string {
+export function interpolateTemplate(
+  template: string,
+  order: Order,
+  appUrl?: string,
+  settings?: StoreSettings | null
+): string {
   const customerName =
     order.shipping_address?.full_name || (order as any).customer_name || 'Geschätzter Kunde';
 
@@ -404,14 +409,16 @@ export function interpolateTemplate(template: string, order: Order, appUrl?: str
     shipping_address: shippingAddr,
     customer_address: shippingAddr,
     delivery_address: shippingAddr,
-    iban: order.bank_transfer_iban || DEFAULT_STORE_SETTINGS.iban || 'DE44 5001 0517 5422 3901 12',
-    bic: order.bank_transfer_bic || DEFAULT_STORE_SETTINGS.bic || 'INGDDEFFXXX',
-    bank_name: DEFAULT_STORE_SETTINGS.bank_name || 'ING-DiBa AG',
+    iban: settings?.iban || order.bank_transfer_iban || DEFAULT_STORE_SETTINGS.iban || 'DE44 5001 0517 5422 3901 12',
+    bic: settings?.bic || order.bank_transfer_bic || DEFAULT_STORE_SETTINGS.bic || 'INGDDEFFXXX',
+    bank_name: settings?.bank_name || DEFAULT_STORE_SETTINGS.bank_name || 'ING-DiBa AG',
     bank_holder:
+      settings?.account_holder ||
       order.bank_transfer_holder ||
       DEFAULT_STORE_SETTINGS.account_holder ||
       'GudPreiss E-Commerce Deutschland',
     account_holder:
+      settings?.account_holder ||
       order.bank_transfer_holder ||
       DEFAULT_STORE_SETTINGS.account_holder ||
       'GudPreiss E-Commerce Deutschland',

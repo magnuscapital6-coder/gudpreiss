@@ -933,6 +933,10 @@ export async function createOrder(orderPayload: Partial<Order>): Promise<Order> 
           return v.toString(16);
         });
 
+  // Refresh store settings from the database so the order snapshot uses the
+  // admin-configured payment details, not the in-memory defaults.
+  await getStoreSettings();
+
   const shippingAddr = orderPayload.shipping_address || {
     full_name: '',
     address_line1: '',

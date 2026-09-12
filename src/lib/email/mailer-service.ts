@@ -325,8 +325,8 @@ export async function sendOrderConfirmationEmail(
   const customerTemplate = activeSettings?.email_template_order_customer || DEFAULT_CUSTOMER_EMAIL_TEMPLATE;
   const customerSubject = activeSettings?.email_subject_order_customer || DEFAULT_CUSTOMER_SUBJECT;
 
-  const subject = interpolateTemplate(customerSubject, order);
-  const html = interpolateTemplate(customerTemplate, order);
+  const subject = interpolateTemplate(customerSubject, order, undefined, activeSettings);
+  const html = interpolateTemplate(customerTemplate, order, undefined, activeSettings);
 
   const config = getMailerConfig(activeSettings);
   const replyTo = config.adminEmails[0] || 'kontakt@gudpreiss.de';
@@ -372,8 +372,8 @@ export async function sendOrderAdminNotificationEmail(
   const adminTemplate = activeSettings?.email_template_order_admin || DEFAULT_ADMIN_EMAIL_TEMPLATE;
   const adminSubject = activeSettings?.email_subject_order_admin || DEFAULT_ADMIN_SUBJECT;
 
-  const subject = interpolateTemplate(adminSubject, order);
-  const html = interpolateTemplate(adminTemplate, order);
+  const subject = interpolateTemplate(adminSubject, order, undefined, activeSettings);
+  const html = interpolateTemplate(adminTemplate, order, undefined, activeSettings);
 
   const result = await sendEmail({
     to: adminRecipients,
