@@ -396,10 +396,14 @@ export function interpolateTemplate(template: string, order: Order, appUrl?: str
     order_status: order.order_status || 'in Bearbeitung',
     order_status_label: 'In Bearbeitung',
     item_count: String(itemsCount),
+    items_table: itemsHtmlTable,
     items_html_table: itemsHtmlTable,
     items_admin_table: itemsAdminTable,
     items_list: itemsAdminTable,
+    items: itemsAdminTable,
     shipping_address: shippingAddr,
+    customer_address: shippingAddr,
+    delivery_address: shippingAddr,
     iban: order.bank_transfer_iban || DEFAULT_STORE_SETTINGS.iban || 'DE44 5001 0517 5422 3901 12',
     bic: order.bank_transfer_bic || DEFAULT_STORE_SETTINGS.bic || 'INGDDEFFXXX',
     bank_name: DEFAULT_STORE_SETTINGS.bank_name || 'ING-DiBa AG',
@@ -407,6 +411,11 @@ export function interpolateTemplate(template: string, order: Order, appUrl?: str
       order.bank_transfer_holder ||
       DEFAULT_STORE_SETTINGS.account_holder ||
       'GudPreiss E-Commerce Deutschland',
+    account_holder:
+      order.bank_transfer_holder ||
+      DEFAULT_STORE_SETTINGS.account_holder ||
+      'GudPreiss E-Commerce Deutschland',
+    total: Number(order.total_amount || 0).toFixed(2),
     support_email: process.env.SUPPORT_EMAIL || process.env.ADMIN_EMAIL || 'kontakt@gudpreiss.de',
     admin_order_url: adminOrderUrl,
     store_name: 'GudPreiss',

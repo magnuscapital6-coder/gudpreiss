@@ -80,18 +80,31 @@ export async function createOrderServerAction(orderPayload: {
       user_id: userId,
     });
 
-    // Send emails and create notification
+    // Send emails and create notification independently
     const emailResults = { customer: false, admin: false };
     try {
       const settings = await getStoreSettings();
 
-      // Send confirmation email to customer
-      emailResults.customer = await sendOrderConfirmationEmail(order, settings);
-      console.log(`[Order Action] Email client pour #${order.order_number}:`, emailResults.customer ? 'Envoyé' : 'Échec');
+      // Dispatch customer confirmation and admin notification in parallel and independently
+      const [customerRes, adminRes] = await Promise.allSettled([
+        sendOrderConfirmationEmail(order, settings),
+        sendOrderAdminNotificationEmail(order, settings),
+      ]);
 
-      // Send notification email to admin
-      emailResults.admin = await sendOrderAdminNotificationEmail(order, settings);
-      console.log(`[Order Action] Email admin pour #${order.order_number}:`, emailResults.admin ? 'Envoyé' : 'Échec');
+      emailResults.customer = customerRes.status === 'fulfilled' && customerRes.value;
+      emailResults.admin = adminRes.status === 'fulfilled' && adminRes.value;
+
+      if (customerRes.status === 'rejected') {
+        console.error(`[Order Action] ❌ Erreur envoi email client pour #${order.order_number}:`, customerRes.reason);
+      } else {
+        console.log(`[Order Action] Email client pour #${order.order_number}:`, emailResults.customer ? 'Envoyé' : 'Échec');
+      }
+
+      if (adminRes.status === 'rejected') {
+        console.error(`[Order Action] ❌ Erreur envoi email admin pour #${order.order_number}:`, adminRes.reason);
+      } else {
+        console.log(`[Order Action] Email admin pour #${order.order_number}:`, emailResults.admin ? 'Envoyé' : 'Échec');
+      }
 
       // Create in-app notification for admin
       await createNotification({
@@ -106,7 +119,7 @@ export async function createOrderServerAction(orderPayload: {
         },
       });
     } catch (err) {
-      console.error('[Order Action] Erreur envoi emails/notifications:', err);
+      console.error('[Order Action] Erreur globale envoi emails/notifications:', err);
     }
 
     return { success: true, order, emails: emailResults };

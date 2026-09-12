@@ -13,6 +13,7 @@ import {
   recordEmailResult,
   EmailType,
 } from './email-log-service';
+import { getStoreSettings } from '@/lib/db/db-provider';
 
 /**
  * Clean environment variable values (strip surrounding quotes).
@@ -146,6 +147,7 @@ export async function sendEmail({
   orderNumber,
   orderId,
   force = false,
+  settings,
 }: {
   to: string | string[];
   subject: string;
@@ -155,9 +157,9 @@ export async function sendEmail({
   orderNumber?: string;
   orderId?: string;
   force?: boolean;
+  settings?: StoreSettings | null;
 }): Promise<{ success: boolean; messageId?: string; error?: string; transport: 'smtp' | 'resend' | 'none' }> {
   const recipients = Array.isArray(to) ? to : [to];
-  const primaryRecipient = recipients[0] || '';
 
   // Anti-duplication check for orders
   if (orderNumber && !force) {
@@ -168,7 +170,17 @@ export async function sendEmail({
     }
   }
 
-  const config = getMailerConfig();
+  // Resolve settings dynamically if not passed
+  let activeSettings = settings;
+  if (!activeSettings) {
+    try {
+      activeSettings = await getStoreSettings();
+    } catch {
+      // ignore
+    }
+  }
+
+  const config = getMailerConfig(activeSettings);
   let preferredTransport: 'smtp' | 'resend' | 'none' = 'none';
 
   if (config.smtp.isConfigured) {
@@ -202,10 +214,11 @@ export async function sendEmail({
   if (config.smtp.isConfigured) {
     try {
       const transporter = createSmtpTransporter(config.smtp);
+      const effectiveReplyTo = replyTo || config.adminEmails[0] || config.smtp.from;
       const info = await transporter.sendMail({
         from: config.smtp.from,
         to: recipients,
-        replyTo: replyTo || config.smtp.from,
+        replyTo: effectiveReplyTo,
         subject,
         html,
       });
@@ -238,6 +251,7 @@ export async function sendEmail({
   // Attempt 2: Resend API (Primary or Fallback)
   if (config.resend.isConfigured) {
     try {
+      const effectiveReplyTo = replyTo || config.adminEmails[0] || 'kontakt@gudpreiss.de';
       const res = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
@@ -247,7 +261,7 @@ export async function sendEmail({
         body: JSON.stringify({
           from: config.resend.from,
           to: recipients,
-          reply_to: replyTo || 'kontakt@gudpreiss.de',
+          reply_to: effectiveReplyTo,
           subject,
           html,
         }),
@@ -301,21 +315,32 @@ export async function sendOrderConfirmationEmail(
     return false;
   }
 
-  const customerTemplate = settings?.email_template_order_customer || DEFAULT_CUSTOMER_EMAIL_TEMPLATE;
-  const customerSubject = settings?.email_subject_order_customer || DEFAULT_CUSTOMER_SUBJECT;
+  let activeSettings = settings;
+  if (!activeSettings) {
+    try {
+      activeSettings = await getStoreSettings();
+    } catch {}
+  }
+
+  const customerTemplate = activeSettings?.email_template_order_customer || DEFAULT_CUSTOMER_EMAIL_TEMPLATE;
+  const customerSubject = activeSettings?.email_subject_order_customer || DEFAULT_CUSTOMER_SUBJECT;
 
   const subject = interpolateTemplate(customerSubject, order);
   const html = interpolateTemplate(customerTemplate, order);
+
+  const config = getMailerConfig(activeSettings);
+  const replyTo = config.adminEmails[0] || 'kontakt@gudpreiss.de';
 
   const result = await sendEmail({
     to: order.customer_email.trim(),
     subject,
     html,
-    replyTo: 'kontakt@gudpreiss.de',
+    replyTo,
     emailType: 'order_confirmation_customer',
     orderNumber: order.order_number,
     orderId: order.id,
     force: options?.force,
+    settings: activeSettings,
   });
 
   return result.success;
@@ -329,7 +354,14 @@ export async function sendOrderAdminNotificationEmail(
   settings?: StoreSettings | null,
   options?: { force?: boolean }
 ): Promise<boolean> {
-  const config = getMailerConfig(settings);
+  let activeSettings = settings;
+  if (!activeSettings) {
+    try {
+      activeSettings = await getStoreSettings();
+    } catch {}
+  }
+
+  const config = getMailerConfig(activeSettings);
   const adminRecipients = config.adminEmails;
 
   if (!adminRecipients.length) {
@@ -337,8 +369,8 @@ export async function sendOrderAdminNotificationEmail(
     return false;
   }
 
-  const adminTemplate = settings?.email_template_order_admin || DEFAULT_ADMIN_EMAIL_TEMPLATE;
-  const adminSubject = settings?.email_subject_order_admin || DEFAULT_ADMIN_SUBJECT;
+  const adminTemplate = activeSettings?.email_template_order_admin || DEFAULT_ADMIN_EMAIL_TEMPLATE;
+  const adminSubject = activeSettings?.email_subject_order_admin || DEFAULT_ADMIN_SUBJECT;
 
   const subject = interpolateTemplate(adminSubject, order);
   const html = interpolateTemplate(adminTemplate, order);
@@ -352,9 +384,45 @@ export async function sendOrderAdminNotificationEmail(
     orderNumber: order.order_number,
     orderId: order.id,
     force: options?.force,
+    settings: activeSettings,
   });
 
   return result.success;
+}
+
+/**
+ * Send both customer confirmation and admin notification independently.
+ */
+export async function sendAllOrderNotifications(
+  order: Order,
+  settings?: StoreSettings | null,
+  options?: { force?: boolean }
+): Promise<{
+  customer: { success: boolean; error?: string };
+  admin: { success: boolean; error?: string };
+}> {
+  let activeSettings = settings;
+  if (!activeSettings) {
+    try {
+      activeSettings = await getStoreSettings();
+    } catch {}
+  }
+
+  const [customerRes, adminRes] = await Promise.allSettled([
+    sendOrderConfirmationEmail(order, activeSettings, options),
+    sendOrderAdminNotificationEmail(order, activeSettings, options),
+  ]);
+
+  return {
+    customer: {
+      success: customerRes.status === 'fulfilled' && customerRes.value,
+      error: customerRes.status === 'rejected' ? String(customerRes.reason) : undefined,
+    },
+    admin: {
+      success: adminRes.status === 'fulfilled' && adminRes.value,
+      error: adminRes.status === 'rejected' ? String(adminRes.reason) : undefined,
+    },
+  };
 }
 
 /**
