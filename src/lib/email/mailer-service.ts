@@ -75,7 +75,7 @@ export function getMailerConfig(settings?: StoreSettings | null): MailerConfig {
 
   const resendApiKey = cleanEnv(settings?.resend_api_key) || cleanEnv(process.env.RESEND_API_KEY);
   const isResendConfigured = Boolean(resendApiKey && !resendApiKey.includes('demo') && resendApiKey.startsWith('re_'));
-  const resendFrom = mailFromEmail.includes('<') ? mailFromEmail : `GudPreiss <kontakt@gudpreiss.de>`;
+  const resendFrom = mailFromEmail.includes('<') ? mailFromEmail : `${mailFromName} <${mailFromEmail}>`;
 
   // Collect Admin Emails
   const envAdmin = cleanEnv(process.env.ADMIN_EMAIL);

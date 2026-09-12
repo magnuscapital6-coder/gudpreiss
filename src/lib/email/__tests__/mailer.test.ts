@@ -97,7 +97,8 @@ describe('Email System & Templates', () => {
   });
 
   it('tracks email dispatch lifecycle and prevents duplicate sends (idempotency)', async () => {
-    const orderNum = 'GP-TEST-IDEMPOTENCY-01';
+    // Unique per run so persisted DB logs from a previous execution don't bleed in
+    const orderNum = `GP-TEST-IDEMPOTENCY-${Date.now()}`;
 
     // 1. Initial check: not sent
     const before = await hasEmailBeenSent(orderNum, 'order_confirmation_customer');

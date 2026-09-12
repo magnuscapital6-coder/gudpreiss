@@ -253,7 +253,6 @@ function SuccessContent() {
                   </div>
                 </div>
               </div>
-            </div>
 
             {/* Price Breakdown */}
             <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 space-y-3 flex flex-col justify-between">
