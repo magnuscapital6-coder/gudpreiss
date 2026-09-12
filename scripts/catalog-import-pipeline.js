@@ -407,8 +407,8 @@ function transformAmsiProduct(item) {
  * Transform ABT product (WooCommerce format, French, EUR prices)
  */
 function transformAbtProduct(item) {
-  const priceEUR = item.prices?.price ? parseFloat(item.prices.price) : 0;
-  const regularPriceEUR = item.prices?.regular_price ? parseFloat(item.prices.regular_price) : 0;
+  const priceEUR = item.prices?.price ? parseFloat(item.prices.price) / 100 : 0;
+  const regularPriceEUR = item.prices?.regular_price ? parseFloat(item.prices.regular_price) / 100 : 0;
   const compareAtEUR = regularPriceEUR > priceEUR ? regularPriceEUR : null;
 
   const brandName = item.brands?.[0]?.name || item.brands?.[0] || '';
