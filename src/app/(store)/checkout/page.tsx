@@ -43,10 +43,10 @@ export default function CheckoutPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
-  // Form Fields State
-  const [email, setEmail] = useState(user?.email || '');
-  const [phone, setPhone] = useState(user?.phone || '');
-  const [fullName, setFullName] = useState(user?.full_name || '');
+  // Form Fields State - Clean empty initial states (placeholders only)
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [fullName, setFullName] = useState('');
   const [addressLine1, setAddressLine1] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
@@ -63,9 +63,9 @@ export default function CheckoutPage() {
   const [authError, setAuthError] = useState('');
   const [authSubmitting, setAuthSubmitting] = useState(false);
 
-  // Sync user profile when auth state is resolved
+  // Sync only regular customer profile (NEVER admin or demo accounts)
   useEffect(() => {
-    if (user) {
+    if (user && user.role === 'customer') {
       if (user.email && !email) setEmail(user.email);
       if (user.full_name && !fullName) setFullName(user.full_name);
       if (user.phone && !phone) setPhone(user.phone);
@@ -443,7 +443,7 @@ export default function CheckoutPage() {
                       <input
                         type="email"
                         required
-                        placeholder="exemple@email.com"
+                        placeholder="ihre.email@beispiel.de"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full px-4 py-3 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white"
@@ -454,7 +454,7 @@ export default function CheckoutPage() {
                       <input
                         type="tel"
                         required
-                        placeholder="+33 6 12 34 56 78 / +49..."
+                        placeholder="+49 157 12345678"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         className="w-full px-4 py-3 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white"
@@ -489,7 +489,7 @@ export default function CheckoutPage() {
                     <input
                       type="text"
                       required
-                      placeholder="Jean Dupont"
+                      placeholder="Max Mustermann"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       className="w-full px-4 py-3 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white"
@@ -500,7 +500,7 @@ export default function CheckoutPage() {
                     <input
                       type="text"
                       required
-                      placeholder="12 rue de la Paix"
+                      placeholder="Musterstraße 123"
                       value={addressLine1}
                       onChange={(e) => setAddressLine1(e.target.value)}
                       className="w-full px-4 py-3 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white"
@@ -512,7 +512,7 @@ export default function CheckoutPage() {
                       <input
                         type="text"
                         required
-                        placeholder="Paris / Berlin"
+                        placeholder="Berlin"
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
                         className="w-full px-4 py-3 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white"
@@ -522,7 +522,7 @@ export default function CheckoutPage() {
                       <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">Région / Land</label>
                       <input
                         type="text"
-                        placeholder="Île-de-France / Berlin"
+                        placeholder="Berlin / Bayern"
                         value={state}
                         onChange={(e) => setState(e.target.value)}
                         className="w-full px-4 py-3 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white"
@@ -533,7 +533,7 @@ export default function CheckoutPage() {
                       <input
                         type="text"
                         required
-                        placeholder="75001 / 10117"
+                        placeholder="10115"
                         value={postalCode}
                         onChange={(e) => setPostalCode(e.target.value)}
                         className="w-full px-4 py-3 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-emerald-500 outline-none text-slate-900 dark:text-white"

@@ -56,19 +56,19 @@ function SuccessContent() {
           setOrder(res.order);
         } else if (!localOrder) {
           const defaultAddr = {
-            full_name: 'Kunde',
-            address_line1: 'Friedrichstraße 123',
-            city: 'Berlin',
-            state: 'Berlin',
-            postal_code: '10117',
+            full_name: '',
+            address_line1: '',
+            city: '',
+            state: '',
+            postal_code: '',
             country: 'Deutschland',
-            phone: '+49 15731294173',
+            phone: '',
           };
           setOrder({
             id: `ord-${orderNumber}`,
             order_number: orderNumber,
-            customer_email: 'kontakt@gudpreiss.de',
-            customer_phone: '+49 15731294173',
+            customer_email: '',
+            customer_phone: '',
             shipping_address: defaultAddr,
             billing_address: defaultAddr,
             items: [],
@@ -235,11 +235,12 @@ function SuccessContent() {
                 </div>
                 <div className="text-slate-500">{order?.shipping_address?.country || 'Deutschland'}</div>
                 
-                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-1 text-[11px]">
-                  <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
-                    <Mail className="w-3.5 h-3.5 text-slate-400" />
-                    <span className="truncate">{order?.customer_email || 'kontakt@gudpreiss.de'}</span>
-                  </div>
+                  {order?.customer_email && (
+                    <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+                      <Mail className="w-3.5 h-3.5 text-slate-400" />
+                      <span className="truncate">{order.customer_email}</span>
+                    </div>
+                  )}
                   {order?.customer_phone && (
                     <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                       <Phone className="w-3.5 h-3.5 text-slate-400" />

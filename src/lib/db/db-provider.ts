@@ -934,20 +934,20 @@ export async function createOrder(orderPayload: Partial<Order>): Promise<Order> 
         });
 
   const shippingAddr = orderPayload.shipping_address || {
-    full_name: 'Klaus Weber',
-    address_line1: 'Friedrichstraße 123',
-    city: 'Berlin',
-    postal_code: '10117',
-    country: 'DE',
-    phone: orderPayload.customer_phone || '+49 15731294173',
+    full_name: '',
+    address_line1: '',
+    city: '',
+    postal_code: '',
+    country: 'Deutschland',
+    phone: orderPayload.customer_phone || '',
   };
   const billingAddr = orderPayload.billing_address || shippingAddr;
 
   const newOrder: Order = {
     id: orderId,
     order_number: orderNumber,
-    customer_email: orderPayload.customer_email || 'kontakt@gudpreiss.de',
-    customer_phone: orderPayload.customer_phone || shippingAddr.phone || '+49 15731294173',
+    customer_email: orderPayload.customer_email || '',
+    customer_phone: orderPayload.customer_phone || shippingAddr.phone || '',
     shipping_address: shippingAddr,
     billing_address: billingAddr,
     items: orderPayload.items || [],
