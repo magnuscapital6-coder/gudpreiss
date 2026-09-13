@@ -92,13 +92,15 @@ END $$;
 
 -- --------------------------------------------------------------
 -- 8) Profiles — owner may read/update own profile.
+--    Note: the `id` column is character varying, while auth.uid()
+--    returns uuid, so the comparison is done via ::text.
 -- --------------------------------------------------------------
 DO $$
 BEGIN
   IF EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename = 'profiles') THEN
     ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
-    CREATE POLICY "profiles: owner read"   ON public.profiles FOR SELECT USING (auth.uid() = id);
-    CREATE POLICY "profiles: owner update" ON public.profiles FOR UPDATE USING (auth.uid() = id);
+    CREATE POLICY "profiles: owner read"   ON public.profiles FOR SELECT USING (auth.uid()::text = id);
+    CREATE POLICY "profiles: owner update" ON public.profiles FOR UPDATE USING (auth.uid()::text = id);
   END IF;
 END $$;
 
