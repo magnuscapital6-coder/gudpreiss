@@ -213,3 +213,53 @@ export async function updateOrderStatusServerAction(orderId: string, status: Ord
 export async function getProductsServerAction(filters?: any): Promise<Product[]> {
   return await getProducts(filters);
 }
+
+/**
+ * Server Action: Look up an order by order number / tracking code.
+ * Runs server-side with the service-role client so orders remain
+ * RLS-protected (no public read of the orders table).
+ */
+export async function trackOrderServerAction(code: string): Promise<{ success: boolean; order?: Order | null }> {
+  try {
+    const clean = code.trim().toUpperCase();
+    if (!clean) return { success: false, order: null };
+
+    const order = await getOrderById(clean);
+    if (
+      order &&
+      (order.order_number?.toUpperCase() === clean ||
+        order.tracking_number?.toUpperCase() === clean ||
+        order.id?.toUpperCase() === clean)
+    ) {
+      return { success: true, order };
+    }
+    return { success: true, order: null };
+  } catch (err) {
+    console.error('[Track Order Action] Error:', err);
+    return { success: false, order: null };
+  }
+}
+
+/**
+ * Server Action: Fetch the current user's own orders (session-scoped).
+ * Anonymous visitors receive an empty list (client-side localStorage
+ * orders are merged by the page on top of this).
+ */
+export async function getMyOrdersServerAction(): Promise<{ success: boolean; orders: Order[] }> {
+  try {
+    const session = await getServerSession();
+    if (!session.isAuthenticated || !session.userId) {
+      return { success: true, orders: [] };
+    }
+    const all = await getOrders();
+    const mine = all.filter(
+      (o) =>
+        o.user_id === session.userId ||
+        (session.email && (o.customer_email || '').toLowerCase() === session.email.toLowerCase())
+    );
+    return { success: true, orders: mine };
+  } catch (err) {
+    console.error('[My Orders Action] Error:', err);
+    return { success: false, orders: [] };
+  }
+}

@@ -9,8 +9,8 @@ import { useTranslation } from '@/context/language-context';
 import { Trash2, ArrowRight, ShoppingBag, Tag, ArrowLeft, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getCouponByCode } from '@/lib/db/db-provider';
 import { getValidImageUrl } from '@/lib/image-fallback';
+import { validateCouponServerAction } from '@/app/actions/store-actions';
 
 export default function CartPage() {
   const {
@@ -42,7 +42,8 @@ export default function CartPage() {
     setCouponSuccess('');
 
     try {
-      const coupon = await getCouponByCode(couponInput);
+      const res = await validateCouponServerAction(couponInput, subtotal);
+      const coupon = res.valid ? res.coupon : null;
       if (!coupon) {
         setCouponError('Ungültiger oder abgelaufener Gutscheincode.');
       } else if (coupon.min_order_amount && subtotal < coupon.min_order_amount) {

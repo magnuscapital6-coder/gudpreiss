@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from '@/components/store/layout/Header';
 import { Footer } from '@/components/store/layout/Footer';
-import { getOrders } from '@/lib/db/db-provider';
+import { getMyOrdersServerAction } from '@/app/actions/store-actions';
 import { Order } from '@/types';
 import { Package, Truck, CheckCircle2, Clock, Copy, ShieldCheck, ExternalLink, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -18,7 +18,8 @@ export default function OrderHistoryPage() {
     async function loadOrders() {
       setIsLoading(true);
       try {
-        const ords = await getOrders();
+        const res = await getMyOrdersServerAction();
+      const ords = res.success ? res.orders : [];
         let clientLocalOrders: Order[] = [];
         try {
           const saved = localStorage.getItem('gudpreiss_Bestellungen');

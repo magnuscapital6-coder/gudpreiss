@@ -25,6 +25,32 @@ try {
   }
 } catch {}
 
+// Block credentials so tests never hit the production Supabase / mailer.
+// All services below fall back to their in-memory stores when unconfigured.
+for (const key of [
+  'NEXT_PUBLIC_SUPABASE_URL',
+  'NEXT_PUBLIC_SUPABASE_ANON_KEY',
+  'SUPABASE_SERVICE_ROLE_KEY',
+  'POSTGRES_URL',
+  'SMTP_PORT',
+  'SMTP_USER',
+  'SMTP_PASSWORD',
+  'SMTP_ENCRYPTION',
+  'SMTP_SECURE',
+  'RESEND_API_KEY',
+]) {
+  const value = process.env[key];
+  if (value) {
+    process.env[key] = 'test-blocked';
+  }
+}
+// Empty SMTP_HOST so the mailer falls back to 'none' transport
+// instead of attempting a real (blocked) hostname lookup.
+const smtpHost = process.env.SMTP_HOST;
+if (smtpHost) {
+  process.env.SMTP_HOST = '';
+}
+
 export default defineConfig({
   resolve: {
     alias: {

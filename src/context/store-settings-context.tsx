@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { StoreSettings } from '@/types';
 import { DEFAULT_STORE_SETTINGS } from '@/lib/db/initial-data';
-import { getStoreSettings, updateStoreSettings as updateDBSettings } from '@/lib/db/db-provider';
+import { getStoreSettings } from '@/lib/db/db-provider';
 
 interface StoreSettingsContextType {
   settings: StoreSettings;
@@ -91,7 +91,6 @@ export function StoreSettingsProvider({ children }: { children: React.ReactNode 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newSettings),
       });
-      await updateDBSettings(newSettings);
     } catch (err) {
       console.error('Error updating store settings:', err);
     }

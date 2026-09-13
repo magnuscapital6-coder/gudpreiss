@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import { Header } from '@/components/store/layout/Header';
 import { Footer } from '@/components/store/layout/Footer';
-import { getOrders } from '@/lib/db/db-provider';
+import { trackOrderServerAction } from '@/app/actions/store-actions';
 import { Order } from '@/types';
 import { useStoreSettings } from '@/context/store-settings-context';
 import { DEFAULT_STORE_SETTINGS } from '@/lib/db/initial-data';
@@ -56,16 +56,12 @@ function TrackingContent() {
             o.id?.toUpperCase() === clean)
       );
 
-      // 2. Fallback check db-provider getOrders()
+      // 2. Fallback check via server action (service-role lookup)
       if (!match) {
-        const dbOrders = await getOrders();
-        match = dbOrders.find(
-          (o) =>
-            o &&
-            (o.order_number?.toUpperCase() === clean ||
-              o.tracking_number?.toUpperCase() === clean ||
-              o.id?.toUpperCase() === clean)
-        );
+        const res = await trackOrderServerAction(clean);
+        if (res.success && res.order) {
+          match = res.order;
+        }
       }
 
       setFoundOrder(match || null);

@@ -16,6 +16,33 @@ const isSupabaseConfigured = Boolean(
 );
 const supabase = isSupabaseConfigured ? createClient(supabaseUrl, supabaseKey) : null;
 
+// Admin client (service role) for server-side write operations.
+// RLS protected tables (orders, coupons, ...) must be written via the
+// service role key, which bypasses RLS. Created lazily, server-only.
+type SupabaseClientT = NonNullable<typeof supabase>;
+let _adminClient: SupabaseClientT | null = null;
+function getAdminClient(): SupabaseClientT | null {
+  if (_adminClient) return _adminClient;
+  // Never resolve on the client bundle (no SERVICE key there).
+  if (typeof window !== 'undefined') return null;
+  try {
+    const key = process.env['SUPABASE_SERVICE_ROLE_KEY'];
+    if (!key || !supabaseUrl) return null;
+    _adminClient = createClient(supabaseUrl, key, {
+      auth: { autoRefreshToken: false, persistSession: false },
+    }) as SupabaseClientT;
+    return _adminClient;
+  } catch {
+    return null;
+  }
+}
+// Data client: uses the service role on the server (bypasses RLS), falls
+// back to the anon client on the browser (RLS applies).
+function getDataClient(): SupabaseClientT | null {
+  return getAdminClient() ?? supabase;
+}
+
+
 // In-Memory store fallback to guarantee 100% reliable execution in dev & testing
 let memoryProducts: Product[] = [...INITIAL_PRODUCTS];
 let memoryCategories: Category[] = [...INITIAL_CATEGORIES];
@@ -193,8 +220,10 @@ let seeded = false;
 
 async function ensureSeeded() {
   if (seeded || !supabase) return;
+  const dataClient = getDataClient();
+  if (!dataClient) return;
   try {
-    const { count } = await supabase.from('categories').select('*', { count: 'exact', head: true });
+    const { count } = await dataClient.from('categories').select('*', { count: 'exact', head: true });
     if (count && count > 0) { seeded = true; return; }
 
     console.log('[DB] Supabase tables empty — seeding initial data...');
@@ -209,7 +238,7 @@ async function ensureSeeded() {
       active: c.active,
       sort_order: c.sort_order,
     }));
-    await supabase.from('categories').upsert(catRows, { onConflict: 'id' });
+    await dataClient.from('categories').upsert(catRows, { onConflict: 'id' });
 
     // Seed products (in batches of 50)
     for (let i = 0; i < INITIAL_PRODUCTS.length; i += 50) {
@@ -241,11 +270,11 @@ async function ensureSeeded() {
         weight_kg: p.weight_kg,
         images: p.images,
       }));
-      await supabase.from('products').upsert(batch, { onConflict: 'id' });
+      await dataClient.from('products').upsert(batch, { onConflict: 'id' });
     }
 
     // Seed store_settings (key-value table)
-    await supabase.from('settings').upsert([{
+    await dataClient.from('settings').upsert([{
       key: 'store',
       value_json: {
         store_name: DEFAULT_STORE_SETTINGS.store_name,
@@ -268,7 +297,7 @@ async function ensureSeeded() {
       logo_url: b.logo_url || '',
       description: b.description || '',
     }));
-    await supabase.from('brands').upsert(brandRows, { onConflict: 'id' });
+    await dataClient.from('brands').upsert(brandRows, { onConflict: 'id' });
 
     seeded = true;
     console.log('[DB] Supabase seeded successfully');
@@ -386,10 +415,11 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 
 export async function getCategories(): Promise<Category[]> {
   await ensureSeeded();
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
       const { data, error } = await withTimeout(
-        supabase.from('categories').select('*').order('sort_order', { ascending: true }),
+        dataClient.from('categories').select('*').order('sort_order', { ascending: true }),
         2000
       );
       if (!error && data && data.length > 0) {
@@ -491,9 +521,10 @@ export async function createBlogPost(post: Partial<BlogPost>): Promise<BlogPost>
   };
   memoryBlogPosts.unshift(newPost);
 
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      await supabase.from('blog_posts').insert([{
+      await dataClient.from('blog_posts').insert([{
         id: newPost.id,
         title: newPost.title,
         slug: newPost.slug,
@@ -646,9 +677,10 @@ export async function updateLegalPage(slug: string, data: Partial<LegalPage>): P
 
 export async function getOrders(): Promise<Order[]> {
   let dbOrders: Order[] = [];
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      const { data, error } = await supabase.from('orders').select('*').order('created_at', { ascending: false });
+      const { data, error } = await dataClient.from('orders').select('*').order('created_at', { ascending: false });
       if (!error && data && data.length > 0) {
         dbOrders = (data as any[]).map((o) => ({
           ...o,
@@ -695,9 +727,10 @@ export async function getOrders(): Promise<Order[]> {
 }
 
 export async function getOrderById(id: string): Promise<Order | null> {
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await dataClient
         .from('orders')
         .select('*')
         .or(`id.eq.${id},order_number.eq.${id}`)
@@ -724,9 +757,10 @@ export async function getOrderById(id: string): Promise<Order | null> {
 
 export async function getCouponByCode(code: string): Promise<Coupon | null> {
   const cleanCode = code.trim().toUpperCase();
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await dataClient
         .from('coupons')
         .select('*')
         .eq('code', cleanCode)
@@ -742,10 +776,11 @@ export async function getCouponByCode(code: string): Promise<Coupon | null> {
 
 export async function getStoreSettings(): Promise<StoreSettings> {
   await ensureSeeded();
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
       const { data, error } = await withTimeout(
-        supabase.from('settings').select('value_json').eq('key', 'store').single(),
+        dataClient.from('settings').select('value_json').eq('key', 'store').single(),
         2000
       );
       if (!error && data?.value_json) {
@@ -774,9 +809,10 @@ export async function updateStoreSettings(settingsData: Partial<StoreSettings>):
     ...settingsData,
   };
 
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      await supabase.from('settings').upsert([{
+      await dataClient.from('settings').upsert([{
         key: 'store',
         value_json: memorySettings,
         updated_at: new Date().toISOString(),
@@ -833,9 +869,10 @@ export async function createProduct(productData: Partial<Product>): Promise<Prod
   };
 
   // 1. Supabase Persistence
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await dataClient
         .from('products')
         .insert([
           {
@@ -888,9 +925,10 @@ export async function updateProduct(id: string, productData: Partial<Product>): 
     };
   }
 
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      await supabase
+      await dataClient
         .from('products')
         .update({
           ...productData,
@@ -910,9 +948,10 @@ export async function deleteProduct(id: string): Promise<boolean> {
   const initialLen = memoryProducts.length;
   memoryProducts = memoryProducts.filter((p) => p.id !== id);
 
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      await supabase.from('products').delete().eq('id', id);
+      await dataClient.from('products').delete().eq('id', id);
     } catch (err) {
       logSupabaseError('products.delete', err);
     }
@@ -972,9 +1011,10 @@ export async function createOrder(orderPayload: Partial<Order>): Promise<Order> 
     updated_at: new Date().toISOString(),
   };
 
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await dataClient
         .from('orders')
         .insert([
           {
@@ -1038,9 +1078,10 @@ export async function updateOrderStatus(orderId: string, status: Order['order_st
     updatedOrder = memOrder;
   }
 
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await dataClient
         .from('orders')
         .update({ order_status: status, updated_at: new Date().toISOString() })
         .or(`id.eq.${orderId},order_number.eq.${orderId}`)
@@ -1080,9 +1121,10 @@ export async function createCoupon(couponData: Partial<Coupon>): Promise<Coupon>
     created_at: new Date().toISOString(),
   };
 
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      await supabase.from('coupons').insert([newCoupon]);
+      await dataClient.from('coupons').insert([newCoupon]);
     } catch (err) {
       logSupabaseError('coupons.insert', err);
     }
@@ -1094,9 +1136,10 @@ export async function createCoupon(couponData: Partial<Coupon>): Promise<Coupon>
 
 export async function getCoupons(): Promise<Coupon[]> {
   let combined: Coupon[] = [...memoryCoupons];
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      const { data, error } = await supabase.from('coupons').select('*').order('created_at', { ascending: false });
+      const { data, error } = await dataClient.from('coupons').select('*').order('created_at', { ascending: false });
       if (!error && data && data.length > 0) {
         const dbCoupons = data as Coupon[];
         const existingCodes = new Set(combined.map((c) => c.code.toUpperCase()));
@@ -1135,9 +1178,10 @@ export async function updateCouponStatus(id: string, active: boolean): Promise<b
   if (index !== -1) {
     memoryCoupons[index].active = active;
   }
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      await supabase.from('coupons').update({ active }).or(`id.eq.${id},code.eq.${id}`);
+      await dataClient.from('coupons').update({ active }).or(`id.eq.${id},code.eq.${id}`);
     } catch (err) {
       logSupabaseError('coupons.update', err);
     }
@@ -1148,9 +1192,10 @@ export async function updateCouponStatus(id: string, active: boolean): Promise<b
 export async function deleteCoupon(id: string): Promise<boolean> {
   const initialLen = memoryCoupons.length;
   memoryCoupons = memoryCoupons.filter((c) => c.id !== id && c.code !== id);
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      await supabase.from('coupons').delete().or(`id.eq.${id},code.eq.${id}`);
+      await dataClient.from('coupons').delete().or(`id.eq.${id},code.eq.${id}`);
     } catch (err) {
       logSupabaseError('coupons.delete', err);
     }
@@ -1170,9 +1215,10 @@ export async function createCategory(categoryData: Partial<Category>): Promise<C
     created_at: new Date().toISOString(),
   };
 
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      await supabase.from('categories').insert([
+      await dataClient.from('categories').insert([
         {
           id: newCat.id,
           name: newCat.name,
@@ -1201,9 +1247,10 @@ export async function updateCategory(id: string, updates: Partial<Category>): Pr
     };
   }
 
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      await supabase
+      await dataClient
         .from('categories')
         .update({
           name: updates.name,
@@ -1226,12 +1273,13 @@ export async function deleteCategory(id: string): Promise<boolean> {
   const initialLen = memoryCategories.length;
   memoryCategories = memoryCategories.filter((c) => c.id !== id && c.slug !== id);
 
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
       // Try deleting by id first, then by slug
-      const { error } = await supabase.from('categories').delete().eq('id', id);
+      const { error } = await dataClient.from('categories').delete().eq('id', id);
       if (error) {
-        await supabase.from('categories').delete().eq('slug', id);
+        await dataClient.from('categories').delete().eq('slug', id);
       }
     } catch (err) {
       logSupabaseError('categories.delete', err);
@@ -1247,9 +1295,10 @@ export async function updateReviewStatus(reviewId: string, status: 'approved' | 
   if (review) {
     review.status = status;
   }
-  if (supabase) {
+  const dataClient = getDataClient();
+  if (dataClient) {
     try {
-      await supabase.from('reviews').update({ status }).eq('id', reviewId);
+      await dataClient.from('reviews').update({ status }).eq('id', reviewId);
     } catch (err) {
       logSupabaseError('reviews.update', err);
     }
