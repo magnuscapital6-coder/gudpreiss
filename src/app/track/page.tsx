@@ -40,12 +40,16 @@ function TrackingContent() {
 
     try {
       // 1. Check client-side localStorage
+      // Checkout stores orders under `gudpreiss_Bestellungen`; the server only
+      // returns customer details to the owner, so this copy matters for guests.
       let localOrders: Order[] = [];
-      try {
-        const saved = localStorage.getItem('gudpreiss_orders');
-        if (saved) localOrders = JSON.parse(saved);
-      } catch {
-        // ignore
+      for (const key of ['gudpreiss_Bestellungen', 'gudpreiss_orders']) {
+        try {
+          const saved = localStorage.getItem(key);
+          if (saved) localOrders = localOrders.concat(JSON.parse(saved));
+        } catch {
+          // ignore
+        }
       }
 
       let match = localOrders.find(

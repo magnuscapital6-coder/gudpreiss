@@ -1,16 +1,71 @@
 'use server';
 
 import { createOrder, updateOrderStatus, createCoupon, createCategory, updateReviewStatus, getProducts, getCategories, getBanners, getStoreSettings, getOrderById, getOrders } from '@/lib/db/db-provider';
-import { getServerSession } from '@/lib/supabase/server';
+import { getServerSession, type ServerSession } from '@/lib/supabase/server';
 import { sendOrderConfirmationEmail, sendOrderAdminNotificationEmail } from '@/lib/email/mailer-service';
 import { createNotification } from '@/lib/notifications/service';
-import { Order, Coupon, Category, Product } from '@/types';
+import { Order, Coupon, Category, Product, ShippingAddress } from '@/types';
 
 /**
- * Server Action: Fetch all orders for Admin Dashboard
+ * Server actions are public HTTP endpoints: every action returning order data
+ * must check the caller. Order numbers (GP-2026-XXXX) are trivially guessable.
+ */
+function isOrderOwner(session: ServerSession, order: Order): boolean {
+  if (!session.isAuthenticated) return false;
+  if (session.userId && order.user_id === session.userId) return true;
+  return !!session.email && (order.customer_email || '').toLowerCase() === session.email.toLowerCase();
+}
+
+/**
+ * Public view of an order: status, items and totals, without customer PII.
+ * Built from an allowlist because DB rows carry extra columns
+ * (customer_name, shipping_address_json, ...).
+ */
+function redactOrder(order: Order): Order {
+  const publicAddress: ShippingAddress = {
+    full_name: '',
+    address_line1: '',
+    city: order.shipping_address?.city || '',
+    postal_code: '',
+    country: order.shipping_address?.country || '',
+    phone: '',
+  };
+  return {
+    id: order.id,
+    order_number: order.order_number,
+    customer_email: '',
+    customer_phone: '',
+    shipping_address: publicAddress,
+    billing_address: publicAddress,
+    items: order.items,
+    subtotal: order.subtotal,
+    discount_amount: order.discount_amount,
+    tax_amount: order.tax_amount,
+    shipping_fee: order.shipping_fee,
+    total_amount: order.total_amount,
+    payment_method: order.payment_method,
+    payment_status: order.payment_status,
+    order_status: order.order_status,
+    tracking_number: order.tracking_number,
+    coupon_code: order.coupon_code,
+    bank_transfer_iban: order.bank_transfer_iban,
+    bank_transfer_bic: order.bank_transfer_bic,
+    bank_transfer_holder: order.bank_transfer_holder,
+    created_at: order.created_at,
+    updated_at: order.updated_at,
+  };
+}
+
+/**
+ * Server Action: Fetch all orders for Admin Dashboard (Admin Only)
  */
 export async function getAdminOrdersServerAction(): Promise<{ success: boolean; orders: Order[] }> {
   try {
+    const session = await getServerSession();
+    if (!session.isAdmin) {
+      return { success: false, orders: [] };
+    }
+
     const orders = await getOrders();
     return { success: true, orders };
   } catch (err) {
@@ -20,11 +75,21 @@ export async function getAdminOrdersServerAction(): Promise<{ success: boolean; 
 }
 
 /**
- * Server Action: Get Order Details by order number or id
+ * Server Action: Get Order Details by order number or id.
+ * Only admins and the order's owner get the order; guests rely on the copy
+ * the checkout stored in localStorage.
  */
 export async function getOrderDetailsServerAction(orderNumber: string): Promise<{ success: boolean; order?: Order | null }> {
   try {
+    const session = await getServerSession();
+    if (!session.isAuthenticated) {
+      return { success: false, order: null };
+    }
+
     const order = await getOrderById(orderNumber);
+    if (!order || !(session.isAdmin || isOrderOwner(session, order))) {
+      return { success: false, order: null };
+    }
     return { success: true, order };
   } catch (err) {
     return { success: false, order: null };
@@ -217,7 +282,8 @@ export async function getProductsServerAction(filters?: any): Promise<Product[]>
 /**
  * Server Action: Look up an order by order number / tracking code.
  * Runs server-side with the service-role client so orders remain
- * RLS-protected (no public read of the orders table).
+ * RLS-protected (no public read of the orders table). Anyone may track an
+ * order, but only admins and the owner see the customer's details.
  */
 export async function trackOrderServerAction(code: string): Promise<{ success: boolean; order?: Order | null }> {
   try {
@@ -231,7 +297,9 @@ export async function trackOrderServerAction(code: string): Promise<{ success: b
         order.tracking_number?.toUpperCase() === clean ||
         order.id?.toUpperCase() === clean)
     ) {
-      return { success: true, order };
+      const session = await getServerSession();
+      const canSeeDetails = session.isAdmin || isOrderOwner(session, order);
+      return { success: true, order: canSeeDetails ? order : redactOrder(order) };
     }
     return { success: true, order: null };
   } catch (err) {
@@ -252,11 +320,7 @@ export async function getMyOrdersServerAction(): Promise<{ success: boolean; ord
       return { success: true, orders: [] };
     }
     const all = await getOrders();
-    const mine = all.filter(
-      (o) =>
-        o.user_id === session.userId ||
-        (session.email && (o.customer_email || '').toLowerCase() === session.email.toLowerCase())
-    );
+    const mine = all.filter((o) => isOrderOwner(session, o));
     return { success: true, orders: mine };
   } catch (err) {
     console.error('[My Orders Action] Error:', err);

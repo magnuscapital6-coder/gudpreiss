@@ -111,10 +111,9 @@ export async function POST(request: NextRequest) {
     resetRateLimit(ipKey);
     resetRateLimit(emailKey);
 
-    // Determine role from user metadata
-    const userRole = data.user.user_metadata?.role ||
-      data.user.app_metadata?.role ||
-      'customer';
+    // Role comes from app_metadata only: user_metadata is writable by the user
+    // themself (supabase.auth.updateUser) and must never grant privileges.
+    const userRole = data.user.app_metadata?.role || 'customer';
 
     const userObj = {
       id: data.user.id,

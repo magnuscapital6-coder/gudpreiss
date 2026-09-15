@@ -31,7 +31,7 @@ export async function getAdminCredentials() {
   try {
     const { data: users } = await supabaseAdmin.auth.admin.listUsers();
     const adminUser = users?.users?.find(
-      (u) => u.user_metadata?.role === 'admin' || u.app_metadata?.role === 'admin'
+      (u) => u.app_metadata?.role === 'admin'
     );
 
     if (adminUser) {
@@ -59,7 +59,7 @@ export async function updateAdminCredentials(newEmail: string, newPassword?: str
   try {
     const { data: existingUsers } = await supabaseAdmin.auth.admin.listUsers();
     let adminUser = existingUsers?.users?.find(
-      (u) => u.user_metadata?.role === 'admin' || u.app_metadata?.role === 'admin'
+      (u) => u.app_metadata?.role === 'admin'
     );
 
     let userId: string;
@@ -69,7 +69,8 @@ export async function updateAdminCredentials(newEmail: string, newPassword?: str
       const updateData: Record<string, unknown> = {
         email: cleanEmail,
         email_confirm: true,
-        user_metadata: { full_name: 'GudPreiss Admin', role: 'admin' },
+        user_metadata: { full_name: 'GudPreiss Admin' },
+        app_metadata: { role: 'admin' },
       };
       if (newPassword) {
         updateData.password = newPassword;
@@ -80,7 +81,8 @@ export async function updateAdminCredentials(newEmail: string, newPassword?: str
         email: cleanEmail,
         password: newPassword || 'admin123',
         email_confirm: true,
-        user_metadata: { full_name: 'GudPreiss Admin', role: 'admin' },
+        user_metadata: { full_name: 'GudPreiss Admin' },
+        app_metadata: { role: 'admin' },
       });
       if (createError) {
         console.error('[ADMIN_CREDENTIALS] Create error:', createError.message);

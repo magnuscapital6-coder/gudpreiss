@@ -727,6 +727,9 @@ export async function getOrders(): Promise<Order[]> {
 }
 
 export async function getOrderById(id: string): Promise<Order | null> {
+  // The id is interpolated into a PostgREST `or` filter: reject anything that
+  // isn't a plain order number / UUID so callers can't inject extra filters.
+  if (!/^[A-Za-z0-9-]{1,64}$/.test(id)) return null;
   const dataClient = getDataClient();
   if (dataClient) {
     try {
@@ -774,6 +777,37 @@ export async function getCouponByCode(code: string): Promise<Coupon | null> {
   return memoryCoupons.find((c) => c.code.toUpperCase() === cleanCode && c.active) || null;
 }
 
+// Mailer credentials must never live in the `store` settings row: the
+// `settings` table is publicly readable (RLS) and the row is sent to the
+// storefront. They are stored under their own key, read with the service role.
+const SECRET_SETTINGS_KEY = 'store_secrets';
+const SECRET_SETTING_FIELDS = [
+  'smtp_host',
+  'smtp_port',
+  'smtp_user',
+  'smtp_password',
+  'smtp_encryption',
+  'smtp_secure',
+  'resend_api_key',
+] as const satisfies readonly (keyof StoreSettings)[];
+
+// True once the secrets row has been queried successfully (present or absent).
+let secretsLoaded = false;
+
+export function stripSecretSettings(settings: StoreSettings): StoreSettings {
+  const publicSettings = { ...settings };
+  for (const field of SECRET_SETTING_FIELDS) delete publicSettings[field];
+  return publicSettings;
+}
+
+function pickSecretSettings(settings: Partial<StoreSettings>): Partial<StoreSettings> {
+  const secrets: Record<string, unknown> = {};
+  for (const field of SECRET_SETTING_FIELDS) {
+    if (settings[field] !== undefined) secrets[field] = settings[field];
+  }
+  return secrets as Partial<StoreSettings>;
+}
+
 export async function getStoreSettings(): Promise<StoreSettings> {
   await ensureSeeded();
   const dataClient = getDataClient();
@@ -785,6 +819,22 @@ export async function getStoreSettings(): Promise<StoreSettings> {
       );
       if (!error && data?.value_json) {
         memorySettings = { ...memorySettings, ...data.value_json };
+
+        const adminClient = getAdminClient();
+        if (adminClient) {
+          try {
+            const { data: secretRow, error: secretError } = await withTimeout(
+              adminClient.from('settings').select('value_json').eq('key', SECRET_SETTINGS_KEY).maybeSingle(),
+              2000
+            );
+            if (!secretError) {
+              secretsLoaded = true;
+              if (secretRow?.value_json) memorySettings = { ...memorySettings, ...secretRow.value_json };
+            }
+          } catch (err) {
+            logSupabaseError('settings.secrets.select', err);
+          }
+        }
         return memorySettings;
       }
     } catch (err) {
@@ -804,17 +854,40 @@ export async function getStoreSettings(): Promise<StoreSettings> {
 }
 
 export async function updateStoreSettings(settingsData: Partial<StoreSettings>): Promise<StoreSettings> {
+  // Refresh first so a cold server instance doesn't overwrite stored values with defaults.
+  await getStoreSettings();
+
   memorySettings = {
     ...memorySettings,
     ...settingsData,
   };
+
+  // Persist credentials to the service-role-only row. The public row is only
+  // stripped once they are safely stored, so legacy values are never lost.
+  const secrets = pickSecretSettings(memorySettings);
+  let secretsPersisted = Object.keys(secrets).length === 0;
+  const adminClient = getAdminClient();
+  const touchesSecrets = Object.keys(pickSecretSettings(settingsData)).length > 0;
+  if (adminClient && !secretsPersisted && (secretsLoaded || touchesSecrets)) {
+    try {
+      const { error } = await adminClient.from('settings').upsert([{
+        key: SECRET_SETTINGS_KEY,
+        value_json: secrets,
+        updated_at: new Date().toISOString(),
+      }], { onConflict: 'key' });
+      secretsPersisted = !error;
+      if (error) logSupabaseError('settings.secrets.upsert', error);
+    } catch (err) {
+      logSupabaseError('settings.secrets.upsert', err);
+    }
+  }
 
   const dataClient = getDataClient();
   if (dataClient) {
     try {
       await dataClient.from('settings').upsert([{
         key: 'store',
-        value_json: memorySettings,
+        value_json: secretsPersisted ? stripSecretSettings(memorySettings) : memorySettings,
         updated_at: new Date().toISOString(),
       }], { onConflict: 'key' });
     } catch (err) {
