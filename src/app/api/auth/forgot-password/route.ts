@@ -60,7 +60,8 @@ export async function POST(request: NextRequest) {
             id: u.id,
             email: u.email || cleanEmail,
             fullName: u.user_metadata?.full_name || 'Benutzer',
-            role: u.user_metadata?.role || u.app_metadata?.role || 'customer',
+            // user_metadata is user-writable: only app_metadata grants a role.
+            role: u.app_metadata?.role || 'customer',
           };
         }
       }
