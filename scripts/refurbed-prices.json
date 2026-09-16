@@ -1,0 +1,277 @@
+{
+  "fetchedAt": "2026-09-16T05:41:23.497Z",
+  "prices": [
+    {
+      "name": "Apple MacBook Air 2020 | 13.3&quot;",
+      "price": 403.95
+    },
+    {
+      "name": "Apple MacBook Air 2020 | 13.3&quot; | M1",
+      "price": 634.99
+    },
+    {
+      "name": "Apple MacBook Air 2022 | 13.6&quot; | M2",
+      "price": 979
+    },
+    {
+      "name": "Apple MacBook Air 2024 | 13.6&quot; | M3",
+      "price": 1150
+    },
+    {
+      "name": "Apple MacBook Air 2025 | 13.6&quot; | M4",
+      "price": 1598.82
+    },
+    {
+      "name": "Apple MacBook Air 2026 | 13.6&quot; | M5",
+      "price": 1259
+    },
+    {
+      "name": "Apple MacBook Neo 2026 | 13&quot; | A18 Pro",
+      "price": 822.33
+    },
+    {
+      "name": "Apple MacBook Pro 2019 | 15.4&quot; | Touch Bar",
+      "price": 504
+    },
+    {
+      "name": "Apple MacBook Pro 2019 | 16&quot;",
+      "price": 499
+    },
+    {
+      "name": "Apple MacBook Pro 2020 | 13.3&quot; | Touch Bar",
+      "price": 494
+    },
+    {
+      "name": "Apple MacBook Pro 2020 M1 | 13.3&quot;",
+      "price": 659.99
+    },
+    {
+      "name": "Apple MacBook Pro 2021 M1 | 14.2&quot;",
+      "price": 1039
+    },
+    {
+      "name": "Apple MacBook Pro 2021 M1 | 16.2&quot;",
+      "price": 1023
+    },
+    {
+      "name": "Apple MacBook Pro 2023 M2 | 16.2&quot;",
+      "price": 1419.99
+    },
+    {
+      "name": "Apple MacBook Pro 2025 M5 | 14&quot;",
+      "price": 1799
+    },
+    {
+      "name": "Apple Watch SE 3 40 mm (2025)",
+      "price": 229.7
+    },
+    {
+      "name": "Apple Watch SE 3 44 mm (2025)",
+      "price": 255.99
+    },
+    {
+      "name": "Apple Watch SE 40 mm (2022)",
+      "price": 149
+    },
+    {
+      "name": "Apple Watch SE Aluminium 44 mm (2020)",
+      "price": 162.88
+    },
+    {
+      "name": "Apple Watch Series 10 Aluminium 42 mm (2024)",
+      "price": 305
+    },
+    {
+      "name": "Apple Watch Series 10 Aluminium 46 mm (2024)",
+      "price": 295
+    },
+    {
+      "name": "Apple Watch Series 10 Titan 46 mm (2024)",
+      "price": 343
+    },
+    {
+      "name": "Apple Watch Series 11 Aluminium 42 mm (2025)",
+      "price": 333.65
+    },
+    {
+      "name": "Apple Watch Series 11 Aluminium 46 mm (2025)",
+      "price": 355.99
+    },
+    {
+      "name": "Apple Watch Series 7 Aluminium 41 mm (2021)",
+      "price": 180.99
+    },
+    {
+      "name": "Apple Watch Series 9 Aluminium 41 mm (2023)",
+      "price": 209.77
+    },
+    {
+      "name": "Apple Watch Series 9 Aluminium 45 mm (2023)",
+      "price": 212.09
+    },
+    {
+      "name": "Apple Watch Ultra 2 (2024)",
+      "price": 449.9
+    },
+    {
+      "name": "Apple Watch Ultra 3 (2025)",
+      "price": 580
+    },
+    {
+      "name": "FAIR Apple MacBook Air 2020 | 13.3&quot; | M1",
+      "price": 450
+    },
+    {
+      "name": "FAIR Apple MacBook Pro 2020 | 13.3&quot; | Touch Bar",
+      "price": 381
+    },
+    {
+      "name": "FAIR Apple MacBook Pro 2020 M1 | 13.3&quot;",
+      "price": 641
+    },
+    {
+      "name": "FAIR Apple MacBook Pro 2021 M1 | 14.2&quot;",
+      "price": 825
+    },
+    {
+      "name": "Garmin Fenix 8 Pro (2025)",
+      "price": 815.82
+    },
+    {
+      "name": "iPad 10 (2022) | 10.9\"",
+      "price": 389.9
+    },
+    {
+      "name": "iPad 11 (2025) | 10.9\"",
+      "price": 464.99
+    },
+    {
+      "name": "iPad 7 (2019) | 10.2\"",
+      "price": 88
+    },
+    {
+      "name": "iPad 8 (2020) | 10.2\"",
+      "price": 119
+    },
+    {
+      "name": "iPad 9 (2021) | 10.2\"",
+      "price": 198.9
+    },
+    {
+      "name": "iPad Air (2022) | 10.9\"",
+      "price": 570.99
+    },
+    {
+      "name": "iPad Air (2024) | 13\"",
+      "price": 669
+    },
+    {
+      "name": "iPad Air (2025) | 11\"",
+      "price": 585.19
+    },
+    {
+      "name": "iPad Air (2025) | 13\"",
+      "price": 694.02
+    },
+    {
+      "name": "iPad Air (2026) | 11\"",
+      "price": 729.42
+    },
+    {
+      "name": "iPad Air (2026) | 13\"",
+      "price": 926.11
+    },
+    {
+      "name": "iPad Pro (2022) | 12.9\"",
+      "price": 701.99
+    },
+    {
+      "name": "iPad Pro (2024) | 11\"",
+      "price": 823.09
+    },
+    {
+      "name": "iPad Pro (2024) | 13\"",
+      "price": 965
+    },
+    {
+      "name": "iPad Pro (2025) | 11\"",
+      "price": 939.2
+    },
+    {
+      "name": "iPad Pro (2025) | 13\"",
+      "price": 1087.7
+    },
+    {
+      "name": "iPhone 11",
+      "price": 150.22
+    },
+    {
+      "name": "iPhone 12 Mini",
+      "price": 164.47
+    },
+    {
+      "name": "iPhone 13",
+      "price": 262.4
+    },
+    {
+      "name": "iPhone 13 Pro",
+      "price": 387.44
+    },
+    {
+      "name": "iPhone 14",
+      "price": 309.99
+    },
+    {
+      "name": "iPhone 15",
+      "price": 438.99
+    },
+    {
+      "name": "iPhone 15 Pro",
+      "price": 574
+    },
+    {
+      "name": "iPhone 16",
+      "price": 580
+    },
+    {
+      "name": "iPhone 16 Pro",
+      "price": 722.89
+    },
+    {
+      "name": "iPhone 16e",
+      "price": 410
+    },
+    {
+      "name": "iPhone 17",
+      "price": 740
+    },
+    {
+      "name": "iPhone 17 Pro",
+      "price": 1019
+    },
+    {
+      "name": "iPhone 17 Pro Max",
+      "price": 1180
+    },
+    {
+      "name": "iPhone 17e",
+      "price": 526.47
+    },
+    {
+      "name": "iPhone SE (2022)",
+      "price": 124.66
+    },
+    {
+      "name": "Lenovo ThinkPad T490 | i5-8365U | 14&quot;",
+      "price": 304.99
+    },
+    {
+      "name": "Microsoft Surface Laptop 4 | i7-1185G7 | 13.5&quot;",
+      "price": 364.99
+    },
+    {
+      "name": "Samsung Galaxy Watch 7 (2024)",
+      "price": 137.14
+    }
+  ]
+}

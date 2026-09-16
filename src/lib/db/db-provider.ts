@@ -321,10 +321,14 @@ export async function getProducts(filters?: {
   minPrice?: number;
   maxPrice?: number;
   sort?: string;
+  /** Admin views need inactive products too; the storefront never shows them. */
+  includeInactive?: boolean;
 }): Promise<Product[]> {
   // Memory Fallback (0ms instant response with 100% German translated products)
   await ensureSeeded();
-  let result = [...memoryProducts];
+  let result = filters?.includeInactive
+    ? [...memoryProducts]
+    : memoryProducts.filter((p) => (p.status ?? 'active') === 'active');
   if (!filters) return result;
 
   if (filters.categorySlug) {
@@ -409,8 +413,13 @@ export async function getProducts(filters?: {
   return result;
 }
 
-export async function getProductBySlug(slug: string): Promise<Product | null> {
-  return memoryProducts.find((p) => p.slug === slug || p.id === slug) || null;
+export async function getProductBySlug(
+  slug: string,
+  options?: { includeInactive?: boolean }
+): Promise<Product | null> {
+  const product = memoryProducts.find((p) => p.slug === slug || p.id === slug) || null;
+  if (product && !options?.includeInactive && (product.status ?? 'active') !== 'active') return null;
+  return product;
 }
 
 export async function getCategories(): Promise<Category[]> {

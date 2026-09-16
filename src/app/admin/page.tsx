@@ -81,7 +81,7 @@ export default function AdminDashboardPage() {
       const combinedOrders = Array.from(orderMap.values());
       setOrders(combinedOrders);
 
-      const fetchedProducts = await getProducts();
+      const fetchedProducts = await getProducts({ includeInactive: true });
       setProducts(fetchedProducts);
     } catch {
       // Silent error

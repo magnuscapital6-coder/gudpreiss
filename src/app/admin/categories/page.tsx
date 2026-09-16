@@ -34,7 +34,7 @@ export default function AdminCategoriesPage() {
 
   const fetchData = async () => {
     setIsLoading(true);
-    const [cats, prods] = await Promise.all([getCategories(), getProducts()]);
+    const [cats, prods] = await Promise.all([getCategories(), getProducts({ includeInactive: true })]);
     setCategories(cats);
     setProducts(prods);
     setIsLoading(false);

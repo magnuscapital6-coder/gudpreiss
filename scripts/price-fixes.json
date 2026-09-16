@@ -1,0 +1,723 @@
+[
+  {
+    "sku": "REF-Apple-MacBook-Air-2020---13-3--szun",
+    "name": "Apple MacBook Air 2020 | 13.3\"",
+    "old": 129,
+    "neuf": 403.95,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-MacBook-Air-2022---13-6-",
+    "name": "Apple MacBook Air 2022 | 13.6\" | M2",
+    "old": 129,
+    "neuf": 979,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-MacBook-Air-2023---15---",
+    "name": "Apple MacBook Air 2023 | 15\" | M2",
+    "old": 129,
+    "neuf": 1210.95,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-MacBook-Air-2024---13-6-",
+    "name": "Apple MacBook Air 2024 | 13.6\" | M3",
+    "old": 129,
+    "neuf": 1150,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-MacBook-Pro-2019---16-",
+    "name": "Apple MacBook Pro 2019 | 16\"",
+    "old": 129,
+    "neuf": 499,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-MacBook-Pro-2021-M1---14",
+    "name": "Apple MacBook Pro 2021 M1 | 14.2\"",
+    "old": 129,
+    "neuf": 1039,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-MacBook-Pro-2024-M4---16",
+    "name": "Apple MacBook Pro 2024 M4 | 16\"",
+    "old": 129,
+    "neuf": 2299,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-Watch-SE-40-mm--2022-",
+    "name": "Apple Watch SE 40 mm (2022)",
+    "old": 170.99,
+    "neuf": 149,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-Watch-Series-10-Aluminiu-mfcx",
+    "name": "Apple Watch Series 10 Aluminium 42 mm (2024)",
+    "old": 170.99,
+    "neuf": 305,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-Watch-Series-10-Aluminiu",
+    "name": "Apple Watch Series 10 Aluminium 46 mm (2024)",
+    "old": 170.99,
+    "neuf": 295,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-Watch-Series-10-Titan-42",
+    "name": "Apple Watch Series 10 Titan 42 mm (2024)",
+    "old": 170.99,
+    "neuf": 388.03,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-Watch-Series-10-Titan-46",
+    "name": "Apple Watch Series 10 Titan 46 mm (2024)",
+    "old": 170.99,
+    "neuf": 343,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-Watch-Series-9-Aluminium",
+    "name": "Apple Watch Series 9 Aluminium 45 mm (2023)",
+    "old": 170.99,
+    "neuf": 212.09,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-Watch-Ultra-2--2024-",
+    "name": "Apple Watch Ultra 2 (2024)",
+    "old": 170.99,
+    "neuf": 449.9,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-HP-EliteBook-830-G8---i5-1145G",
+    "name": "HP EliteBook 830 G8 | i5-1145G7 | 13.3\"",
+    "old": 129,
+    "neuf": 387,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-HP-EliteBook-850-G8---i5-1145G",
+    "name": "HP EliteBook 850 G8 | i5-1145G7 | 15.6\"",
+    "old": 129,
+    "neuf": 400,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPad-11--2025----10-9-",
+    "name": "iPad 11 (2025) | 10.9\"",
+    "old": 183,
+    "neuf": 464.99,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPad-8--2020----10-2-",
+    "name": "iPad 8 (2020) | 10.2\"",
+    "old": 183,
+    "neuf": 119,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPad-9--2021----10-2-",
+    "name": "iPad 9 (2021) | 10.2\"",
+    "old": 183,
+    "neuf": 198.9,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPad-Air--2024----11-",
+    "name": "iPad Air (2024) | 11\"",
+    "old": 183,
+    "neuf": 544,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPad-Air--2024----13-",
+    "name": "iPad Air (2024) | 13\"",
+    "old": 183,
+    "neuf": 669,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPad-Air--2025----11-",
+    "name": "iPad Air (2025) | 11\"",
+    "old": 183,
+    "neuf": 585.19,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPad-Air--2025----13-",
+    "name": "iPad Air (2025) | 13\"",
+    "old": 183,
+    "neuf": 694.02,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPad-Pro--2024----13-",
+    "name": "iPad Pro (2024) | 13\"",
+    "old": 183,
+    "neuf": 965,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPad-Pro--2025----13-",
+    "name": "iPad Pro (2025) | 13\"",
+    "old": 183,
+    "neuf": 1087.7,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPhone-15",
+    "name": "iPhone 15",
+    "old": 117,
+    "neuf": 438.99,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPhone-15-Pro-Max",
+    "name": "iPhone 15 Pro Max",
+    "old": 117,
+    "neuf": 672,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPhone-16-Pro",
+    "name": "iPhone 16 Pro",
+    "old": 117,
+    "neuf": 722.89,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Lenovo-ThinkPad-T14-G2---i5-11",
+    "name": "Lenovo ThinkPad T14 G2 | i5-1145G7 | 14\"",
+    "old": 129,
+    "neuf": 400.49,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Lenovo-ThinkPad-T490---i5-8365",
+    "name": "Lenovo ThinkPad T490 | i5-8365U | 14\"",
+    "old": 129,
+    "neuf": 304.99,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Samsung-Galaxy-Watch-7--2024-",
+    "name": "Samsung Galaxy Watch 7 (2024)",
+    "old": 170.99,
+    "neuf": 137.14,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Samsung-Galaxy-Watch-Ultra--20",
+    "name": "Samsung Galaxy Watch Ultra (2024)",
+    "old": 170.99,
+    "neuf": 184.19,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPhone-17-Pro",
+    "name": "iPhone 17 Pro",
+    "old": 1115,
+    "neuf": 1019,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPhone-14",
+    "name": "iPhone 14",
+    "old": 420,
+    "neuf": 309.99,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPhone-13",
+    "name": "iPhone 13",
+    "old": 402,
+    "neuf": 262.4,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPhone-16",
+    "name": "iPhone 16",
+    "old": 685,
+    "neuf": 580,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPhone-SE--2022-",
+    "name": "iPhone SE (2022)",
+    "old": 202,
+    "neuf": 124.66,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-Apple-MacBook-Air-2020---13-3-",
+    "name": "Apple MacBook Air 2020 | 13.3\" | M1",
+    "old": 650,
+    "neuf": 634.99,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "REF-iPhone-15-Pro",
+    "name": "iPhone 15 Pro",
+    "old": 840,
+    "neuf": 574,
+    "source": "refurbed.de"
+  },
+  {
+    "sku": "AMSI-10300",
+    "name": "Canon i-SENSYS MF664Cdw",
+    "old": 1036.65,
+    "neuf": 428,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9845",
+    "name": "Cat S75",
+    "old": 579.31,
+    "neuf": 399.99,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10244",
+    "name": "Samsung Galaxy Z Fold8",
+    "old": 1829.39,
+    "neuf": 1369.9,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9783",
+    "name": "MacBook Pro M5 14 Pouces",
+    "old": 1829.39,
+    "neuf": 1499,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10082",
+    "name": "Canon i-SENSYS MF461dw",
+    "old": 548.82,
+    "neuf": 383.97,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10318",
+    "name": "Canon i-SENSYS MF237w",
+    "old": 548.82,
+    "neuf": 398.11,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9819",
+    "name": "HP EliteBook x360 1030 G3",
+    "old": 548.82,
+    "neuf": 469,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10106",
+    "name": "HP OmniBook X Flip",
+    "old": 1341.55,
+    "neuf": 792.99,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10040",
+    "name": "HP 27 pouces All-in-One 27",
+    "old": 1341.55,
+    "neuf": 469,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10098",
+    "name": "Google Pixel Buds A-Series",
+    "old": 198.18,
+    "neuf": 67.98,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10091",
+    "name": "Google Pixel Buds Pro",
+    "old": 213.43,
+    "neuf": 83.22,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10075",
+    "name": "Canon i-SENSYS MF657Cdw",
+    "old": 686.02,
+    "neuf": 499.95,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9685",
+    "name": "Synology NAS DS423",
+    "old": 686.02,
+    "neuf": 369,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9761",
+    "name": "POCO X8 Pro Max",
+    "old": 686.02,
+    "neuf": 392.26,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9946",
+    "name": "OnePlus 15R",
+    "old": 686.02,
+    "neuf": 584.9,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9884",
+    "name": "MOTOROLA Edge 60 Pro",
+    "old": 640.29,
+    "neuf": 397,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9587",
+    "name": "Lenovo ThinkPad T14 Gen 2 11th Gen Core i7",
+    "old": 564.06,
+    "neuf": 499,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10004",
+    "name": "REDMAGIC 10 Pro",
+    "old": 838.47,
+    "neuf": 1069,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9790",
+    "name": "Epson LQ-2190",
+    "old": 838.47,
+    "neuf": 1489.02,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9772",
+    "name": "POCO X8 Pro",
+    "old": 472.59,
+    "neuf": 317,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10332",
+    "name": "Canon MAXIFY GX3040",
+    "old": 472.59,
+    "neuf": 296.54,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9866",
+    "name": "Honor MagicPad 3",
+    "old": 731.76,
+    "neuf": 399,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9529",
+    "name": "HP ProBook 440 G10 i5",
+    "old": 731.76,
+    "neuf": 884.93,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9471",
+    "name": "Epson EB-X49",
+    "old": 731.76,
+    "neuf": 495,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-10309",
+    "name": "Canon i-SENSYS MF453dw",
+    "old": 731.76,
+    "neuf": 439,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9859",
+    "name": "Honor 400 5G",
+    "old": 426.86,
+    "neuf": 299,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9538",
+    "name": "HP EliteBook 840 G5 8th Gen Core i5",
+    "old": 426.86,
+    "neuf": 219,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10283",
+    "name": "Logitech Expansion Microphone",
+    "old": 426.86,
+    "neuf": 240,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9960",
+    "name": "Xiaomi 20W Power Strip 2C1A",
+    "old": 53.36,
+    "neuf": 22.5,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9610",
+    "name": "TP-Link Omada AX3000 Wi-Fi 6",
+    "old": 228.67,
+    "neuf": 130.02,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9507",
+    "name": "MacBook Air M3 15 pouces",
+    "old": 1448.27,
+    "neuf": 1277,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10170",
+    "name": "Lenovo LOQ 17IRX10",
+    "old": 1448.27,
+    "neuf": 1239,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9557",
+    "name": "HP EliteBook 840 G7 10th Gen Core i5",
+    "old": 449.72,
+    "neuf": 349,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9841",
+    "name": "Blackview BV8900",
+    "old": 320.14,
+    "neuf": 215.1,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-10275",
+    "name": "Logitech MeetUp",
+    "old": 945.18,
+    "neuf": 396.89,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10066",
+    "name": "Epson WorkForce DS-530II",
+    "old": 381.12,
+    "neuf": 355,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-10057",
+    "name": "OPPO Find X9 Ultra",
+    "old": 1753.16,
+    "neuf": 1489.9,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10033",
+    "name": "Canon SELPHY CP1500",
+    "old": 274.41,
+    "neuf": 118.69,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9988",
+    "name": "Xiaomi Router BE3600",
+    "old": 106.71,
+    "neuf": 56.99,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9972",
+    "name": "Oppo Reno 15 Pro Max",
+    "old": 701.27,
+    "neuf": 729,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9875",
+    "name": "HONOR Magic V5",
+    "old": 1250.08,
+    "neuf": 1015.69,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9852",
+    "name": "Google Pixel 10 Pro Fold",
+    "old": 1211.97,
+    "neuf": 1209,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9709",
+    "name": "Epson EcoTank L18050",
+    "old": 792.73,
+    "neuf": 658.96,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9665",
+    "name": "Synology DiskStation DS925+",
+    "old": 1006.16,
+    "neuf": 764.9,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9599",
+    "name": "Ubiquiti PBE-5AC-GEN2",
+    "old": 335.39,
+    "neuf": 116.67,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9570",
+    "name": "HP EliteBook 840 G8 11th Gen Core i5",
+    "old": 480.21,
+    "neuf": 369,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9566",
+    "name": "HP EliteBook 840 G7 10th Gen Core i7",
+    "old": 457.35,
+    "neuf": 399,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9516",
+    "name": "MacBook Air M2 13 pouces",
+    "old": 1097.63,
+    "neuf": 1129.15,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9746",
+    "name": "Garmin GPSMAP 79s",
+    "old": 510.7,
+    "neuf": 301.99,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9716",
+    "name": "Epson EcoTank L15150",
+    "old": 1143.37,
+    "neuf": 1090.99,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-10150",
+    "name": "iMac M1 24 pouces 8 Go RAM 512 Go SSD",
+    "old": 1516.87,
+    "neuf": 899,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-10125",
+    "name": "Motorola T92 H2O",
+    "old": 259.16,
+    "neuf": 84.5,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-10326",
+    "name": "Canon MAXIFY GX1040",
+    "old": 350.63,
+    "neuf": 331.17,
+    "source": "billiger.de",
+    "confidence": "moyenne"
+  },
+  {
+    "sku": "AMSI-9953",
+    "name": "Oppo FIND N6",
+    "old": 1875.12,
+    "neuf": 1808,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9915",
+    "name": "HUAWEI Mate X6",
+    "old": 1189.1,
+    "neuf": 1124.81,
+    "source": "billiger.de",
+    "confidence": "haute"
+  },
+  {
+    "sku": "AMSI-9937",
+    "name": "OnePlus 15",
+    "old": 853.71,
+    "neuf": 767.89,
+    "source": "billiger.de",
+    "confidence": "haute"
+  }
+]
