@@ -321,14 +321,12 @@ export async function getProducts(filters?: {
   minPrice?: number;
   maxPrice?: number;
   sort?: string;
-  /** Admin views need inactive products too; the storefront never shows them. */
+  /** Admin views need draft/archived products too; the storefront never shows them. */
   includeInactive?: boolean;
 }): Promise<Product[]> {
   // Memory Fallback (0ms instant response with 100% German translated products)
   await ensureSeeded();
-  let result = filters?.includeInactive
-    ? [...memoryProducts]
-    : memoryProducts.filter((p) => (p.status ?? 'active') === 'active');
+  let result = filters?.includeInactive ? [...memoryProducts] : memoryProducts.filter(isListedProduct);
   if (!filters) return result;
 
   if (filters.categorySlug) {
@@ -413,12 +411,17 @@ export async function getProducts(filters?: {
   return result;
 }
 
+// Out-of-stock products stay listed (with their badge); drafts and archived ones don't.
+function isListedProduct(p: Product): boolean {
+  return p.status !== 'draft' && p.status !== 'archived';
+}
+
 export async function getProductBySlug(
   slug: string,
   options?: { includeInactive?: boolean }
 ): Promise<Product | null> {
   const product = memoryProducts.find((p) => p.slug === slug || p.id === slug) || null;
-  if (product && !options?.includeInactive && (product.status ?? 'active') !== 'active') return null;
+  if (product && !options?.includeInactive && !isListedProduct(product)) return null;
   return product;
 }
 

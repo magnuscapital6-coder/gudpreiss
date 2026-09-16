@@ -86,11 +86,11 @@ const CATEGORY_PAGE_RE = /– günstiger als neu, besser als gebraucht/;
     updated += 1;
   }
 
-  const landingPages = products.filter((p) => CATEGORY_PAGE_RE.test(p.name) && p.status !== 'inactive');
+  const landingPages = products.filter((p) => CATEGORY_PAGE_RE.test(p.name) && p.status !== 'archived');
   for (const page of landingPages) {
     console.log(`desactivation: ${page.name.slice(0, 60)}`);
     if (APPLY) {
-      const { error: updErr } = await patchProduct(page.id, { status: 'inactive', updated_at: new Date().toISOString() });
+      const { error: updErr } = await patchProduct(page.id, { status: 'archived', updated_at: new Date().toISOString() });
       if (updErr) console.error(`  echec: ${updErr.message}`);
     }
   }
