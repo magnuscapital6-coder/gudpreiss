@@ -30,7 +30,7 @@ export default function EditProductPage() {
   useEffect(() => {
     async function loadProduct() {
       if (!productId) return;
-      const product = await getProductBySlug(productId);
+      const product = await getProductBySlug(productId, { includeInactive: true });
       if (product) {
         setName(product.name);
         setSlug(product.slug || '');

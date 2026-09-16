@@ -37,7 +37,7 @@ export default function AdminMediaPage() {
   const loadMedia = async () => {
     setIsLoading(true);
     try {
-      const products = await getProducts();
+      const products = await getProducts({ includeInactive: true });
       const items: MediaItem[] = [];
 
       products.forEach((p) => {

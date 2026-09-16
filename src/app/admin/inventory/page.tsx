@@ -14,7 +14,7 @@ export default function AdminInventoryPage() {
   useEffect(() => {
     async function load() {
       setIsLoading(true);
-      const prods = await getProducts();
+      const prods = await getProducts({ includeInactive: true });
       setProducts(prods);
       setIsLoading(false);
     }

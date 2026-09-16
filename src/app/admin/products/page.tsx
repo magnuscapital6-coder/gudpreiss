@@ -20,7 +20,7 @@ export default function AdminProductsPage() {
 
   const fetchProducts = async () => {
     setIsLoading(true);
-    const data = await getProducts();
+    const data = await getProducts({ includeInactive: true });
     setProducts(data);
     setIsLoading(false);
   };
