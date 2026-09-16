@@ -1,0 +1,1759 @@
+[
+  {
+    "id": "prod-import-1787572439171-0239",
+    "sku": "REF-Apple-Watch-SE-40-mm--2022-",
+    "name": "Apple Watch SE 40 mm (2022)",
+    "price": 149,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0150",
+    "sku": "ONVCV51",
+    "name": "Laufband Reebok Jet Series 200 + Bluetooth",
+    "price": 1350,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0213",
+    "sku": "REF-iPhone-17-Pro",
+    "name": "iPhone 17 Pro",
+    "price": 1115,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0100",
+    "sku": "6EN7Q5V",
+    "name": "Laufband BH Milan",
+    "price": 899,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0107",
+    "sku": "764KXNC",
+    "name": "Laufband RX9 G6174",
+    "price": 2290,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0004",
+    "sku": "AMSI-10300",
+    "name": "Canon i-SENSYS MF664Cdw",
+    "price": 1036.65,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0225",
+    "sku": "REF-Refurbished-iPads---g-nstiger-",
+    "name": "Refurbished iPads – günstiger als neu, besser als gebraucht, min. 12 Monate Garantie",
+    "price": 183,
+    "status": "inactive"
+  },
+  {
+    "id": "prod-import-1787572439171-0006",
+    "sku": "AMSI-10290",
+    "name": "Canon imageRUNNER ADVANCE DX C3930i",
+    "price": 5335.72,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0178",
+    "sku": "VZSV35D",
+    "name": "Fahrrad d’appartement Pliable ION Fitness XTri",
+    "price": 349,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0008",
+    "sku": "AMSI-10275",
+    "name": "Logitech MeetUp",
+    "price": 945.18,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0010",
+    "sku": "AMSI-10257",
+    "name": "Canon MAXIFY GX7040",
+    "price": 579.31,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0011",
+    "sku": "AMSI-10244",
+    "name": "Samsung Galaxy Z Fold8",
+    "price": 1829.39,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0014",
+    "sku": "AMSI-10206",
+    "name": "HUAWEI Pura 90s Pro Max",
+    "price": 990.92,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0015",
+    "sku": "AMSI-10200",
+    "name": "HP LaserJet Pro 4103fdw",
+    "price": 548.82,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0017",
+    "sku": "AMSI-10181",
+    "name": "Toner HP 212A",
+    "price": 243.92,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0025",
+    "sku": "AMSI-10112",
+    "name": "HP Victus Gaming Laptop 15-fa2024nia",
+    "price": 1265.33,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0177",
+    "sku": "E1EQ138",
+    "name": "Fahrrad d’appartement Life Fitness C1 Track+",
+    "price": 1670,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0026",
+    "sku": "AMSI-10106",
+    "name": "HP OmniBook X Flip",
+    "price": 1341.55,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0027",
+    "sku": "AMSI-10098",
+    "name": "Google Pixel Buds A-Series",
+    "price": 198.18,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0028",
+    "sku": "AMSI-10091",
+    "name": "Google Pixel Buds Pro",
+    "price": 213.43,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0029",
+    "sku": "AMSI-10082",
+    "name": "Canon i-SENSYS MF461dw",
+    "price": 548.82,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0030",
+    "sku": "AMSI-10075",
+    "name": "Canon i-SENSYS MF657Cdw",
+    "price": 686.02,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0031",
+    "sku": "AMSI-10066",
+    "name": "Epson WorkForce DS-530II",
+    "price": 381.12,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0032",
+    "sku": "AMSI-10057",
+    "name": "OPPO Find X9 Ultra",
+    "price": 1753.16,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0033",
+    "sku": "AMSI-10050",
+    "name": "HP Color LaserJet Pro MFP 4303fdn",
+    "price": 640.29,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0131",
+    "sku": "3ICYBS7",
+    "name": "Laufband NordicTrack Commercial 1750",
+    "price": 2799,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0034",
+    "sku": "AMSI-10040",
+    "name": "HP 27 pouces All-in-One 27",
+    "price": 1341.55,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0035",
+    "sku": "AMSI-10033",
+    "name": "Canon SELPHY CP1500",
+    "price": 274.41,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0036",
+    "sku": "AMSI-10020",
+    "name": "REDMAGIC 11S Pro",
+    "price": 1036.65,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0037",
+    "sku": "AMSI-10013",
+    "name": "TP-Link Archer AX11000",
+    "price": 564.06,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0038",
+    "sku": "AMSI-10004",
+    "name": "REDMAGIC 10 Pro",
+    "price": 838.47,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0039",
+    "sku": "AMSI-9995",
+    "name": "OPPO Reno8 T",
+    "price": 365.88,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0040",
+    "sku": "AMSI-9988",
+    "name": "Xiaomi Router BE3600",
+    "price": 106.71,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0041",
+    "sku": "AMSI-9972",
+    "name": "Oppo Reno 15 Pro Max",
+    "price": 701.27,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0062",
+    "sku": "AMSI-9772",
+    "name": "POCO X8 Pro",
+    "price": 472.59,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0153",
+    "sku": "XAI8653",
+    "name": "Laufband Reebok Jet 100 Z",
+    "price": 999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0155",
+    "sku": "A127C2F",
+    "name": "Laufband Reebok FR20z Floatride",
+    "price": 699,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0156",
+    "sku": "9WRTKV9",
+    "name": "Fahrrad d’Appartement Adidas One C-21",
+    "price": 699,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0157",
+    "sku": "4VF4CVJ",
+    "name": "Fahrrad d’Appartement Adidas One C-24c",
+    "price": 500,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0158",
+    "sku": "SZ73Z22",
+    "name": "Fahrrad d’appartement BH Berlin SC100",
+    "price": 399,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0050",
+    "sku": "AMSI-9897",
+    "name": "HUAWEI Pura 80",
+    "price": 556.44,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0051",
+    "sku": "AMSI-9884",
+    "name": "MOTOROLA Edge 60 Pro",
+    "price": 640.29,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0052",
+    "sku": "AMSI-9875",
+    "name": "HONOR Magic V5",
+    "price": 1250.08,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0053",
+    "sku": "AMSI-9866",
+    "name": "Honor MagicPad 3",
+    "price": 731.76,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0054",
+    "sku": "AMSI-9859",
+    "name": "Honor 400 5G",
+    "price": 426.86,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0055",
+    "sku": "AMSI-9852",
+    "name": "Google Pixel 10 Pro Fold",
+    "price": 1211.97,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0061",
+    "sku": "AMSI-9783",
+    "name": "MacBook Pro M5 14 Pouces",
+    "price": 1829.39,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0066",
+    "sku": "AMSI-9736",
+    "name": "HP OmniStudio X AIO 27",
+    "price": 990.92,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0067",
+    "sku": "AMSI-9728",
+    "name": "Premax PM-CC35D",
+    "price": 198.18,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0231",
+    "sku": "REF-iPad-Air--2025----11-",
+    "name": "iPad Air (2025) | 11\"",
+    "price": 585.19,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0070",
+    "sku": "AMSI-9709",
+    "name": "Epson EcoTank L18050",
+    "price": 792.73,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0072",
+    "sku": "AMSI-9685",
+    "name": "Synology NAS DS423",
+    "price": 686.02,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0073",
+    "sku": "AMSI-9672",
+    "name": "Synology DiskStation DS423+",
+    "price": 716.51,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0074",
+    "sku": "AMSI-9665",
+    "name": "Synology DiskStation DS925+",
+    "price": 1006.16,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0075",
+    "sku": "AMSI-9658",
+    "name": "Synology DiskStation DS223j Serveur NAS",
+    "price": 426.86,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0076",
+    "sku": "AMSI-9647",
+    "name": "Tonerpatrone d’Encre HP 938",
+    "price": 53.36,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0077",
+    "sku": "AMSI-9637",
+    "name": "Tonerpatrone d’Encre HP 912",
+    "price": 27.44,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0078",
+    "sku": "AMSI-9630",
+    "name": "HP ProBook 460 G11 U7",
+    "price": 1036.65,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0079",
+    "sku": "AMSI-9622",
+    "name": "HP OmniBook 5 AI 16-af1017wm",
+    "price": 990.92,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0080",
+    "sku": "AMSI-9618",
+    "name": "TP-Link EAP610 Omada AX1800",
+    "price": 182.94,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0081",
+    "sku": "AMSI-9614",
+    "name": "TP-Link EAP650 Omada AX3000 Wi-Fi 6",
+    "price": 213.43,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0082",
+    "sku": "AMSI-9610",
+    "name": "TP-Link Omada AX3000 Wi-Fi 6",
+    "price": 228.67,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0083",
+    "sku": "AMSI-9605",
+    "name": "TP-Link Omada AX1800 Wi-Fi 6",
+    "price": 198.18,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0084",
+    "sku": "AMSI-9599",
+    "name": "Ubiquiti PBE-5AC-GEN2",
+    "price": 335.39,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0232",
+    "sku": "REF-iPad-Pro--2025----13-",
+    "name": "iPad Pro (2025) | 13\"",
+    "price": 1087.7,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0099",
+    "sku": "AMSI-9463",
+    "name": "Epson EB-2250U : Beamer",
+    "price": 1448.27,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0138",
+    "sku": "5G367Q1",
+    "name": "Laufband Proform Carbon Pro 2000",
+    "price": 1999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0012",
+    "sku": "AMSI-10232",
+    "name": "Samsung Galaxy Z Fold 8 Ultra",
+    "price": 1951.35,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0013",
+    "sku": "AMSI-10220",
+    "name": "Tonerpatrone de Toner noir authentique HP 37A",
+    "price": 129.58,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0016",
+    "sku": "AMSI-10195",
+    "name": "Starlink SpaceX UTA-232",
+    "price": 884.2,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0233",
+    "sku": "REF-iPad-Air--2025----13-",
+    "name": "iPad Air (2025) | 13\"",
+    "price": 694.02,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0087",
+    "sku": "AMSI-9570",
+    "name": "HP EliteBook 840 G8 11th Gen Core i5",
+    "price": 480.21,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0088",
+    "sku": "AMSI-9566",
+    "name": "HP EliteBook 840 G7 10th Gen Core i7",
+    "price": 457.35,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0166",
+    "sku": "FS19XS1",
+    "name": "Fahrrad d’appartement BH Rhone",
+    "price": 549,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0089",
+    "sku": "AMSI-9557",
+    "name": "HP EliteBook 840 G7 10th Gen Core i5",
+    "price": 449.72,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0090",
+    "sku": "AMSI-9550",
+    "name": "HP EliteBook 640 G7 10th Gen Core i5",
+    "price": 449.72,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0091",
+    "sku": "AMSI-9538",
+    "name": "HP EliteBook 840 G5 8th Gen Core i5",
+    "price": 426.86,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0092",
+    "sku": "AMSI-9529",
+    "name": "HP ProBook 440 G10 i5",
+    "price": 731.76,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0093",
+    "sku": "AMSI-9522",
+    "name": "MacBook Air M4 13,6 pouces",
+    "price": 1295.82,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0094",
+    "sku": "AMSI-9516",
+    "name": "MacBook Air M2 13 pouces",
+    "price": 1097.63,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0095",
+    "sku": "AMSI-9507",
+    "name": "MacBook Air M3 15 pouces",
+    "price": 1448.27,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0096",
+    "sku": "AMSI-9498",
+    "name": "MacBook Pro M4 Max",
+    "price": 3353.88,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0098",
+    "sku": "AMSI-9471",
+    "name": "Epson EB-X49",
+    "price": 731.76,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0005",
+    "sku": "AMSI-10293",
+    "name": "Canon i-SENSYS LBP633Cdw",
+    "price": 640.29,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0007",
+    "sku": "AMSI-10283",
+    "name": "Logitech Expansion Microphone",
+    "price": 426.86,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0234",
+    "sku": "REF-iPad-8--2020----10-2-",
+    "name": "iPad 8 (2020) | 10.2\"",
+    "price": 119,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0042",
+    "sku": "AMSI-9960",
+    "name": "Xiaomi 20W Power Strip 2C1A",
+    "price": 53.36,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0104",
+    "sku": "ZLTVC4D",
+    "name": "Laufband BH Pioneer S1",
+    "price": 499,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0110",
+    "sku": "U5U87PQ",
+    "name": "Laufband BH Pioneer R1",
+    "price": 599,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0111",
+    "sku": "8W2AHH9",
+    "name": "Laufband Pioneer Senior + mains courantes",
+    "price": 699,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0254",
+    "sku": "REF-HP-EliteBook-830-G8---i5-1145G",
+    "name": "HP EliteBook 830 G8 | i5-1145G7 | 13.3\"",
+    "price": 387,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0056",
+    "sku": "AMSI-9845",
+    "name": "Cat S75",
+    "price": 579.31,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0063",
+    "sku": "AMSI-9761",
+    "name": "POCO X8 Pro Max",
+    "price": 686.02,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0064",
+    "sku": "AMSI-9754",
+    "name": "HP OMEN Transcend 14 FB0013DX",
+    "price": 1341.55,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0065",
+    "sku": "AMSI-9746",
+    "name": "Garmin GPSMAP 79s",
+    "price": 510.7,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0154",
+    "sku": "LZQXTEP",
+    "name": "Laufband Reebok Jet Series 300 + Bluetooth",
+    "price": 1650,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0068",
+    "sku": "AMSI-9725",
+    "name": "Machine à Compter PREMAX CC90D",
+    "price": 198.18,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0069",
+    "sku": "AMSI-9716",
+    "name": "Epson EcoTank L15150",
+    "price": 1143.37,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0018",
+    "sku": "AMSI-10170",
+    "name": "Lenovo LOQ 17IRX10",
+    "price": 1448.27,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0019",
+    "sku": "AMSI-10162",
+    "name": "Epson TM-T20III-011",
+    "price": 228.67,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0020",
+    "sku": "AMSI-10156",
+    "name": "PlayStation 5 Pro",
+    "price": 1036.65,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0021",
+    "sku": "AMSI-10150",
+    "name": "iMac M1 24 pouces 8 Go RAM 512 Go SSD",
+    "price": 1516.87,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0071",
+    "sku": "AMSI-9693",
+    "name": "HP Victus 15-fa2309TX Core i7",
+    "price": 1417.78,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0022",
+    "sku": "AMSI-10141",
+    "name": "HDMI Wireless Extender 150m",
+    "price": 99.09,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0009",
+    "sku": "AMSI-10264",
+    "name": "HP 645A Toner LaserJet Authentique",
+    "price": 205.81,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0097",
+    "sku": "AMSI-9489",
+    "name": "Epson CO-W01 : Beamer",
+    "price": 434.48,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0112",
+    "sku": "C1E8MMY",
+    "name": "Laufband i.RC12 Noir",
+    "price": 2999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0115",
+    "sku": "TGVJ17C",
+    "name": "Laufband Adidas T-19i + Bluetooth",
+    "price": 1699,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0235",
+    "sku": "REF-Refurbished-Smartwatches---g-n",
+    "name": "Refurbished Smartwatches – günstiger als neu, besser als gebraucht, min. 12 Monate Garantie",
+    "price": 170.99,
+    "status": "inactive"
+  },
+  {
+    "id": "prod-import-1787572439171-0023",
+    "sku": "AMSI-10134",
+    "name": "Redmi A27U",
+    "price": 312.52,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0194",
+    "sku": "X91Y989",
+    "name": "Fahrrad Indoor Cycling BH Stratos H9178B",
+    "price": 899,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0116",
+    "sku": "6YO6O54",
+    "name": "Laufband Adidas T-23 + Bluetooth",
+    "price": 1699,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0214",
+    "sku": "REF-iPhone-15-Pro-Max",
+    "name": "iPhone 15 Pro Max",
+    "price": 672,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0209",
+    "sku": "REF-iPhone-16-Pro",
+    "name": "iPhone 16 Pro",
+    "price": 722.89,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0215",
+    "sku": "REF-Refurbished-Apple-Macbooks---g",
+    "name": "Refurbished Apple Macbooks – günstiger als neu, besser als gebraucht, min. 12 Monate Garantie",
+    "price": 650,
+    "status": "inactive"
+  },
+  {
+    "id": "prod-import-1787572439171-0208",
+    "sku": "REF-iPhone-14",
+    "name": "iPhone 14",
+    "price": 420,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0210",
+    "sku": "REF-iPhone-13",
+    "name": "iPhone 13",
+    "price": 402,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0211",
+    "sku": "REF-iPhone-16",
+    "name": "iPhone 16",
+    "price": 685,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0212",
+    "sku": "REF-iPhone-SE--2022-",
+    "name": "iPhone SE (2022)",
+    "price": 202,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0216",
+    "sku": "REF-Apple-MacBook-Air-2020---13-3-",
+    "name": "Apple MacBook Air 2020 | 13.3\" | M1",
+    "price": 650,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0220",
+    "sku": "REF-Apple-MacBook-Air-2020---13-3--szun",
+    "name": "Apple MacBook Air 2020 | 13.3\"",
+    "price": 403.95,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0217",
+    "sku": "REF-Apple-MacBook-Air-2022---13-6-",
+    "name": "Apple MacBook Air 2022 | 13.6\" | M2",
+    "price": 979,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0218",
+    "sku": "REF-Apple-MacBook-Air-2024---15-3-",
+    "name": "Apple MacBook Air 2024 | 15.3\" | M3",
+    "price": 655,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0024",
+    "sku": "AMSI-10125",
+    "name": "Motorola T92 H2O",
+    "price": 259.16,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0222",
+    "sku": "REF-Apple-MacBook-Air-2023---15---",
+    "name": "Apple MacBook Air 2023 | 15\" | M2",
+    "price": 1210.95,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0221",
+    "sku": "REF-Apple-MacBook-Air-2024---13-6-",
+    "name": "Apple MacBook Air 2024 | 13.6\" | M3",
+    "price": 1150,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0224",
+    "sku": "REF-Apple-MacBook-Pro-2019---16-",
+    "name": "Apple MacBook Pro 2019 | 16\"",
+    "price": 499,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0219",
+    "sku": "REF-Apple-MacBook-Pro-2021-M1---14",
+    "name": "Apple MacBook Pro 2021 M1 | 14.2\"",
+    "price": 1039,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0223",
+    "sku": "REF-Apple-MacBook-Pro-2024-M4---16",
+    "name": "Apple MacBook Pro 2024 M4 | 16\"",
+    "price": 2299,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0226",
+    "sku": "REF-iPad-11--2025----10-9-",
+    "name": "iPad 11 (2025) | 10.9\"",
+    "price": 464.99,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0000",
+    "sku": "AMSI-10332",
+    "name": "Canon MAXIFY GX3040",
+    "price": 472.59,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0001",
+    "sku": "AMSI-10326",
+    "name": "Canon MAXIFY GX1040",
+    "price": 350.63,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0002",
+    "sku": "AMSI-10318",
+    "name": "Canon i-SENSYS MF237w",
+    "price": 548.82,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0003",
+    "sku": "AMSI-10309",
+    "name": "Canon i-SENSYS MF453dw",
+    "price": 731.76,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0117",
+    "sku": "IR27DNN",
+    "name": "Laufband Pliable Life Fitness F3 Go",
+    "price": 2899,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0118",
+    "sku": "16CIG9W",
+    "name": "Laufband Finnlo Performance 10.1″ TFT",
+    "price": 3499,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0119",
+    "sku": "TEBP6VT",
+    "name": "Bodytone Active RUN 500 Smart Gris",
+    "price": 599,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0120",
+    "sku": "D8JIOUH",
+    "name": "Bodytone semi-professionell Curve ZROT4",
+    "price": 999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0121",
+    "sku": "328JYT4",
+    "name": "Laufband Bodytone Active RUN 400 Gris",
+    "price": 499,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0125",
+    "sku": "7TH6NHR",
+    "name": "Laufband Life Fitness F3 Track+",
+    "price": 3800,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0127",
+    "sku": "A1937RR",
+    "name": "Laufband Proform Trainer 9.0",
+    "price": 1299,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0128",
+    "sku": "D11FIZR",
+    "name": "Laufband NordicTrack T Series 7",
+    "price": 899,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0129",
+    "sku": "J5L42FC",
+    "name": "Laufband NordicTrack T Series 5",
+    "price": 599,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0130",
+    "sku": "QVOPTT4",
+    "name": "Tapis Course NordicTrack T Series 10",
+    "price": 1799,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0134",
+    "sku": "4LMZMGJ",
+    "name": "Laufband NordicTrack Commercial LE",
+    "price": 1699,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0137",
+    "sku": "JD798DD",
+    "name": "Laufband Proform Carbon TLS",
+    "price": 1299,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0043",
+    "sku": "AMSI-9953",
+    "name": "Oppo FIND N6",
+    "price": 1875.12,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0044",
+    "sku": "AMSI-9946",
+    "name": "OnePlus 15R",
+    "price": 686.02,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0046",
+    "sku": "AMSI-9930",
+    "name": "Huawei Nova 14i",
+    "price": 297.28,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0047",
+    "sku": "AMSI-9923",
+    "name": "Huawei Nova 14 Pro 5G",
+    "price": 533.57,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0048",
+    "sku": "AMSI-9915",
+    "name": "HUAWEI Mate X6",
+    "price": 1189.1,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0049",
+    "sku": "AMSI-9906",
+    "name": "HUAWEI Mate X3",
+    "price": 1036.65,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0133",
+    "sku": "38PUKGK",
+    "name": "Laufband NordicTrack T Series 8",
+    "price": 1199,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0101",
+    "sku": "3517H57",
+    "name": "Laufband Adidas T-24c + Bluetooth",
+    "price": 999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0045",
+    "sku": "AMSI-9937",
+    "name": "OnePlus 15",
+    "price": 853.71,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0057",
+    "sku": "AMSI-9841",
+    "name": "Blackview BV8900",
+    "price": 320.14,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0058",
+    "sku": "AMSI-9834",
+    "name": "Xiaomi Black Shark Pad 6",
+    "price": 320.14,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0086",
+    "sku": "AMSI-9579",
+    "name": "HP EliteBook 840 G8 11th Gen Core i7",
+    "price": 487.84,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0159",
+    "sku": "98293KC",
+    "name": "Veló d’appartement BH Carbon Bike RS",
+    "price": 649,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0160",
+    "sku": "Y749E1H",
+    "name": "Fahrrad d’appartement BH i.TFB Noir",
+    "price": 999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0059",
+    "sku": "AMSI-9819",
+    "name": "HP EliteBook x360 1030 G3",
+    "price": 548.82,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0060",
+    "sku": "AMSI-9790",
+    "name": "Epson LQ-2190",
+    "price": 838.47,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0085",
+    "sku": "AMSI-9587",
+    "name": "Lenovo ThinkPad T14 Gen 2 11th Gen Core i7",
+    "price": 564.06,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0105",
+    "sku": "BDGFI4Z",
+    "name": "Laufband BH Runmill G669",
+    "price": 6250,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0106",
+    "sku": "X49K8FC",
+    "name": "Laufband BH Inertia G588 LED",
+    "price": 4999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0108",
+    "sku": "PP6R78Z",
+    "name": "Laufband BH Pioneer S3",
+    "price": 749,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0109",
+    "sku": "NP39Z4S",
+    "name": "Laufband BH i.Magna RC G6509I",
+    "price": 3490,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0161",
+    "sku": "5OAVRSG",
+    "name": "Fahrrad d’appartement BH Vanquish",
+    "price": 999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0162",
+    "sku": "LX756ZK",
+    "name": "Fahrrad d’appartement BH Vanquish Multimedia",
+    "price": 1399,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0113",
+    "sku": "RAV721F",
+    "name": "Laufband Bodytone Active RUN 600 Smart Screen Gris",
+    "price": 1299,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0163",
+    "sku": "VC1F6JF",
+    "name": "Fahrrad d’appartement BH Berlin Connect",
+    "price": 499,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0164",
+    "sku": "N3E3U4K",
+    "name": "Fahrrad d’appartement BH Boston",
+    "price": 949,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0165",
+    "sku": "T1L992Y",
+    "name": "Fahrrad d’appartement BH Inertia H720 LED",
+    "price": 2749,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0167",
+    "sku": "1WA2N62",
+    "name": "Fahrrad d’appartement BH SK8000",
+    "price": 3554,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0171",
+    "sku": "8D5DF7D",
+    "name": "Fahrrad d’appartement BH Artic",
+    "price": 349,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0122",
+    "sku": "E17ANC9",
+    "name": "Laufband Bodytone EVOT4",
+    "price": 2099,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0123",
+    "sku": "G13PRBC",
+    "name": "Laufband NordicTrack Commercial 2450",
+    "price": 3245,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0126",
+    "sku": "F95SQ95",
+    "name": "Laufband Life Fitness T3 Track+",
+    "price": 3899,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0172",
+    "sku": "UAUJ2UN",
+    "name": "Fahrrad d’appartement BH Artic Dual",
+    "price": 399,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0173",
+    "sku": "8TJQ7D6",
+    "name": "Fahrrad d’appartement BH Nexor Multimedia H1065TFTM",
+    "price": 599,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0174",
+    "sku": "KDV1S5S",
+    "name": "Fahrrad d’appartement BH Carbon Bike RS Manual",
+    "price": 599,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0175",
+    "sku": "ZTYN8EL",
+    "name": "Fahrrad d’appartement BH Inertia H720 12″",
+    "price": 4899,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0176",
+    "sku": "K4Q8LQG",
+    "name": "Fahrrad d’appartement Pliable ION Fitness Axel",
+    "price": 229,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0124",
+    "sku": "44R33U1",
+    "name": "Laufband Life Fitness T3 Go",
+    "price": 2399,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0132",
+    "sku": "1Q4P4UA",
+    "name": "Laufband NordicTrack Commercial 1250",
+    "price": 2099,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0180",
+    "sku": "W4JXCAV",
+    "name": "Fahrrad d’appartement Proform 225 CSX 2024",
+    "price": 499,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0183",
+    "sku": "O556E27",
+    "name": "Fahrrad d’appartement Tecnovita X Tri 2 YF910",
+    "price": 349,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0102",
+    "sku": "TJCOMSV",
+    "name": "Laufband BH RCM Pro TFT",
+    "price": 3090,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0206",
+    "sku": "REF-iPhone-15",
+    "name": "iPhone 15",
+    "price": 438.99,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0103",
+    "sku": "6Q3Q8C6",
+    "name": "Laufband BH RS300",
+    "price": 999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0114",
+    "sku": "TTF62XD",
+    "name": "Laufband Adidas T-19 + Bluetooth",
+    "price": 1699,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0184",
+    "sku": "W1HVFD3",
+    "name": "Fahrrad d’appartement Reebok FR30",
+    "price": 799,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0140",
+    "sku": "GW9MK64",
+    "name": "Laufband Proform Trainer 12.0",
+    "price": 1999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0141",
+    "sku": "HEARE19",
+    "name": "Laufband Proform 105 CST",
+    "price": 499,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0187",
+    "sku": "C7H91H8",
+    "name": "Fahrrad Indoor BH Vanquish Cycling",
+    "price": 999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0188",
+    "sku": "HJY5NP6",
+    "name": "Fahrrad Indoor Cycling BH REX",
+    "price": 1399,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0189",
+    "sku": "L7B48RC",
+    "name": "Fahrrad Indoor Cycling BH H925 Duke Magnetic",
+    "price": 2490,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0190",
+    "sku": "5LQ5G5S",
+    "name": "Fahrrad Indoor Cycling BH Airmag",
+    "price": 1099,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0135",
+    "sku": "691M414",
+    "name": "Laufband NordicTrack X24 Incline Trainer",
+    "price": 4099,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0136",
+    "sku": "OWME4FO",
+    "name": "Laufband NordicTrack X16 Incline Trainer",
+    "price": 3499,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0144",
+    "sku": "C14WAX3",
+    "name": "Laufband Proform Carbon TLX",
+    "price": 1599,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0139",
+    "sku": "UAFEBEJ",
+    "name": "Laufband Proform Sport",
+    "price": 599,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0142",
+    "sku": "M4OL9VB",
+    "name": "Laufband Proform Carbon TL",
+    "price": 899,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0151",
+    "sku": "11C5R4L",
+    "name": "Laufband Reebok Z-tech DC",
+    "price": 2090,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0192",
+    "sku": "JOGA36S",
+    "name": "Fahrrad Indoor Cycling BH Duke H920",
+    "price": 1850,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0143",
+    "sku": "JQ9D4AQ",
+    "name": "Laufband Proform Carbon Pro 9000",
+    "price": 2499,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0145",
+    "sku": "YYEJP7U",
+    "name": "Laufband Reebok SL8.0",
+    "price": 1899,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0193",
+    "sku": "HD33SWD",
+    "name": "Fahrrad Indoor Cycling BH Duke H920E Moniteur",
+    "price": 1950,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0168",
+    "sku": "2G7W1ZX",
+    "name": "Fahrrad d’appartement BH TFB Multimedia",
+    "price": 1399,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0169",
+    "sku": "IOT263B",
+    "name": "Veló d’appartement BH Carbon Bike RS Multimedia",
+    "price": 899,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0170",
+    "sku": "HGKBIS2",
+    "name": "Fahrrad d’appartement BH Ergo EMS",
+    "price": 799,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0195",
+    "sku": "HO4W13O",
+    "name": "Fahrrad Indoor Cycling BH Khronos Basic II",
+    "price": 399,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0146",
+    "sku": "L9VF6DG",
+    "name": "Laufband Titanium Strength Commercial Curved",
+    "price": 5395,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0147",
+    "sku": "2QT3515",
+    "name": "Laufband Tecnovita EVO T900",
+    "price": 799,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0152",
+    "sku": "MBNGI63",
+    "name": "Laufband Reebok FR30z Floatride",
+    "price": 899,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0198",
+    "sku": "282CNN4",
+    "name": "Fahrrad Indoor Cycling BH Tokyo",
+    "price": 649,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0207",
+    "sku": "REF-iPhone-15-Pro",
+    "name": "iPhone 15 Pro",
+    "price": 840,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0179",
+    "sku": "9951S3H",
+    "name": "Fahrrad d’Appartement Reebok Serie One GB40S",
+    "price": 400,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0181",
+    "sku": "985711A",
+    "name": "Fahrrad d’appartement Nordictrack GX LE",
+    "price": 599,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0182",
+    "sku": "ZO9PCM7",
+    "name": "Fahrrad d’appartement Proform 225 CSX",
+    "price": 549,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0185",
+    "sku": "1UW5YM6",
+    "name": "Fahrrad d’appartement Reebok SL8.0 Bike",
+    "price": 599,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0186",
+    "sku": "6OSUW2L",
+    "name": "Fahrrad Indoor Cycling Adidas One C-21x (Bluetooth)",
+    "price": 999,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0191",
+    "sku": "T5P33IJ",
+    "name": "Fahrrad Indoor Cycling BH SB2.6",
+    "price": 599,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0196",
+    "sku": "URIPZW9",
+    "name": "Fahrrad Indoor Cycling BH Khronos",
+    "price": 599,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0197",
+    "sku": "284786L",
+    "name": "Fahrrad Indoor Cycling BH Vienna",
+    "price": 749,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0199",
+    "sku": "78WNUNM",
+    "name": "Fahrrad Indoor Cycling BH SuperDuke Magnetic FTMS",
+    "price": 3225,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0148",
+    "sku": "4U583O4",
+    "name": "Laufband Reebok i-Run 4.0",
+    "price": 699,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0149",
+    "sku": "LLJGYSX",
+    "name": "Laufband Reebok Z-tech AC",
+    "price": 2500,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0203",
+    "sku": "OTB-G-nstige-Handytarife",
+    "name": "Günstige Handytarife",
+    "price": 12.99,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0204",
+    "sku": "OTB-G-nstige-Handy-Angebote---Tari",
+    "name": "Günstige Handy-Angebote & Tarif-Deals",
+    "price": 28.99,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0205",
+    "sku": "REF-Refurbished-iPhones---g-nstige",
+    "name": "Refurbished iPhones – günstiger als neu, besser als gebraucht, min. 12 Monate Garantie",
+    "price": 117,
+    "status": "inactive"
+  },
+  {
+    "id": "prod-import-1787572439171-0200",
+    "sku": "O2-Legend-res-Design-trifft-auf-M",
+    "name": "Legendäres Design trifft auf Meta AI",
+    "price": 27.99,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0201",
+    "sku": "O2-VR-Brillen-bei-O2",
+    "name": "VR Brillen bei O2",
+    "price": 23.99,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0202",
+    "sku": "O2-Gaming---VR",
+    "name": "Gaming & VR",
+    "price": 13,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0228",
+    "sku": "REF-iPad-9--2021----10-2-",
+    "name": "iPad 9 (2021) | 10.2\"",
+    "price": 198.9,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0230",
+    "sku": "REF-iPad-Air--2024----11-",
+    "name": "iPad Air (2024) | 11\"",
+    "price": 544,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0229",
+    "sku": "REF-iPad-Air--2024----13-",
+    "name": "iPad Air (2024) | 13\"",
+    "price": 669,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0227",
+    "sku": "REF-iPad-Pro--2024----13-",
+    "name": "iPad Pro (2024) | 13\"",
+    "price": 965,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0238",
+    "sku": "REF-Apple-Watch-Series-10-Aluminiu-mfcx",
+    "name": "Apple Watch Series 10 Aluminium 42 mm (2024)",
+    "price": 305,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0237",
+    "sku": "REF-Apple-Watch-Series-10-Aluminiu",
+    "name": "Apple Watch Series 10 Aluminium 46 mm (2024)",
+    "price": 295,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0241",
+    "sku": "REF-Apple-Watch-Series-10-Titan-42",
+    "name": "Apple Watch Series 10 Titan 42 mm (2024)",
+    "price": 388.03,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0240",
+    "sku": "REF-Apple-Watch-Series-10-Titan-46",
+    "name": "Apple Watch Series 10 Titan 46 mm (2024)",
+    "price": 343,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0242",
+    "sku": "REF-Apple-Watch-Series-9-Aluminium",
+    "name": "Apple Watch Series 9 Aluminium 45 mm (2023)",
+    "price": 212.09,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0236",
+    "sku": "REF-Apple-Watch-Ultra-2--2024-",
+    "name": "Apple Watch Ultra 2 (2024)",
+    "price": 449.9,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0243",
+    "sku": "REF-Samsung-Galaxy-Watch-7--2024-",
+    "name": "Samsung Galaxy Watch 7 (2024)",
+    "price": 137.14,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0244",
+    "sku": "REF-Samsung-Galaxy-Watch-Ultra--20",
+    "name": "Samsung Galaxy Watch Ultra (2024)",
+    "price": 184.19,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0245",
+    "sku": "REF-Refurbished-Laptops---g-nstige",
+    "name": "Refurbished Laptops – günstiger als neu, besser als gebraucht, min. 12 Monate Garantie",
+    "price": 129,
+    "status": "inactive"
+  },
+  {
+    "id": "prod-import-1787572439171-0250",
+    "sku": "REF-Fujitsu-Lifebook-U758---i5-835",
+    "name": "Fujitsu Lifebook U758 | i5-8350U | 15.6\"",
+    "price": 129,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0249",
+    "sku": "REF-HP-EliteBook-850-G8---i5-1145G",
+    "name": "HP EliteBook 850 G8 | i5-1145G7 | 15.6\"",
+    "price": 400,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0251",
+    "sku": "REF-Lenovo-ThinkPad-T14-G2---i5-11",
+    "name": "Lenovo ThinkPad T14 G2 | i5-1145G7 | 14\"",
+    "price": 400.49,
+    "status": "active"
+  },
+  {
+    "id": "prod-import-1787572439171-0248",
+    "sku": "REF-Lenovo-ThinkPad-T490---i5-8365",
+    "name": "Lenovo ThinkPad T490 | i5-8365U | 14\"",
+    "price": 304.99,
+    "status": "active"
+  }
+]
