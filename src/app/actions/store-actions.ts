@@ -140,10 +140,22 @@ export async function createOrderServerAction(orderPayload: {
       // Non-blocking session check
     }
 
-    const order = await createOrder({
-      ...orderPayload,
-      user_id: userId,
-    });
+    let order: Order;
+    try {
+      order = await createOrder({
+        ...orderPayload,
+        user_id: userId,
+      });
+    } catch (err) {
+      // createOrder surfaces Supabase failures instead of pretending the order
+      // was stored: returning a failure here keeps the customer from receiving an
+      // order number for an order that does not exist.
+      console.error('[Order Action] ❌ Échec de persistance de la commande:', err);
+      return {
+        success: false,
+        error: 'Die Bestellung konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.',
+      };
+    }
 
     // Send emails and create notification independently
     const emailResults = { customer: false, admin: false };

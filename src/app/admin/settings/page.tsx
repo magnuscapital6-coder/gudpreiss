@@ -21,6 +21,7 @@ export default function AdminSettingsPage() {
   const [accountHolder, setAccountHolder] = useState(settings.account_holder || '');
   const [vatNumber, setVatNumber] = useState(settings.vat_number || '');
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   // Admin Security & Credentials State
   const [adminEmailInput, setAdminEmailInput] = useState('admin@gudpreiss.de');
@@ -99,23 +100,30 @@ export default function AdminSettingsPage() {
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    await updateSettings({
-      store_name: storeName,
-      contact_email: contactEmail,
-      contact_phone: contactPhone,
-      currency,
-      tax_rate: (Number(taxRate) || 19) / 100,
-      free_shipping_threshold: Number(freeShippingThreshold) || 150,
-      stripe_enabled: stripeEnabled,
-      cod_enabled: codEnabled,
-      iban,
-      bic,
-      bank_name: bankName,
-      account_holder: accountHolder,
-      vat_number: vatNumber,
-    });
-    setSaved(true);
-    setTimeout(() => setSaved(false), 2500);
+    setSaved(false);
+    setSaveError(null);
+
+    try {
+      await updateSettings({
+        store_name: storeName,
+        contact_email: contactEmail,
+        contact_phone: contactPhone,
+        currency,
+        tax_rate: (Number(taxRate) || 19) / 100,
+        free_shipping_threshold: Number(freeShippingThreshold) || 150,
+        stripe_enabled: stripeEnabled,
+        cod_enabled: codEnabled,
+        iban,
+        bic,
+        bank_name: bankName,
+        account_holder: accountHolder,
+        vat_number: vatNumber,
+      });
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2500);
+    } catch (err: any) {
+      setSaveError(err?.message || 'Speichern fehlgeschlagen.');
+    }
   };
 
   return (
@@ -160,6 +168,15 @@ export default function AdminSettingsPage() {
           <div className="p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 rounded-2xl text-xs font-bold flex items-center gap-2">
             <Check className="w-4 h-4 text-emerald-500" />
             <span>Plattformname und Einstellungen wurden auf der gesamten Seite aktualisiert!</span>
+          </div>
+        )}
+
+        {saveError && (
+          <div className="p-4 bg-red-500/10 border border-red-500/30 text-red-700 dark:text-red-300 rounded-2xl text-xs font-bold flex items-start gap-2">
+            <AlertCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+            <span>
+              Speichern fehlgeschlagen — die Änderungen wurden NICHT übernommen: {saveError}
+            </span>
           </div>
         )}
 

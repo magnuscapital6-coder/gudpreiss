@@ -42,7 +42,11 @@ export async function GET() {
         smtp_user: settings?.smtp_user || process.env.SMTP_USER || '',
         smtp_password: settings?.smtp_password || process.env.SMTP_PASSWORD || '',
         smtp_encryption: settings?.smtp_encryption || process.env.SMTP_ENCRYPTION || 'tls',
-        smtp_secure: settings?.smtp_secure ?? (process.env.SMTP_SECURE === 'true'),
+        // Read from the resolved mailer config, not from a raw env comparison, so
+        // the checkbox reflects the port/protocol heuristic when no explicit value
+        // is stored. Showing `false` for a port-465 setup would persist a broken
+        // value as soon as the admin saves the form.
+        smtp_secure: mailerConfig.smtp.secure,
         mail_from: settings?.mail_from || process.env.MAIL_FROM || process.env.EMAIL_FROM || 'kontakt@gudpreiss.de',
         mail_from_name: settings?.mail_from_name || process.env.MAIL_FROM_NAME || 'GudPreiss',
         resend_api_key: settings?.resend_api_key || process.env.RESEND_API_KEY || '',

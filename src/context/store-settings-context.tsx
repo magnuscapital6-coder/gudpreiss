@@ -75,24 +75,42 @@ export function StoreSettingsProvider({ children }: { children: React.ReactNode 
 
   const updateSettings = async (newSettings: Partial<StoreSettings>) => {
     const updated = { ...settings, ...newSettings };
-    setSettings(updated);
 
+    // Persist FIRST and only update local state once the server confirms the
+    // write. Doing it the other way round made the UI report success for a save
+    // that was rejected (RLS / missing service-role key), and the value appeared
+    // to revert to the default on the next load.
     try {
-      localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(updated));
-    } catch {}
-
-    window.dispatchEvent(
-      new CustomEvent(SETTINGS_UPDATED_EVENT, { detail: newSettings })
-    );
-
-    try {
-      await fetch('/api/admin/settings', {
+      const res = await fetch('/api/admin/settings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newSettings),
       });
+
+      if (!res.ok) {
+        let detail = `HTTP ${res.status}`;
+        try {
+          const data = await res.json();
+          if (data?.error) detail = data.error;
+        } catch {}
+        throw new Error(detail);
+      }
+
+      const data = await res.json().catch(() => null);
+      // Trust the server's echo of what was actually stored.
+      const confirmed = data?.settings ? { ...updated, ...data.settings } : updated;
+
+      setSettings(confirmed);
+      try {
+        localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(confirmed));
+      } catch {}
+
+      window.dispatchEvent(
+        new CustomEvent(SETTINGS_UPDATED_EVENT, { detail: newSettings })
+      );
     } catch (err) {
       console.error('Error updating store settings:', err);
+      throw err;
     }
   };
 

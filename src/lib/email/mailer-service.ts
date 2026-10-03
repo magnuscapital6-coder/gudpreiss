@@ -28,6 +28,38 @@ function cleanEnv(val: string | undefined): string {
 }
 
 /**
+ * Coerce a value that may arrive as a string from env vars or JSON settings
+ * into a boolean. Returns undefined when the value carries no usable signal, so
+ * callers can fall through to their next fallback with `??`.
+ */
+function toBool(val: unknown): boolean | undefined {
+  if (typeof val === 'boolean') return val;
+  if (typeof val === 'number') return val !== 0;
+  if (typeof val === 'string') {
+    const s = val.trim().toLowerCase();
+    if (s === 'true' || s === '1' || s === 'yes' || s === 'on') return true;
+    if (s === 'false' || s === '0' || s === 'no' || s === 'off' || s === '') return false;
+  }
+  return undefined;
+}
+
+/**
+ * A Resend key must look like a real key (`re_` + a long opaque suffix). The
+ * `.env.example` placeholders (`re_123456789`, `re_xxx…`) otherwise pass a naive
+ * prefix check and get selected as fallback transport, turning every SMTP outage
+ * into a confusing HTTP 401 from the Resend API.
+ */
+function isValidResendKey(key: string): boolean {
+  if (!key || key.toLowerCase().includes('demo')) return false;
+  if (!key.startsWith('re_')) return false;
+  const suffix = key.slice(3);
+  if (suffix.length < 10) return false;
+  if (/^(.)\1+$/.test(suffix)) return false;
+  if (/^(?:x+|y+|z+|\d+)$/i.test(suffix)) return false;
+  return true;
+}
+
+/**
  * Email Transport Configuration Descriptor
  */
 export interface MailerConfig {
@@ -59,13 +91,17 @@ export function getMailerConfig(settings?: StoreSettings | null): MailerConfig {
   const smtpUser = cleanEnv(settings?.smtp_user) || cleanEnv(process.env.SMTP_USER);
   const smtpPass = cleanEnv(settings?.smtp_password) || cleanEnv(process.env.SMTP_PASSWORD);
   const smtpEncryption = (cleanEnv(settings?.smtp_encryption) || cleanEnv(process.env.SMTP_ENCRYPTION)).toLowerCase();
+
+  // Nodemailer's `secure` means *implicit* TLS (SMTPS, port 465). Ports 587/25
+  // use STARTTLS, which REQUIRES secure: false — with secure: true nodemailer
+  // starts the TLS handshake before the server sends its greeting, and every
+  // mainstream relay (IONOS, Gmail, Hostinger…) rejects it with "Wrong version
+  // number" or a handshake timeout. So `tls` must never imply `secure`.
+  // Precedence: DB settings > env var > port/protocol heuristic.
   const smtpSecure =
-    settings?.smtp_secure ?? (
-      smtpEncryption === 'ssl' ||
-      smtpEncryption === 'tls' ||
-      smtpPort === 465 ||
-      cleanEnv(process.env.SMTP_SECURE) === 'true'
-    );
+    toBool(settings?.smtp_secure) ??
+    toBool(process.env.SMTP_SECURE) ??
+    (smtpPort === 465 || smtpEncryption === 'ssl' || smtpEncryption === 'smtps');
 
   const mailFromName = cleanEnv(settings?.mail_from_name) || cleanEnv(process.env.MAIL_FROM_NAME) || 'GudPreiss';
   const mailFromEmail = cleanEnv(settings?.mail_from) || cleanEnv(process.env.MAIL_FROM) || cleanEnv(process.env.EMAIL_FROM) || 'kontakt@gudpreiss.de';
@@ -74,7 +110,7 @@ export function getMailerConfig(settings?: StoreSettings | null): MailerConfig {
   const isSmtpConfigured = Boolean(smtpHost && smtpUser && smtpPass);
 
   const resendApiKey = cleanEnv(settings?.resend_api_key) || cleanEnv(process.env.RESEND_API_KEY);
-  const isResendConfigured = Boolean(resendApiKey && !resendApiKey.includes('demo') && resendApiKey.startsWith('re_'));
+  const isResendConfigured = isValidResendKey(resendApiKey);
   const resendFrom = mailFromEmail.includes('<') ? mailFromEmail : `${mailFromName} <${mailFromEmail}>`;
 
   // Collect Admin Emails
@@ -122,11 +158,14 @@ function createSmtpTransporter(config: MailerConfig['smtp']) {
   return nodemailer.createTransport({
     host: config.host,
     port: config.port,
-    secure: config.secure, // true for 465, false for other ports
+    secure: config.secure, // true = implicit TLS (465), false = STARTTLS (587)
     auth: {
       user: config.user,
       pass: config.pass,
     },
+    // On submission ports (587) relays advertise STARTTLS; refuse to silently
+    // fall back to plaintext if the upgrade is not offered.
+    requireTLS: !config.secure && config.port !== 25,
     tls: {
       rejectUnauthorized: false, // Prevents self-signed cert failures
     },

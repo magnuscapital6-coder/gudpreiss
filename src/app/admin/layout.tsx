@@ -42,6 +42,7 @@ const navItems = [
   { href: '/admin/reviews', labelKey: 'admin.reviews', icon: Star },
   { href: '/admin/customers', labelKey: 'admin.customers', icon: Users },
   { href: '/admin/email-templates', labelKey: 'E-Mail & Testen', icon: Mail },
+  { href: '/admin/config', labelKey: 'Systemkonfiguration', icon: Settings },
   { href: '/admin/media', labelKey: 'admin.media', icon: ImageIcon },
   { href: '/admin/settings', labelKey: 'admin.settings', icon: Settings },
 ];

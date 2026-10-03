@@ -18,6 +18,20 @@ export default function AdminError({ error, reset }: { error: Error & { digest?:
         Beim Laden des Administrations-Moduls ist ein Fehler aufgetreten.
       </p>
 
+      {/* Surfacing the message turns an opaque boundary into a usable diagnosis.
+          A stale tab after a redeploy is the usual cause: the page references
+          chunk hashes that the new deployment no longer serves. */}
+      <div className="rounded-xl bg-black/40 border border-slate-700 p-3 text-left space-y-1">
+        <p className="text-[11px] font-mono text-rose-300 break-words">{error.message}</p>
+        {error.digest && (
+          <p className="text-[10px] font-mono text-slate-500">digest: {error.digest}</p>
+        )}
+        <p className="text-[10px] text-slate-500 leading-relaxed">
+          Nach einem Redeploy: Seite neu laden (Strg+Shift+R). Der Tab verweist noch auf
+          Dateien der vorherigen Version.
+        </p>
+      </div>
+
       <button
         onClick={() => reset()}
         className="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 transition cursor-pointer"

@@ -273,7 +273,10 @@ async function ensureSeeded() {
       await dataClient.from('products').upsert(batch, { onConflict: 'id' });
     }
 
-    // Seed store_settings (key-value table)
+    // Seed store_settings (key-value table).
+    // `ignoreDuplicates` is essential: an unconditional upsert on key='store'
+    // replaces the whole value_json, wiping the IBAN/BIC/bank details an admin
+    // configured. Only fill the row when it does not exist yet.
     await dataClient.from('settings').upsert([{
       key: 'store',
       value_json: {
@@ -287,7 +290,7 @@ async function ensureSeeded() {
         account_holder: DEFAULT_STORE_SETTINGS.account_holder,
         vat_number: DEFAULT_STORE_SETTINGS.vat_number,
       },
-    }], { onConflict: 'key' });
+    }], { onConflict: 'key', ignoreDuplicates: true });
 
     // Seed brands
     const brandRows = INITIAL_BRANDS.map((b) => ({
@@ -894,18 +897,42 @@ export async function updateStoreSettings(settingsData: Partial<StoreSettings>):
     }
   }
 
+  // `settings` only has a SELECT policy (see migration-secure-rls.sql), so the
+  // write MUST reach the service-role client. With the anon client PostgREST
+  // rejects it with 42501 — and since Supabase returns `{ error }` instead of
+  // throwing, that failure used to be discarded entirely: the in-memory value
+  // looked saved while nothing hit the database, so an admin-set IBAN silently
+  // reverted to DEFAULT_STORE_SETTINGS.iban on the next cold start.
   const dataClient = getDataClient();
   if (dataClient) {
+    const writeClient = getAdminClient();
     try {
-      await dataClient.from('settings').upsert([{
-        key: 'store',
-        value_json: secretsPersisted ? stripSecretSettings(memorySettings) : memorySettings,
-        updated_at: new Date().toISOString(),
-      }], { onConflict: 'key' });
+      const { error: storeError } = await (writeClient ?? dataClient)
+        .from('settings')
+        .upsert(
+          [
+            {
+              key: 'store',
+              value_json: secretsPersisted ? stripSecretSettings(memorySettings) : memorySettings,
+              updated_at: new Date().toISOString(),
+            },
+          ],
+          { onConflict: 'key' }
+        );
+
+      if (storeError) {
+        const hint = writeClient
+          ? ''
+          : ' (no SUPABASE_SERVICE_ROLE_KEY — the anon key is blocked by the read-only RLS policy on `settings`)';
+        logSupabaseError('settings.upsert', storeError);
+        throw new Error(`Failed to persist store settings${hint}: ${storeError.message}`);
+      }
     } catch (err) {
       logSupabaseError('settings.upsert', err);
+      throw err;
     }
   }
+  // No Supabase configured at all: keep the intentional in-memory fallback.
 
   await triggerRevalidation(['/', '/shop', '/sitemap.xml']);
   return memorySettings;
@@ -1046,8 +1073,67 @@ export async function deleteProduct(id: string): Promise<boolean> {
   return memoryProducts.length < initialLen;
 }
 
+// Order numbers are drawn at random from a pool of 9000 values. Without an
+// explicit collision check the birthday paradox makes a duplicate likely as the
+// order book grows (~42% past 100 orders). A duplicate order_number makes
+// getOrderById return someone else's order and makes hasEmailBeenSent suppress
+// the confirmation email, so the draw is retried until it is free.
+const ORDER_NUMBER_MAX_ATTEMPTS = 12;
+
+function drawOrderNumber(): string {
+  return `GP-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+}
+
+async function isOrderNumberTaken(
+  dataClient: ReturnType<typeof getDataClient>,
+  orderNumber: string
+): Promise<boolean> {
+  if (memoryOrders.some((o) => o.order_number === orderNumber)) return true;
+  if (!dataClient) return false;
+  try {
+    const { data, error } = await dataClient
+      .from('orders')
+      .select('id')
+      .eq('order_number', orderNumber)
+      .limit(1);
+    if (error) {
+      logSupabaseError('orders.order_number_check', error);
+      return false;
+    }
+    return Array.isArray(data) && data.length > 0;
+  } catch (err) {
+    logSupabaseError('orders.order_number_check', err);
+    return false;
+  }
+}
+
+async function reserveOrderNumber(
+  dataClient: ReturnType<typeof getDataClient>
+): Promise<string> {
+  let candidate = drawOrderNumber();
+  for (let attempt = 1; attempt < ORDER_NUMBER_MAX_ATTEMPTS; attempt++) {
+    if (!(await isOrderNumberTaken(dataClient, candidate))) return candidate;
+    candidate = drawOrderNumber();
+  }
+  // Exhausted the pool: widen it with crypto-derived entropy rather than risk a
+  // duplicate. Math.random is deliberately avoided here — if it were stuck on one
+  // value it would redraw the very same candidate that just failed.
+  let wide: string;
+  do {
+    const entropy =
+      typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+        ? crypto.randomUUID()
+        : String(Date.now()) + String(performance.now());
+    const digits = parseInt(entropy.replace(/\D/g, '') || '0', 10) || 1;
+    wide = `GP-${new Date().getFullYear()}-${1000 + (digits % 90000)}`;
+  } while (await isOrderNumberTaken(dataClient, wide));
+
+  return wide;
+}
+
 export async function createOrder(orderPayload: Partial<Order>): Promise<Order> {
-  const orderNumber = `GP-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+  const dataClient = getDataClient();
+  const orderNumber = await reserveOrderNumber(dataClient);
   const orderId =
     typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
       ? crypto.randomUUID()
@@ -1096,47 +1182,58 @@ export async function createOrder(orderPayload: Partial<Order>): Promise<Order> 
     updated_at: new Date().toISOString(),
   };
 
-  const dataClient = getDataClient();
-  if (dataClient) {
-    try {
-      const { data, error } = await dataClient
-        .from('orders')
-        .insert([
-          {
-            id: newOrder.id,
-            order_number: newOrder.order_number,
-            customer_name: newOrder.shipping_address?.full_name || 'Kunde',
-            customer_email: newOrder.customer_email,
-            customer_phone: newOrder.customer_phone,
-            shipping_address_json: newOrder.shipping_address,
-            shipping_address: newOrder.shipping_address,
-            billing_address_json: newOrder.billing_address,
-            billing_address: newOrder.billing_address,
-            items: newOrder.items,
-            subtotal: newOrder.subtotal,
-            discount_amount: newOrder.discount_amount,
-            shipping_cost: newOrder.shipping_fee,
-            shipping_fee: newOrder.shipping_fee,
-            tax_amount: newOrder.tax_amount,
-            total_amount: newOrder.total_amount,
-            payment_method: newOrder.payment_method,
-            payment_status: newOrder.payment_status,
-            order_status: newOrder.order_status,
-            coupon_code: newOrder.coupon_code,
-            tracking_number: newOrder.tracking_number,
-            bank_transfer_iban: newOrder.bank_transfer_iban,
-            bank_transfer_bic: newOrder.bank_transfer_bic,
-            bank_transfer_holder: newOrder.bank_transfer_holder,
-          },
-        ])
-        .select()
-        .single();
+  const buildInsertRow = (row: Order) => ({
+    id: row.id,
+    order_number: row.order_number,
+    customer_name: row.shipping_address?.full_name || 'Kunde',
+    customer_email: row.customer_email,
+    customer_phone: row.customer_phone,
+    shipping_address_json: row.shipping_address,
+    shipping_address: row.shipping_address,
+    billing_address_json: row.billing_address,
+    billing_address: row.billing_address,
+    items: row.items,
+    subtotal: row.subtotal,
+    discount_amount: row.discount_amount,
+    shipping_cost: row.shipping_fee,
+    shipping_fee: row.shipping_fee,
+    tax_amount: row.tax_amount,
+    total_amount: row.total_amount,
+    payment_method: row.payment_method,
+    payment_status: row.payment_status,
+    order_status: row.order_status,
+    coupon_code: row.coupon_code,
+    tracking_number: row.tracking_number,
+    bank_transfer_iban: row.bank_transfer_iban,
+    bank_transfer_bic: row.bank_transfer_bic,
+    bank_transfer_holder: row.bank_transfer_holder,
+  });
 
-      if (error) {
+  if (dataClient) {
+    // A concurrent request can win the race between the existence check and the
+    // insert; a unique index then rejects with 23505 and we redraw once more.
+    for (let attempt = 1; attempt <= ORDER_NUMBER_MAX_ATTEMPTS; attempt++) {
+      try {
+        const { error } = await dataClient
+          .from('orders')
+          .insert([buildInsertRow(newOrder)])
+          .select()
+          .single();
+
+        if (!error) break;
+
+        const isUniqueViolation = (error as { code?: string }).code === '23505';
+        if (isUniqueViolation && attempt < ORDER_NUMBER_MAX_ATTEMPTS) {
+          newOrder.order_number = await reserveOrderNumber(dataClient);
+          continue;
+        }
+
         logSupabaseError('orders.insert', error);
+        throw error;
+      } catch (err) {
+        logSupabaseError('orders.insert', err);
+        throw err;
       }
-    } catch (err) {
-      logSupabaseError('orders.insert', err);
     }
   }
 

@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach } from 'vitest';
 import {
   interpolateTemplate,
   DEFAULT_CUSTOMER_EMAIL_TEMPLATE,
@@ -144,5 +144,107 @@ describe('Email System & Templates', () => {
     expect(config.adminEmails).toBeInstanceOf(Array);
     expect(config.adminEmails.length).toBeGreaterThan(0);
     expect(config.adminEmails).toContain('kontakt@gudpreiss.de');
+  });
+});
+
+describe('SMTP transport negotiation', () => {
+  const SMTP_ENV_KEYS = [
+    'SMTP_HOST',
+    'SMTP_PORT',
+    'SMTP_USER',
+    'SMTP_PASSWORD',
+    'SMTP_ENCRYPTION',
+    'SMTP_SECURE',
+    'RESEND_API_KEY',
+  ] as const;
+
+  const savedEnv: Record<string, string | undefined> = {};
+  let initialised = false;
+
+  function withEnv<T>(env: Record<string, string>, run: () => T): T {
+    if (!initialised) {
+      for (const key of SMTP_ENV_KEYS) savedEnv[key] = process.env[key];
+      initialised = true;
+    }
+    for (const key of SMTP_ENV_KEYS) delete process.env[key];
+    for (const [key, value] of Object.entries(env)) process.env[key] = value;
+    try {
+      return run();
+    } finally {
+      for (const key of SMTP_ENV_KEYS) delete process.env[key];
+      for (const [key, value] of Object.entries(savedEnv)) {
+        if (value !== undefined) process.env[key] = value;
+      }
+    }
+  }
+
+  const RELAY = { SMTP_HOST: 'smtp.ionos.de', SMTP_USER: 'kontakt@gudpreiss.de', SMTP_PASSWORD: 'secret' };
+
+  afterEach(() => {
+    for (const key of SMTP_ENV_KEYS) delete process.env[key];
+    for (const [key, value] of Object.entries(savedEnv)) {
+      if (value !== undefined) process.env[key] = value;
+    }
+  });
+
+  // Regression: `SMTP_ENCRYPTION=tls` used to set `secure: true`, which makes
+  // nodemailer negotiate implicit TLS on port 587 and every relay rejects it.
+  it('keeps port 587 on STARTTLS even when SMTP_ENCRYPTION is "tls"', () => {
+    const config = withEnv({ ...RELAY, SMTP_PORT: '587', SMTP_ENCRYPTION: 'tls' }, () => getMailerConfig());
+    expect(config.smtp.port).toBe(587);
+    expect(config.smtp.secure).toBe(false);
+    expect(config.smtp.isConfigured).toBe(true);
+  });
+
+  it('enables implicit TLS on port 465', () => {
+    const config = withEnv({ ...RELAY, SMTP_PORT: '465', SMTP_ENCRYPTION: 'ssl' }, () => getMailerConfig());
+    expect(config.smtp.secure).toBe(true);
+  });
+
+  it('enables implicit TLS on port 465 without SMTP_ENCRYPTION set', () => {
+    const config = withEnv({ ...RELAY, SMTP_PORT: '465' }, () => getMailerConfig());
+    expect(config.smtp.secure).toBe(true);
+  });
+
+  it('lets SMTP_SECURE=false explicitly override the port heuristic', () => {
+    const config = withEnv({ ...RELAY, SMTP_PORT: '465', SMTP_SECURE: 'false' }, () => getMailerConfig());
+    expect(config.smtp.secure).toBe(false);
+  });
+
+  it('lets SMTP_SECURE=true explicitly override the port heuristic', () => {
+    const config = withEnv({ ...RELAY, SMTP_PORT: '587', SMTP_SECURE: 'true' }, () => getMailerConfig());
+    expect(config.smtp.secure).toBe(true);
+  });
+
+  it('gives DB settings precedence over env vars', () => {
+    const config = withEnv({ ...RELAY, SMTP_PORT: '587', SMTP_SECURE: 'true' }, () =>
+      getMailerConfig({
+        smtp_host: 'smtp.hostinger.com',
+        smtp_port: 465,
+        smtp_encryption: 'ssl',
+        smtp_secure: true,
+      } as never)
+    );
+    expect(config.smtp.secure).toBe(true);
+  });
+
+  it('treats a stringified "false" from JSON settings as false, not truthy', () => {
+    const config = withEnv({ ...RELAY }, () =>
+      getMailerConfig({ smtp_secure: 'false' } as never)
+    );
+    expect(config.smtp.secure).toBe(false);
+  });
+
+  it('ignores placeholder Resend keys so SMTP failover stays truthful', () => {
+    const placeholder = withEnv({ ...RELAY, SMTP_PORT: '587', RESEND_API_KEY: 're_123456789' }, () =>
+      getMailerConfig()
+    );
+    expect(placeholder.resend.isConfigured).toBe(false);
+
+    const real = withEnv(
+      { ...RELAY, SMTP_PORT: '587', RESEND_API_KEY: 're_4f3a9b2c7d1e8a6b5c0d9e8f7a6b5c4d' },
+      () => getMailerConfig()
+    );
+    expect(real.resend.isConfigured).toBe(true);
   });
 });
