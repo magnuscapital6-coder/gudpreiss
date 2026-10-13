@@ -1,4 +1,5 @@
 import { Product, Category, Brand, Banner, Coupon, StoreSettings, Review, BlogPost, Order } from '@/types';
+import { FAHRRAD_EBIKE_BRANDS, FAHRRAD_EBIKE_PRODUCTS } from './fahrrad-ebikes';
 
 export const INITIAL_CATEGORIES: Category[] = [
   {
@@ -664,10 +665,12 @@ export const INITIAL_BRANDS: Brand[] = [
   { id: 'b-velo', name: 'Vélo', slug: 'velo', logo_url: '/brands/velo.png', active: true, created_at: '2026-08-24T00:00:00.000Z' },
   { id: 'b-vr', name: 'VR', slug: 'vr', logo_url: '/brands/vr.png', active: true, created_at: '2026-08-24T00:00:00.000Z' },
   { id: 'b-zte', name: 'ZTE', slug: 'zte', logo_url: '/brands/zte.png', active: true, created_at: '2026-08-24T00:00:00.000Z' },
+  ...FAHRRAD_EBIKE_BRANDS,
 ];
 
 
 export const INITIAL_PRODUCTS: Product[] = [
+  ...FAHRRAD_EBIKE_PRODUCTS,
   {
     "id": "prod-import-1787572439171-0000",
     "name": "Canon MAXIFY GX3040",

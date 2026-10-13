@@ -2,18 +2,22 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import { getProductBySlug, updateProduct } from '@/lib/db/db-provider';
+import { getProductBySlug, updateProduct, getCategories } from '@/lib/db/db-provider';
 import { ImageUploader } from '@/components/admin/ImageUploader';
 import { ArrowLeft, Save } from 'lucide-react';
 import Link from 'next/link';
+import { Category, Product } from '@/types';
+import { useToast } from '@/context/toast-context';
 
 export default function EditProductPage() {
   const router = useRouter();
   const params = useParams();
   const productId = params?.id as string;
+  const toast = useToast();
 
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [categories, setCategories] = useState<Category[]>([]);
 
   const [name, setName] = useState('');
   const [slug, setSlug] = useState('');
@@ -22,15 +26,22 @@ export default function EditProductPage() {
   const [compareAtPrice, setCompareAtPrice] = useState('');
   const [costPrice, setCostPrice] = useState('');
   const [stock, setStock] = useState('15');
-  const [categoryName, setCategoryName] = useState('Smartphones');
+  const [categoryId, setCategoryId] = useState('');
+  const [categoryName, setCategoryName] = useState('');
   const [brandName, setBrandName] = useState('Samsung');
+  const [shortDescription, setShortDescription] = useState('');
   const [description, setDescription] = useState('');
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {
     async function loadProduct() {
       if (!productId) return;
-      const product = await getProductBySlug(productId, { includeInactive: true });
+      const [product, cats] = await Promise.all([
+        getProductBySlug(productId, { includeInactive: true }),
+        getCategories(),
+      ]);
+      setCategories(cats);
+
       if (product) {
         setName(product.name);
         setSlug(product.slug || '');
@@ -39,27 +50,53 @@ export default function EditProductPage() {
         setCompareAtPrice(product.compare_at_price ? String(product.compare_at_price) : '');
         setCostPrice(product.cost_price ? String(product.cost_price) : '');
         setStock(String(product.stock));
-        setCategoryName(product.category_name || 'Smartphones');
         setBrandName(product.brand_name || 'GudPreiss');
+        setShortDescription(product.short_description || '');
         setDescription(product.description);
         setImages(product.images || []);
+
+        // Match the product's category to a real category so the dropdown
+        // reflects the single source of truth (the admin categories list).
+        const currentId = (product.category_id || '').toLowerCase().trim();
+        const currentName = (product.category_name || '').toLowerCase().trim();
+        const currentSlug = (product.slug || '').toLowerCase().trim();
+        const matched = cats.find(
+          (c) =>
+            (currentId && c.id.toLowerCase().trim() === currentId) ||
+            (currentName && c.name.toLowerCase().trim() === currentName) ||
+            (currentId && c.slug.toLowerCase().trim() === currentId) ||
+            (currentSlug && c.slug.toLowerCase().trim() === currentSlug)
+        );
+        if (matched) {
+          setCategoryId(matched.id);
+          setCategoryName(matched.name);
+        } else {
+          setCategoryId(product.category_id || '');
+          setCategoryName(product.category_name || '');
+        }
       }
       setIsLoading(false);
     }
     loadProduct();
   }, [productId]);
 
+  const handleCategoryChange = (selectedId: string) => {
+    setCategoryId(selectedId);
+    const cat = categories.find((c) => c.id === selectedId);
+    setCategoryName(cat ? cat.name : '');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (images.length === 0) {
-      alert('Bitte importieren Sie mindestens ein Produktbild.');
+      toast.error('Bitte importieren Sie mindestens ein Produktbild.', 'Bild erforderlich');
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      await updateProduct(productId, {
+      const payload: Partial<Product> = {
         name,
         slug: slug || name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
         sku,
@@ -69,15 +106,20 @@ export default function EditProductPage() {
         stock: Number(stock),
         category_name: categoryName,
         brand_name: brandName,
+        short_description: shortDescription,
         description,
         images,
         on_sale: Boolean(compareAtPrice),
-      });
+      };
+      if (categoryId) payload.category_id = categoryId;
 
+      await updateProduct(productId, payload);
+
+      toast.success(`„${name}“ wurde erfolgreich aktualisiert.`, 'Produkt gespeichert');
       router.push('/admin/products');
     } catch (err) {
       console.error(err);
-      alert('Fehler bei der Produktaktualisierung.');
+      toast.error('Fehler bei der Produktaktualisierung.', 'Speichern fehlgeschlagen');
     } finally {
       setIsSubmitting(false);
     }
@@ -164,16 +206,23 @@ export default function EditProductPage() {
           <div>
             <label className="block text-xs font-bold text-slate-600 mb-1">Catégorie</label>
             <select
-              value={categoryName}
-              onChange={(e) => setCategoryName(e.target.value)}
+              value={categoryId}
+              onChange={(e) => handleCategoryChange(e.target.value)}
               className="w-full px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white outline-none focus:border-blue-500"
             >
-              <option value="Smartphones">Smartphones</option>
-              <option value="Laptops & Computers">Ordinateurs & Laptops</option>
-              <option value="Headphones & Audio">Casques & Audio</option>
-              <option value="Game Controllers & Gaming">Manettes & Gaming</option>
-              <option value="Smart Home & Robotics">Maison Connectée & Robotique</option>
+              <option value="">— Catégorie wählen —</option>
+              {categoryId && !categories.some((c) => c.id === categoryId) && categoryName && (
+                <option value={categoryId}>{categoryName} (nicht zugeordnet)</option>
+              )}
+              {categories.map((cat) => (
+                <option key={cat.id} value={cat.id}>
+                  {cat.name}
+                </option>
+              ))}
             </select>
+            <p className="mt-1 text-[10px] text-slate-500">
+              Die Kategorien werden aus der Kategorienverwaltung geladen.
+            </p>
           </div>
 
           <div>
@@ -196,9 +245,20 @@ export default function EditProductPage() {
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-slate-600 mb-1">Description</label>
+          <label className="block text-xs font-bold text-slate-600 mb-1">Kurzbeschreibung</label>
           <textarea
-            rows={4}
+            rows={2}
+            value={shortDescription}
+            onChange={(e) => setShortDescription(e.target.value)}
+            placeholder="Kurze Zusammenfassung, die auf der Produktseite und als Meta-Beschreibung erscheint..."
+            className="w-full px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white outline-none focus:border-blue-500"
+          />
+        </div>
+
+        <div>
+          <label className="block text-xs font-bold text-slate-600 mb-1">Ausführliche Beschreibung</label>
+          <textarea
+            rows={6}
             required
             value={description}
             onChange={(e) => setDescription(e.target.value)}

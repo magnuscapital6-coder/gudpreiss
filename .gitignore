@@ -37,3 +37,6 @@ tsconfig.tsbuildinfo
 # docmap
 docmap.md
 .env*
+
+# staging folder for manual GitHub uploads
+envoi-github

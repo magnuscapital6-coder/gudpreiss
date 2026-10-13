@@ -9,9 +9,19 @@
 function getSecret(): string {
   const secret = process.env.AUTH_COOKIE_SECRET;
   if (!secret) {
-    console.error('[COOKIE_SIGNING] AUTH_COOKIE_SECRET is not set!');
-    // In production, this is a critical security issue
-    // Use a deterministic fallback only for development logging
+    // Previously this returned a hardcoded string that ships in the public
+    // source: anyone could read it and forge an admin cookie, because the
+    // session trusts the `role` claim inside the signed value. Failing closed is
+    // the only safe behaviour — an unset secret must reject, never authenticate.
+    if (process.env.NODE_ENV === 'production') {
+      throw new Error(
+        'AUTH_COOKIE_SECRET is not set. Refusing to verify or sign cookies: ' +
+          'a predictable secret allows forging an admin session.'
+      );
+    }
+    console.warn(
+      '[COOKIE_SIGNING] AUTH_COOKIE_SECRET is not set — using an insecure development fallback.'
+    );
     return 'dev-only-insecure-fallback-do-not-use-in-production';
   }
   return secret;

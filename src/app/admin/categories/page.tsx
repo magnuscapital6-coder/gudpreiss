@@ -6,10 +6,12 @@ import { Plus, Search, Edit3, Trash2, X, FolderTree, Package, CheckCircle2 } fro
 import { getCategories, createCategory, updateCategory, deleteCategory, getProducts } from '@/lib/db/db-provider';
 import { Category, Product } from '@/types';
 import { useTranslation } from '@/context/language-context';
+import { useToast } from '@/context/toast-context';
 import { getValidImageUrl } from '@/lib/image-fallback';
 
 export default function AdminCategoriesPage() {
   const { t } = useTranslation();
+  const toast = useToast();
   const [categories, setCategories] = useState<Category[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -65,11 +67,17 @@ export default function AdminCategoriesPage() {
     const count = selectedCategoryIds.length;
     if (confirm(`Möchten Sie die ${count} ausgewählten Kategorien wirklich löschen?`)) {
       setIsLoading(true);
-      for (const id of selectedCategoryIds) {
-        await deleteCategory(id);
+      try {
+        for (const id of selectedCategoryIds) {
+          await deleteCategory(id);
+        }
+        setSelectedCategoryIds([]);
+        await fetchData();
+        toast.success(`${count} Kategorie(n) wurden gelöscht.`, 'Kategorien gelöscht');
+      } catch (err) {
+        console.error(err);
+        toast.error('Fehler beim Löschen der Kategorien.', 'Löschen fehlgeschlagen');
       }
-      setSelectedCategoryIds([]);
-      await fetchData();
     }
   };
 
@@ -91,9 +99,15 @@ export default function AdminCategoriesPage() {
 
   const handleDelete = async (id: string) => {
     if (confirm('Möchten Sie diese Kategorie wirklich löschen?')) {
-      await deleteCategory(id);
-      setSelectedCategoryIds((prev) => prev.filter((item) => item !== id));
-      fetchData();
+      try {
+        await deleteCategory(id);
+        setSelectedCategoryIds((prev) => prev.filter((item) => item !== id));
+        await fetchData();
+        toast.success('Die Kategorie wurde gelöscht.', 'Kategorie gelöscht');
+      } catch (err) {
+        console.error(err);
+        toast.error('Fehler beim Löschen der Kategorie.', 'Löschen fehlgeschlagen');
+      }
     }
   };
 
@@ -105,25 +119,33 @@ export default function AdminCategoriesPage() {
     const slug = name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const finalImage = imageUrl.trim() || getValidImageUrl(undefined, slug);
 
-    if (editingCategory) {
-      await updateCategory(editingCategory.id, {
-        name: name.trim(),
-        slug,
-        description: description.trim(),
-        image_url: finalImage,
-      });
-    } else {
-      await createCategory({
-        name: name.trim(),
-        slug,
-        description: description.trim(),
-        image_url: finalImage,
-      });
-    }
+    try {
+      if (editingCategory) {
+        await updateCategory(editingCategory.id, {
+          name: name.trim(),
+          slug,
+          description: description.trim(),
+          image_url: finalImage,
+        });
+        toast.success(`„${name.trim()}“ wurde erfolgreich aktualisiert.`, 'Kategorie gespeichert');
+      } else {
+        await createCategory({
+          name: name.trim(),
+          slug,
+          description: description.trim(),
+          image_url: finalImage,
+        });
+        toast.success(`„${name.trim()}“ wurde erfolgreich erstellt.`, 'Kategorie erstellt');
+      }
 
-    setIsSaving(false);
-    setIsModalOpen(false);
-    fetchData();
+      setIsModalOpen(false);
+      await fetchData();
+    } catch (err) {
+      console.error(err);
+      toast.error('Fehler beim Speichern der Kategorie.', 'Speichern fehlgeschlagen');
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const isAllSelected =

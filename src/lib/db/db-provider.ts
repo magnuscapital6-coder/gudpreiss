@@ -1422,11 +1422,38 @@ export async function createCategory(categoryData: Partial<Category>): Promise<C
 
 export async function updateCategory(id: string, updates: Partial<Category>): Promise<Category | null> {
   const index = memoryCategories.findIndex((c) => c.id === id || c.slug === id);
+  const previous = index !== -1 ? memoryCategories[index] : null;
+
   if (index !== -1) {
     memoryCategories[index] = {
       ...memoryCategories[index],
       ...updates,
     };
+  }
+
+  const updated = index !== -1 ? memoryCategories[index] : null;
+
+  // Keep denormalized product references in sync: products store a copy of the
+  // category name/id, so a rename in the categories screen must cascade to them
+  // or the storefront and admin would show different categories.
+  const renamed = Boolean(updates.name || updates.slug);
+  const affectedProductIds: string[] = [];
+  if (renamed && updated) {
+    const matchIds = new Set(
+      [id, previous?.id, previous?.slug, updates.name, updates.slug]
+        .filter(Boolean)
+        .map((v) => String(v).toLowerCase().trim())
+    );
+    for (const p of memoryProducts) {
+      const pCatId = (p.category_id || '').toLowerCase().trim();
+      const pCatName = (p.category_name || '').toLowerCase().trim();
+      if (matchIds.has(pCatId) || (pCatName && matchIds.has(pCatName))) {
+        p.category_id = updated.id;
+        p.category_name = updated.name;
+        p.updated_at = new Date().toISOString();
+        affectedProductIds.push(p.id);
+      }
+    }
   }
 
   const dataClient = getDataClient();
@@ -1442,13 +1469,24 @@ export async function updateCategory(id: string, updates: Partial<Category>): Pr
           image_url: updates.image_url,
         })
         .or(`id.eq.${id},slug.eq.${id}`);
+
+      if (renamed && updated && affectedProductIds.length > 0) {
+        try {
+          await dataClient
+            .from('products')
+            .update({ category_id: updated.id, category_name: updated.name })
+            .in('id', affectedProductIds);
+        } catch (err) {
+          logSupabaseError('products.category_cascade', err);
+        }
+      }
     } catch (err) {
       logSupabaseError('categories.update', err);
     }
   }
 
   await triggerRevalidation(['/', '/shop', '/sitemap.xml']);
-  return memoryCategories[index] || null;
+  return updated;
 }
 
 export async function deleteCategory(id: string): Promise<boolean> {
