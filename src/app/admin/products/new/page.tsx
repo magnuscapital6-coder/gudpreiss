@@ -1,16 +1,20 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { createProduct } from '@/lib/db/db-provider';
+import { createProduct, getCategories } from '@/lib/db/db-provider';
 import { ImageUploader } from '@/components/admin/ImageUploader';
 import { ProductSeoOptimizer, generateGermanSeoSlug } from '@/components/admin/ProductSeoOptimizer';
 import { ArrowLeft, Save } from 'lucide-react';
 import Link from 'next/link';
+import { Category } from '@/types';
+import { useToast } from '@/context/toast-context';
 
 export default function CreateProductPage() {
   const router = useRouter();
+  const toast = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [categories, setCategories] = useState<Category[]>([]);
 
   const [name, setName] = useState('');
   const [slug, setSlug] = useState('');
@@ -23,17 +27,37 @@ export default function CreateProductPage() {
   const [compareAtPrice, setCompareAtPrice] = useState('');
   const [costPrice, setCostPrice] = useState('');
   const [stock, setStock] = useState('15');
-  const [categoryName, setCategoryName] = useState('Smartphones');
+  const [categoryId, setCategoryId] = useState('');
+  const [categoryName, setCategoryName] = useState('');
   const [brandName, setBrandName] = useState('Samsung');
+  const [shortDescription, setShortDescription] = useState('');
   const [description, setDescription] = useState('');
   const [images, setImages] = useState<string[]>([
     'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22600%22%20viewBox%3D%220%200%20600%20600%22%20fill%3D%22none%22%3E%3Crect%20width%3D%22600%22%20height%3D%22600%22%20fill%3D%22%23020617%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%22200%22%20width%3D%22200%22%20height%3D%22200%22%20rx%3D%2220%22%20fill%3D%22%231e293b%22%20stroke%3D%22%2310b981%22%20stroke-width%3D%224%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22300%22%20r%3D%2250%22%20stroke%3D%22%2334d399%22%20stroke-width%3D%226%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22440%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22bold%22%20fill%3D%22%2394a3b8%22%20text-anchor%3D%22middle%22%3EGudPreiss%20Premium%3C%2Ftext%3E%3C%2Fsvg%3E"http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none"><rect width="600" height="600" fill="%23020617"/><rect x="200" y="200" width="200" height="200" rx="20" fill="%231e293b" stroke="%2310b981" stroke-width="4"/><circle cx="300" cy="300" r="50" stroke="%2334d399" stroke-width="6"/><text x="300" y="440" font-family="sans-serif" font-size="22" font-weight="bold" fill="%2394a3b8" text-anchor="middle">GudPreiss Premium</text></svg>'
   ]);
 
+  useEffect(() => {
+    async function loadCategories() {
+      const cats = await getCategories();
+      setCategories(cats);
+      if (cats.length > 0) {
+        setCategoryId(cats[0].id);
+        setCategoryName(cats[0].name);
+      }
+    }
+    loadCategories();
+  }, []);
+
+  const handleCategoryChange = (selectedId: string) => {
+    setCategoryId(selectedId);
+    const cat = categories.find((c) => c.id === selectedId);
+    setCategoryName(cat ? cat.name : '');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (images.length === 0) {
-      alert('Bitte importieren Sie mindestens ein Produktbild.');
+      toast.error('Bitte importieren Sie mindestens ein Produktbild.', 'Bild erforderlich');
       return;
     }
 
@@ -52,8 +76,10 @@ export default function CreateProductPage() {
         compare_at_price: compareAtPrice ? Number(compareAtPrice) : null,
         cost_price: costPrice ? Number(costPrice) : null,
         stock: Number(stock),
+        category_id: categoryId || undefined,
         category_name: categoryName,
         brand_name: brandName,
+        short_description: shortDescription,
         description,
         images,
         featured: true,
@@ -62,10 +88,11 @@ export default function CreateProductPage() {
         on_sale: Boolean(compareAtPrice),
       });
 
+      toast.success(`„${name}“ wurde erstellt und veröffentlicht.`, 'Produkt gespeichert');
       router.push('/admin/products');
     } catch (err) {
       console.error(err);
-      alert('Fehler bei der Produkterstellung.');
+      toast.error('Fehler bei der Produkterstellung.', 'Speichern fehlgeschlagen');
     } finally {
       setIsSubmitting(false);
     }
@@ -206,16 +233,20 @@ export default function CreateProductPage() {
           <div>
             <label className="block text-xs font-bold text-slate-600 mb-1">Catégorie</label>
             <select
-              value={categoryName}
-              onChange={(e) => setCategoryName(e.target.value)}
+              value={categoryId}
+              onChange={(e) => handleCategoryChange(e.target.value)}
               className="w-full px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white outline-none focus:border-blue-500"
             >
-              <option value="Smartphones">Smartphones</option>
-              <option value="Laptops & Computers">Ordinateurs & Laptops</option>
-              <option value="Headphones & Audio">Casques & Audio</option>
-              <option value="Game Controllers & Gaming">Manettes & Gaming</option>
-              <option value="Smart Home & Robotics">Maison Connectée & Robotique</option>
+              <option value="">— Catégorie wählen —</option>
+              {categories.map((cat) => (
+                <option key={cat.id} value={cat.id}>
+                  {cat.name}
+                </option>
+              ))}
             </select>
+            <p className="mt-1 text-[10px] text-slate-500">
+              Die Kategorien werden aus der Kategorienverwaltung geladen.
+            </p>
           </div>
 
           <div>
@@ -238,9 +269,20 @@ export default function CreateProductPage() {
         </div>
 
         <div>
+          <label className="block text-xs font-bold text-slate-600 mb-1">Kurzbeschreibung</label>
+          <textarea
+            rows={2}
+            value={shortDescription}
+            onChange={(e) => setShortDescription(e.target.value)}
+            placeholder="Kurze Zusammenfassung, die auf der Produktseite und als Meta-Beschreibung erscheint..."
+            className="w-full px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white outline-none focus:border-blue-500"
+          />
+        </div>
+
+        <div>
           <label className="block text-xs font-bold text-slate-600 mb-1">Description détaillée</label>
           <textarea
-            rows={4}
+            rows={6}
             required
             placeholder="Spécifications techniques, fonctionnalités et contenu de la boîte..."
             value={description}
@@ -258,11 +300,13 @@ export default function CreateProductPage() {
             price,
             categoryName,
             brandName,
+            shortDescription,
             description,
             images,
           }}
           onApplyOptimization={(updates) => {
             if (updates.slug) setSlug(updates.slug);
+            if (updates.shortDescription) setShortDescription(updates.shortDescription);
             if (updates.description) setDescription(updates.description);
           }}
         />
